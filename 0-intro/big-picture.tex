@@ -1,0 +1,157 @@
+%-------------------------
+%big-picture
+%(c) H.Buchmann FHNW 2008
+%$Id$
+%-------------------------
+\svnInfo $Id$
+
+\title[The Big Picture]{The Big Picture\\{\tiny \svnId}}
+\frame{\titlepage}
+
+\begin{frame}{The Big Picture}
+ \begin{itemize}
+  \item \linux ist:
+  \begin{itemize}
+   \item Software mit klassischen Methoden hergestellt
+   \item gross
+   \item komplex {\tiny nicht kompliziert}
+  \end{itemize}
+  \item Darum:
+  \begin{itemize}
+   \item \alert{Die grundlegenden Mechanismen beachten}
+   \item \alert{Übersicht bewahren}
+   \item \alert{Verzeichnisstrukturen}: wo ist was.
+   \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Ein paar Daten: zum \linux (Kernel)}
+ \begin{itemize}
+  \item $\approx 10M$ SLOC (Source Lines of Code)
+  \item $\approx 2.3K$ Verzeichnisse
+  \item $\approx 33K$ Files davon
+  \begin{itemize}
+   \item $\approx 30 K$ \cod{\{c$|$h\}}-Files
+   \item $\approx 1 K$ Assembler Files
+   \item $\approx 1.4K$ Makefiles
+   \item Rest: \cod{Makefile}, Scripts etc.
+  \end{itemize}
+ \end{itemize}
+ \begin{remarks}
+  \item $M=10^6$ $K=10^3$
+  \item Gemacht mit \cod{sloccount}
+ \end{remarks}
+\end{frame}
+
+\section{ProgrammierSprachen}
+\begin{frame}{Die ProgrammierSprachen}
+ \begin{description}[Assembler]
+  \item[C] 
+     Unabhängig von Rechnerarchitektur,
+     Hauptsprache für {\em Bootloader},{\em Kernel},{\em libc}
+  \item[Assembler] Für kleine Anpassungen
+  \item[Skript] Für Routineaufgaben
+  \item[Makefile] Für den Zusammenbau
+ \end{description}
+\end{frame}
+
+\section{Tools}
+\begin{frame}{Die wichtigsten Werkzeuge}
+ \begin{description}
+  \item[Compiler]  \cod{gcc} \url{gcc.gnu.org} 
+  \item[binutils] Sammlung von Programmen\footnote{Liste nicht vollständig} 
+     (\url{www.gnu.org/software/binutils})
+ \begin{description}
+  \item[Assembler] \cod{as} 
+  \item[Linker]    \cod{ld}
+  \end{description}
+  \item[Maker] \cod{make} \url{www.gnu.org/software/make}
+ \end{description}
+\end{frame}
+
+\section{Komponenten}
+\begin{frame}{Die Komponenten}
+ \begin{description}[BootLoader]
+  \item[BootLoader] {\em reset} Handler, SingleUser
+  \item[Kernel] Prozessverwaltung,Treibersammlung
+  \item[libc] Normierte (POSIX) Schnittstelle,Kernel-\unix 
+  \item[\unix] Filesystem, Sammlung von Programmen und Daten
+ \end{description}
+\end{frame}
+
+\begin{frame}{Die Komponenten:Eigenschaften}
+ Komponenten lassen sich:
+ \begin{itemize}
+  \item einzeln hergestellen
+  \item kombinieren 
+  \item austauschen
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Die Komponenten:Wo sind sie ?}
+ \begin{description}[BootLoader]
+  \item[BootLoader] nicht flüchtiger Speicher: z.B. Flash
+  \item[Kernel] RAM
+  \item[libc] RAM
+  \item[\unix] RAM,Harddisk,MemoryCard,NFS 
+ \end{description}
+\end{frame}
+
+\section{Zusammenbau}
+\subsection{Bestehende Systeme}
+\begin{frame}{Bestehende Systeme}
+ \begin{description}[openEmbedded]
+  \item[openEmbedded] \url{www.openembedded.org}
+  
+  (\'a la Gentoo) Skriptsammlung/Repository, für viele
+  Rechnerarchitekturen
+
+  \item[buildroot] \url{buildroot.uclibc.org}
+  
+      Makefiles/patches für viele Rechnerarchitekturen
+      
+  \item[CLFS] \url{cross-lfs.org/view/clfs-embedded/arm} 
+  
+   {\bf C}ross-Compiled {\bf L}inux {\bf F}rom {\bf S}cratch 
+
+   Anleitung 
+ \end{description}
+\end{frame}
+
+\begin{frame}{Bestehende Systeme:Kritik}
+ \begin{description}
+  \item[openEmbedded/buildroot] 
+  \begin{itemize}
+   \item Grosse Systeme
+   \item Braucht zusätzliche {\em tools}
+   \item Führen zusätzliche Komplikationen ein 
+  \end{itemize}      
+  \item[CLFS] Sehr rezeptartiger Aufbau     
+ \end{description}
+\end{frame}
+
+\subsection{Unser System}
+\begin{frame}{Unser System: Modifiziertes CLFS}
+ Warum ?
+ \begin{itemize}
+  \item Basiert auf der originalen Software
+  \item Die klassischen Tools (\cod{Makefile}) sind schon sehr gut
+  ausgebaut.
+  \item Brauchen tieferen Einblick in das ganze System
+  \item Nur ein bis zwei Rechnerarchitekturen 
+ \end{itemize} 
+\end{frame}
+
+\section{Aufbau der Vorlesung/Labor}
+\begin{frame}{Aufbau}{\url{websvn.fhnw.ch/trac/edu/browser/linux-lab/1-current}}
+ \begin{description}[2-unix-use]
+  \item[0-intro] Diese Folien
+  \item[1-tools] Die Werkzeuge
+  \item[2-unix-use] \unix aus Benutzersicht: Host und Target
+  \item[3-uboot] Wie startet ein Rechner
+  \item[4-kernel] Das \linux: Konfiguration/Herstellung
+  \item[5-libc] Verbindung \linux \unix
+  \item[6-unix] \unix Konfiguration/Herstellung
+  \item[7-build] ein {\em build}  System
+ \end{description}
+\end{frame}

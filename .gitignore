@@ -1,0 +1,10 @@
+*.class
+*.o
+#--------------------- latex
+*.aux
+*.log
+*.out
+*.nav
+*.toc
+*.snm
+*.idx
