@@ -5,7 +5,7 @@
 %-------------------------
 \svnInfo $Id$
 
-\title[The Big Picture]{The Big Picture\\{\tiny \svnId}}
+\title[The Big Picture]{The Big Picture}
 \frame{\titlepage}
 
 \begin{frame}{The Big Picture}
@@ -93,65 +93,52 @@
   \item[BootLoader] nicht flüchtiger Speicher: z.B. Flash
   \item[Kernel] RAM
   \item[libc] RAM
-  \item[\unix] RAM,Harddisk,MemoryCard,NFS 
+  \item[\unix] RAM,Harddisk,MemoryCard,Netz 
  \end{description}
 \end{frame}
 
-\section{Zusammenbau}
-\subsection{Bestehende Systeme}
-\begin{frame}{Bestehende Systeme}
- \begin{description}[openEmbedded]
-  \item[openEmbedded] \url{www.openembedded.org}
-  
-  (\'a la Gentoo) Skriptsammlung/Repository, für viele
-  Rechnerarchitekturen
+%\section{Zusammenbau}
+%\subsection{Bestehende Systeme}
+%\begin{frame}{Bestehende Systeme}
+% \begin{description}[openEmbedded]
+%  \item[openEmbedded] \url{www.openembedded.org}
+%  
+%  (\'a la Gentoo) Skriptsammlung/Repository, für viele
+%  Rechnerarchitekturen
+%
+%  \item[buildroot] \url{buildroot.uclibc.org}
+%  
+%      Makefiles/patches für viele Rechnerarchitekturen
+%      
+%  \item[CLFS] \url{cross-lfs.org/view/clfs-embedded/arm} 
+%  
+%   {\bf C}ross-Compiled {\bf L}inux {\bf F}rom {\bf S}cratch 
+%
+%   Anleitung 
+% \end{description}
+%\end{frame}
+%
+%\begin{frame}{Bestehende Systeme:Kritik}
+% \begin{description}
+%  \item[openEmbedded/buildroot] 
+%  \begin{itemize}
+%   \item Grosse Systeme
+%   \item Braucht zusätzliche {\em tools}
+%   \item Führen zusätzliche Komplikationen ein 
+%  \end{itemize}      
+%  \item[CLFS] Sehr rezeptartiger Aufbau     
+% \end{description}
+%\end{frame}
+%
+%\subsection{Unser System}
+%\begin{frame}{Unser System: Modifiziertes CLFS}
+% Warum ?
+% \begin{itemize}
+%  \item Basiert auf der originalen Software
+%  \item Die klassischen Tools (\cod{Makefile}) sind schon sehr gut
+%  ausgebaut.
+%  \item Brauchen tieferen Einblick in das ganze System
+%  \item Nur ein bis zwei Rechnerarchitekturen 
+% \end{itemize} 
+%\end{frame}
 
-  \item[buildroot] \url{buildroot.uclibc.org}
-  
-      Makefiles/patches für viele Rechnerarchitekturen
-      
-  \item[CLFS] \url{cross-lfs.org/view/clfs-embedded/arm} 
-  
-   {\bf C}ross-Compiled {\bf L}inux {\bf F}rom {\bf S}cratch 
-
-   Anleitung 
- \end{description}
-\end{frame}
-
-\begin{frame}{Bestehende Systeme:Kritik}
- \begin{description}
-  \item[openEmbedded/buildroot] 
-  \begin{itemize}
-   \item Grosse Systeme
-   \item Braucht zusätzliche {\em tools}
-   \item Führen zusätzliche Komplikationen ein 
-  \end{itemize}      
-  \item[CLFS] Sehr rezeptartiger Aufbau     
- \end{description}
-\end{frame}
-
-\subsection{Unser System}
-\begin{frame}{Unser System: Modifiziertes CLFS}
- Warum ?
- \begin{itemize}
-  \item Basiert auf der originalen Software
-  \item Die klassischen Tools (\cod{Makefile}) sind schon sehr gut
-  ausgebaut.
-  \item Brauchen tieferen Einblick in das ganze System
-  \item Nur ein bis zwei Rechnerarchitekturen 
- \end{itemize} 
-\end{frame}
-
-\section{Aufbau der Vorlesung/Labor}
-\begin{frame}{Aufbau}{\url{websvn.fhnw.ch/trac/edu/browser/linux-lab/1-current}}
- \begin{description}[2-unix-use]
-  \item[0-intro] Diese Folien
-  \item[1-tools] Die Werkzeuge
-  \item[2-unix-use] \unix aus Benutzersicht: Host und Target
-  \item[3-uboot] Wie startet ein Rechner
-  \item[4-kernel] Das \linux: Konfiguration/Herstellung
-  \item[5-libc] Verbindung \linux \unix
-  \item[6-unix] \unix Konfiguration/Herstellung
-  \item[7-build] ein {\em build}  System
- \end{description}
-\end{frame}

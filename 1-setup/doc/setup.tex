@@ -1,0 +1,49 @@
+%-------------------------
+%big-picture
+%(c) H.Buchmann FHNW 2008
+%$Id$
+%export TEXINPUTS=${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\title[Setup]{Setup}
+\begin{document}
+
+\frame{\titlepage}
+\begin{frame}{Terminologie}
+ \begin{description}[Target]
+  \item[Host] der Entwicklungsrechner Notebook
+  \item[Target] \raspberry
+ \end{description}
+\end{frame}
+
+\begin{frame}{Ziel}{Verbindung: Host-Target}
+ \begin{description}
+  \item[Host] \linux 
+  \begin{itemize}
+   \item als virtuelle Maschine
+   \item native
+   \item Distribution: Ubuntu
+  \end{itemize}
+ \item[Target]
+  \begin{itemize}
+   \item \url{www.raspberry.org/downloads}
+   \begin{itemize}
+    \item eines auswählen
+    \begin{itemize}
+     \item Vorschlag: {\em Arch Linux}
+    \end{itemize}
+   \end{itemize}
+  \end{itemize}
+ \end{description}
+\end{frame}
+
+\section{Image}
+\input{image.tex}
+
+\section{Kontakt zum Target}
+\input{kontakt-zum-target.tex}
+
+\end{document}
+

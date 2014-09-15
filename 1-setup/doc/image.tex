@@ -1,0 +1,140 @@
+\begin{frame}{Image}{Für \target}
+
+\begin{itemize}
+ \item Bootcode
+ \item Kernel
+ \item \unix
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Die Files}
+ \begin{description}
+  \item[Original] 
+    {\footnotesize
+    \url{http://downloads.raspberrypi.org/arch_latest}
+    }
+  \item[Modifikation]
+    {\footnotesize
+    \url{http://sourceforge.net/projects/fhnw-tinl/files}
+    }
+ \end{description}
+\end{frame}
+
+\begin{frame}[fragile]{Inhalt}{Partitionen}
+ \begin{itemize}
+  \item \cod{fdisk -l {\em image}}
+\end{itemize}
+{\tiny
+\begin{verbatim}
+Disk ArchLinuxARM-2014.06-rpi.img: 1.8 GiB, 1960837120 bytes, 3829760 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x417ee54b
+
+Device                        Boot  Start     End Sectors  Size Id Type
+ArchLinuxARM-2014.06-rpi.img1        2048  186367  184320   90M  c W95 FAT32 (LB
+ArchLinuxARM-2014.06-rpi.img2      186368 3667967 3481600  1.7G  5 Extended
+ArchLinuxARM-2014.06-rpi.img5      188416 3667967 3479552  1.7G 83 Linux
+\end{verbatim}
+}
+\end{frame}
+
+\begin{frame}{Partitionen}{vom Original}
+ \begin{description}
+  \item[ArchLinuxARM-2014.06-rpi.img1] Boot Kernel
+  \item[ArchLinuxARM-2014.06-rpi.img2] Extended
+  \item[ArchLinuxARM-2014.06-rpi.img5] \unix 
+ \end{description}
+ \remark{Extended braucht es nicht}
+\end{frame}
+
+\begin{frame}{Transfer $\to$ \target}{Verschiedene Verfahren}
+ \begin{description}[Zusammenbau]
+  \item[Original] direkt auf die \cod{SD-Card}
+  \begin{itemize}
+   \item Einstellung von \cod{ssh} auf dem \target 
+  \end{itemize}
+  \item[sd-card.gz] direkt auf die \cod{SD-Card}
+  \item[Zusammenbau] aus \cod{boot.tar.gz} und \cod{target-root.tar.gz}
+ \end{description}
+\end{frame}
+
+\begin{frame}{Original, \cod{sd-card.gz}}{Der Befehl \cod{dd}}
+ \begin{itemize}
+  \item \cod{dd if={\em image} of={\em device}}
+  \begin{itemize}
+   \item typisches {\em device} \cod{/dev/mmcblk{\bf i}} $i=0,1 ..$
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Zusammenbau}{alles ist ein File}
+%{\cod{dd} \cod{fdisk}, \cod{losetup}, \cod{mount}, \cod{tar}}
+\begin{enumerate}
+ \item erzeuge 'leeren' File \cod{\em sd-card} 1GiB:
+ \begin{itemize}
+  \item {\footnotesize\cod{dd if=/dev/zero of={\em sd-scard} bs={\em bs} count={\em count}}}
+  \begin{itemize}
+   \item mit $bs\times count = 1GiB$  
+  \end{itemize}
+ \end{itemize}
+ \item Formatiere \cod{\em sd-card} wie wenn es eine 'richtige' SD-Card wäre:
+ \begin{itemize}
+  \item \cod{fdisk sd-card}
+ \end{itemize}
+{\tiny
+\begin{verbatim} 
+sd-card1          2048  133119  131072   64M  c W95 FAT32 (LBA)
+sd-card2        133120 2097151 1964032  959M 83 Linux
+\end{verbatim}
+}
+ \item Fasse \cod{sd-card\{1\textbar 2\}} als {\em device} auf:
+ \begin{itemize}
+  \item \cod{losetup -o {\em offset} /dev/loop{\bf i} {\em sd-card}}
+  \begin{itemize}
+   \item mit $offset$ in Bytes
+   \item $i=0,1$
+  \end{itemize}
+ \end{itemize}
+ \item Erzeuge {\em Filesysteme} auf \cod{/dev/loop{\bf i}} 
+ \begin{itemize}
+  \item \cod{mkfs.{\em fs} /dev/loop{\bf i}}
+  \begin{itemize}
+   \item mit {\em fs=\cod{vfat}} für \cod{sd-card1} und {\em fs=\cod{ext4}} für
+        \cod{sd-card2} 
+  \end{itemize}
+ \end{itemize}
+\end{enumerate}
+\hint[15]{42,52}{Offset in {\em sector}}
+\end{frame}
+
+\begin{frame}{Zusammenbau}{Fortsetzung}
+\begin{enumerate}
+  \setcounter{enumi}{4}
+ \item Montiere {\em devices} \cod{/dev/loop{\bf i}} 
+ \begin{itemize}
+  \item \cod{mount /dev/loop{\bf i} {\em mount-point}}
+ \end{itemize}
+ \item Kopiere Files 
+ \begin{itemize}
+  \item \cod{tar -xzf {\em part}.tar.gz {\em mount-point}}
+  \begin{itemize}
+   \item mit \cod{{\em part}=boot\textbar target-root}
+  \end{itemize}
+ \end{itemize}
+ \item Auträumen
+ \begin{itemize}
+  \item \cod{umount /dev/loop{\bf i}}
+  \item \cod{losetup -D}
+ \end{itemize}
+ \item Kopieren
+ \begin{itemize}
+  \item \cod{dd if=sd-card of=/dev/mmcblk{\bf i}}
+ \end{itemize}
+\end{enumerate}
+\end{frame}
+

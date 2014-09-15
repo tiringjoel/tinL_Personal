@@ -1,0 +1,16 @@
+Image erstellen
+---------------
+Kapazität 1GiB
+ Partition 1 64MiB vfat
+ Partition 2  Rest ext4
+
+File: 
+ sd-card
+
+dd bs=$((1<<20)) count=1024 if=/dev/zero of=sd-card
+
+
+fdisk 
+
+/tmp/sd-card1        2048  133119  131072   64M  c W95 FAT32 (LBA)
+/tmp/sd-card2      133120 2097151 1964032  959M 83 Linux

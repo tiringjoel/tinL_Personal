@@ -1,0 +1,106 @@
+%-------------------------
+%development-environment
+%(c) H.Buchmann FHNW 2008
+%$Id$
+%-------------------------
+
+\title[Entwicklungsumgebung]{Entwicklungsumgebung}
+\frame{\titlepage}
+
+\section{Aufbau der Vorlesung/Labor}
+\begin{frame}{Aufbau}{\url{websvn.fhnw.ch/trac/edu/browser/linux-lab/1-current}}
+ \begin{description}[2-unix-use]
+  \item[0-intro] Diese Folien
+  \item[1-setup] \raspberry in Betrieb
+  \item[2-unix-use] \unix aus Benutzersicht: Host und Target
+  \item ...
+%  \item[3-uboot] Wie startet ein Rechner
+%  \item[4-kernel] Das \linux: Konfiguration/Herstellung
+%  \item[5-libc] Verbindung \linux \unix
+%  \item[6-unix] \unix Konfiguration/Herstellung
+%  \item[7-build] ein {\em build}  System
+ \end{description}
+\end{frame}
+
+\begin{frame}{Verzeichnisstruktur}
+ \dirtree{%
+  .1 tinL .
+  .2 {\bf i}-topic \DTcomment{git versioniert}.
+  .3 doc. 
+  .3 src.
+  .2 devel \DTcomment{development: git versioniert}.
+  .2 resources \DTcomment{binaries {\bf nicht versioniert}}.
+  .2 ziele.txt \DTcomment{pro Woche}.
+  .2 tools.txt \DTcomment{wichtige \unix Befehle}.
+  .2 {...}.
+ }
+\end{frame}
+
+\section{Begriffe}
+\begin{frame}
+ \frametitle{Begriffe}
+ \begin{description}[Target]
+  \item[Host] Entwicklungsrechner, \linux Betriebssystem
+  \item[Target] \raspberry
+ \end{description}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Verbindungen:Host $\leftrightarrow$ Target}
+ \begin{description}[MemoryCard]
+  \item[RS232] u-boot {\em shell},\linux console
+  \item[Ethernet] IP,TFTP etc. IP Stack
+  \item[MemoryCard] u-boot,Kernel,\unix
+ \end{description}
+\end{frame}
+
+\section{Tools}
+\begin{frame}{Tools}
+ \begin{itemize}
+  \item \unix Befehle
+  \item (Unvollständige) Liste im File \cod{tools.txt}
+ \end{itemize}
+\end{frame}
+
+%\begin{frame}
+% \frametitle{Host:Tools}
+% \begin{description}[Codeverwaltung]
+%  \item[Editor] ASCII Editor
+%  \item[Compiler] \cod{gcc}
+%  \item[mkimage] Erzeugt u-boot Image
+%  \item[Terminal] \cod{minicom} ev. USB $\leftrightarrow$ RS232 Kabel
+%  \item[\unix] Basibefehle \cod{ls},\cod{cp}, etc.
+%  \item[Codeverwaltung] \cod{svn} \cod{cvs} \cod{git} etc.
+%  \item[Eclipse] kommt später
+% \end{description}
+%\end{frame}
+%
+%\section{Verzeichnisstruktur}
+%\begin{frame}
+% \frametitle{Verzeichnisstruktur}
+% Umgebungsvariable \cod{BUILD\_HOME}
+% \\
+%{\small 
+% \dirtree{%
+%  .1 \envref{BUILD\_HOME} .
+%  .2 u-boot \DTcomment{scripts and environment}.
+%  .2 kernel \DTcomment{see kernel}. 
+%  .2 libc   \DTcomment{for building}.
+%  .2 unix   \DTcomment{the target \unix}.
+%  .2 tc     \DTcomment{host toolchain}.
+%  .2 devel  \DTcomment{for unix}.
+%  .2 script \DTcomment{host scripts}.
+%%  .2 3rdparty \DTcomment{other host tools}.
+% }
+%}
+%\end{frame}
+%
+%\section{Vorbereitung}
+%\begin{frame}
+% \frametitle{Umgebungsvariablen}
+% \begin{itemize}
+%  \item \link{script/set-environment.sh}
+%  \item \cod{source script/set-environment.sh}
+% \end{itemize}
+%\end{frame}
+%
