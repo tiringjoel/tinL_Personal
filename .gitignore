@@ -8,6 +8,7 @@
 *.toc
 *.snm
 *.idx
+*.vrb
 
 resources
 work

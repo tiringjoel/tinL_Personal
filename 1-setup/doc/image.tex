@@ -59,20 +59,26 @@ ArchLinuxARM-2014.06-rpi.img5      188416 3667967 3479552  1.7G 83 Linux
   \end{itemize}
   \item[sd-card.gz] direkt auf die \cod{SD-Card}
   \item[Zusammenbau] aus \cod{boot.tar.gz} und \cod{target-root.tar.gz}
+ \begin{itemize}
+  \item als File auf dem Host
+  \item direkt auf der SD-Card
+ \end{itemize}
  \end{description}
 \end{frame}
 
+\subsection{Original, sd-card.gz}
 \begin{frame}{Original, \cod{sd-card.gz}}{Der Befehl \cod{dd}}
  \begin{itemize}
   \item \cod{dd if={\em image} of={\em device}}
   \begin{itemize}
+   \item {\em image} von \url{raspberry.org} oder \url{sd-card.gz}
    \item typisches {\em device} \cod{/dev/mmcblk{\bf i}} $i=0,1 ..$
   \end{itemize}
  \end{itemize}
 \end{frame}
 
-
-\begin{frame}[fragile]{Zusammenbau}{alles ist ein File}
+\subsection{Zusammenbau}
+\begin{frame}[fragile]{Zusammenbau Host}{alles ist ein File}
 %{\cod{dd} \cod{fdisk}, \cod{losetup}, \cod{mount}, \cod{tar}}
 \begin{enumerate}
  \item erzeuge 'leeren' File \cod{\em sd-card} 1GiB:
@@ -82,7 +88,7 @@ ArchLinuxARM-2014.06-rpi.img5      188416 3667967 3479552  1.7G 83 Linux
    \item mit $bs\times count = 1GiB$  
   \end{itemize}
  \end{itemize}
- \item Formatiere \cod{\em sd-card} wie wenn es eine 'richtige' SD-Card wäre:
+ \item formatiere \cod{\em sd-card} wie wenn es eine 'richtige' SD-Card wäre:
  \begin{itemize}
   \item \cod{fdisk sd-card}
  \end{itemize}
@@ -92,7 +98,7 @@ sd-card1          2048  133119  131072   64M  c W95 FAT32 (LBA)
 sd-card2        133120 2097151 1964032  959M 83 Linux
 \end{verbatim}
 }
- \item Fasse \cod{sd-card\{1\textbar 2\}} als {\em device} auf:
+ \item fasse \cod{sd-card\{1\textbar 2\}} als {\em device} auf:
  \begin{itemize}
   \item \cod{losetup -o {\em offset} /dev/loop{\bf i} {\em sd-card}}
   \begin{itemize}
@@ -100,7 +106,7 @@ sd-card2        133120 2097151 1964032  959M 83 Linux
    \item $i=0,1$
   \end{itemize}
  \end{itemize}
- \item Erzeuge {\em Filesysteme} auf \cod{/dev/loop{\bf i}} 
+ \item erzeuge {\em Filesysteme} auf \cod{/dev/loop{\bf i}} 
  \begin{itemize}
   \item \cod{mkfs.{\em fs} /dev/loop{\bf i}}
   \begin{itemize}
@@ -112,29 +118,48 @@ sd-card2        133120 2097151 1964032  959M 83 Linux
 \hint[15]{42,52}{Offset in {\em sector}}
 \end{frame}
 
-\begin{frame}{Zusammenbau}{Fortsetzung}
+\begin{frame}{Zusammenbau Host}{Fortsetzung}
 \begin{enumerate}
   \setcounter{enumi}{4}
- \item Montiere {\em devices} \cod{/dev/loop{\bf i}} 
+ \item montiere {\em devices} \cod{/dev/loop{\bf i}} 
  \begin{itemize}
   \item \cod{mount /dev/loop{\bf i} {\em mount-point}}
  \end{itemize}
- \item Kopiere Files 
+ \item kopiere Files 
  \begin{itemize}
   \item \cod{tar -xzf {\em part}.tar.gz {\em mount-point}}
   \begin{itemize}
    \item mit \cod{{\em part}=boot\textbar target-root}
   \end{itemize}
  \end{itemize}
- \item Auträumen
+ \item auträumen
  \begin{itemize}
   \item \cod{umount /dev/loop{\bf i}}
   \item \cod{losetup -D}
  \end{itemize}
- \item Kopieren
+ \item kopieren auf SD-Card
  \begin{itemize}
   \item \cod{dd if=sd-card of=/dev/mmcblk{\bf i}}
  \end{itemize}
 \end{enumerate}
 \end{frame}
 
+\begin{frame}{Zusammenbau SD-Card}
+ \begin{enumerate}
+  \item formatiere SD-Card 2 Partitionen:
+  \begin{description}
+   \item[Partition 1] Kleine $64MiB$ für Boot/Kernel
+   \item[Partition 2] Grosse $>1GiB$ für \unix
+  \end{description}
+  \item erzeuge Filesystem 
+  \begin{description}
+   \item[Partition 1] vfat
+   \item[Partition 2] ext4
+  \end{description}
+  \item Kopiere 
+  \begin{description}
+   \item[Partition 1] \cod{boot.tar.bz2}
+   \item[Partition 2] \cod{target-root.tar.bz2}
+  \end{description}
+ \end{enumerate}
+\end{frame}
