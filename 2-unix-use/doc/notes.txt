@@ -1,0 +1,11 @@
+pipes
+drivers
+modules
+toolchain
+systemroot
+Verzeichnisstruktur
+
+sshfs
+
+java
+c,c++
