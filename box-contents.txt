@@ -1,0 +1,14 @@
+Inhalt Box
+----------
+1 Raspberry Pi Model B+ 512 MB
+1 Micro USB Kabel
+1 SD-Speicherkarte 8GB
+
+1 Netzteil + Adapterstecker
+1 USB Kabel 
+1 RS232 Kabel 
+1 RS232-USB Adapter
+1 RS232-Gender-Changer
+1 USB Stick 4GB
+1 Ethernet Kabel
+
