@@ -5,9 +5,12 @@
 #-----------------------
 TARGET=../../resources/target-root/
 PREFIX=../tc/bin/armv6l-unknown-linux-gnueabihf-
-CC=${PREFIX}gcc --sysroot=${TARGET}
-CXX=${PREFIX}g++ --sysroot=${TARGET}
+CC=${PREFIX}gcc -O2 --sysroot=${TARGET}
+CXX=${PREFIX}g++ --sysroot=${TARGET} -O2
+CXXFLAGS=-std=c++11
 VPATH=../src
 
 hello-world-c:		hello-world-c.c
 hello-world-cpp:	hello-world-cpp.cc
+
+primes: 		primes.cc
