@@ -1,0 +1,12 @@
+setup
+-----
+fdisk command line
+cfdisk: menu 
+fdisk -l /dev/mmcblk0
+
+Filesystem
+mkfs.vfat /dev/mmcblk0p1
+mkfs.ext4 /dev/mmcblk0p2
+
+tar -xjvf /home/buchmann/fhnw/edu/tinL/resources/boot.tar.bz2 -C /run/media/edu/18D4-324A/
+sync

@@ -1,6 +1,6 @@
 17.Sept. 2014
 -------------
- - Linux auf Host
+ - Linux auf Host USB-Stick
  - Image auf Target
  - HDMI/USB-Tastatur Verbindung
  - SSH Verbindung
