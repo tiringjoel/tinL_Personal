@@ -1,5 +1,7 @@
+---- low level ohne graphics
 pipes
 drivers
+ sound
 modules
 toolchain
 systemroot
@@ -9,3 +11,6 @@ sshfs
 
 java
 c,c++
+
+unix boot
+modules
