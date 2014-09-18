@@ -16,3 +16,15 @@ tools:
 
 
 alles ist ein File /dev/mmcblkp0
+
+
+Adafruit Kabel
+Red: 	power
+Black:	gnd
+white:	RX
+green:	TX
+
+J8 Header
+http://www.raspberrypi.org/forums/viewtopic.php?f=78&t=82397
+
+Fehler beim tar 
