@@ -1,12 +1,40 @@
 setup
 -----
-fdisk command line
-cfdisk: menu 
-fdisk -l /dev/mmcblk0
+
+Format SD-Card /dev/mmcblk0
+---------------------------
+ 
+Partition 1 /dev/mmcblk0p1: 100MB Type W95 FAT32 (LBA) used for booting
+Partition 2 /dev/mmcblk0p2: Rest  Type Linux 
+ 
+
+tools:
+ fdisk  /dev/mmcblk0 simple gui
+ cfdisk /dev/mmcblk0 better gui
+
+  
 
 Filesystem
-mkfs.vfat /dev/mmcblk0p1
+----------
+
+Partition 1
+ mkfs.vfat /dev/mmcblk0p1
+Partition 2
+ 
 mkfs.ext4 /dev/mmcblk0p2
 
-tar -xjvf /home/buchmann/fhnw/edu/tinL/resources/boot.tar.bz2 -C /run/media/edu/18D4-324A/
+Copy Data
+---------
+Partition 1
+
+tar -xjvf path-to-resources/boot.tar.bz2 \
+          -C where-partition-is-mounted
+
+Partition 2
+tar -xjvf  path-to-resources/target-root-tar.bz2 \
+          -C  where-partition-is-mounted
+
+Flush Data to SD-Card
+---------------------
 sync
+

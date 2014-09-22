@@ -6,3 +6,11 @@ mount
 umount
 dd
 nmap
+
+cat
+hexdump
+play
+tree
+useradd
+ssh
+sshfs

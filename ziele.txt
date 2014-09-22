@@ -4,3 +4,11 @@
  - Image auf Target
  - HDMI/USB-Tastatur Verbindung
  - SSH Verbindung
+
+24.Sept. 2014
+-------------
+ - RS232 Verbindung 
+ - SSH Verbindung
+ - Entwicklungsumgebung
+   . Java
+   . c/c++
