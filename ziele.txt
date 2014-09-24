@@ -7,8 +7,10 @@
 
 24.Sept. 2014
 -------------
- - RS232 Verbindung 
- - SSH Verbindung
- - Entwicklungsumgebung
-   . Java
-   . c/c++
+ - 1-setup
+   . RS232 Verbindung 
+ - 2-unix-use
+   . SSH Verbindung
+   . Entwicklungsumgebung
+     . Java
+     . c/c++

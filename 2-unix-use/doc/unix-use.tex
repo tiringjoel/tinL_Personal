@@ -17,6 +17,9 @@
 \begin{frame}{Ziel}{Entwicklung von Programmen auf dem \target}
  \begin{itemize}
   \item alles ist ein File 
+  \begin{itemize}
+   \item $0-te$ Näherung
+  \end{itemize}
   \item Filesysteme
   \begin{itemize}
    \item \cod{mount}
@@ -25,7 +28,7 @@
   \item Cross development
   \begin{itemize}
    \item \host $\leftrightarrow$ \target
-   \remark{Keine Toilchain auf dem \target}
+   \remark{Keine Toolchain auf dem \target}
   \end{itemize}
  \end{itemize}
 \end{frame}
@@ -45,15 +48,15 @@
  \begin{itemize}
   \item Bits(bytes) der Reihe nach
  \end{itemize}
- \item Files
+ \item File
  \begin{itemize}
   \item Datenquelle
   \begin{itemize}
-   \item liefern Daten: Bits(Bytes)
+   \item liefert Daten: Bits(Bytes)
   \end{itemize}
   \item Datensenke
   \begin{itemize}
-   \item absorieren Daten: Bits(Bytes)
+   \item absorbiert Daten: Bits(Bytes)
   \end{itemize}
  \end{itemize}
 \end{itemize}
@@ -62,7 +65,13 @@
 \begin{frame}{Ein paar Befehle}
  \begin{itemize}
   \item \cod{cat {\em name}}
+  \begin{itemize}
+   \item zeigt den Inhalt
+  \end{itemize}
   \item \cod{hexdump -C {\em name}}
+  \begin{itemize}
+   \item zeigt den Inhalt hexadezimal
+  \end{itemize}
  \end{itemize}
 \end{frame}
 
