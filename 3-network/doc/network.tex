@@ -1,0 +1,180 @@
+%-------------------------
+%big-picture
+%(c) H.Buchmann FHNW 2008
+%$Id$
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\title[Netzwerk]{Netzwerk}
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Ziel}{\target am Schulnetz}
+ \begin{itemize}
+  \item verschiedenen Netze
+  
+  \hspace{5mm}
+  
+  \begin{tabular}{r|c|c|c}
+       & public & vpn & eduroam\\
+\hline       
+   LAN &  x     &  x  & \\
+   WLAN&  x     &  x  & x  
+  \end{tabular}
+  \item Sicherheit 
+  \begin{itemize}
+   \item keine sichtbaren Passworte
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Probleme}{Konfiguration mit restriktivem Netzzugriff}
+  \begin{tabular}{r|c|c|c}
+       & public & vpn & eduroam\\
+\hline       
+   LAN &  {\em local} & {\em full}  & \\
+   WLAN&  {\em local} & {\em full}  & {\em full}
+  \end{tabular}
+\vspace{5mm}  
+\begin{description}[local]
+ \item[local] Zugriff nur im lokalen Netz
+ \item[full] voller Zugriff nach Konfiguration
+\end{description}  
+\end{frame}
+
+\begin{frame}{Was haben wir ?}{Verbindung zum \target}
+ \begin{description}[RS232 online]
+  \item[\host offline] \cod{mount} SD-Card 
+  \item[RS232 online] wichtige Verbindung
+ \end{description}
+\end{frame}
+
+\begin{frame}{Die Schritte}{Bootstrapping}
+ \begin{itemize}
+  \item Ethernet Verbindung \host - \target 
+  \item \target Installation der notwendigen {\em packages}
+  \begin{itemize}
+   \item vom Internet mit \host als gateway
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\cod{ssh} \& Co}
+ \begin{itemize}
+   \item die Stärken von \unix \cod{ssh} nutzen
+   \begin{itemize}
+    \item \cod{glbs/8-ssh/doc/ssh.pdf}
+   \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Die Schritte}
+ \begin{itemize}
+  \item LAN \target \host
+  \begin{description}
+   \item[\cod{ssh}]  für die Verbindung
+   \item[\cod{sshfs}] für die einfache Konfiguration Files editieren
+  \end{description}
+  \item WLAN public
+  \item WLAN vpn
+  \item WLAN eduroam
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{LAN}{\host \target}
+ \begin{description}[\target]
+  \item[\host] \cod{eth0} Schnittstelle
+   \begin{itemize}
+    \item \cod{ifconfig eth0 192.168.1.1 up}
+   \end{itemize}
+   \item[\target] \cod{eth0} Schnittstelle
+   \begin{itemize}
+    \item \cod{ifconfig eth0 192.168.1.2 up}
+   \end{itemize}
+   \item[test] mit \cod{ping}
+ \end{description}
+\end{frame}
+
+\begin{frame}{\cod{ssh}/\cod{sshfs}}{\target}
+\begin{description}
+ \item[ssh] \cod{ssh user@ip}
+ \begin{itemize}
+  \item ohne Passwort $\to$ \cod{ssh-keygen} 
+ \end{itemize}
+ \item[sshfs] \cod{sshfs user@ip:dir dir} 
+\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{\cod{pacman}}{Der {\em packetmanager}}
+ \begin{itemize}
+  \item Die Files
+  \begin{itemize}
+   \item \cod{/etc/pacman.conf}
+   \begin{lstlisting}
+...
+#XferCommand = /usr/bin/curl -C - -f %u > %o
+#XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
+..
+   \end{lstlisting}
+   \item \cod{/etc/pacman.d/mirrorlist}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\cod{wget}}{für das Internet}
+ \begin{description}[\target]
+  \item[\host] Probieren
+  \begin{itemize}
+   \item \cod{wget} 
+  \end{itemize}
+  \item[\target] Mit \cod{ssh} Tunnel
+  \begin{itemize}
+   \item \cod{ssh user@host 'wget ...' {\Huge >} file} 
+   \begin{description}
+    \item[\cod{\Huge >}] redirect
+   \end{description}
+  \end{itemize}
+ \end{description}
+\end{frame}
+
+\begin{frame}{\target \cod{ssh} Tunnel}{Alles ist ein File}
+ \begin{itemize}
+  \item \cod{ssh \host cmd} \cod{cmd} auf dem host ausführen
+  \item \cod{stdout} von \cod{cmd} auf \target
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Bootstrap}
+ \begin{description}[\target]
+  \item[\host]   \cod{sshfs} \target \host
+  \item[\host]   \target \cod{/etc/pacman.conf} editieren
+  \item[\target] \cod{pacman -Suy} 
+ \end{description}
+\begin{lstlisting}
+#XferCommand = /usr/bin/curl -C - -f %u > %o
+#XferCommand = /usr/bin/wget --no-check-certificate --passive-ftp -c -O %o %u
+XferCommand = ssh user@ip 'wget -O - -c %u' > %o
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{ip forwarding}{provisorisch}
+ \begin{itemize}
+  \item {\footnotesize \url{https://wiki.archlinux.org/index.php/Internet_sharing}}
+  \item Testen ob das {\em forwarding} wirklich funktioniert
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}{VPN}
+ \begin{itemize}
+  \item Konfiguration
+ \end{itemize}
+\end{frame}
+
+\end{document}
+

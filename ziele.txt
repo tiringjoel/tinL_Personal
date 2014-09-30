@@ -14,3 +14,9 @@
    . Entwicklungsumgebung
      . Java
      . c/c++
+     
+ 1.Okt. 2014
+ -----------
+ - 3-network
+    eduroam
+ - dann zurück nach 2-unix-use    
