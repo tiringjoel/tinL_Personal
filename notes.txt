@@ -28,3 +28,8 @@ J8 Header
 http://www.raspberrypi.org/forums/viewtopic.php?f=78&t=82397
 
 Fehler beim tar 
+
+
+ssh-keygen
+sshfs
+wlan
