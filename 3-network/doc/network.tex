@@ -111,7 +111,7 @@
 \begin{description}
  \item[ssh] \cod{ssh user@ip}
  \begin{itemize}
-  \item ohne Passwort $\to$ \cod{ssh-keygen} 
+  \item ohne Passwort $\to$ \cod{ssh-copy-id} 
  \end{itemize}
  \item[sshfs] \cod{sshfs user@ip:dir dir} 
 \end{description}
@@ -177,11 +177,143 @@ XferCommand = ssh user@ip 'wget -O - -c %u' > %o
 \end{frame}
 
 
-\begin{frame}{VPN}
+\section{WLAN}
+\begin{frame}{Die Probleme}
  \begin{itemize}
-  \item Konfiguration
+  \item die Administration ist nicht ganz einfach
+  \item es gibt verschiedene {\em tool}s:
+  \begin{itemize}
+   \item \cod{netctl} 
+   \item \cod{wicd}
+   \item \cod{NetworkManager}
+   \item ...
+  \end{itemize}
+  \item verschiedene Verfahren für eine sichere Verbindung
+  \begin{itemize}
+   \item IEEE 802.11i
+  \end{itemize}
+ \end{itemize}
+ \begin{remarks}
+   \item es sollte nur ein {\em tool} laufen
+   \item die {\em tools} verwalten LAN und WLAN
+ \end{remarks}
+\end{frame}
+
+\begin{frame}{geschichtete Software}{vereinfachtes Bild}
+ 
+ \begin{tabular}{l|l}
+  administration & \cod{netctl} \& Co.\\
+  \hline
+  WLAN Konfiguration & \cod{wpa\_supplicant}\\
+  \hline
+  \multicolumn{2}{c}{Hardware}
+ \end{tabular}
+\end{frame}
+
+\begin{frame}{\cod{wpa\_supplicant}}{der WLAN der Bittsteller}
+ \begin{itemize}
+  \item zwei Komponenten
+  \begin{description}
+   \item[Prozess] \cod{wpa\_supplicant {\em options}}
+   \begin{itemize}
+    \item Konfiguration typ. 
+   \end{itemize}
+   \item[Bedienung] \cod{wpa\_cli} \footnote{\cod{cli} command line interface}
+  \end{description}
  \end{itemize}
 \end{frame}
 
+\subsection{VPN}
+\begin{frame}[fragile]{VPN}{Konfiguration}
+\begin{verbatim}
+IPSec gateway vpn.fhnw.ch
+IPSec secret  29HeiowA
+IPSec ID STU-03-001
+IKE Authmode psk
+Xauth username kkkkk
+Xauth obfuscated password iii
+\end{verbatim}
+\end{frame}
+
+\begin{frame}{Die Sache mit \cod{obfuscated}}{Vernebeln}
+ \begin{itemize}
+  \item das Programm \cod{obfuscate.c}
+  \item das Programm \cod{cisco-decrypt}
+ \end{itemize}
+\end{frame}
+
+\section{WLAN/LAN Konfiguration}
+\subsection{LAN \cod{ssh}}
+\begin{frame}{\cod{ssh}}{\cod{ssh} mount}
+ \begin{itemize}
+  \item \cod{ssh} ohne Passwort \cod{ssh-copy-id}
+  \begin{itemize}
+   \item Kopiere {\Huge public key} vom \host auf \target
+  \end{itemize}
+  \item \cod{sshfs} 
+  \begin{itemize} 
+   \item {\em target-root} auf \host sichtbar
+   \item \cod{fusermount -u} für {\em unmount}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\cod{ssh}}{Vorbereitungen \target}
+ \begin{itemize}
+  \item Setze Datum/Zeit \cod{date} 
+  \begin{itemize}
+   \item Gewisse Zertifikate schauen auf das Datum
+  \end{itemize}
+  \item Konfiguriere \cod{/etc/pacman.conf} für \cod{ssh} Tunnel:
+   \begin{lstlisting}
+   XferCommand = ssh user@ip 'wget -O - -c %u' > %o
+   \end{lstlisting}
+   \vspace{-2mm}
+   \begin{itemize}
+    \item via \host 
+   \end{itemize}
+   \item update 
+   \begin{itemize}
+    \item \cod{pacman -Suy}
+   \end{itemize}
+   \item vpnc package
+   \begin{itemize}
+    \item \cod{package -Su vpnc}
+   \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\subsection{wpa\_supplicant}
+
+\begin{frame}{Prozess/CLI}
+ \begin{itemize}
+  \item Prozess \cod{wpa\_supplicant {\em options}}
+  \item CLI \cod{wpa\_cli}
+  \begin{itemize}
+   \item wie funktioniert das \cod{cli}
+  \end{itemize}
+  \item WLAN \cod{fhnw-public}
+  \begin{itemize}
+   \item \cod{dhcpcd} für eine \cod{ip} Adresse 
+  \end{itemize}
+  \item Konfigurationsfile
+  \item VPN
+  \begin{itemize}
+   \item mit \cod{vpnc}
+  \end{itemize}
+  \item eduroam
+  \begin{itemize}
+   \item mit s\cod{wpa\_supplicant}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Nützliche Files und Adressen}
+ \begin{tabular}{ll}
+  \cod{host-success.txt}	& log für eduroam\\
+  \cod{wpa*}	& Konfiguration \\
+  \url{https://cat.eduroam.org} & Konfiguration\footnote{Wo ist die FHNW ?}\\
+ \end{tabular}
+\end{frame}
 \end{document}
 

@@ -14,5 +14,8 @@ tree
 useradd
 ssh
 sshfs
-
+fusermount
 ps 
+
+wpa_supplicant
+wpa_cli

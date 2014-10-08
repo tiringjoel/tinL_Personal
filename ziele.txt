@@ -20,3 +20,10 @@
  - 3-network
     eduroam
  - dann zurück nach 2-unix-use    
+ 
+ 8.Okt. 2015
+ -----------
+ - 3-network (immer noch)
+   .eduroam
+   .vpn
+   Konfiguration von einem WLAN
