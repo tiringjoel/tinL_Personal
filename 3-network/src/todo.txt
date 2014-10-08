@@ -1,0 +1,12 @@
+Konfiguration via sshfs
+ host: ssh-copy-id
+ host: sshfs
+ host: fusermount -u 
+ target: date -s 'd m yyyy hh:mm'
+ target: /etc/pacman.conf
+ target: pacman -Suy
+   ev. via target: ssh 
+-update 
+
+
+systemctl start NetworkManager

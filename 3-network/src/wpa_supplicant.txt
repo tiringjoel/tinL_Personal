@@ -1,0 +1,22 @@
+WPA-Supplicant
+--------------
+start
+
+server:
+sudo wpa_supplicant -d -i wlan0 -c wpa_supplicant.conf
+
+client
+sudo wpa_cli
+
+set_network id ssid "fhnw-public"
+
+
+dhcpcd wlan0 -d --script dhcpcd-call-back.sh
+
+
+eduroam
+-------
+add_network 
+set_network 0 ssid "eduroam"
+set_network 0 eap PEAP
+set_network 0 key_mgmt WPA-EAP

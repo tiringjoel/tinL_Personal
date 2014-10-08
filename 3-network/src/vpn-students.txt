@@ -1,0 +1,8 @@
+VPN for students
+---
+IPSec gateway vpn.fhnw.ch
+IPSec secret  29HeiowA
+IPSec ID STU-03-001
+IKE Authmode psk
+Xauth username kkkkk
+Xauth obfuscated password iii

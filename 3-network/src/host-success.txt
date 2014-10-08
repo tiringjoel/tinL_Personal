@@ -1,0 +1,19 @@
+Successfully initialized wpa_supplicant
+ioctl[SIOCSIWENCODEEXT]: Invalid argument
+ioctl[SIOCSIWENCODEEXT]: Invalid argument
+wlan0: Trying to associate with dc:a5:f4:ec:80:4b (SSID='eduroam' freq=5320 MHz)
+ioctl[SIOCSIWFREQ]: Device or resource busy
+wlan0: Association request to the driver failed
+wlan0: Associated with dc:a5:f4:ec:80:4b
+wlan0: CTRL-EVENT-EAP-STARTED EAP authentication started
+wlan0: CTRL-EVENT-EAP-PROPOSED-METHOD vendor=0 method=13 -> NAK
+wlan0: CTRL-EVENT-EAP-PROPOSED-METHOD vendor=0 method=25
+wlan0: CTRL-EVENT-EAP-METHOD EAP vendor 0 method 25 (PEAP) selected
+wlan0: CTRL-EVENT-EAP-PEER-CERT depth=2 subject='/C=BM/O=QuoVadis Limited/CN=QuoVadis Root CA 2'
+wlan0: CTRL-EVENT-EAP-PEER-CERT depth=2 subject='/C=BM/O=QuoVadis Limited/CN=QuoVadis Root CA 2'
+wlan0: CTRL-EVENT-EAP-PEER-CERT depth=1 subject='/C=BM/O=QuoVadis Limited/OU=www.quovadisglobal.com/CN=QuoVadis Global SSL ICA'
+wlan0: CTRL-EVENT-EAP-PEER-CERT depth=0 subject='/C=CH/ST=Aargau/L=Windisch/O=Fachhochschule Nordwestschweiz/CN=grueezi.fhnw.ch'
+EAP-MSCHAPV2: Authentication succeeded
+wlan0: CTRL-EVENT-EAP-SUCCESS EAP authentication completed successfully
+wlan0: WPA: Key negotiation completed with dc:a5:f4:ec:80:4b [PTK=CCMP GTK=CCMP]
+wlan0: CTRL-EVENT-CONNECTED - Connection to dc:a5:f4:ec:80:4b completed [id=1 id_str=]
