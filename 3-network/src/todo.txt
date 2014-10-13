@@ -10,3 +10,7 @@ Konfiguration via sshfs
 
 
 systemctl start NetworkManager
+
+
+date per ntpd
+route 

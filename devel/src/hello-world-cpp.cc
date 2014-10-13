@@ -6,6 +6,6 @@
 
 int main(int argc,char** args)
 {
- std::cout<<"Hello World "__DATE__"\n";
+ std::cout<<"Hello World " __DATE__ "\n";
  return 0;
 }

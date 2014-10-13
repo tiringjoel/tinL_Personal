@@ -1,0 +1,83 @@
+%-------------------------
+%big-picture
+%(c) H.Buchmann FHNW 2008
+%$Id$
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\title{Programmentwicklung}
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Ziele}{Programmierung auf dem \target}
+ \begin{itemize}
+  \item (fast) wie auf dem \host
+  \item {\em Toolchain} auf dem \host
+  \item nur Programme ({\em runtime}) auf dem \target
+  \item Entwicklung für 
+  \begin{description}[C/C++]
+   \item[Java]  Java SE Runtime Environment \target
+   \item[C/C++] Posix {\em runtime} 
+  \end{description}
+  vom \target aus gesehen
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Outline}{für Java und C/C++}
+ \begin{block}{\host}
+  \dirtree{%
+   .1 somewhere\_on\_your\_host.
+   .2 config.
+   .2 src \DTcomment{the own source files}.
+   .2 work \DTcomment{seen by \target}.
+   .2 target-root \DTcomment{for the toolchain}.
+   .2 tc \DTcomment{toolchain}.
+  }
+ \end{block}
+ \begin{block}{\target}
+  \dirtree{%
+   .1 somewhere\_on\_your\_\target.
+   .2 work \DTcomment{mounted on \host per \cod{sshfs}}.
+  }
+ \end{block}
+\end{frame}
+
+\section{Java}
+\begin{frame}{Entwicklung}
+ \begin{block}{\host}
+  \begin{itemize}
+   \item Toolchain sollte schon vorhanden sein
+   \item Beispiel \cod{java/HelloWorld.java}
+   \item Herstellung \cod{java -d. {\em sourceFile}}
+  \end{itemize}
+ \end{block}
+ \begin{block}{\target}
+  \begin{itemize}
+   \item Runtime \cod{jre7-openjdk-headless}
+  \end{itemize}
+ \end{block}
+ \remark{Suche kleine Runtime}
+\end{frame}
+
+\section{C/C++}
+\begin{frame}{Entwicklung}
+ \begin{block}{\host}
+  \begin{itemize}
+   \item Toolchain \url{http://sourceforge.net/projects/fhnw-tinl/files/}
+   \item Beispiele: \cod{src/*}
+   \item Herstellung: \cod{make -f ../config/Makefile {\em the-app}}
+  \end{itemize}
+ \end{block}
+ \begin{block}{\target}
+  \begin{itemize}
+   \item Runtime \linux POSIX
+  \end{itemize}
+ \end{block}
+\end{frame}
+\end{document}
+

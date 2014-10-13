@@ -21,9 +21,17 @@
     eduroam
  - dann zurück nach 2-unix-use    
  
- 8.Okt. 2015
+ 8.Okt. 2014
  -----------
  - 3-network (immer noch)
    .eduroam
    .vpn
    Konfiguration von einem WLAN
+   
+15.Okt. 2014
+------------
+ - 3-network
+   .eduroam via WLAN
+   .server via LAN
+ - 4-devel
+   .Programmentwicklung auf dem Target

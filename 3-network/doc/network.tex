@@ -312,9 +312,52 @@ Xauth obfuscated password iii
  \begin{tabular}{ll}
   \cod{host-success.txt}	& log für eduroam\\
   \cod{wpa*}	& Konfiguration \\
-  \url{https://cat.eduroam.org} & Konfiguration\footnote{Wo ist die FHNW ?}\\
-  \url{https://cat-test.eduroam.org} & sollte gehen
+  \url{https://cat-test.eduroam.org} & sollte gehen 
+     \footnote{\url{https://cat.eduroam.org} funktioniert nicht}
  \end{tabular}
+\end{frame}
+
+\subsection{Das sollte funktionieren}
+
+\begin{frame}{Zwei Verbindungen:LAN/WLAN}{für \target}
+ \begin{description}[WLAN]
+  \item[WLAN] mit der Welt
+   \begin{itemize}
+    \item \target ist Client
+   \end{itemize}
+  \item[LAN] mit den \host im gleichen Netz
+   \begin{itemize}
+    \item \target ist Server
+   \end{itemize}
+ \end{description} 
+\end{frame}
+
+\begin{frame}{LAN}
+ \begin{block}{\host}
+ \begin{itemize}
+  \item \cod{ifconfig eth0:0 192.168.1.1 up}
+  \remark{die anderen Verbindungen bleiben}
+ \end{itemize}
+ \end{block}
+ \begin{block}{\target}
+  \begin{itemize}
+   \item \cod{ifconfig eth0 192.168.1.2 up}
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}{WLAN \target}{Manuell}
+ \begin{description}
+  \item[Background] \cod{wpa\_supplicant -D wext -i wlan0 -c{\em wpa.conf} -B}
+  \item[Foreground] \cod{wpa\_cli}
+ \end{description}
+\end{frame}
+
+\begin{frame}{WLAN \target}{netctl}
+ \begin{itemize}
+  \item {\footnotesize\url{https://wiki.archlinux.org/index.php/netctl}}
+  \item Passwort mindestens verschleiern
+ \end{itemize}
 \end{frame}
 \end{document}
 

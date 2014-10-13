@@ -14,3 +14,6 @@ hello-world-c:		hello-world-c.c
 hello-world-cpp:	hello-world-cpp.cc
 
 primes: 		primes.cc
+
+clean:
+	rm -rf *.o hello-world-c hello-world-cpp primes
