@@ -312,8 +312,9 @@ Xauth obfuscated password iii
  \begin{tabular}{ll}
   \cod{host-success.txt}	& log für eduroam\\
   \cod{wpa*}	& Konfiguration \\
-  \url{https://cat-test.eduroam.org} & sollte gehen 
-     \footnote{\url{https://cat.eduroam.org} funktioniert nicht}
+  \url{https://cat-test.eduroam.org} & sollte gehen
+     \footnote{\url{https://cat.eduroam.org} funktioniert nicht}\\
+  \cod{connect.txt} & zeigt die Schritte     
  \end{tabular}
 \end{frame}
 
@@ -329,7 +330,8 @@ Xauth obfuscated password iii
    \begin{itemize}
     \item \target ist Server
    \end{itemize}
- \end{description} 
+ \end{description}
+ \remark{\cod{connect.txt} zeigt die Befehle} 
 \end{frame}
 
 \begin{frame}{LAN}
@@ -347,9 +349,11 @@ Xauth obfuscated password iii
 \end{frame}
 
 \begin{frame}{WLAN \target}{Manuell}
- \begin{description}
+ \begin{description}[Konfiguration]
   \item[Background] \cod{wpa\_supplicant -D wext -i wlan0 -c{\em wpa.conf} -B}
   \item[Foreground] \cod{wpa\_cli}
+  \item[Konfiguration] \cod{wpa\_supplicant.conf}
+  \remark{Passwort noch in Klartext}
  \end{description}
 \end{frame}
 

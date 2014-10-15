@@ -1,0 +1,24 @@
+Connect 
+-------
+LAN:
+host: eth0:0
+ifconfig eth0:0 192.168.1.1 up
+
+target:
+ifconfig eth0 192.168.1.2 up
+
+target/host:
+ping
+
+MOUNT:
+host:
+sshfs root@192.168.1.2:/ target-mount/
+ssh root@192.168.1.2 
+
+
+WLAN: eduroam
+target:
+wpa_supplicant -D wext -i wlan0 -c wpa_supplicant.conf -B
+dhcpcd wlan0 
+wget -O- google.com
+route
