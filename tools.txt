@@ -19,3 +19,6 @@ ps
 
 wpa_supplicant
 wpa_cli
+
+objdump
+readelf

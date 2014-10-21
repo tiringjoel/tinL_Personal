@@ -1,0 +1,104 @@
+\begin{frame}{Entwicklung}
+ \begin{block}{\host}
+  \begin{itemize}
+   \item Toolchain \url{http://sourceforge.net/projects/fhnw-tinl/files/}
+   \item Beispiele: \cod{src/*}
+   \item Herstellung: \cod{make -f ../config/Makefile {\em the-app}}
+  \end{itemize}
+ \end{block}
+ \begin{block}{\target}
+  \begin{itemize}
+   \item Runtime \linux POSIX
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+\section{Die Schichten}
+\begin{frame}{POSIX $\to$ Kernel}
+ \fig{libc.pdf}{0.75}{0}
+  \begin{description}[SysCalls]
+   \item[POSIX] \cod{stdio.h} \& Co
+   \item[SysCalls] $\to$  \cod{\targetroot/usr/include/syscall.h}
+  \end{description}
+\end{frame}
+
+\section{Libraries}
+\begin{frame}{Bibliotheken}{am Beispiel \cod{hello-world-c.c}}
+\begin{itemize}
+ \item Der Objectfile \cod{hello-world-c.o}
+ \begin{itemize}
+  \item Der Code   \cod{objdump -d hello-world-c.o},
+  \item Die Symbole \cod{readelf -s hello-world-c.o}
+ \end{itemize}
+ \item Das Image \cod{hello-world-c}
+ \begin{itemize}
+  \item Der Code \cod{objdump -d hello-world-c}
+  \item Die Symbole \cod{readelf -s hello-world-c.o}
+ \end{itemize}
+ \item \cod{puts} 
+ \begin{itemize}
+  \item ist in einer Bibliothek
+ \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Statische/Dynamische Bibliothek}{Kopie vs. Referenz}
+ \begin{columns}
+  \begin{column}{5cm}
+   \begin{block}{Static}
+   \begin{itemize}
+    \item \hfill \vspace{-3mm}\fig{static.pdf}{0.5}{0}
+    \item {\Large frühes} Binden
+   \end{itemize}
+   \end{block}
+  \end{column}
+  \begin{column}{5cm}
+   \begin{block}{Dynamic}
+    \begin{itemize}
+    \item\hfill \vspace{-3mm}\fig{dynamic.pdf}{0.5}{0}
+    \item {\Large spätes} Binden
+    \end{itemize}
+   \end{block}
+  \end{column}
+ \end{columns}
+ \begin{block}{}
+  \fig{legend.pdf}{0.5}{0}
+ \end{block}
+\end{frame}
+
+\section{Aufgaben}
+\begin{frame}{Entwicklungsumgebung}
+ \begin{itemize}
+  \item Entwicklungsumgebung aufsetzen
+  \item Erste Programme
+        \begin{itemize}
+	 \item \cod{hello-world-c.c}, \cod{hello-world-cpp.cc}
+	\end{itemize}
+  \item Benchmark
+        \begin{itemize}
+	 \item \cod{primes.cc} auf \target und \host
+	\end{itemize}
+  \item Minimale Programme
+        \begin{itemize} 
+         \item \cod{direct-call.S}
+	 \item \cod{minimal-1.c} und \cod{minimal-1.c} Makefile anpassen
+	\end{itemize}	
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Statische/Dynamische Bibliothek}
+ \begin{itemize}
+  \item Die Programme 
+  \begin{itemize}
+   \item dynamisch linken 
+   \item statisch linken
+  \end{itemize}
+  und vergleichen
+  \begin{itemize}
+   \item Grösse
+   \item \cod{objdump}
+   \item \cod{readelf}
+  \end{itemize}
+ \end{itemize}
+\end{frame}

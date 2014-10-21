@@ -47,37 +47,12 @@
  \end{block}
 \end{frame}
 
-\section{Java}
-\begin{frame}{Entwicklung}
- \begin{block}{\host}
-  \begin{itemize}
-   \item Toolchain sollte schon vorhanden sein
-   \item Beispiel \cod{java/HelloWorld.java}
-   \item Herstellung \cod{java -d. {\em sourceFile}}
-  \end{itemize}
- \end{block}
- \begin{block}{\target}
-  \begin{itemize}
-   \item Runtime \cod{jre7-openjdk-headless}
-  \end{itemize}
- \end{block}
- \remark{Suche kleine Runtime}
-\end{frame}
+\part{Java}
+\frame{\partpage}
+\input{java.tex}
 
-\section{C/C++}
-\begin{frame}{Entwicklung}
- \begin{block}{\host}
-  \begin{itemize}
-   \item Toolchain \url{http://sourceforge.net/projects/fhnw-tinl/files/}
-   \item Beispiele: \cod{src/*}
-   \item Herstellung: \cod{make -f ../config/Makefile {\em the-app}}
-  \end{itemize}
- \end{block}
- \begin{block}{\target}
-  \begin{itemize}
-   \item Runtime \linux POSIX
-  \end{itemize}
- \end{block}
-\end{frame}
+\part{C/C++}
+\frame{\partpage}
+\input{cpp.tex}
 \end{document}
 

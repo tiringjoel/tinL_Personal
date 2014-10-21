@@ -36,3 +36,16 @@
    
  - 4-devel
    .Programmentwicklung auf dem Target
+
+22.Okt. 2014
+------------
+ 4-devel
+  . toolchain
+  . dynamic vs. static library
+  . script für Entwicklungsumgebung
+
+29.Okt. 2014
+------------  
+ 5-startup  
+  . systemd/systemctl
+  . netcfg
