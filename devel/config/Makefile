@@ -5,6 +5,7 @@
 #-----------------------
 TARGET=../target-root/
 PREFIX=../tc/bin/armv6l-unknown-linux-gnueabihf-
+CFLAGS=-std=c99
 CC=${PREFIX}gcc -O2 --sysroot=${TARGET}
 LD=${PREFIX}ld
 CXX=${PREFIX}g++ --sysroot=${TARGET} -O2
@@ -17,6 +18,7 @@ hello-world-c.o:	hello-world-c.c
 hello-world-cpp:	hello-world-cpp.cc
 primes: 		primes.cc
 
+hw-access:		hw-access.c
 #------------------------ special cases
 direct-call:		direct-call.o
 	${LD} -o${@} ${^}
