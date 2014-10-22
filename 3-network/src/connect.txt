@@ -1,8 +1,19 @@
+
 Connect 
 -------
+läuft wpa_supplicant
+
+ps -A | grep wpa
+pkill wpa_supplicant
+
+wlan0 stopen
+
+ifconfig wlan0 stop
+
 LAN:
 host: eth0:0
 ifconfig eth0:0 192.168.1.1 up
+route
 
 target:
 ifconfig eth0 192.168.1.2 up
