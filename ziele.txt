@@ -48,4 +48,6 @@
 ------------  
  5-startup  
   . systemd/systemctl
-  . netcfg
+  . netctl
+  . accessing hardware
+  . Makefile
