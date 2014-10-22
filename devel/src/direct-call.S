@@ -21,7 +21,7 @@ _start:
 	ldr r2,=MsgEnd        /* address of end of message */
 	sub r2,r2,r1                 /* r2 size of message */
 #ifdef EABI	
-	mov r7,#4
+	mov r7,#4                        /* code for write */
 	swi 0
 #else	                                     /* legacy ABI */	
 	swi 0x00900004               /* transfer to kernel */
