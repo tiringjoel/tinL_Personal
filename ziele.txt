@@ -45,9 +45,16 @@
   . script für Entwicklungsumgebung
 
 29.Okt. 2014
-------------  
+------------
+ 5-kernel
+  . configuration
+  . compilation
+  . installation
+ 
+  
  5-startup  
   . systemd/systemctl
   . netctl
   . accessing hardware
   . Makefile
+  . ntpd

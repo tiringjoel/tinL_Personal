@@ -1,0 +1,157 @@
+%-------------------------
+%big-picture
+%(c) H.Buchmann FHNW 2008
+%$Id$
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\title{Kernel}
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Ziele}{Neuer \kernel auf \target}
+ \begin{itemize}
+  \item Download
+  \item Setup
+  \item Konfiguration
+  \item Kompilation
+  \item Installation
+ \end{itemize}
+\end{frame}
+
+\section{The Big Picture}
+\begin{frame}{The Big Picture}{grosses Projekt}
+ \begin{description}
+  \item[Gegeben] Eine grosse Anzahl {\em source} Files
+  \item[Gesucht] ein einziger File: das {\Large Image}
+  \item[Lösung] Ähnlich wie in {\bf 4-devel} 
+  \begin{itemize}
+   \item Toolchain
+   \item Makefile
+  \end{itemize}
+ \end{description}
+\end{frame}
+
+\begin{frame}{Grosses Projekt}
+\begin{block}{Was ist einfach ?}
+ \begin{itemize}
+  \item \kernel hängt nicht von anderen Software Komponenten ab
+  \begin{itemize}
+   \item stand alone
+  \end{itemize}
+  \item Braucht nur \cod{make} und {\em toolchain}
+ \end{itemize}
+\end{block}
+\begin{block}{Was ist schwierig ?}
+ \begin{itemize}
+  \item Konfiguration
+  \begin{itemize}
+   \item Wahl der richtigen {\em source} Files für das {\Large Image}
+  \end{itemize}
+ \end{itemize}
+\end{block}
+\end{frame}
+
+\section{Download}
+\begin{frame}{\url{https://github.com/raspberrypi/linux}}
+             {Mehrere Möglichkeiten}
+ \begin{itemize}
+  \item das ganze git repository
+  \item nur die letzten $n$ Versionen \cod{--deep=$n$}
+  \item zip File 
+ \end{itemize}
+\end{frame}
+
+\section{Setup}
+\begin{frame}{Tools}{Siehe \cod{4-devel}}
+ \begin{description}[toolchain]
+  \item[toolchain] {\small \url{https://sourceforge.net/projects/fhnw-tinl/files}}
+   \begin{itemize}
+    \item \cod{gcc-4.9.1-raspberry-pi.tar.gz}
+    \item Prefix: \cod{armv6l-unknown-linux-gnueabihf-}
+    \begin{itemize}
+     \item beschreibt:
+     \begin{itemize}
+      \item Architektur: \cod{armv6l}
+      \item {\bf A}pplication {\bf B}inary {\bf I}nterface: \cod{gnueabihf}
+     \end{itemize}
+    \end{itemize}
+    \end{itemize}
+  \item[make] Normales \cod{make}
+  \begin{itemize}
+   \item \kernel Herstellung:
+   \begin{itemize}
+    \item \cod{make {\em cmd}}
+   \end{itemize}
+  \end{itemize}
+ \end{description}
+\end{frame}
+
+\begin{frame}{Wo ist was ?}
+ \dirtree{%
+  .1 tinL.
+  .2 5-kernel.
+  .3 build \DTcomment{generated kernel files}.
+  .3 tools \DTcomment{for making}.
+  .4 make.sh \DTcomment{wrapper to \kernel Makefile}.
+  .3 config.
+  .4 config.sh \DTcomment{for make.sh}.
+  .2 resources.
+  .3 kernel.
+  .4 linux \DTcomment{the source tree}.
+ }
+\end{frame}
+
+\section{Herstellung}
+\begin{frame}{Konfiguration}{\cod{sh make.sh help}}
+ \begin{itemize}
+  \item \cod{sh tools/make.sh bcmrpi\_defconfig}
+  \begin{itemize}
+   \item Vordefinierte Konfiguration
+  \end{itemize}
+  \item \cod{sh tools/make.sh menuconfig}
+  \begin{itemize}
+   \item Anpassung der Konfiguration
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Kompilation}
+ \begin{itemize}
+  \item \cod{sh tools/make.sh}
+  \begin{itemize}
+   \item erzeugt  \cod{build/arch/arm/boot/Image}
+  \end{itemize} 
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Installation}{auf SD-Card}
+ \begin{itemize}
+  \item Kopiere
+  \begin{itemize}
+   \item \cod{build/arch/arm/boot/Image}
+  \end{itemize}
+  als 
+  \begin{itemize}
+   \item \cod{kernel.img}
+  \end{itemize}
+  nach
+  \begin{itemize}
+   \item SD-Card {\em boot-partition}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{exercise}{\kernel}
+ \begin{itemize}
+  \item \target default Konfiguration
+  \item füge Treiber für WLAN hinzu
+ \end{itemize}
+\end{exercise}
+\end{document}
+
