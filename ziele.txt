@@ -50,7 +50,7 @@
   . configuration
   . compilation
   . installation
- 
+ Linux mit minicom
   
  5-startup  
   . systemd/systemctl
