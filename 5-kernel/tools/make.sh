@@ -6,9 +6,9 @@
 #---------------------
 #we are in 5-kernel
 . config/config.sh
-BUILD=$(pwd)/build
 cd ${LINUX_SRC}
 ${MAKE} V=1 O=${BUILD} \
 ARCH=arm \
 CROSS_COMPILE=${CROSS_COMPILE} \
+INSTALL_MOD_PATH=${MODULES} \
 ${@}

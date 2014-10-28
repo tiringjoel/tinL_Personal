@@ -7,6 +7,9 @@ PREFIX=armv6l-unknown-linux-gnueabihf-
 TC=../../toolchain/target/tc/bin/
 CROSS_COMPILE=${TC}/${PREFIX}
 LINUX_SRC=../resources/kernel/linux
+BUILD=$(pwd)/build
+MODULES=$(pwd)/modules
+
 #-jn  n:the number of cpus on your host+1 
 MAKE="make -j3"
 
