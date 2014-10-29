@@ -4,9 +4,9 @@
 #---------------------
 #we are in 5-kernel
 PREFIX=armv6l-unknown-linux-gnueabihf-
-TC=../../toolchain/target/tc/bin/
+TC=../../tc/bin/
 CROSS_COMPILE=${TC}/${PREFIX}
-LINUX_SRC=../resources/kernel/linux
+LINUX_SRC=../resources/linux
 BUILD=$(pwd)/build
 MODULES=$(pwd)/modules
 
