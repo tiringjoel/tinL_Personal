@@ -1,0 +1,166 @@
+%-------------------------
+%makefile
+%(c) H.Buchmann FHNW 2008
+%$Id$
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+
+\title[Kernel Module]{Kernel Module}
+
+\frame{\titlepage}
+
+\begin{frame}{Um was geht es ?}
+ \begin{itemize}
+  \item Code für dem {\em kernel}: Drivers
+  \item Den {\em kernel} nicht immer neu kompilieren 
+  \item Module laden/löschen
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Informationen}
+ \begin{itemize}
+  \item \url{tldp.org/LDP/lkmpg/2.6/html/}
+  \item \url{Documentation/kbuild/modules.txt}
+  \item \url{www.kernel.org/doc/}
+  \item \url{lxr.free-electrons.com}
+ \end{itemize}
+\end{frame}
+
+\section{Beispiele}
+\subsection{simple-device}
+\begin{frame}{simple-module}{Modul für \host}
+ \begin{description}[Makefile]
+  \item[Code]     \cod{scr/simple-module.c}
+  \item[Makefile] \cod{src/Makefile} von linux Makefile aufgerufen
+  \item[Script]   \cod{config/make-it.sh} für einfachen Aufruf
+  \item[Test]
+      \begin{itemize}
+        \item \cod{tail -f /var/log/kern.log} für die {\em kernel messages}
+	\item \cod{dmesg -w}
+        \item \cod{sudo insmod simple-module.ko} wir sind in \cod{src} 
+	\item \cod{lsmod | grep simple} ist installiert
+	\item \cod{sudo rmmod simple-module} deinstalliert
+	\item Der File \url{proc/modules}
+      \end{itemize}
+ \end{description}
+\end{frame}
+
+\subsection{simple-device}
+
+\begin{frame}{simple-device}
+ \begin{description}
+  \item[Module] \cod{src/simple-device.c}, \cod{src/Makefile}
+  \item[Test] 
+     \begin{itemize}
+       \item \cod{insmod simple-device.ko} Major Number
+       \item \cod{mknod -ma=rw simple c Major 1} Device File Zugriff für alle
+       \item \cod{cat simple} read 
+       \item \cod{cat aFile > simple} write
+     \end{itemize} 
+ \end{description}
+ \begin{todos}
+  \item Automatische Erzeugung von \cod{simple}
+  \item die \cod{file\_operations}: \cod{open} und \cod{close}
+ \end{todos}
+\end{frame}
+
+\begin{frame}{\cod{simple-device.c}}{userspace $\leftrightarrow$ kernelspace}
+ \begin{description}[kernelspace $\to$ userspace]
+  \item[Module] brauche  \cod{print\_hex\_dump} eine praktische Funktion
+  \item[userspace $\to$ kernelspace] \cod{simple\_write}
+  \item[kernelspace $\to$ userspace] \cod{simple\_read}
+  \item[Test] \cod{simple-device} im userspace
+ \end{description}
+ \todo{Erzeuge Absturz}
+\end{frame}
+
+\subsection{simple-ioctl}
+\begin{frame}{\cod{simple-ioctl.c}}
+\end{frame}
+
+
+%\begin{frame}{TODO}
+% \begin{itemize}
+%  \item call-back demo
+%  \item userspace - kernelspace
+%  \item Files
+%  \item open,close,read, write
+%  \item ioctl
+%  \item roadmap
+%  
+% \end{itemize}
+%\end{frame}
+%
+\begin{frame}{Aufgaben}
+ \begin{itemize}
+  \item \url{scr/simple-module.c} für \target
+  \item \url{read-device.c} \url{scr/simple-device.c} für \target
+  \item \url{call-ioctl.c} \url{scr/simple-ioctl.c} für \target
+  \item Das {\em userspace }Programm \url{9-accessing-hw/hw-access.c}
+  als Modul mit \cod{ioctl} 
+ \end{itemize}
+\end{frame}
+
+
+%\section{Interrupt}
+%\begin{frame}{Die Hardware ruft die Software}{call back}
+% \begin{itemize}
+%  \item \cod{9-accessing-hw/button.c} userland 
+%  \item \cod{10-module/button.c} als {\em device}
+%  \begin{itemize}
+%   \item \cod{ioremap}
+%  \end{itemize}
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{\cod{button.c}}{Wichtige Punkte}
+% \begin{itemize}
+%  \item \cod{typedef PIO}
+%  \item \cod{static PIO* \_\_iomem pioC}
+%  \item \cod{ioremap(BASE,SIZE)}
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{static PIO* \_\_iomem pioC}
+%  \fig{pio.pdf}{1}{0}
+%\end{frame}
+%
+%\begin{frame}{\cod{ioremap(BASE,SIZE)}}{Memory Managament Unit}
+% \begin{columns}
+%  \begin{column}{6cm}
+%   \fig{memory-map.pdf}{0.625}{0}
+%  \end{column}
+%  \begin{column}{6cm}
+%   \begin{description}
+%    \item[p-mem] Physikalisches Memory
+%    \item[v-mem] Virtuelles Memory
+%    \item[BASE] Page aligned
+%    \item[offset] innerhalb Page
+%    \item[size] Page Size \cod{4kiB = 0x1000}
+%   \end{description}
+%  \end{column}
+% \end{columns}
+%\end{frame}
+%
+%\begin{frame}{Aufgaben}
+% \begin{itemize}
+%  \item NFS Network File System einrichten
+%  \item Das Modul \cod{button.c}
+%  \item Die Probleme mit dem Interrupt
+%  \item Brauche \url{lxr.free-electrons.com/}
+%  \item Codedemo mit modifiziertem Code \cod{kernel/irq/manage.c}
+%  \item \cod{cat /proc/interrupts}
+% \end{itemize}
+%\end{frame}
+\end{document}

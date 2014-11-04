@@ -1,0 +1,16 @@
+#----------------------
+#Makefile.user
+#(c) H.Buchmann FHNW 2012
+#$Id$
+#we are in src
+#see http://www.tldp.org/LDP/lkmpg/2.6/html/x181.html
+# call make Makefile.user 
+#----------------------
+include ../../4-kernel/config/common.sh #load common 
+SYSROOT=../../6-unix/root
+CC=../tc/bin/${PREFIX}-gcc --sysroot=${SYSROOT}
+call-ioctl:	call-ioctl.o
+call-ioctl.o:	call-ioctl.c
+
+clean:
+	rm -f call-ioctl.*
