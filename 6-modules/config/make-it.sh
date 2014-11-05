@@ -12,9 +12,9 @@
 export KERNEL=/lib/modules/$(uname -r)/build
 make -C ${KERNEL} V=1 M=${PWD} ${@}
 
+###---------------------- for target system
 #PREFIX=armv6l-unknown-linux-gnueabihf
 #LINUX_SRC=../../resources/kernel/linux/
-###---------------------- for target system
 #export KERNEL=../../5-kernel/build
 #make  -C ${KERNEL} \
 #     ARCH=arm \
