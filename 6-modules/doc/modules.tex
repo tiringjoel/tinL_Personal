@@ -1,7 +1,6 @@
 %-------------------------
 %makefile
 %(c) H.Buchmann FHNW 2008
-%$Id$
 %export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
 %-------------------------
 \documentclass{beamer}
@@ -105,10 +104,14 @@
 \begin{frame}{Aufgaben}
  \begin{itemize}
   \item \url{scr/simple-module.c} für \target
+  \begin{itemize}
+   \item Machen Sie eine 'ewige Schlaufe'
+  \end{itemize}
   \item \url{read-device.c} \url{scr/simple-device.c} für \target
   \item \url{call-ioctl.c} \url{scr/simple-ioctl.c} für \target
-  \item Das {\em userspace }Programm \url{9-accessing-hw/hw-access.c}
-  als Modul mit \cod{ioctl} 
+
+%  \item Das {\em userspace }Programm \url{9-accessing-hw/hw-access.c}
+%  als Modul mit \cod{ioctl} 
  \end{itemize}
 \end{frame}
 
