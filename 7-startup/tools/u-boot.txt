@@ -1,0 +1,8 @@
+mmcinfo
+fatls mmc 0:1 
+
+fatload mmc 0:1 start file
+fatload mmc 0:1 0 kernel.img
+
+setenv bootargs 'ipv6.disable=1 avoid_safe_mode=1 selinux=0 plymouth.enable=0 smsc95xx.turbo_mode=N dwc_otg.lpm_enable=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=noop rootwait'
+setenv bootargs 'root=/dev/mmcblk0p2 rootfstype=ext4 rootwait'
