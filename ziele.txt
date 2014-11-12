@@ -70,3 +70,4 @@ TODO:
   . accessing hardware
   . Makefile
   . ntpd
+  . qemu
