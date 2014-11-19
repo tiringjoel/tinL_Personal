@@ -64,6 +64,13 @@
   . kernel
   . linux 
 
+19.Nov. 2014
+------------
+ 7-startup
+  . u-boot
+  . verschiedene kernel images
+  . linux bootparameter
+  
 TODO:
   . systemd/systemctl
   . netctl

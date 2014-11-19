@@ -1,0 +1,7 @@
+Notes
+-----
+
+kernel-1.img
+ startet ohne U-Boot
+ 
+ startet mit U-Boot nicht

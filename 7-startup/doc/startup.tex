@@ -123,4 +123,49 @@
   \item ein U-Boot Image
  \end{itemize}
 \end{frame}
+
+\section{Probleme}
+\begin{frame}[fragile]{Etwas Terminologie}
+ \begin{description}[direct-boot]
+  \item[direct-boot] {\bf ohne} \uboot
+  \item[u-boot] {\bf mit} \uboot
+  \item[kernel.img] das orignale {\em image}
+  \item[Image] der selber gemachte
+ \end{description}
+ \remark{Test mit \cod{uname -a}}
+\end{frame}
+
+\begin{frame}{Die Probleme}
+\begin{tabular}{l|l|l}
+		& kernel.img 	& Image\\
+\hline
+direct-boot	& ok	     	& ok\\
+u-boot	   	& (ok) ohne rootfs	& error\\
+\end{tabular}
+\begin{block}{Aufgabe}
+\begin{itemize}
+ \item nachprüfen
+\end{itemize}
+\end{block}
+\end{frame}
+
+\subsection{Was kann man machen ?}
+\begin{frame}{Memory}{\uboot Sicht}
+\begin{center}
+\includegraphics{memory.pdf}
+\end{center}
+\begin{itemize}
+ \item {\color{red} reserviert}
+ \item \uboot \cod{fatload mmc 0:1 addr file}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Verschiedene Image Formate}
+ \begin{itemize}
+  \item Image
+  \item zImage
+  \item uImage
+ \end{itemize}
+\end{frame}
+
 \end{document}
