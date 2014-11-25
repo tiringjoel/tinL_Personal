@@ -1,0 +1,258 @@
+%-------------------------
+%makefile
+%(c) H.Buchmann FHNW 2014
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+
+\title{Configure}
+
+\frame{\titlepage}
+
+\begin{frame}{Um was geht es ?}{Herstellung von Software aus den Quellen}
+ \begin{itemize}
+  \item drei Schritte:
+  \begin{description}
+   \item[configure] für das \target
+   \item[make] die {\em binaries} aus den {\em Quellen} im \host
+   \item[install] auf dem \target
+  \end{description}
+  \item die Schwierigkeiten:
+  \begin{itemize}
+   \item \host {\&} \target sind verschieden
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\section{Die Quellen}
+\begin{frame}{Die Quellen}{\C/{\tiny \CPP Code}}
+ \begin{itemize}
+  \item meistens als
+  \begin{itemize}
+   \item \C Code
+   \item {\em tar.gz} File:
+   \begin{itemize}
+    \item \cod{{\bf name}-{\em version}.tar.gz}
+   \end{itemize}
+  \end{itemize}
+  \item es gibt aber noch andere Möglichkeiten
+ \end{itemize}
+\end{frame}
+
+\subsection{Beispiel: rsync-3.1.1}
+\begin{frame}{Beispiel}{\cod{rsync-3.1.1}}
+\begin{block}{Wichtige Files}
+ \begin{itemize}
+  \item \cod{README}
+  \item \cod{INSTALL}
+  \item \cod{*.c} die Sourcen
+  \item für die Herstellung:
+  \begin{itemize}
+   \item Scripts
+   \item Makefile(s)
+  \end{itemize}  
+  \item \cod{configure}: unser Thema
+ \end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Die Sourcen}{Beispiel \cod{main.c}}
+ \begin{block}{der Präprozessor \cod{cpp}}
+  \begin{itemize}
+   \item \cod{\#define}
+   \item \cod{\#ifdef ...} \cod{\#endif}
+   \item \cod{\#include}
+  \end{itemize}
+ \end{block}
+ \begin{block}{lässt Code zur Compilation}
+ \begin{itemize}
+  \item zu 
+  \item[]oder 
+  \item nicht zu
+ \end{itemize}
+ \end{block}
+\end{frame}
+
+\section{Die Aufgabe}
+\begin{frame}{Von den Quellen zum Programm}
+ \begin{block}{Gegeben}
+  \begin{itemize}
+   \item die Quellen
+   \item \host
+   \item {\em target} (\target)
+  \end{itemize}
+ \end{block}
+ \vspace{-5mm}
+ \begin{block}{Gesucht}
+  \begin{itemize}
+   \item das in den Quellen beschriebene Programm lauffähig auf dem 
+   {\em Target} (\target)
+   \item gemacht auf dem \host
+  \end{itemize}
+ \end{block}
+ \vspace{-2mm}
+ \remark{Der einfachere Fall:
+  \begin{itemize}
+   \item \host = {\em Target}
+  \end{itemize}
+ } 
+\end{frame}
+
+\begin{frame}{Das Problem}{die Vielfalt}
+ \begin{itemize}
+  \item es gibt viele verschiedene \host's
+  \item es gibt viele verschiedene {\em target}'s
+  \begin{itemize}
+   \item verschiedene Architekturen
+   \begin{itemize}
+    \item {\em ARM}
+    \item {\em Intel}
+   \end{itemize}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\section{Das Skript {\tt configure}}
+
+\begin{frame}{Das Skript {\tt configure}}
+\begin{block}{erzeugt auf dem \host}
+ \begin{itemize}
+  \item einen \cod{Makefile}
+  \item[] für die 
+  \item {\em binaries} auf dem {\em Target}
+ \end{itemize}
+\end{block}
+ \remark{Der einfachere Fall:
+  \begin{itemize}
+   \item \host = {\em Target}
+  \end{itemize}
+ } 
+\end{frame}
+
+\begin{frame}{\host - {\em Target}}{die Verzeichnisse}
+ \begin{tabular}{p{5.5cm}p{5cm}}
+  \host	& {\em Target}\\
+  \hline
+  \dirtree{%
+   .1 somewhere.
+   .2 tc \DTcomment{toolchain}.
+   .2 sources.
+   .2 build.
+   .2 target-root \DTcomment{libraries include}.
+   .2 {\em install}.
+  }&
+   \dirtree{%
+    .1 / \DTcomment{root}.
+    .2 {\em install} \DTcomment{somewhere}.
+   }
+ \end{tabular}
+ \begin{block}{Verbindung}
+  \begin{itemize}
+   \item \host:\cod{install} -- {\em Target}:\cod{install}
+  \end{itemize}
+  per \cod{sshfs}, \cod{ftp}, manueller SD-Card transfer
+ \end{block}
+\end{frame}
+
+\begin{frame}{Die option \cod{--prefix}}{von \cod{configure}}
+ \begin{block}{-{}-prefix}
+ \begin{itemize}
+  \item gibt an wo die {\em binaries} installiert werden sollen
+ \end{itemize}
+ \end{block}
+ \begin{block}{Ziel}
+  \begin{itemize}
+   \item {\Large ohne} \cod{root} Privilegien auf dem \host
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}{Eine mögliche Verzeichnisstruktur}{auf dem Host}
+ \dirtree{%
+  .1 tinL.
+  .2 resources \DTcomment{readonly}.
+  .3 {\em sources}.
+  .2 8-configure.
+  .3 tc \DTcomment{toolchain}.
+  .3 src \DTcomment{scripts}.
+  .3 target-root \DTcomment{link}.
+  .3 work  \DTcomment{where to install, connected with \target}.
+  .3 build-{\em source} \DTcomment{where to build}.
+ }
+\end{frame}
+
+\begin{frame}{Die Scripts}{ in \cod{src}}
+ \begin{itemize}
+  \item \cod{{\em sources}/configure} in 
+   \begin{itemize}
+    \item\cod{build-{\em source}}
+    \end{itemize}
+    aufrufen
+  \item \cod{make}, \cod{make install} in 
+  \begin{itemize}
+   \item\cod{build-{\em source}}
+  \end{itemize}
+  aufrufen
+  \item resultat in
+  \begin{itemize}
+   \item \cod{work}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\section{Aufgaben}
+\begin{frame}{Aufgaben}{auf dem \host}
+\begin{itemize}
+ \item Die {\em sourcen}:
+ \begin{itemize}
+  \item \url{http://rsync.samba.org/}
+  \item \url{http://www.lighttpd.net/}
+  \item \url{http://sox.sourceforge.net}
+  \item \url{https://www.openssl.org/}
+ \end{itemize}
+ \item auf dem \host 
+  \begin{itemize}
+   \item unter \cod{work}
+  \end{itemize}
+\end{itemize}
+\remark{{\Large Ohne} \cod{root} Privilegien}
+\end{frame}
+
+\begin{frame}{Aufgaben}{auf dem \target}
+\begin{itemize}
+ \item Die {\em sourcen}:
+ \begin{itemize}
+  \item \url{http://rsync.samba.org/}
+  \item \url{http://www.lighttpd.net/}
+  \item \url{http://sox.sourceforge.net}
+  \item \url{https://www.openssl.org/}
+ \end{itemize}
+ \item auf dem \target 
+  \begin{itemize}
+   \item unter \cod{work}
+  \end{itemize}
+\end{itemize}
+ \remark{{\Large Ohne} \cod{root} Privilegien auf dem \host}
+\end{frame}
+
+\begin{frame}{Auf was ist zu achten}
+ \begin{itemize}
+  \item alle erzeugten Daten in \cod{build-{\em source}}
+  \item Es kann sein, dass im Kernel Treiber fehlen
+  \begin{itemize}
+   \item Kernel neu anpassen
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\end{document}

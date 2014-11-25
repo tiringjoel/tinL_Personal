@@ -70,7 +70,17 @@
   . u-boot
   . verschiedene kernel images
   . linux bootparameter
-  
+
+26.Nov. 2014
+------------
+  7-startup
+   .u-boot: persistentes environment
+  8-configure
+   Software from scratch
+     .configure
+     .make
+     .make install
+     
 TODO:
   . systemd/systemctl
   . netctl

@@ -55,98 +55,102 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <rect
-       style="fill:#cccccc;fill-opacity:1;stroke:none"
-       id="rect3776"
-       width="105"
-       height="15"
-       x="50"
-       y="67.362183" />
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
-       x="84"
-       y="79.362183"
-       id="text3778"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3780"
-         x="84"
-         y="79.362183">File</tspan></text>
-    <rect
-       style="fill:#cccccc;fill-opacity:1;stroke:none"
-       id="rect3782"
-       width="270"
-       height="15"
-       x="80"
-       y="112.36218" />
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
-       x="107.27667"
-       y="123.73884"
-       id="text3784"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3786"
-         x="107.27667"
-         y="123.73884">Memory</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
-       x="50"
-       y="108.36218"
-       id="text3788"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3790"
+    <g
+       id="memory"
+       inkscape:label="#g3887">
+      <rect
+         y="67.362183"
          x="50"
-         y="108.36218">0</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
-       x="47"
-       y="62.362183"
-       id="text3788-8"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3790-0"
+         height="15"
+         width="105"
+         id="rect3776"
+         style="fill:#cccccc;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3778"
+         y="79.362183"
+         x="84"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
+         xml:space="preserve"><tspan
+           y="79.362183"
+           x="84"
+           id="tspan3780"
+           sodipodi:role="line">File</tspan></text>
+      <rect
+         y="112.36218"
+         x="80"
+         height="15"
+         width="270"
+         id="rect3782"
+         style="fill:#cccccc;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3784"
+         y="123.73884"
+         x="107.27667"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
+         xml:space="preserve"><tspan
+           y="123.73884"
+           x="107.27667"
+           id="tspan3786"
+           sodipodi:role="line">Memory</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3788"
+         y="108.36218"
+         x="50"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
+         xml:space="preserve"><tspan
+           y="108.36218"
+           x="50"
+           id="tspan3790"
+           sodipodi:role="line">0</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3788-8"
+         y="62.362183"
          x="47"
-         y="62.362183">0</tspan></text>
-    <rect
-       style="fill:#ff0000;fill-opacity:1;stroke:none"
-       id="rect3813"
-       width="30"
-       height="15"
-       x="50"
-       y="112.36218" />
-    <rect
-       style="fill:#ff0000;fill-opacity:1;stroke:none"
-       id="rect3813-5"
-       width="30"
-       height="15"
-       x="350"
-       y="112.36218" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 50,82.362183 75,29.999997"
-       id="path3833"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 155,82.362186 75,29.999994"
-       id="path3833-9"
-       inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace Italic"
-       x="121.1282"
-       y="99.515488"
-       id="text3883"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3885"
+         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
+         xml:space="preserve"><tspan
+           y="62.362183"
+           x="47"
+           id="tspan3790-0"
+           sodipodi:role="line">0</tspan></text>
+      <rect
+         y="112.36218"
+         x="50"
+         height="15"
+         width="30"
+         id="rect3813"
+         style="fill:#ff0000;fill-opacity:1;stroke:none" />
+      <rect
+         y="112.36218"
+         x="350"
+         height="15"
+         width="30"
+         id="rect3813-5"
+         style="fill:#ff0000;fill-opacity:1;stroke:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3833"
+         d="m 50,82.362183 75,29.999997"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3833-9"
+         d="m 155,82.362186 75,29.999994"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3883"
+         y="99.515488"
          x="121.1282"
-         y="99.515488">copy</tspan></text>
+         style="font-size:12px;font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace Italic"
+         xml:space="preserve"><tspan
+           y="99.515488"
+           x="121.1282"
+           id="tspan3885"
+           sodipodi:role="line">copy</tspan></text>
+    </g>
   </g>
 </svg>

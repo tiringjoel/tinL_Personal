@@ -1,0 +1,13 @@
+einfache packages
+-rsync
+ download
+ extract
+ for host
+ make distclean
+ make
+ make install
+ 
+-lighttpd
+
+- sox
+Kernel anpassen

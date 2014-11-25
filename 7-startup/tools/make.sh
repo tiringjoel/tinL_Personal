@@ -7,6 +7,7 @@
 #------------------
 #we are in 7-startup
 . config/config.sh
-cd u-boot
-make CROSS_COMPILE=${CROSS_COMPILE} ${@}
+pushd ${U_BOOT_SRC}
+make CROSS_COMPILE=${CROSS_COMPILE} O=${BUILD} ${@}
+popd
 
