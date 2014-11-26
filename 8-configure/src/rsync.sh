@@ -3,6 +3,20 @@
 #(c) H.Buchmann FHNW 2014
 #--------------------
 #we are in 8-configure
-#your work
-#./configure --help
+BUILD=build-rsync
+SRC=${PWD}/../resources/rsync-3.1.1
+if [[ ! -d ${BUILD} ]]
+  then mkdir ${BUILD}
+fi
+
+
+#[[ ! -d ${BUILD} ]] && 
+#{
+# 
+#}
+echo "absolute src-path='${SRC}'s"
+
+#cd ${BUILD}
+#${SRC}/configure --help
+
  
