@@ -10,6 +10,7 @@ CC=${PREFIX}gcc -O2 --sysroot=${TARGET}
 LD=${PREFIX}ld
 CXX=${PREFIX}g++ --sysroot=${TARGET} -O2
 CXXFLAGS=-std=c++11
+
 VPATH=../src
 
 hello-world-c:		hello-world-c.o
