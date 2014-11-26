@@ -15,13 +15,13 @@
 \begin{document}
 
 
-\title{Configure}
+\title[Configure]{Configure\\von den Quellen}
 
 \frame{\titlepage}
 
 \begin{frame}{Um was geht es ?}{Herstellung von Software aus den Quellen}
  \begin{itemize}
-  \item drei Schritte:
+  \item drei Schritte auf dem \host
   \begin{description}
    \item[configure] für das \target
    \item[make] die {\em binaries} aus den {\em Quellen} im \host
@@ -29,7 +29,11 @@
   \end{description}
   \item die Schwierigkeiten:
   \begin{itemize}
-   \item \host {\&} \target sind verschieden
+   \item \host \& \target sind verschieden:
+   \begin{description}[\target]
+    \item[\host] Intel
+    \item[\target] ARM
+   \end{description}
   \end{itemize}
  \end{itemize}
 \end{frame}
@@ -37,7 +41,7 @@
 \section{Die Quellen}
 \begin{frame}{Die Quellen}{\C/{\tiny \CPP Code}}
  \begin{itemize}
-  \item meistens als
+  \item meistens als:
   \begin{itemize}
    \item \C Code
    \item {\em tar.gz} File:
@@ -49,9 +53,32 @@
  \end{itemize}
 \end{frame}
 
-\subsection{Beispiel: rsync-3.1.1}
-\begin{frame}{Beispiel}{\cod{rsync-3.1.1}}
-\begin{block}{Wichtige Files}
+\begin{frame}{Wichtig}{wenn es nicht funktioniert}
+\begin{itemize}
+ \item der \C/\CPP Code ist (meistens) korrekt.
+ \item Die Fehlermeldungen anschauen:
+ \begin{itemize}
+  \item vor allem die letzte 
+ \end{itemize}
+ \item Wo ist was:
+ \begin{itemize}
+  \item {\em include} Files
+ \end{itemize}
+\end{itemize}
+\remark{keine {\em root} Privilegien}
+\end{frame}
+
+\subsection{Beispiel \cod{rsync-3.1.1}}
+\begin{frame}{Beispiel: \cod{rsync-3.1.1}}{ein typischer Fall}
+\begin{block}{die Quelle}
+\vspace{-1mm}
+\begin{itemize}
+ \item \url{http://rsync.samba.org/}
+\end{itemize}
+\end{block}
+\vspace{-4mm}
+\begin{block}{wichtige Files}
+ \vspace{-1mm}
  \begin{itemize}
   \item \cod{README}
   \item \cod{INSTALL}
@@ -143,6 +170,7 @@
  \begin{tabular}{p{5.5cm}p{5cm}}
   \host	& {\em Target}\\
   \hline
+  {\footnotesize
   \dirtree{%
    .1 somewhere.
    .2 tc \DTcomment{toolchain}.
@@ -150,11 +178,12 @@
    .2 build.
    .2 target-root \DTcomment{libraries include}.
    .2 {\em install}.
-  }&
+  }}&
+   {\footnotesize
    \dirtree{%
     .1 / \DTcomment{root}.
     .2 {\em install} \DTcomment{somewhere}.
-   }
+   }}
  \end{tabular}
  \begin{block}{Verbindung}
   \begin{itemize}
@@ -236,8 +265,8 @@
 \begin{itemize}
  \item Die {\em sourcen}:
  \begin{itemize}
-  \item \url{http://rsync.samba.org/}
-  \item \url{http://www.lighttpd.net/}
+  \item \url{http://rsync.samba.org}
+  \item \url{http://www.lighttpd.net}
   \item \url{http://sox.sourceforge.net}
   \item \url{http://www.openssh.com}
   \remark{die richtigen {\em sourcen}}
