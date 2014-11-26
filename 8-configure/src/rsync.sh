@@ -5,18 +5,16 @@
 #we are in 8-configure
 BUILD=build-rsync
 SRC=${PWD}/../resources/rsync-3.1.1
-if [[ ! -d ${BUILD} ]]
-  then mkdir ${BUILD}
-fi
+PREFIX=${PWD}/work
+#if [[ ! -d ${BUILD} ]]
+#  then mkdir ${BUILD}
+#fi
 
 
-#[[ ! -d ${BUILD} ]] && 
-#{
-# 
-#}
+[[ ! -d ${BUILD} ]] && mkdir ${BUILD}
 echo "absolute src-path='${SRC}'s"
 
-#cd ${BUILD}
-#${SRC}/configure --help
+cd ${BUILD}
+${SRC}/configure --help
 
  
