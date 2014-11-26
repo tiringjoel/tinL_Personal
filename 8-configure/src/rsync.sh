@@ -15,6 +15,6 @@ PREFIX=${PWD}/work
 echo "absolute src-path='${SRC}'s"
 
 cd ${BUILD}
-${SRC}/configure --help
+${SRC}/configure --prefix=${PREFIX}
 
  
