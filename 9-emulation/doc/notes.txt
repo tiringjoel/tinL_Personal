@@ -2,12 +2,14 @@ Create partition as file
 File 1GiB
 
 dd if=/dev/zero of=rootfs.img bs=1M count=1K
-
+                           #  |     |-------count
+                           #  |  blocksize
 create partition 
 
 fdisk rootfs.img
 
 sudo losetup -o $((512*2048)) /dev/loop0  rootfs.img
+#offset in bytes
 sudo mkfs.ext4 /dev/loop0
 
 sudo mount /dev/loop0 mount/
