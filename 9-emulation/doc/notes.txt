@@ -1,0 +1,20 @@
+Create partition as file
+File 1GiB
+
+dd if=/dev/zero of=rootfs.img bs=1M count=1K
+
+create partition 
+
+fdisk rootfs.img
+
+sudo losetup -o $((512*2048)) /dev/loop0  rootfs.img
+sudo mkfs.ext4 /dev/loop0
+
+sudo mount /dev/loop0 mount/
+mount rootfs.img -o offset=$((512*2048)) mount
+
+tar/rsync target-root into mount
+
+rsync -av path-to-target-root mount/
+
+umount 

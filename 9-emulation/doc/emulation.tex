@@ -1,0 +1,76 @@
+%-------------------------
+%makefile
+%(c) H.Buchmann FHNW 2014
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+\newcommand{\qemu}{{\em qemu}\xspace}
+
+\title[Emulation]{Emulation\\mit \qemu}
+
+\frame{\titlepage}
+
+\begin{frame}{Um was geht es ?}{VM: Virtuelle Maschine}
+\begin{itemize}
+ \item VM: Virtuelle Maschine 
+ \item \url{qemu.org} unsere Maschine
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Terminologie}
+ \begin{description}
+  \item[Host] die Workstation
+  \begin{itemize}
+   \item mit \linux
+  \end{itemize}
+  \item[VM] virtuelle Maschine:
+   \begin{itemize}
+    \item Programm auf dem {\em Host}
+   \end{itemize}
+  \item[Gast] Code der auf der {\em VM} läuft
+ \end{description}
+\end{frame}
+
+\begin{frame}[fragile]{Ein atypisches Beispiel}{mit \qemu}
+ \begin{description}
+  \item[Host] \unix
+  \item[VM] \qemu
+  \item[Gast] \cod{hello-world} 
+ \end{description} 
+ \begin{block}{Aufruf}
+  {\footnotesize
+  \begin{verbatim}
+qemu-system-arm -M realview-eb -kernel hello-world -serial stdio
+  \end{verbatim}
+  }
+  \end{block}
+\end{frame}
+
+\begin{frame}{Aufgaben}
+ \begin{description}
+  \item[QEMU] Aus den {\em sourcen} 
+  \begin{itemize}
+   \item als Übung
+  \end{itemize}
+  \item[Kernel] für den Gast
+  \begin{itemize}
+   \item {\tiny\url{http://xecdesign.com/downloads/linux-qemu/kernel-qemu}}
+   \item Eigener kernel
+  \end{itemize}
+  \item[RootFS] als (virtuelle) Partition 
+  \remark{notes.txt}
+  \item[Net] Verbindung
+ \end{description}
+ \remark{\cod{src/qemu.sh}}
+\end{frame}
+\end{document}

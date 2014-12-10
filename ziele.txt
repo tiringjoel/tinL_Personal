@@ -80,6 +80,18 @@
      .configure
      .make
      .make install
+
+ 3.Dez. 2014
+ -----------
+  Projektwoche
+
+10.Dez. 2014
+------------
+  8-configure
+   . rsync
+   . lighttpd
+   . openssh
+  9-emulation
      
 TODO:
   . systemd/systemctl
