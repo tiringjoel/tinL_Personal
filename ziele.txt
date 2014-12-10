@@ -75,6 +75,7 @@
 ------------
   7-startup
    .u-boot: persistentes environment
+   copy 7-startup/config/uEnv.txt to SD-Card/boot partition
   8-configure
    Software from scratch
      .configure
