@@ -7,12 +7,13 @@ TARGET=../target-root/
 PREFIX=../tc/bin/armv6l-unknown-linux-gnueabihf-
 CFLAGS=-std=c99
 CC=${PREFIX}gcc -O2 --sysroot=${TARGET}
-LD=${PREFIX}ld
+LD=${PREFIX}ld 
 CXX=${PREFIX}g++ --sysroot=${TARGET} -O2
 CXXFLAGS=-std=c++11
-
+LDFLAGS=-static
 VPATH=../src
-
+minimal-1:		minimal-1.o
+minimal-1.o:		minimal-1.c
 hello-world-c:		hello-world-c.o
 hello-world-c.o:	hello-world-c.c
 

@@ -1,0 +1,134 @@
+%-------------------------
+%minimal-unix
+%(c) H.Buchmann FHNW 2014
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+\newcommand{\qemu}{{\em qemu}\xspace}
+\newcommand{\busybox}{{\em busybox}\xspace}
+\title{Minimales \unix}
+
+\frame{\titlepage}
+
+\begin{frame}{Um was geht es ?}{Minimales \unix}
+\begin{itemize}
+ \item {\em minimal}: ein einziger Prozess
+ \item \busybox ein kleines \unix
+ \item ein kleines \unix aus einem grossen \unix
+\end{itemize}
+\remark{Grosse \unix gibt es viele
+\begin{itemize}\item kleine weniger\end{itemize}}
+\end{frame}
+
+
+\section{Minimal}
+\begin{frame}[fragile]{Single Process}{ein einfaches \cod{init}}
+\label{Minimal}
+ \begin{lstlisting}
+#include <unistd.h>
+
+int main(int argc,char** args)
+{
+ static const char MSG[]="Hello World from '"
+                  __FILE__ "'\t '" __DATE__ "'\n";
+ write(STDOUT_FILENO,MSG,sizeof(MSG));
+ while(1){}
+}
+ \end{lstlisting}
+\end{frame}
+
+\begin{frame}{Was ist zu tun ?}
+ \begin{itemize}
+  \item \cod{minimal-1} herstellen
+  \begin{itemize}
+   \item siehe \cod{devel}
+   \item \cod{-static} ohne dynamische Bibliotheken
+  \end{itemize}
+  \item Kleines \cod{root-fs} mit nur einem File
+  \begin{itemize}
+   \item \cod{minimal-1}
+   \remark{versuche {\em extended} Partitionen}
+  \end{itemize}
+  auf SD-Karte
+  \item {\em uboot} 
+  \begin{itemize}
+   \item \cod{setenv bootargs '{}...{}'}
+  \end{itemize}
+  \item starten   
+ \end{itemize}
+ \remark{ein sehr kleines aber vollwertiges \unix}
+\end{frame}
+
+\section{\busybox}
+\begin{frame}{\busybox}{ist ein kleines \unix}
+\begin{itemize}
+ \item \url{https://github.com/raspberrypi/target_fs}
+ \item Herstellung
+ \begin{itemize}
+  \item  Siehe \hyperref[Minimal]{Minimal \ref*{Minimal}}
+ \end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Von gross zu klein}
+\begin{frame}{\cod{initrd}}{Initiale RAM Disk}
+ \begin{itemize}
+  \item enthält ein kleines \unix
+  \item entsteht aus einem grossen \unix
+  \item spezielles Fileformat: cpio
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Aufgabe}{grosses \unix $\to$ \cod{initrd} $\to$ kleines \unix}
+ \begin{itemize}
+  \item erzeuge \cod{initrd} 
+  \begin{itemize}
+   \item mit \cod{mkinitcpio}
+  \end{itemize}
+  \item erzeuge {\em target-root} aus \cod{initrd} 
+  \begin{itemize}
+   \item mit \cod{cpio}
+  \end{itemize}
+  \item erzeuge {\em partition} auf {\em SD-Card}
+  \item setze \cod{bootargs}
+  \begin{itemize}
+   \item im \cod{u-boot}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{cpio}{eine Anwendung von {\em pipes}}
+ \begin{block}{create}
+   \begin{lstlisting}[language=bash]
+find . | cpio --create  | gzip --stdout  - > file
+   \end{lstlisting}
+\vspace{-4mm}   
+   \begin{description}
+    \item[find] erzeugt Fileliste
+    \item[cpio] alle Files in einen {\em stream}
+    \item[gzip] Komprimation in {\em archive}
+   \end{description}
+ \end{block}
+ \begin{block}{extract}
+   \begin{lstlisting}[language=bash]
+gzip -d -c  path-to-archive | cpio --extract
+   \end{lstlisting}
+\vspace{-4mm}   
+   \begin{description}
+    \item[gzip] Dekomprimiert archive in {\em stream}
+    \item[cpio] erzeugt files aus {\em stream}
+   \end{description}
+ \end{block}
+\end{frame}
+
+\end{document}
