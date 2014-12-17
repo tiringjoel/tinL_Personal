@@ -1,0 +1,15 @@
+
+setenv bootargs 'console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 init=/init root=/dev/mmcblk0p4 rootfstype=ext4 rootwait'
+
+setenv bootargs 'console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 root=/dev/ram rw initrd=0x10000000'
+
+fatload mmc 0:1 0xa00000 initrd.img
+
+
+mmcinfo;fatload mmc 0 0x20000 uImage
+0x020000
+0x385c58
+
+tftp 0x10000000 image.img
+
+run usb_init
