@@ -95,6 +95,7 @@
   9-emulation
      
 TODO:
+  . minimales linux initrd
   . systemd/systemctl
   . netctl
   . accessing hardware
