@@ -28,5 +28,24 @@
 \begin{frame}{\yocto}{Erstes Target}
 \begin{itemize}
  \item bitbake core-image-minimal
+ \item Graphisches {\em backend}
+ \begin{itemize}
+  \item \cod{hob}
+ \end{itemize}
 \end{itemize}
+\end{frame}
+
+\begin{frame}{\yocto}{Raspberry}
+ \begin{itemize}
+ \item \cod{git clone git://git.yoctoproject.org/meta-raspberrypi}
+ \item Konfiguration
+ \item \cod{bitbake -k rpi-basic-image}
+ \end{itemize}
+ \remark{Fertiges Produkt:
+ \begin{itemize}
+  \item \cod{raspi-yocto.tar.gz}
+  \item auf\\
+ {\url{https://sourceforge.net/projects/fhnw-tinl/files/}}
+ \end{itemize}
+ }
 \end{frame}
