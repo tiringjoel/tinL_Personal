@@ -1,0 +1,111 @@
+\section{\yocto}
+\begin{frame}{\yocto}{\url{https://www.yoctoproject.org}}
+ \begin{block}{Gegeben}
+  \vspace{-3mm}
+  \begin{itemize}
+   \item eine Hardware
+   \item korrekte\footnote{meistens} Sourcefiles 
+   \begin{itemize}
+    \item hauptsächlich \C
+    \item verstreut auf der Welt
+    \item selber geschrieben
+   \end{itemize}
+  \end{itemize}
+ \end{block}
+ \vspace{-5mm}
+ \begin{block}{Gesucht}
+  \vspace{-3mm}
+  \begin{itemize}
+   \item ein Produkt
+   \begin{itemize}
+    \item z.B. ein \linux basiertes eingebettetes System
+   \end{itemize}
+  \end{itemize}
+ \end{block}
+ \vspace{-5mm}
+ \begin{block}{Lösungsweg}
+  \vspace{-3mm}
+  \begin{itemize}
+    \item \cod{bitbake {\em theProduct}}
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}{Wichtige Begriffe}
+ \begin{itemize}
+  \item Package
+  \begin{itemize}
+   \item Abhängigkeiten
+  \end{itemize}
+  \item Konfiguration
+  \begin{itemize}
+   \item die richtige Wahl
+  \end{itemize}
+  \item Versionen
+  \begin{itemize}
+   \item z.B. (und vor allem) \cod{git}
+  \end{itemize}
+  \item{Image}
+  \begin{itemize}
+   \item das Endprodukt
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Wichtige Begriffe}
+ \begin{itemize}
+  \item Layer
+  \begin{itemize}
+   \item die Verzeichnisse \cod{meta-*}
+  \end{itemize}
+  \item SDK Software Development Kit
+  \begin{itemize}
+   \item die {\em toolchain}
+  \end{itemize}
+  \item \cod{bitbake}
+  \begin{itemize}
+   \item das Arbeitspferd
+  \end{itemize}
+  \item Rezept {\em recipe}
+  \begin{itemize}
+   \item beschreibt die Herstellung einer Komponente
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\subsection{Demo}
+\begin{frame}{Vorbereitung}
+{\footnotesize\url{www.yoctoproject.org/docs/1.7/yocto-project-qs/yocto-project-qs.html}}
+\begin{itemize}
+ \item Installation
+ \begin{itemize}
+   \item \see{}Getting the Yocto Project
+ \end{itemize}
+ \item Setze korrekte Umgebung 
+  \begin{itemize}
+    \item \cod{. oe-init-build-env} 
+  \end{itemize}
+  \item  Starte
+   \begin{itemize}
+     \item \cod{bitbake -k core-image-minimal}
+     \item braucht Zeit
+     \item braucht $\approx 40 GiB$ Festplatte
+   \end{itemize}
+\end{itemize} 
+\end{frame}
+
+\begin{frame}{Das Resultat}{als virtuelle Machine}
+\begin{block}{Die Files:}
+ \begin{block}{\kernel}
+  \cod{bzImage-qemux86.bin}
+ \end{block}
+ \begin{block}{\unix}
+  \cod{core-image-minimal-dev-qemux86-20141018183055.rootfs.ext3}
+ \end{block}
+\end{block}
+\begin{block}{Starten}
+ \cod{runqemu qemux86 {\em kernel} {\em unix}  serial}
+\end{block}
+\remark{predefined:\\ 
+{\tiny\url{http://downloads.yoctoproject.org/releases/yocto/yocto-1.7/machines/qemu/qemux86/}}}
+\end{frame}

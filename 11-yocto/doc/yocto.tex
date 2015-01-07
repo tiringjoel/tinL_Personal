@@ -1,0 +1,41 @@
+%-------------------------
+%minimal-unix
+%(c) H.Buchmann FHNW 2014
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+\newcommand{\qemu}{{\em qemu}\xspace}
+\newcommand{\busybox}{{\em busybox}\xspace}
+\newcommand{\yocto}{{\em yocto}\xspace}
+\title[\yocto]{\yocto\\\linux nach Mass ?}
+
+\frame{\titlepage}
+\begin{frame}{Um was geht es ?}
+ \begin{itemize}
+  \item Massgeschneidertes \linux für:
+  \begin{itemize}
+   \item heterogene Hardwareplatformen
+   \item eingebettete Systeme
+  \end{itemize}
+  \item mit 
+  \begin{itemize}
+   \item standardisierter (einfacher ?) Herstellung
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\input{the-big-picture.tex}
+\input{the-yocto.tex}
+\input{exercises.tex}
+%layers
+\end{document}

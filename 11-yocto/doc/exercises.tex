@@ -1,0 +1,32 @@
+\section{Aufgaben}
+\begin{frame}{\yocto}{einrichten}
+ \begin{itemize}
+  \item {\tiny \url{https://www.yoctoproject.org/downloads}}
+  \item {\tiny\url{http://www.yoctoproject.org/docs/1.7/yocto-project-qs/yocto-project-qs.html}}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\yocto}{Predefined}
+ \begin{itemize}
+  \item {\tiny\url{http://www.yoctoproject.org/docs/1.7/yocto-project-qs/yocto-project-qs.html}}
+  \begin{itemize}
+   \item Using Pre-Built Binaries and QEMU
+  \end{itemize}
+  \item die Files:
+  \begin{itemize}
+   \item \cod{bzImage-qemux86.bin} \kernel
+   \item \cod{core-image-minimal-dev-qemux86-*.rootfs.*} rootfs
+  \end{itemize}
+  \item \cod{qemu-system-i386} die Parameter:
+  \begin{itemize}
+   \item \cod{-kernel bzImage-qemux86.bin}
+   \item \cod{-append "{}root=/dev/hda console=ttyS0"{}}
+  \end{itemize}
+ \end{itemize} 
+\end{frame}
+
+\begin{frame}{\yocto}{Erstes Target}
+\begin{itemize}
+ \item bitbake core-image-minimal
+\end{itemize}
+\end{frame}

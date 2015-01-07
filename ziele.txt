@@ -96,7 +96,12 @@
 
 17.Dez.2014
 -----------
-10-minimales-unix     
+10-minimales-unix  
+
+ 7.Jan.2015
+ ----------
+11-yocto
+   
 TODO:
   . systemd/systemctl
   . netctl
