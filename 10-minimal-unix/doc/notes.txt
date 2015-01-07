@@ -1,0 +1,12 @@
+Notes
+-----
+in initrd
+
+ find . | cpio -o | gzip -c > ../work/initrd.img
+
+512 MiB 0x20000000
+256 MiB 0x10000000
+
+in work
+
+mkimage -A arm -C none -T ramdisk -a 0x10000000 -d initrd.img image.img
