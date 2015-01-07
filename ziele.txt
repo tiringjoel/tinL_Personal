@@ -103,6 +103,7 @@
 11-yocto
    
 TODO:
+  . minimales linux initrd
   . systemd/systemctl
   . netctl
   . accessing hardware

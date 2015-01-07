@@ -1,3 +1,4 @@
+#!/bin/bash
 #---------------------
 #qemu.sh
 #(c) H.Buchmann FHNW 2014
