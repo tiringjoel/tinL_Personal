@@ -12,7 +12,7 @@ SIGNATURE=.674c09cf-ac29-40e4-a768-5608a462a3e1
    echo "your are not in toolchain"
    exit 1  
   }
-TOOLCHAIN=$(pwd) # absolute path  
+TOOLCHAIN=$(pwd) # absolute path  to here
 #the paths
 
 SCRIPTS=${TOOLCHAIN}/scripts
@@ -23,7 +23,8 @@ TARGET=armv6l-unknown-linux-gnueabihf
 TARGET_PREFIX=${TOOLCHAIN}/tc
 #used in --prefix
 
-TARGET_ROOT=${TOOLCHAIN}/../resources/target-root
+TARGET_ROOT=${TOOLCHAIN}/foo
+
 #used in --with-sysroot
 
 #the source code of the binutils
@@ -35,5 +36,5 @@ GCC=${HOME}/devel/gcc/dist/gcc-4.9.2
 cd build
 
 #the make command 
-MAKE=make -j4
+MAKE="make -j4"
 

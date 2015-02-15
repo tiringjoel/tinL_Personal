@@ -27,6 +27,13 @@ ${GCC}/configure \
  --with-arch=armv6 \
  --with-float=hard \
  --with-fpu=vfp 
+#-------------- should work for archlinux-root
+#-------------- discrepancies 
+# archlinux-rootfs 
+# --with-fpu=vfp ok
+# yocto-rootfs
+# --with-fpu=vfp
+#  error
 
 echo "proceed manually in $(pwd)"
 
