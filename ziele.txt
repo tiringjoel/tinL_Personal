@@ -101,7 +101,16 @@
  7.Jan.2015
  ----------
 11-yocto
-   
+
+
+-------------------------------------------------------------------
+17.Feb.2015
+-----------
+ Vorbereitung  für Driverentwicklung
+  - 13-toolchain 
+    . auf dem neuesten Stand
+  - kleines rootfs von yocto
+        
 TODO:
   . minimales linux initrd
   . systemd/systemctl
