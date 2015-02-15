@@ -1,0 +1,147 @@
+%-------------------------
+%minimal-unix
+%(c) H.Buchmann FHNW 2014
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+\newcommand{\qemu}{{\em qemu}\xspace}
+\newcommand{\busybox}{{\em busybox}\xspace}
+\newcommand{\yocto}{{\em yocto}\xspace}
+\title{Cross Toolchain}
+
+\frame{\titlepage}
+\begin{frame}{Um was geht es ?}{Eigene neueste Toolchain für \raspberry}
+ \begin{itemize}
+  \item Eigene Toolchain aus den Sourcen
+  \item Vorteil
+  \begin{itemize}
+   \item Toolchain auf den neuesten Stand
+  \end{itemize}
+  \item Nachteil
+  \begin{itemize}
+   \item  Muss selber konfiguriert werden
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Toolchain}
+ \begin{itemize}
+  \item die grossen zwei
+  \begin{itemize}
+  \item Compiler
+  \item Linker
+  \end{itemize}
+  \item kleinere Programme
+  \begin{itemize}
+   \item Assembler
+   \item ...
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Toolchain}{Beispiel}
+ \begin{itemize}
+  \item Sourcefile \cod{source.c}
+  \item Compilat/object File \cod{source.o}
+  \item Executable/Image \cod{source}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Cross toolchain}{2 Verschiedene Rechner}
+\begin{description}[Cross\{Programm\}]
+ \item[Host] Workstation leistungsfähiger Rechner
+ \item[Target] Eingebettetes System (\raspberry)
+ \item[Cross\{Programm\}] Programm (Compiler etc.) das
+ \begin{itemize}
+  \item läuft auf dem {\em Host} und erzeugt Files für das {\em Target}
+ \end{itemize}
+\end{description}
+\end{frame}
+
+\begin{frame}{Cross toolchain}
+ \begin{itemize}
+  \item erzeugt auf dem {\em Host} Programme für das {\em Target}
+ \end{itemize}
+\end{frame}
+
+\section{Build: GNU/Toolchain}
+\begin{frame}{GNU/Toolchain}{Zwei Komponenten}
+\begin{description}[binutils]
+ \item[binutils] Linker, assembler, ...
+ \item[gcc] Compiler
+\end{description}
+\end{frame}
+
+\begin{frame}{Build}{die drei Schritte}
+ \begin{itemize}
+  \item configure
+  \item make
+  \item make install
+ \end{itemize}
+ \remark{auf dem {\Huge Host}}
+\end{frame}
+
+\begin{frame}{Build}{der Kontext}
+ \begin{description}
+  \item[prefix] wo die Toolchain auf dem {\em Host} installiert wird
+  \begin{itemize}
+   \item option \cod{--prefix={\em path-to-toolchain-install}} 
+  \end{itemize}
+  \item[sysroot] wo ist das {\em Target} root system (auf dem {\em Host})
+  \begin{itemize}
+   \item option \cod{--with-sysroot={\em path-to-target-sysroot}}
+  \end{itemize}
+  \item[target] was für eine {\em Target} System
+  \begin{itemize}
+   \item option \cod{--target=armv6l-unknown-linux-gnueabihf}
+   \remark{Warum ???}
+  \end{itemize}
+ \end{description}
+\end{frame}
+
+\begin{frame}{Verzeichnisstruktur: Host}{Build}
+ \dirtree{%
+  .1 12-toolchain.
+  .2 {..674c09cf-ac29-40e4-a768-5608a462a3e1} \DTcomment {tag}.
+  .2 scripts.
+  .3 common.sh \DTcomment{used for binutils \& gcc}.
+  .3 binutils.sh.
+  .3 gcc.sh.
+  .2 build \DTcomment{for building}.
+  .3 binutils.
+  .3 gcc.
+  .2 tc \DTcomment{the products}.
+ }
+\end{frame}
+
+\begin{frame}{Verzeichnisstruktur: Host}{Cross-development}
+ \dirtree{%
+  .1 12-toolchain.
+  .2 {..674c09cf-ac29-40e4-a768-5608a462a3e1} \DTcomment {tag}.
+  .2 src.
+  .2 tc \DTcomment{the products}.
+  .2 config.
+  .3 Makefile.
+  .2 work \DTcomment{here we are/connected with \target}.
+  .3 {$\to$ ../config/Makefile} \DTcomment{a link}.
+ }
+\end{frame}
+
+\begin{frame}{Test}
+ \begin{description}[\cpp]
+  \item[\c] \cod{c-source.c}
+  \item[\cpp] \cod{cc-source.cc}
+ \end{description}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,12 @@
+Notes
+-----
+ Toolchain
+  2 Komponenten:
+    binutil: linker & Co
+    
+    gcc:     compiler gcc.gnu.org
+    
+    Alternative clang 
+    
+    
+  
