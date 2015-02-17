@@ -5,7 +5,10 @@
 #we are in 8-configure
 SRC=${PWD}/../resources/openssh-6.7p1
 export CC=${PWD}/../12-toolchain/tc/bin/armv6l-unknown-linux-gnueabihf-gcc
+export CC=${HOME}/toolchain/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc
+
 SYSROOT=${HOME}/mount/yocto/poky/build/tmp/sysroots/raspberrypi/
+SYSROOT=${HOME}/toolchain/sysroots/armv6-vfp-poky-linux-gnueabi/
 export CFLAGS=--sysroot=${SYSROOT}
 export LDFLAGS=--sysroot=${SYSROOT}
 PREFIX=${PWD}/work

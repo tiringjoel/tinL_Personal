@@ -11,7 +11,9 @@
  inspection:
   objdump -d source.o
   objdump -d source
-
+  readelf -a source.o
+  readelf -a source
+  
  verbose:
   use -v option
  

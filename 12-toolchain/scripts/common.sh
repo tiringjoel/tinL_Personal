@@ -35,6 +35,7 @@ GCC=${HOME}/devel/gcc/dist/gcc-4.9.2
 [[ ! -d build ]] && mkdir build
 cd build
 
-#the make command 
-MAKE="make -j4"
+#the make command
+#-jn the number of the cpu on the host 
+MAKE="make -j2"
 
