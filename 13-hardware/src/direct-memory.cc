@@ -93,21 +93,7 @@ unsigned*const DirectMemory::alloc(unsigned base,unsigned len)
 	      |<---------------------------------------->|     
                                pLen
  */
- unsigned offset=base%pageSize;
- unsigned page=base-offset;
- unsigned pLen=len+offset;
- pMem=(unsigned char*)mmap(0, /* addr hint */
-			   pLen,
-			   PROT_READ|PROT_WRITE,
-			   MAP_SHARED, 
-			   memId,
-			   page);
- if (pMem==0)
-    {
-     ::perror("mmap");
-     return 0;
-    }
- mem=(unsigned*)(pMem+offset);
+ //your work
  return mem;
 }
 
