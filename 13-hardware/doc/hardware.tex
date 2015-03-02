@@ -65,4 +65,18 @@
   \end{itemize}
  \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]{mmap}
+\begin{center}
+ \includegraphics[width=8cm]{mmap.pdf}
+\end{center}
+\begin{lstlisting}[language=C]
+ mem=(unsigned char*)mmap(0, /* addr hint */
+     length,
+     PROT_READ|PROT_WRITE,
+     MAP_SHARED, 
+     memId,
+     offset);
+\end{lstlisting}
+\end{frame}
 \end{document}

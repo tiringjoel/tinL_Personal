@@ -13,4 +13,6 @@ CXXFLAGS=-std=c++11
 LDFLAGS=-static
 VPATH=../src
 hw-access:		hw-access.c
-gpioctl:		gpioctl.c
+direct-memory:		direct-memory.cc
+
+
