@@ -3,6 +3,7 @@
   (c) H.Buchmann FHNW 2013
   mem read  addr [len]
       write addr data+ 
+  the solution    
 ---------------------------------*/
 #include <stdio.h>
 #include <fcntl.h>
