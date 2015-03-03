@@ -33,3 +33,4 @@ Fehler beim tar
 ssh-keygen
 sshfs
 wlan
+raspi pacman.conf

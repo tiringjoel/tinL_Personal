@@ -115,11 +115,11 @@
 -----------
  embedded world
  
+3.März 2015
+-----------
   - 13-hardware im userspace
     ACT_LED/PWR_LED
     
-3.März 2015
------------
        
 TODO:
   . minimales linux initrd
