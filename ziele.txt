@@ -120,7 +120,12 @@
   - 13-hardware im userspace
     ACT_LED/PWR_LED
     
-       
+10.März 2015
+------------
+   - 13-hardware 
+      im userspace 
+      im kernelspace
+          
 TODO:
   . minimales linux initrd
   . systemd/systemctl

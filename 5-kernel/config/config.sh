@@ -11,6 +11,6 @@ BUILD=$(pwd)/build
 MODULES=$(pwd)/modules
 
 #-jn  n:the number of cpus on your host+1 
-MAKE="make -j3"
+MAKE="make -j8"
 
 

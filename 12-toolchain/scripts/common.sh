@@ -23,7 +23,7 @@ TARGET=armv6l-unknown-linux-gnueabihf
 TARGET_PREFIX=${TOOLCHAIN}/tc
 #used in --prefix
 
-TARGET_ROOT=${TOOLCHAIN}/foo
+TARGET_ROOT=${TOOLCHAIN}/../resources/yocto-toolchain/sysroots/armv6-vfp-poky-linux-gnueabi/
 
 #used in --with-sysroot
 

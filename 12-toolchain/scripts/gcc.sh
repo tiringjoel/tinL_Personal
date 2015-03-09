@@ -25,8 +25,10 @@ ${GCC}/configure \
  --disable-libgomp \
  --disable-libmudflap \
  --with-arch=armv6 \
- --with-float=hard \
- --with-fpu=vfp 
+
+
+# --with-float=hard \
+# --with-fpu=vfp 
 #-------------- should work for archlinux-root
 #-------------- discrepancies 
 # archlinux-rootfs 
@@ -38,16 +40,16 @@ ${GCC}/configure \
 echo "proceed manually in $(pwd)"
 
 #---------------------------- the bare compiler
-#make -j4 all-gcc
-#make -j4 install-gcc 
+#make -j8 all-gcc
+#make -j8 install-gcc 
 #examine the installed files
 
 #---------------------------- the compiler lib
-#make -j4 all-target-libgcc
-#make -j4 install-target-libgcc
+#make -j8 all-target-libgcc
+#make -j8 install-target-libgcc
 #examine the installed files
 
 #---------------------------- the c++ libs
-#make -j4 all-target-libstdc++-v3
-#make install-target-libstdc++-v3
+#make -j8 all-target-libstdc++-v3
+#make -j8 install-target-libstdc++-v3
 #examine the installed files
