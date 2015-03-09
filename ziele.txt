@@ -107,10 +107,20 @@
 17.Feb.2015
 -----------
  Vorbereitung  für Driverentwicklung
-  - 13-toolchain 
+  - 12-toolchain 
     . auf dem neuesten Stand
   - kleines rootfs von yocto
-        
+
+24.Feb.2015
+-----------
+ embedded world
+ 
+3.März 2015
+-----------
+  - 13-hardware im userspace
+    ACT_LED/PWR_LED
+    
+       
 TODO:
   . minimales linux initrd
   . systemd/systemctl
