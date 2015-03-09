@@ -65,9 +65,11 @@ LED::LED(int argc,char** args)
 :argc(argc)
 ,args(args)
 {
- Mem m(0x20200000,0x1000);
- GPIO* gpio=(GPIO*)m.mem();
- gpio->GPSET1=(1<<3)|(1<<15);
+ /* exercise */
+ /* TODO read command args
+  led LED on|off|toggle
+  LED: act|pwr
+ */
 }
 
 
