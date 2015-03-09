@@ -8,7 +8,7 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 
-#define MMAP_TEST
+//#define MMAP_TEST
 
 Mem::Mem(unsigned start,unsigned lenBytes)
 :PAGE_SIZE(::sysconf(_SC_PAGESIZE))
