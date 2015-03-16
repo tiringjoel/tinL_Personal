@@ -125,7 +125,16 @@
    - 13-hardware 
       im userspace 
       im kernelspace
-          
+
+17.März 2015
+------------
+   - 13-hardware 
+      im userspace 
+      im kernelspace
+   - 14-debugging
+      im userspace 
+      im kernelspace
+               
 TODO:
   . minimales linux initrd
   . systemd/systemctl

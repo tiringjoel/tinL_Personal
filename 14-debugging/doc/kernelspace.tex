@@ -1,0 +1,53 @@
+\section{Kernelspace}
+\begin{frame}{Files}
+ \begin{itemize}
+ \item dmesg
+ \end{itemize}
+\end{frame}
+
+\subsection{printk}
+\begin{frame}{printk}{Das {\em kernel printf}}
+ \begin{itemize}
+  \item Siehe \cod{6-modules/src/simple-module.c}
+ \end{itemize}
+\end{frame}
+
+\subsection{strace}
+\begin{frame}{\cod{strace}}
+ \begin{itemize}
+  \item \cod{strace} {\Huge gibt es} {\tiny natürlich} {\Huge nicht}
+ \end{itemize}
+\end{frame}
+
+
+\subsection{gdb}
+\begin{frame}{Zwei Rechner}{Host Target}
+ \begin{tabular}{l||c|c|c||l}
+  		&	Host	&	& Target\\
+  \hline
+  seriell	&\cod{/dev/ttyUSB0}	&$\leftrightarrow$& \cod{/dev/ttyS} &debug\\
+  ethernet	&\cod{eth0}		&$\leftrightarrow$& \cod{eth0} &Bedienung\\
+ \end{tabular}
+ 
+ \remark{die serielle Schnittstelle kann nicht für die Bedienung gebraucht werden}
+\end{frame}
+
+\begin{frame}{Konfiguration}
+ \begin{description}
+  \item[Target] Kernel hacking $\to$ KGDB kernel debugger
+  \item[Host] gdb für ARM
+  \begin{description}[configuration]
+   \item[download]  \url{www.gnu.org/software/gdb/}
+   \item[configuration]
+    \cod{configure --prefix={\em where-on-host} $\backslash$\\
+     --target=arm-none-linux-gnueabi}
+  \end{description}
+ \end{description}
+\end{frame}
+
+\begin{frame}{Anwendung}
+ \begin{itemize}
+  \item Siehe \url{DocBook/index.html} kgdb
+ \end{itemize}
+\end{frame}
+

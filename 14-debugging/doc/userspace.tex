@@ -1,0 +1,48 @@
+\section{Userspace}
+\subsection{printf/fprintf}
+\begin{frame}{printf/fprintf}
+ \begin{itemize}
+  \item Unterschied \cod{stdout} vs. \cod{stderr}
+   \begin{itemize} 
+    \item \cod{printf} (\cod{stdout}) 
+    \item \cod{fprintf(stderr,....)}
+   \end{itemize}
+  \item Einfaches Beispiel \cod{hello-world.c}
+ \end{itemize}
+\end{frame}
+
+\subsection{strace}
+\begin{frame}{strace}{trace system calls and signals}
+ \begin{itemize}
+  \item \cod{strace hello-world}
+ \end{itemize}
+ \remark{Einen Haufen Optionen}
+\end{frame}
+
+\subsection{Debugger}
+\begin{frame}{Debugger}{\url{sourceware.org/gdb/current/onlinedocs/gdb/}}
+ \begin{itemize}
+  \item compile \cod{-g}
+  \item start: \cod{gdb -d {\em path-to-source}}
+  \item \cod{break} point
+  \item \cod{run},\cod{step}, \cod{cont}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{die graphische Oberfläche}{z.B. nemiver}
+ \begin{itemize}
+  \item \cod{break} point
+  \item \cod{run} \cod{cont}
+  \item etc.
+ \end{itemize}
+ \remark{es gibt noch andere graphische Oberflächen}
+\end{frame}
+
+\begin{frame}{TODO's}
+ \begin{itemize}
+  \item Optimierungen
+  \begin{itemize}
+   \item \cod{Makefile} \cod{CFLAGS} \cod{-O0,-O1, -O2}
+  \end{itemize}
+ \end{itemize}
+\end{frame}

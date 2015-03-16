@@ -1,0 +1,48 @@
+%-------------------------
+%makefile
+%(c) H.Buchmann FHNW 2015
+%export TEXINPUTS=.:${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+
+\title{Debugging}
+
+\frame{\titlepage}
+
+\begin{frame}{Dokumentation}
+\begin{itemize}
+ \item Gemacht mit \cod{sh tools/make-it.sh htmldocs} in \cod{5-kernel}
+ \item Daten in \cod{build/Documentation/DocBook/index.html}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Um was geht es ?}{Fehlersuche}
+
+ \begin{itemize}
+  \item im {\em userspace} normale Programme
+   \begin{itemize}
+    \item \host
+    \item \target
+   \end{itemize}
+  \item im {\em kernelspace} 
+   \begin{itemize}
+    \item \host
+    \item \target
+   \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\input{userspace.tex}
+
+\input{kernelspace.tex}
+\end{document}
