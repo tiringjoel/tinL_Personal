@@ -30,6 +30,7 @@ TARGET_ROOT=${TOOLCHAIN}/../resources/yocto-toolchain/sysroots/armv6-vfp-poky-li
 #the source code of the binutils
 BINUTILS=${HOME}/devel/gcc/dist/binutils-2.25
 GCC=${HOME}/devel/gcc/dist/gcc-4.9.2
+GDB=${TOOLCHAIN}/../resources/gdb-7.9
 
 #--------------------- create build directory
 [[ ! -d build ]] && mkdir build
@@ -37,5 +38,5 @@ cd build
 
 #the make command
 #-jn the number of the cpu on the host 
-MAKE="make -j2"
+MAKE="make -j6"
 
