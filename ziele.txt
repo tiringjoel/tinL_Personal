@@ -134,7 +134,13 @@
    - 14-debugging
       im userspace 
       im kernelspace
-               
+
+14.März 2015
+------------
+   - 15-makefile
+   - 14-debugging
+      kernelspace
+
 TODO:
   . minimales linux initrd
   . systemd/systemctl
