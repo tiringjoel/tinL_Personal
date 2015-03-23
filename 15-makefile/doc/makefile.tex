@@ -1,0 +1,174 @@
+%-------------------------
+%makefile
+%(c) H.Buchmann FHNW 2015
+%export TEXINPUTS=.:${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+
+\title{Makefile}
+
+\frame{\titlepage}
+
+\section{Überblick}
+\begin{frame}{Programmentwicklung}{von der {\em Source} zum {\em Image}}
+ \begin{description}
+  \item[Gegeben:] SourceFiles: viele Files
+  \item[Gesucht:] ImageFile: ein File
+ \end{description}
+\end{frame}
+
+
+\begin{frame}{Programmentwicklung}{Files sind die Grundelemente}
+ \begin{itemize}
+   \item Klassische Programmentwicklung
+   \item Verschiedene Arten von \alert{Files}
+   \item Programme/Tools erzeugen die Files
+   \item Die Files hängen voneinander ab
+   \item Für etwas komplexere Projekte gibt es viele Files $\approx 100$
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Ein grosses Projekt}{\linux}
+ \begin{itemize}
+  \item Anzahl Files 
+  \begin{itemize}
+    \item \cod{tools/count-files.sh}
+  \end{itemize}
+  \item SLOC: Source Line Of Code
+  \begin{itemize}
+   \item \cod{tools/sloc-count.sh}
+   \item Analyse mit excec
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Der File {\tt Makefile}}{das Programm {\tt make}}
+ \begin{description}[Makefile]
+  \item[Makefile] Muss selber geschrieben werden:\\
+   Beschreibt, wie Files gemacht werden.
+   \remark{Es gibt Programme z.B. \cod{automake} die erzeugen \cod{Makefile}'s}
+  \item[make] Programm: \\
+  interpretiert den \cod{Makefile} 
+ \end{description}
+ 
+\end{frame}
+
+\begin{frame}{Dokumentation}
+ \url{http://www.gnu.org/software/make/manual/make.html}
+\end{frame}
+
+\begin{frame}{make: Aufruf}
+ \begin{code}
+  make name
+ \end{code}
+ \begin{description}
+  \item[make] Das Programm
+  \item[name] Name des Files, der hergestellt werden soll 
+       \footnote{Allgemeiner: \cod{name} ist der Name einer Regel}
+  \item[Makefile] muss nicht angegeben werden. \cod{make} sucht den
+  File mit dem Namen \cod{Makefile} im {\em current directory}
+ \end{description}
+\end{frame}
+
+\section{Aufbau}
+\begin{frame}{Makefile: Struktur}
+ \begin{description}[Variablen]
+  \item[Variablen] Siehe \codelink{config/Makefile}
+  \item[Rules]  der wichtige Teil
+  \remark{Eine Regel beschreibt Abhängigkeiten}
+ \end{description}
+\end{frame}
+
+
+\subsection{Regeln}
+\begin{frame}
+ \frametitle{Makefile: {\em rule} Regel}
+ \begin{code}
+  target:  $\to$ file1 file2 file3 ..\\
+\ \ $\to$ tool      
+ \end{code}
+ \remark{'$\to$' steht für das unsichtbare {\em Tabulator} Zeichen}
+ \begin{description}
+  \item[target] File, der hergestellt wird
+  \item[file1,file2..] {\em prerequisites} Files, die es braucht um das
+  \cod{target} herzustellen
+  \item[tool] Programm, das aus den {\em prerequisites} das \cod{target}
+      herstellt. 
+      \begin{itemize}
+       \item Muss normalerweise nicht angegeben werden. \cod{make}
+      kann aus den {\em Fileextensions} das \cod{tool} bestimmen.
+      \end{itemize}
+ \end{description}
+\end{frame}
+
+\subsection{Unser Beispiel}
+\begin{frame}{Ziel}
+ \begin{enumerate}
+  \item lauffähig auf \host
+  \item lauffähig auf \target
+ \end{enumerate}
+\end{frame}
+
+\begin{frame}{Verzeichnisstruktur}
+ \dirtree{%
+  .1 somewhere \DTcomment{on your \host}.
+  .2 src \DTcomment{home of source files}.
+  .2 config \DTcomment{home of configuration files}.
+  .3 Makefike.
+  .2 work \DTcomment{workspace}.
+  .3 Makefile $\to$ ../config/Makefile \DTcomment{link}.
+ }
+ \remark{Wie immer!}
+\end{frame}
+
+\begin{frame}[fragile]{Abhängigkeiten}{9 Files}
+\vspace{-2cm}
+\fig{rules.pdf}{0.5}{0}
+\vspace{-1cm}
+\listing{rules}
+\end{frame}
+
+\begin{frame}{Die Operationen}
+ \begin{tabular}{lll}
+ target & prerequisites & action\\
+ \hline
+ \cod{udp-server-demo}:	&\cod{udp-server-demo.o udp.o} & link\\
+ \cod{udp-client-demo}:	&\cod{udp-client-demo.o udp.o} & link \\
+ \cod{udp-server-demo.o}:	&\cod{udp-server-demo.c udp.h} & compile \\
+ \cod{udp-client-demo.o}:	&\cod{udp-client-demo.c udp.h} & compile\\
+ \cod{udp.o}:			&\cod{udp.c udp.h} & compile
+ \end{tabular}
+\end{frame}
+
+\begin{frame}{Die Include Files}
+ Die {\em include files}:
+ \begin{itemize}
+  \item müssen im \cod{Makefile} angegeben werden
+  \item werden erst im vom Präprozessor includiert
+ \end{itemize} 
+\end{frame}
+
+\begin{frame}{Die Include Files}{Andere Sichtweise}
+ \fig{rules-1.pdf}{0.5}{0}
+\end{frame}
+
+\begin{frame}{Aufgabe}
+ \begin{itemize}
+  \item Anpassung an \target
+  \item Für \target {\em und} \host
+  \begin{itemize}
+   \item ist POSIX
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+\end{document}
