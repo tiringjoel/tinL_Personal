@@ -4,13 +4,13 @@
 #---------------------
 #we are in 5-kernel
 PREFIX=armv6l-unknown-linux-gnueabihf-
-TC=${PWD}/tc/bin/
+TC=${PWD}/../12-toolchain/tc/bin/
 CROSS_COMPILE=${TC}/${PREFIX}
 LINUX_SRC=${PWD}/../resources/kernel/linux
 BUILD=$(pwd)/build
 MODULES=$(pwd)/modules
 
 #-jn  n:the number of cpus on your host+1 
-MAKE="make -j1"
+MAKE="make -j8"
 
 

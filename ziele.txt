@@ -135,12 +135,21 @@
       im userspace 
       im kernelspace
 
-14.März 2015
+24.März 2015
 ------------
    - 15-makefile
    - 14-debugging
       kernelspace
 
+31.März 2015
+------------
+   - 16-clang
+   - einheitliche Umgebung:
+     . toolchain 12-toolchain
+     . kernel     5-kernel
+     . rootfs     armv6-vfp-poky-linux-gnueabi.tar.gz 
+     . module     6-modules
+     
 TODO:
   . minimales linux initrd
   . systemd/systemctl

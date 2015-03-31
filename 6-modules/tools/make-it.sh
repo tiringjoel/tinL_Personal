@@ -18,5 +18,5 @@ LINUX_SRC=../../resources/kernel/linux/
 export KERNEL=../../5-kernel/build
 make  -C ${KERNEL} \
      ARCH=arm \
-     CROSS_COMPILE=${PWD}/../tc/bin/${PREFIX}- \
+     CROSS_COMPILE=${PWD}/../../12-toolchain/tc/bin/${PREFIX}- \
      M=${PWD} $@
