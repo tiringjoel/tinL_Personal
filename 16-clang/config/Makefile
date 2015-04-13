@@ -6,7 +6,7 @@
 #the compiler/linker
 TARGET=armv6l-unknown-linux-gnueabihf
 TC=../../12-toolchain/tc/
-SYSROOT=../../resources/yocto-toolchain/sysroots/armv6-vfp-poky-linux-gnueabi
+SYSROOT=../../resources/target-root/
 
 CFLAGS=-std=c99
 
@@ -14,13 +14,15 @@ CFLAGS=-std=c99
 CC=${TC}/bin/${TARGET}-gcc --sysroot=${SYSROOT}
 #for host
 #CC=gcc
-CC=clang --target=arm-none-linux-gnueabi  -fintegrated-as
+CC=clang --target=arm-none-linux-gnueabi --sysroot=${SYSROOT}
 LD=${TC}/bin/${TARGET}-gcc --sysroot=${SYSROOT}
+AS=${TC}/bin/${TARGET}-as
 
 
 #----------------------------- linker pattern
 %:	%.o;${LD} ${^} -o ${@}
-
+%.o:	%.c;clang --target=arm-none-linux-gnueabi --sysroot=${SYSROOT} -S ${<} -o - | \
+	${AS} -o ${@}
 #where to look for source files
 VPATH=../src
 all:	hello-world
