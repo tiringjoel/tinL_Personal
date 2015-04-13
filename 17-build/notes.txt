@@ -1,0 +1,26 @@
+Notes
+-----
+install headers
+make headers_install INSTALL_HDR_PATH=path-to-target-root/usr
+
+Kernel
+------
+make  bcmrpi_defconfig
+
+
+Busybox
+-------
+without inetd
+
+ethernet on host
+enp0s20u6
+
+
+/bin/mount -t proc none /proc
+/bin/mount -t sysfs none /sys
+/bin/mount -t tmpfs -o mode=0755 none /dev
+/bin/mkdir /dev/pts
+/bin/mkdir /dev/shm
+/bin/echo "/sbin/mdev" > /proc/sys/kernel/hotplug
+echo -n "Making /dev: "
+/sbin/mdev -s

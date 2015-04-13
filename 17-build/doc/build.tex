@@ -1,0 +1,149 @@
+%-------------------------
+%clang
+%(c) H.Buchmann FHNW 2008
+%export TEXINPUTS=.:${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+\title[Build]{Ein ganzes \linux}
+
+\frame{\titlepage}
+
+\begin{frame}{Um was geht es ?}
+ \begin{itemize}
+  \item ein \linux von Grund auf bauen
+  \begin{itemize}
+   \item nicht meht so schwer wie auch schon
+  \end{itemize}
+  \item nicht völlig automatisiert
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Ziel}{\linux auf dem \target}
+\begin{itemize}
+ \item command based
+ \item Ethernet
+ \item \cod{ssh} 
+ \item \cod{sshfs}
+ \item moderne Toolchain inkl. {\em c++11} \cpp 
+\end{itemize}
+\end{frame}
+
+\section{Die Komponenten}
+\begin{frame}{Komponenten}{\target und \host}
+ \begin{block}{\target}
+  \begin{description}
+   \item[Kernel] ein File
+   \item[root] ein Filesystem
+  \end{description}
+ \end{block}
+ \begin{block}{\host}
+  \begin{description}
+   \item[Toolchain] binutils, gcc
+  \end{description}
+ \end{block}
+\end{frame}
+\subsection{Target \target}
+
+\begin{frame}{Übersicht}
+ \begin{center}
+  \includegraphics[width=8cm]{layers.pdf}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Die Komponenten}{für \raspberry}
+ \begin{description}
+  \item[Hardware] \raspberry
+  \item[Kernel] zugeschnitten auf \raspberry
+  \begin{itemize}
+    \item {\tiny \url{https://github.com/raspberrypi/linux.git}}
+  \end{itemize}	
+  \item[root] das Filesystem
+  \begin{description}
+   \item[LibC] eglibc 
+   \begin{itemize}
+    \item {\tiny \url{http://www.eglibc.org/home}}
+   \end{itemize}	
+   \item[\unix] busybox
+   \begin{itemize}
+    \item {\tiny \url{http://www.busybox.net/}}
+   \end{itemize}
+   \item[...] Weitere \unix basierte Komponenten
+   \begin{itemize}
+    \item das \cod{configure}, \cod{make}, \cod{make install} Triple 
+   \end{itemize}
+   \end{description}
+ \end{description}
+\end{frame}
+
+\subsection{\host}
+\begin{frame}{Toolchain}
+ \begin{description}
+  \item[binutils] linker \& Co.
+  \item[gcc] compiler
+  \begin{itemize}
+   \item \cod{libgcc} die Bibliothek für den Compiler
+  \end{itemize}
+ \end{description}
+ 
+ \begin{remarks}
+ \item die Toolchain muss zweimal gebaut werden
+ \begin{itemize}
+  \item für den \kernel und \cod{libc} 
+  \item für \unix/\posix
+ \end{itemize}
+ \item das target
+ \begin{itemize} 
+  \item \cod{cpu-vendor-os}
+  
+ \end{itemize}
+ \end{remarks}
+\end{frame}
+
+\begin{frame}{Die Verzeichnisstruktur}
+\dirtree{%
+ .1 .
+ .2 scripts.
+ .3 common.h \DTcomment{used in (all) scripts}.
+ .2 config.
+ .3 Makefile.
+ .2 build \DTcomment{home of the build files}.
+ .2 target-root.
+ .2 target-mount.
+ .2 tc \DTcomment{the toolchain}.
+ .2 src \DTcomment{own programs}.
+ .2 work.
+ .3 $\to$ {../config/Makefile}.
+}
+\end{frame}
+
+\section{Build}
+\begin{frame}{Build}{die Schritte}
+ \begin{itemize}
+  \item \cod{binutils}
+  \item \cod{gcc-bare} 
+  \item \cod{kernel}
+   \begin{itemize}\item \cod{bcmrpi\_defconfig}\end{itemize}
+  \item \cod{eglibc} 
+  \item \cod{gcc} 
+  \item Test
+  \begin{itemize}\item im Verzeichnis \cod{work}\end{itemize}
+  \item \cod{busybox}
+  \begin{itemize}
+   \item Installation auf SD-Card
+   \item \cod{fakeroot}
+  \end{itemize}
+  \item \cod{openssh} die volle Implementation 
+ \end{itemize}
+\end{frame}
+
+\end{document}
