@@ -162,4 +162,94 @@
   \item \cod{sshfs}
  \end{itemize}
 \end{frame}
+
+
+\begin{frame}{Skripts und Argumente}{initiales System}
+ \begin{tabular}{lll}
+  \cod{binutils.sh}\\
+  \cod{gcc-bare.sh}& &kernel libc\\
+  \cod{kernel.sh}  & \cod{bcmrpi\_defconfig}\\
+                   & \cod{zImage}\\
+                   & \cod{headers\_install}\\
+  \cod{eglibc.sh}  &\\
+  \cod{gcc.sh}     &&C/C++ POSIX\\
+  \cod{busybox.sh} &busybox\\
+  		   &install\\
+  \cod{target-root.sh}
+ \end{tabular}
+\end{frame}
+
+\begin{frame}{Target}{erster Versuch}
+\begin{itemize}
+ \item transfer auf SD Karte
+ \item Internet
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Skripts und Argumente}{ssd}
+\begin{tabular}{lll}
+ \cod{zlib.sh}\\
+ \cod{opensss.sh}&&die kryptographischen Algorithmen\\
+ \cod{openssh.sh}
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Target}{ssh}
+\begin{itemize}
+ \item \cod{ssh}
+ \item \cod{sshd}
+ \item Keys
+\end{itemize}
+\end{frame}
+
+\begin{frame}{sshfs}{funktioniert noch nicht}
+ \begin{itemize}
+  \item Die Bibliothek \cod{glib}
+  \item Ersatz
+  \begin{itemize}
+   \item \cod{stfp}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\section{Modules}
+\begin{frame}{Modules}
+\begin{itemize}
+ \item siehe \cod{6-modules}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Modules}{Verzeichnisstruktur}
+\begin{block}{Host}
+\dirtree{%
+ .1 BUILD\_HOME.
+ .2 modules.
+ .3 Makefile \DTcomment{for own modules}.
+ .3 *.{c/h} \DTcomment{the own sources}.
+ .2 scripts.
+ .3 module.sh.
+}
+\end{block}
+\begin{block}{\target}
+\dirtree{%
+.1 /.
+.2 work.
+}
+\end{block}
+\end{frame}
+\begin{frame}{Herstellung}{Workflow}
+ \begin{block}{Host}
+ \begin{itemize}
+  \item \cod{sh scripts/module.sh {\em module}}
+  \item \cod{scp}, \cod{stfp}, \cod{ftp}
+ \end{itemize}
+ \end{block}
+ \begin{block}{\target}
+  \begin{itemize}
+   \item \cod{insmod}
+   \item \cod{rmmod}
+  \end{itemize}
+ \end{block}
+\end{frame}
+
 \end{document}

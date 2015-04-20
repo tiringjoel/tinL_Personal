@@ -1,26 +1,55 @@
 Notes
 -----
-install headers
-make headers_install INSTALL_HDR_PATH=path-to-target-root/usr
+binutils:
+	scripts/binutils.sh
 
-Kernel
-------
-make  bcmrpi_defconfig
+toolchain: kernel eglibs
+	scripts/gcc-bare.sh
 
+kernel:
+	scripts/kernel.sh bcmrpi_defconfig
+	scripts/kernel.sh zImage
 
-Busybox
--------
-without inetd
+kernel-headers:
+	scripts/kernel.sh headers_install	
 
-ethernet on host
-enp0s20u6
+eglibc:
+	scripts/eglibc.sh
 
+toolchain: posix
+	rm -rf build/gcc
+	scripts/gcc.sh
+	
+busybox:
+	scripts/busybox.sh busybox
+	scripts/busybox.sh install
+	
 
-/bin/mount -t proc none /proc
-/bin/mount -t sysfs none /sys
-/bin/mount -t tmpfs -o mode=0755 none /dev
-/bin/mkdir /dev/pts
-/bin/mkdir /dev/shm
-/bin/echo "/sbin/mdev" > /proc/sys/kernel/hotplug
-echo -n "Making /dev: "
-/sbin/mdev -s
+root filesystem:
+	scripts/target-root.sh
+
+sd-card:
+	target-root.tar.gz -> SD-Card
+	  tar
+	target-root->SD-Card
+	  rsync
+ssh
+	scripts/zlib.sh
+	scripts/openssl.sh
+	scripts/openssh.sh
+
+on target
+ mount -t proc none /proc
+ mount -t sysfs none /sys
+ mount -t tmpfs -o mode=0755 none /dev
+ mkdir /dev/pts
+ mount -tdevpts none /dev/pts
+ mdev  -s
+ 
+ ifconfig eth0 ip-address up
+
+	
+initial group/user
+addgroup -g 0 -S root
+adduser -u 0 -h /home/root -G root -S -D root
+

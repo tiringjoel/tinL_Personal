@@ -25,6 +25,7 @@ RESOURCES=${BUILD_HOME}/../resources/
 KERNEL_SRC=${RESOURCES}/kernel/linux/
 BINUTILS_SRC=${HOME}/devel/gcc/dist/binutils-2.25
 GCC_SRC=${HOME}/devel/gcc/dist/gcc-4.9.2
+#GCC_SRC=${RESOURCES}/gcc-5-20150329 seems not to work
 EGLIBC_SRC=${RESOURCES}/eglibc/
 BUSYBOX_SRC=${RESOURCES}/busybox-1.23.2/
 OPENSSH_SRC=${RESOURCES}/openssh-6.7p1
@@ -32,7 +33,7 @@ OPENSSL_SRC=${RESOURCES}/openssl-1.0.2a
 ZLIB_SRC=${RESOURCES}/zlib-1.2.8
 FUSE_SRC=${RESOURCES}/fuse-2.9.3
 SSHFS_SRC=${RESOURCES}/sshfs-fuse-2.5
-
+GLIB_SRC=${RESOURCES}/glib-2.44.0
 #the make command
 #-jn the number of the cpu on the host 
 MAKE="make -j6"

@@ -15,6 +15,7 @@
 }
 BUILD=${PWD}/kernel
 cd ${KERNEL_SRC}
+#MAKE='make'
 ${MAKE} V=1 O=${BUILD} \
 ARCH=arm \
 CROSS_COMPILE=${CROSS_COMPILE} \
