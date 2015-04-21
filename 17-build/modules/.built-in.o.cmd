@@ -1,0 +1,1 @@
+cmd_/home/buchmann/fhnw/edu/tinL/17-build/modules/built-in.o :=  rm -f /home/buchmann/fhnw/edu/tinL/17-build/modules/built-in.o; /home/buchmann/fhnw/edu/tinL/17-build/tc/bin/arm-fhnw-linux-gnueabi-ar rcsD /home/buchmann/fhnw/edu/tinL/17-build/modules/built-in.o
