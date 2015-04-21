@@ -160,6 +160,7 @@
    - 17-build
       kernel/root bereit für Driver Entwicklung       
 TODO:
+  . git merge strategie
   . minimales linux initrd
   . systemd/systemctl
   . netctl
