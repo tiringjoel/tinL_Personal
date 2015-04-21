@@ -15,13 +15,14 @@
 // 
 //-------------------
 #include <iostream>
+#if 1
 extern "C"
 {
  void __dso_handle()
  {
  }
 }
-
+#endif
 class HelloWorld
 {
  public:

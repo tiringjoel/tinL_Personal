@@ -12,6 +12,7 @@ CFLAGS=-std=c99
 
 #for target
 CC=${TC}/bin/${TARGET}-gcc --sysroot=${SYSROOT}
+
 #for host
 # try CC=clang
 CC=gcc

@@ -22,10 +22,10 @@ CROSS_COMPILE=${TC_PREFIX}/bin/${TARGET}-
 SYSROOT=${TARGET_ROOT}
 #----------------- the source code
 RESOURCES=${BUILD_HOME}/../resources/
-KERNEL_SRC=${RESOURCES}/kernel/linux/
-BINUTILS_SRC=${HOME}/devel/gcc/dist/binutils-2.25
-GCC_SRC=${HOME}/devel/gcc/dist/gcc-4.9.2
-EGLIBC_SRC=${RESOURCES}/eglibc/
+KERNEL_SRC=${RESOURCES}/linux/
+BINUTILS_SRC=${RESOURCES}/binutils-2.25
+GCC_SRC=${RESOURCES}/gcc-5-20150329
+EGLIBC_SRC=${RESOURCES}/eglibc-2.19/
 BUSYBOX_SRC=${RESOURCES}/busybox-1.23.2/
 OPENSSH_SRC=${RESOURCES}/openssh-6.7p1
 OPENSSL_SRC=${RESOURCES}/openssl-1.0.2a

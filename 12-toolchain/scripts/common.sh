@@ -23,13 +23,14 @@ TARGET=armv6l-unknown-linux-gnueabihf
 TARGET_PREFIX=${TOOLCHAIN}/tc
 #used in --prefix
 
-TARGET_ROOT=${TOOLCHAIN}/../resources/yocto-toolchain/sysroots/armv6-vfp-poky-linux-gnueabi/
+TARGET_ROOT=${TOOLCHAIN}/../resources/target-root/
 
 #used in --with-sysroot
 
+RESOURCES=${TOOLCHAIN}/../resources/
 #the source code of the binutils
-BINUTILS=${HOME}/devel/gcc/dist/binutils-2.25
-GCC=${HOME}/devel/gcc/dist/gcc-4.9.2
+BINUTILS=${RESOURCES}/binutils-2.25
+GCC=${RESOURCES}/gcc-5-20150329
 GDB=${TOOLCHAIN}/../resources/gdb-7.9
 
 #--------------------- create build directory

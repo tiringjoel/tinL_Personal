@@ -1,5 +1,16 @@
 Notes
 -----
+manufacturing:
+
+sh scripts/binutils.sh
+sh scripts/gcc-bare.sh
+sh scripts/kernel.sh help 
+sh scripts/kernel.sh bcmrpi_defconfig
+sh scripts/kernel.sh zImage
+sh scripts/kernel.sh headers_install
+sh scripts/eglibc.sh
+
+
 install headers
 make headers_install INSTALL_HDR_PATH=path-to-target-root/usr
 
