@@ -1,0 +1,17 @@
+Hardware
+--------
+
+
+2 Adafruit PiTFT: 2.8"LCD mit Touchscreen 		https://www.pi-shop.ch/
+1 Raspberry PI Face+LCD 2: Digital Adapterboard 	https://www.pi-shop.ch/
+1 HD-Kamera Raspberry Pi NoIR - Nachtsichtkamera	https://www.pi-shop.ch/
+1 Spy Camera für Raspberry Pi				https://www.pi-shop.ch/
+215 Fr.
+
+1 WaveShare Pi Dot Matrix Module			http://www.play-zone.ch
+1 Adafruit Ultimate GPS HAT for Raspberry Pi A+ or B+	http://www.play-zone.ch
+
+2 MICROSTACK-MICROSTACK BASE BOARD-ADAPTER-BASISPLATINE FÜR RASPBERRY PI http://ch.farnell.com
+1 MICROSTACK  MICROSTACK GPS  L80 GPS-MODUL FÜR RASPBERRY PI http://ch.farnell.com
+1 MICROSTACK  MICROSTACK ACCELEROMETER  3-ACHSEN-BESCHLEUNIGUNGSMESSER F RASP PI http://ch.farnell.com 
+90 Fr.

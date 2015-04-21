@@ -149,7 +149,16 @@
      . kernel     5-kernel
      . rootfs     armv6-vfp-poky-linux-gnueabi.tar.gz 
      . module     6-modules
-     
+
+14.April 2015
+-------------
+   - 17-build
+     . gebaut von Grund auf
+
+21.April 2015
+-------------
+   - 17-build
+      kernel/root bereit für Driver Entwicklung       
 TODO:
   . minimales linux initrd
   . systemd/systemctl

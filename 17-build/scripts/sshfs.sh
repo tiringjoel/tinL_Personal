@@ -8,12 +8,12 @@
 
 cd sshfs
 
-#${SSHFS_SRC}/configure --help
+${SSHFS_SRC}/configure --help
 
-export CC=${CROSS_COMPILE}gcc --sysroot=${SYSROOT}
-${SSHFS_SRC}/configure \
---prefix=${TARGET_ROOT} \
---host=${TARGET}
+#export CC=${CROSS_COMPILE}gcc --sysroot=${SYSROOT}
+#${SSHFS_SRC}/configure \
+#--prefix=${TARGET_ROOT} \
+#--host=${TARGET}
 
 ##remove check-config from makefile
 #${MAKE} 

@@ -1,5 +1,5 @@
 #-----------------------
-#eglibc-configure
+#eglibc
 #(c) H.Buchmann FHNW 2015
 #see EGLIBC.cross
 #-----------------------

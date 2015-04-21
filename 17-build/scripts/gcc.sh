@@ -41,15 +41,19 @@ ${GCC_SRC}/configure \
 # yocto-rootfs
 # 
 #  error
+${MAKE}
+${MAKE} install
+#echo "--------------------------------------"
+#echo "----------- proceed manually in $(pwd)"
+#echo "--------------------------------------"
 
-echo "proceed manually in $(pwd)"
 
 #---------------------------- the bare compiler
 #make -j8 all-gcc
 #make -j8 install-gcc 
 #examine the installed files
 
-#---------------------------- the compiler lib
+#---------------------------- the compiler libgcc
 #make -j8 all-target-libgcc
 #make -j8 install-target-libgcc
 #examine the installed files

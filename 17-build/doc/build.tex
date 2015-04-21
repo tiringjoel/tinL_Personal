@@ -25,6 +25,7 @@
    \item nicht meht so schwer wie auch schon
   \end{itemize}
   \item nicht völlig automatisiert
+  \item Alternative zu {\bf yocto} \& Co.
  \end{itemize}
 \end{frame}
 
@@ -119,7 +120,7 @@
  .2 build \DTcomment{home of the build files}.
  .2 target-root.
  .2 target-mount.
- .2 tc \DTcomment{the toolchain}.
+ .2 tc \DTcomment{the new toolchain}.
  .2 src \DTcomment{own programs}.
  .2 work.
  .3 $\to$ {../config/Makefile}.
@@ -127,23 +128,128 @@
 \end{frame}
 
 \section{Build}
-\begin{frame}{Build}{die Schritte}
+\begin{frame}{Build}{die Schritte 1}
  \begin{itemize}
   \item \cod{binutils}
   \item \cod{gcc-bare} 
-  \item \cod{kernel}
-   \begin{itemize}\item \cod{bcmrpi\_defconfig}\end{itemize}
+  \item \cod{kernel} mit ein paar {\em rules}
+   \begin{itemize}
+    \item \cod{bcmrpi\_defconfig}
+    \item \cod{zImage}
+    \item \cod{headers\_install}
+   \end{itemize}
+   
   \item \cod{eglibc} 
   \item \cod{gcc} 
   \item Test
   \begin{itemize}\item im Verzeichnis \cod{work}\end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Build}{die Schritte 2}
+ \begin{itemize}
   \item \cod{busybox}
   \begin{itemize}
    \item Installation auf SD-Card
    \item \cod{fakeroot}
   \end{itemize}
   \item \cod{openssh} die volle Implementation 
+  \begin{itemize}
+   \item \cod{zlib}
+   \item \cod{openssl}
+   \item \cod{openssh}
+  \end{itemize}
+  \item \cod{sshfs}
  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Skripts und Argumente}{initiales System}
+ \begin{tabular}{lll}
+  \cod{binutils.sh}\\
+  \cod{gcc-bare.sh}& &kernel libc\\
+  \cod{kernel.sh}  & \cod{bcmrpi\_defconfig}\\
+                   & \cod{zImage}\\
+                   & \cod{headers\_install}\\
+  \cod{eglibc.sh}  &\\
+  \cod{gcc.sh}     &&C/C++ POSIX\\
+  \cod{busybox.sh} &busybox\\
+  		   &install\\
+  \cod{target-root.sh}
+ \end{tabular}
+\end{frame}
+
+\begin{frame}{Target}{erster Versuch}
+\begin{itemize}
+ \item transfer auf SD Karte
+ \item Internet
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Skripts und Argumente}{ssd}
+\begin{tabular}{lll}
+ \cod{zlib.sh}\\
+ \cod{opensss.sh}&&die kryptographischen Algorithmen\\
+ \cod{openssh.sh}
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Target}{ssh}
+\begin{itemize}
+ \item \cod{ssh}
+ \item \cod{sshd}
+ \item Keys
+\end{itemize}
+\end{frame}
+
+\begin{frame}{sshfs}{funktioniert noch nicht}
+ \begin{itemize}
+  \item Die Bibliothek \cod{glib}
+  \item Ersatz
+  \begin{itemize}
+   \item \cod{stfp}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\section{Modules}
+\begin{frame}{Modules}
+\begin{itemize}
+ \item siehe \cod{6-modules}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Modules}{Verzeichnisstruktur}
+\begin{block}{Host}
+\dirtree{%
+ .1 BUILD\_HOME.
+ .2 modules.
+ .3 Makefile \DTcomment{for own modules}.
+ .3 *.{c/h} \DTcomment{the own sources}.
+ .2 scripts.
+ .3 module.sh.
+}
+\end{block}
+\begin{block}{\target}
+\dirtree{%
+.1 /.
+.2 work.
+}
+\end{block}
+\end{frame}
+\begin{frame}{Herstellung}{Workflow}
+ \begin{block}{Host}
+ \begin{itemize}
+  \item \cod{sh scripts/module.sh {\em module}}
+  \item \cod{scp}, \cod{stfp}, \cod{ftp}
+ \end{itemize}
+ \end{block}
+ \begin{block}{\target}
+  \begin{itemize}
+   \item \cod{insmod}
+   \item \cod{rmmod}
+  \end{itemize}
+ \end{block}
 \end{frame}
 
 \end{document}
