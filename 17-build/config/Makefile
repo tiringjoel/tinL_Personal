@@ -16,7 +16,8 @@ LD=${CROSS_COMPILE}ld
 #LD=ld
 
 #LDFLAGS=-static
-VPATH=../src
+VPATH=../src:../src/3rdparty
+CPPFLAGS=-I../src -I../src/3rdparty
 
 hello-world:	hello-world.c
 
@@ -35,6 +36,15 @@ libc-bare-init.o:	libc-bare-init.c
 cpp-hello-world:	LDFLAGS=-static
 cpp-hello-world: cpp-hello-world.cc
 
-#------------------not yet working
+#------------------ not yet working
 thread-demo-1:	LDFLAGS=-static -lpthread
 thread-demo-1:	thread-demo-1.cc
+
+#------------------ Dot-test
+Dot_test:	Dot_test.o bcm2835.o
+Dot_test.o:	Dot_test.c bcm2835.h
+bcm2835.o:	bcm2835.c bcm2835.h
+
+spidev_test:	spidev_test.c
+
+dot-matrix:	dot-matrix.cc

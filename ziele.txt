@@ -159,8 +159,16 @@
 -------------
    - 17-build
       kernel/root bereit für Driver Entwicklung       
-TODO:
+
+28.April 2015
+-------------
   . git merge strategie
+  . network
+  . ssh
+  . modules
+  . /etc/init.d/rcS
+  . /etc/inittab
+TODO:
   . minimales linux initrd
   . systemd/systemctl
   . netctl

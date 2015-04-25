@@ -53,3 +53,11 @@ initial group/user
 addgroup -g 0 -S root
 adduser -u 0 -h /home/root -G root -S -D root
 
+USB->RS232
+Connector J8
+  2-> 5V   -> RED
+  4-> NC   
+  6-> GND  -> BLACK
+  8-> TX   -> WHITE
+ 10-> RX   -> GREEN 
+enp0s20u6
