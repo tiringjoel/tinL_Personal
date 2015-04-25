@@ -1,7 +1,7 @@
 //--------------------------
 //dot-matrix
 //(c) H.Buchmann FHNW 2015
-//[1] 
+//[1] MAX7219-MAX7221.pdf
 //--------------------------
 #include <iostream>
 #include <iomanip>
