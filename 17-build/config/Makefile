@@ -14,7 +14,7 @@ CXXFLAGS=${CFLAGS} -std=c++11
 LD=${CROSS_COMPILE}ld
 #CC=gcc
 #LD=ld
-
+CC=${CXX}
 #LDFLAGS=-static
 VPATH=../src:../src/3rdparty
 CPPFLAGS=-I../src -I../src/3rdparty
@@ -47,4 +47,6 @@ bcm2835.o:	bcm2835.c bcm2835.h
 
 spidev_test:	spidev_test.c
 
-dot-matrix:	dot-matrix.cc
+dot-matrix:	dot-matrix.o max7219.o
+max7219.o:	max7219.cc max7219.h
+dot-matrix.o:	dot-matrix.cc max7219.h 
