@@ -14,9 +14,10 @@ CXXFLAGS=${CFLAGS} -std=c++11
 LD=${CROSS_COMPILE}ld
 #CC=gcc
 #LD=ld
-
+CC=${CXX}
 #LDFLAGS=-static
-VPATH=../src
+VPATH=../src:../src/3rdparty
+CPPFLAGS=-I../src -I../src/3rdparty
 
 hello-world:	hello-world.c
 
@@ -35,6 +36,17 @@ libc-bare-init.o:	libc-bare-init.c
 cpp-hello-world:	LDFLAGS=-static
 cpp-hello-world: cpp-hello-world.cc
 
-#------------------not yet working
+#------------------ not yet working
 thread-demo-1:	LDFLAGS=-static -lpthread
 thread-demo-1:	thread-demo-1.cc
+
+#------------------ Dot-test
+Dot_test:	Dot_test.o bcm2835.o
+Dot_test.o:	Dot_test.c bcm2835.h
+bcm2835.o:	bcm2835.c bcm2835.h
+
+spidev_test:	spidev_test.c
+
+dot-matrix:	dot-matrix.o max7219.o
+max7219.o:	max7219.cc max7219.h
+dot-matrix.o:	dot-matrix.cc max7219.h 

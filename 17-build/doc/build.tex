@@ -186,12 +186,14 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Skripts und Argumente}{ssd}
+\begin{frame}{Skripts und Argumente}{ssh}
 \begin{tabular}{lll}
  \cod{zlib.sh}\\
- \cod{opensss.sh}&&die kryptographischen Algorithmen\\
+ \cod{openssl.sh}&&die kryptographischen Algorithmen\\
  \cod{openssh.sh}
 \end{tabular}
+\remark{\cod{openssh.sh} hängt von \cod{zlib.sh} und \cod{openssl.sh}
+  ab}
 \end{frame}
 
 \begin{frame}{Target}{ssh}
@@ -207,7 +209,7 @@
   \item Die Bibliothek \cod{glib}
   \item Ersatz
   \begin{itemize}
-   \item \cod{stfp}
+   \item \cod{sftp}
   \end{itemize}
  \end{itemize}
 \end{frame}
@@ -241,7 +243,7 @@
  \begin{block}{Host}
  \begin{itemize}
   \item \cod{sh scripts/module.sh {\em module}}
-  \item \cod{scp}, \cod{stfp}, \cod{ftp}
+  \item \cod{scp}, \cod{sftp}, \cod{ftp}
  \end{itemize}
  \end{block}
  \begin{block}{\target}
