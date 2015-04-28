@@ -24,24 +24,22 @@ class DotMatrix
 };
 
 const char DotMatrix::Device[]="/dev/spidev0.0";
-const DotMatrix::Max::Cmd DotMatrix::Init[]=
-{
- {Max::DECODE_MODE,0x00},
- {Max::INTENSITY  ,0x00},
- {Max::SCAN_LIMIT ,0x07},
- {Max::SHUTDOWN,   0x01},
- {Max::TEST	  ,0x00},
-};
 
 DotMatrix::DotMatrix()
 :max7219(Device)
 {
- for(const Max::Cmd& c:Init)  max7219.cmd(c);
+ max7219.decode(0).set();
+ max7219.intensity(0).set();
+ max7219.scanLimit(7).set();
+ max7219.enable().set();
+ for(unsigned d=0;d<8;++d) max7219.pattern(d,0).set();
  unsigned pattern=1;
  for(unsigned d=0;d<8;++d)
  {
-//  digit(d,pattern);
-  pattern<<=1;
+//  pattern>>=1;
+  max7219.pattern(d,pattern).set();
+//  pattern=pattern|(pattern<<1);
+  pattern|=(pattern<<1);
  }
 }
 
