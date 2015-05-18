@@ -50,3 +50,5 @@ spidev_test:	spidev_test.c
 dot-matrix:	dot-matrix.o max7219.o
 max7219.o:	max7219.cc max7219.h
 dot-matrix.o:	dot-matrix.cc max7219.h 
+
+nmea-demo:	nmea-demo.cc
