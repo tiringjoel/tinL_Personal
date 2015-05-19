@@ -168,6 +168,15 @@
   . modules
   . /etc/init.d/rcS
   . /etc/inittab
+  . hardware
+  
+19. Mai 2015
+-------------
+  . Versuche mit der eigenen Hardware
+  . LED-Matrix
+  . GPS-Signal
+  . 
+
 TODO:
   . minimales linux initrd
   . systemd/systemctl

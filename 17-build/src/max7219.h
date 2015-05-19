@@ -32,12 +32,41 @@ class Max7219
   :fd(::open(dev,O_RDWR))
   {
    if (fd<0) std::cerr<<"error opening '"<<dev<<"'\n";
+   for(unsigned i=0;i<2*N;++i) tx[i]=0;
   }
 
   ~Max7219()
   {
    if (fd>0) ::close(fd);
   }
+  
+  Max7219& decode(unsigned n,unsigned val){return cmd(n,9,val);}
+  Max7219& decode(unsigned val){return cmd(9,val);}
+  
+  Max7219& intensity(unsigned n,unsigned val){return cmd(n,10,val);}
+  Max7219& intensity(unsigned val){return cmd(10,val);}
+
+  Max7219& scanLimit(unsigned n,unsigned val){return cmd(n,11,val);}
+  Max7219& scanLimit(unsigned val){return cmd(11,val);}
+  Max7219& enable(unsigned n){return cmd(n,12,1);}
+  Max7219& enable(){return cmd(12,1);}
+  Max7219& disable(unsigned n){return cmd(n,12,0);}
+  Max7219& disable(){return cmd(12,0);}
+  
+  Max7219& pattern(unsigned n,   //0<=n<N
+                   unsigned pos, //0<=pos<=scanLimit
+		   unsigned pat) //bits 7..0
+  {
+   return cmd(n,1+(pos&(8-1)),pat);
+  }
+  
+  Max7219& pattern(unsigned pos, //0<=pos<=scanLimit
+		   unsigned pat) //bits 7..0
+  {
+   return cmd(1+(pos&(8-1)),pat);
+  }
+
+  void set(){::write(fd,tx,2*N);}
   
   bool isOpen(){return fd>0;}
   void cmd(const Cmd c[])
@@ -67,4 +96,19 @@ class Max7219
   
  private:
   int fd=-1; 
+  unsigned char tx[2*N];
+  Max7219& cmd(unsigned n,unsigned key,unsigned val)
+  {
+   if (n>=N) return *this;
+   unsigned ci=2*n;
+   tx[ci  ]=(unsigned char)(key&0x0f);
+   tx[ci+1]=(unsigned char)(val&0xff);
+   return *this;
+  }
+
+  Max7219& cmd(unsigned key,unsigned val)
+  {
+   for(unsigned n=0;n<N;++n)cmd(n,key,val);
+   return *this;
+  }
 };
