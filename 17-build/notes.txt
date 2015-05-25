@@ -61,3 +61,5 @@ Connector J8
   8-> TX   -> WHITE
  10-> RX   -> GREEN 
 enp0s20u6
+
+
