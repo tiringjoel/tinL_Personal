@@ -177,6 +177,11 @@
   . GPS-Signal
   . 
 
+16.Mai 2015
+-----------
+  . Versuche mit der eigenen Hardware
+  . TFT Display
+  
 TODO:
   . minimales linux initrd
   . systemd/systemctl

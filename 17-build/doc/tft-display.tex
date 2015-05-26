@@ -1,0 +1,51 @@
+\part{Installation TFT Display}
+%\section{Installation TFT Display}
+\frame{\partpage}
+\begin{frame}{Um was geht es ?}{Adafruit TFT Touchscreen}
+ \begin{itemize}
+  \item Installation auf einem minimalen System
+  \item \cod{git} update
+  \item Konfiguration
+  \item Kernelcompilation
+  \item Driver
+  \item Module
+  \item {\em framebuffer}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Hardware}
+ \begin{itemize}
+  \item {\tiny\url{https://learn.adafruit.com/adafruit-2-8-pitft-capacitive-touch/downloads}}
+  \item Zwei Chips
+  \begin{itemize}
+   \item \cod{STMPE610} für den {\em touchscreen}
+   \item \cod{ILI9341} für die Graphik
+  \end{itemize}
+  \item Verbunden per \cod{SPI}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Funktionierendes System}
+\begin{itemize}
+ \item {\tiny \url{http://adafruit-download.s3.amazonaws.com/2015-02-16-raspbian-pitft28r_150312.zip}}
+ \item Verbindung per \cod{ssh}
+ \begin{remarks}
+  \item user \cod{pi}
+  \item pw: \cod{raspberry}
+ \end{remarks}
+ \item Host \cod{dhcp}
+ \item Host \cod{nmap}
+ \item Framebuffer \cod{/dev/fb*}
+ \begin{itemize}
+  \item alles ist ein File
+ \end{itemize}
+ \item Backlight Control
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Kernel}{Neue Version}
+\begin{itemize}
+ \item \cod{git pull}
+ \item \cod{drivers/staging/fbtft/fb\_ili9341.c}
+\end{itemize}
+\end{frame}
