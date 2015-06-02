@@ -49,3 +49,41 @@
  \item \cod{drivers/staging/fbtft/fb\_ili9341.c}
 \end{itemize}
 \end{frame}
+
+\section{Module}
+
+\begin{frame}{Module herstellen}
+ \begin{itemize}
+  \item als Modul herstellen: {\em menuconfig}
+  \begin{itemize}
+   \item \cod{FB\_TFT\_FBTFT\_DEVICE}
+   \begin{itemize}\item\cod{drivers/staging/fbtft/fbtft\_device.c}\end{itemize}
+   \item \cod{FB\_TFT\_ILI9341}
+   \begin{itemize}\item\cod{drivers/staging/fbtft/fb\_ili9341.c}\end{itemize}
+  \end{itemize}
+  \item nur einzelne Module herstellen
+  \begin{itemize}
+   \item {\em dir/file.ko}
+   \begin{itemize}
+    \item {\em dir} relativ zu kernel source
+   \end{itemize}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Module ausführen}
+ \begin{itemize}
+  \item zum {\em target} kopieren
+  \item \cod{insmod {\em name parameters}}
+  \item \cod{mkdev -s} erzeugt \cod{/dev/fb1}
+  \item siehe auch
+   \begin{itemize}\item\cod{/sys/class/graphics/}\end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Zusätzliche Infos}{von einem funktionierenden System}
+ \begin{itemize}
+  \item \cod{dmesg-wheezy-raspbian.log}
+  \ite \cod{config-wheezy-raspbian.gz}
+ \end{itemize}
+\end{frame}

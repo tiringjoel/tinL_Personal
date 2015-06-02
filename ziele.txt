@@ -181,7 +181,12 @@
 -----------
   . Versuche mit der eigenen Hardware
   . TFT Display
-  
+ 
+2.Juni 2015
+-----------
+  . TFT Display als Beispiel für 
+    . debugging im kernel
+    
 TODO:
   . minimales linux initrd
   . systemd/systemctl
