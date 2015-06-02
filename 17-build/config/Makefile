@@ -45,7 +45,11 @@ Dot_test:	Dot_test.o bcm2835.o
 Dot_test.o:	Dot_test.c bcm2835.h
 bcm2835.o:	bcm2835.c bcm2835.h
 
+spidev_fdx:	spidev_fdx.c
 spidev_test:	spidev_test.c
+
+stmpe:		stmpe.o
+stmpe.o:	stmpe.cc
 
 dot-matrix:	dot-matrix.o max7219.o
 max7219.o:	max7219.cc max7219.h
