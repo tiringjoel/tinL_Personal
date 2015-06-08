@@ -18,5 +18,6 @@ cd modules
 ###---------------------- for target system
 make  -C ${KERNEL} \
      ARCH=arm \
+     V=1 \
      CROSS_COMPILE=${CROSS_COMPILE} \
      M=${PWD} $@

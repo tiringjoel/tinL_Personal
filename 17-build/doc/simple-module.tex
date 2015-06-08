@@ -1,0 +1,28 @@
+\section{\src{simple-module.c}}
+
+\begin{frame}{Ziel}{\src{simple-module.c}}
+ \begin{itemize}
+  \item Herstellung 
+  \item install/deinstall
+  \item elementare call-backs
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\src{simple-module.c}}{init/exit}
+ \begin{lstlisting}
+module_init(simple_init); /* register  :called by kernel */
+module_exit(simple_exit); /* deregister:called by kernel */
+ \end{lstlisting}
+ \begin{itemize}
+  \item call-back
+  \item register/deregister
+  \item \cod{printk} wie \cod{printf}
+  \begin{lstlisting}
+    printk(KERN_INFO "%d %x",val1,val2);
+  \end{lstlisting}
+  für debug
+  \item \cod{dmesg} für \cod{printk} 
+  \item Probiere ewige Schlaufe 
+ \end{itemize}
+\end{frame}
+

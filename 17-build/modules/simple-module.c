@@ -15,6 +15,11 @@ static int __init simple_init(void) /* local call-back function */
 {
  printk(KERN_INFO "init: simple-module\n");
             /*   ^ concatentaion */
+/* try 
+ while(1)
+ {
+ }
+*/
  return 0;
 }
 
