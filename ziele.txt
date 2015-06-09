@@ -186,7 +186,11 @@
 -----------
   . TFT Display als Beispiel für 
     . debugging im kernel
-    
+
+9.Juni 2015
+-----------
+  . modules
+      
 TODO:
   . minimales linux initrd
   . systemd/systemctl

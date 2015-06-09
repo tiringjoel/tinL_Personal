@@ -16,8 +16,8 @@ LD=${CROSS_COMPILE}ld
 #LD=ld
 CC=${CXX}
 #LDFLAGS=-static
-VPATH=../src:../src/3rdparty
-CPPFLAGS=-I../src -I../src/3rdparty
+VPATH=../src:../src/3rdparty:../modules
+CPPFLAGS=-I../src -I../src/3rdparty -I../modules
 
 hello-world:	hello-world.c
 
@@ -56,3 +56,14 @@ max7219.o:	max7219.cc max7219.h
 dot-matrix.o:	dot-matrix.cc max7219.h 
 
 nmea-demo:	nmea-demo.cc
+
+syscall:	LDFLAGS=-static
+syscall:	syscall.c
+
+call-ioctl:	call-ioctl.o
+call-ioctl.o:	call-ioctl.c simple-ioctl.h
+
+direct-memory:	direct-memory.cc
+
+userspace-led:	userspace-led.o
+userspace-led.o:	userspace-led.c simple-hw.h

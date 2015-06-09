@@ -1,0 +1,125 @@
+%-------------------------
+%clang
+%(c) H.Buchmann FHNW 2008
+%export TEXINPUTS=.:${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+\newcommand{\kernelmodule}{{\em kernelmodule}\xspace}
+\renewcommand{\src}[1]{#1}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+\begin{frame}{Um was geht es ?}
+ \begin{itemize}
+  \item \linux \kernelmodule's
+  \begin{itemize}
+   \item userspace
+   \item kernelspace: wo die \kernelmodule sind
+  \end{itemize}
+  \item Herstellung
+  \item Interrupts
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Userspace-Kernelspace}{zwei verschiedene Welten}
+ \begin{center}
+ \includegraphics[width=0.75\textwidth]{userspace-kernelspace.pdf}
+ \end{center}
+\end{frame}
+
+\begin{frame}{\cod{syscall.c}}{Beispiel userspace}
+ \begin{itemize}
+  \item \cod{syscall}
+  \item der File \cod{sys/syscall.h}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Verzeichnisstruktur}{auf dem \host}
+\dirtree{%
+ .1 17-build.
+ .2 modules \DTcomment{source and generated files}.
+ .3 Makefile \DTcomment{for the modules}.
+ .2 scripts.
+ .3 modules.sh \DTcomment{wrapper to make}.
+}
+\end{frame}
+
+\begin{frame}{Der Workflow}{die Orte}
+ \vspace{-2mm}
+ \begin{description}[\target]
+  \item[\host] \cod{17-build/modules}
+  \item[\target]\cod{/work}
+  \item[Verbindung] mit \cod{scp} (secure copy)
+   \begin{description}
+   \item[Server] \cod{sshd} \target
+   \item[Client] \host
+  \end{description}
+ \end{description}
+\end{frame}
+
+\begin{frame}{Der Workflow}
+ \begin{tabular}{c|p{6.5cm}|p{3.5cm}}
+   & \host						& \target\\
+   \hline
+  A&Edititiere \cod{\em a-module.c} 			&	\\
+  B&\cod{sh scripts/module.sh {\em a-module.ko}}	&	\\
+  C&\cod{scp a-module.ko roo@ip:/work} 			&	\\
+  D&							& \cod{insmod {\em a-module.ko}}\\
+  E&							& teste\\
+  F&							& \cod{rmmod {\em a-module.ko}}\\
+\hline
+   & $\to$A\\
+ \end{tabular}
+\end{frame}
+
+\begin{frame}{Die Schritte}
+ \begin{description}[\src{simple-ioctl.c|h}]
+  \item[\src{simple-module.c}]\hfill
+  \vspace{-5mm}
+  \begin{itemize}
+   \item \cod{insmod}/\cod{rmmod}
+   \item debug mit \cod{printk}
+  \end{itemize}
+  \item[\src{simple-device.c}]\hfill
+  \vspace{-5mm}
+  \begin{itemize}
+   \item das Konzept {\em File}: alles ist ein File
+   \item \cod{read}, \cod{write} \& Co.
+  \end{itemize}
+  \item[\src{simple-ioctl.c|h}] \hfill
+  \vspace{-5mm}
+  \begin{itemize}
+   \item Einstellungen mit \cod{ioctl}
+  \end{itemize}
+  \item[\src{simple-hw.c}] \hfill
+  \vspace{-5mm}
+  \begin{itemize}
+   \item Zugriff auf die Hardware
+  \end{itemize}
+  \item[\src{simple-irq.c}]\hfill
+  \vspace{-5mm}
+  \begin{itemize}
+   \item interrupts
+   \begin{itemize}
+    \item {\em foreground} der {\em handler}
+    \item {\em background} 
+    \item {\em tasklet} die Verbindung {\em foreground}$\to${\em background} 
+   \end{itemize}
+  \end{itemize}
+ \end{description}
+\end{frame}
+
+\input{simple-module.tex}
+\input{simple-device.tex}
+\input{simple-ioctl.tex}
+\input{simple-hw.tex}
+%\input{simple-irq.tex}
+%\input{fpga.tex}
+
+\end{document}
