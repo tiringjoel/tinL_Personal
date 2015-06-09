@@ -27,21 +27,22 @@
 #define GPIO_SIZE (0x4*(1<<10))                            /* one page */
 /*      http://www.airspayce.com/mikem/bcm2835/bcm2835_8h_source.html 
                                                             Table 6.1 */
-#define PWR_LED (1<<3)
+#define PIN 35
 typedef struct
 {
- unsigned GPFSEL0;   /* 0x0000 Function Select 0 */
- unsigned GPFSEL1;   /* 0x0004 Function Select 1 */
- unsigned GPFSEL2;   /* 0x0008 Function Select 2 */
- unsigned GPFSEL3;   /* 0x000c Function Select 3 */
- unsigned GPFSEL4;   /* 0x0010 Function Select 4 */
- unsigned GPFSEL5;   /* 0x0014 Function Select 5 */
- unsigned RES0   ;   /* 0x0018  */
- unsigned GPSET0 ;   /* 0x001c Pin Output Set 0 */
- unsigned GPSET1 ;   /* 0x0020 Pin Output Set 1 */
+ unsigned GPFSEL[6]; /* 0x0000 Function Select 0 */
+                     /* index pin
+		         0    0 9
+			 1   10 19
+			 2   20 29
+			 3   30 39
+			 4   40 49
+			 5   50 60
+		     */
+ unsigned RES0   ;   /* 0x0018                      0         1*/
+ unsigned GPSET[2];   /* 0x001c Pin Output Set 0 31-0    57  32*/
  unsigned RES1   ;   /* 0x0024 */  
- unsigned GPCLR0 ;   /* 0x0028 Pin Output Clear 0 */
- unsigned GPCLR1 ;   /* 0x002c Pin Output Clear 1 */
+ unsigned GPCLR[2];  /* 0x0028 Pin Output Clear 0 pins 0 ..31*/
  unsigned RES2   ;   /* 0x0030  */
  unsigned GPLEV0 ;   /* 0x0034 Pin Level 0 */
  unsigned GPLEV1 ;   /* 0x0038 Pin Level 1 */
@@ -87,11 +88,11 @@ static long simple_hw_ioctl(struct file*  fil,
   case SIMPLE_HW_PWR_LED:
    if (param)
       {
-       gpio->GPSET1=PWR_LED;
+       gpio->GPSET[PIN/32]=(1<<PIN%32);
       }
       else
       {
-       gpio->GPCLR1=PWR_LED;
+       gpio->GPCLR[PIN/32]=(1<<PIN%32);
       }
   return 0;
   
@@ -107,12 +108,20 @@ static struct file_operations fops =                      /* the call backs */
  compat_ioctl:simple_hw_ioctl
 };
 
+static void setAsOutput(void)
+{
+ unsigned mask= ~(0x7<<(3*(PIN%10)));  /* 000 111 ...000 */
+ unsigned v=(gpio->GPFSEL[PIN/10]&mask)|(1<<(3*(PIN%10)));
+/*  PESL as output */
+ gpio->GPFSEL[PIN/10]=v;
+}
 
 static int __init hw_init(void)
 {
  device = register_chrdev(0, DEVICE, &fops);
  printk(KERN_INFO DEVICE " device= %d\n",device);
  gpio   =(GPIO* __iomem)ioremap(GPIO_BASE,GPIO_SIZE);     /* reserve memory */
+ setAsOutput();
  return 0;
 }
 

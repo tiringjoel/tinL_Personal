@@ -15,7 +15,7 @@ int main(int argc,char** args)
  write(ssize_t write(int fd, const void *buf, size_t count);
 */	       
  syscall(__NR_write,0,msg,14);
-/*      |           |-------------- fd
+/*      |           |-------------- fd=stdout
         |--------------------------- id f
 */
  return 0;

@@ -14,7 +14,6 @@ CXXFLAGS=${CFLAGS} -std=c++11
 LD=${CROSS_COMPILE}ld
 #CC=gcc
 #LD=ld
-CC=${CXX}
 #LDFLAGS=-static
 VPATH=../src:../src/3rdparty:../modules
 CPPFLAGS=-I../src -I../src/3rdparty -I../modules
