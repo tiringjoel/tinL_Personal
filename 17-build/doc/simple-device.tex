@@ -96,7 +96,7 @@ devicetyoe
 \begin{frame}{Major:Minor}{objektorientierte Interpretation}
  \begin{description}
   \item[major] Code für die {\Large Klasse}
-  \item[major] Code für die {\Large Instanz}
+  \item[minor] Code für die {\Large Instanz}
  \end{description}
 \end{frame}
 
@@ -145,18 +145,18 @@ TYPE:
   \begin{itemize}
    \item $\to major$
   \end{itemize}
-  \item \cod{mknod devi c {\em major} {\em i}}
+  \item \cod{mknod {\em device} c {\em major} {\em i}}
   \begin{itemize}
    \item Devicefile beliebige minor
   \end{itemize}
-  \item \cod{cat devi}
+  \item \cod{cat {\em device}}
   \begin{itemize}
-   \item lese von \cod{devi}
+   \item lese von \cod{\em device}
   \end{itemize}
-  \item \cod{echo "{}hello"{} > devi}
+  \item \cod{echo "{}hello"{} > {\em device}}
   \begin{itemize}
-   \item schreibe auf \cod{devi}
+   \item schreibe auf {\em device}
   \end{itemize}
  \end{itemize}
- \remark{\cod{devi} in \cod{/work}}
+ \remark{\cod{{\em device}} in \cod{/work}}
 \end{frame}

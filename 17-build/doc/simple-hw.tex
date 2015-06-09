@@ -10,21 +10,25 @@
 
 \begin{frame}[fragile]{ioremap/iounmap}
 \begin{itemize}
- \item der \cod{struct} FPGA
+ \item der \cod{struct} GPIO
  \item iomem
 \begin{lstlisting}
- fpga=(FPGA* __iomem)ioremap(FPGA_BASE,FPGA_SIZE); 
+ gpio=(GPIO* __iomem)ioremap(GPIO_BASE,GPIO_SIZE); 
                      /* reserve memory */
- iounmap(fpga);
+ iounmap(gpio);
 \end{lstlisting}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Test}{siehe \src{simple-device.c} Test}
+\begin{frame}[fragile]{Test}{siehe \src{simple-device.c} Test}
  \begin{itemize}
   \item \cod{insmod}
   \item \cod{mknod}
-  \item read: \cod{cat {\em device}}
-  \item write:\cod{cat {\em file} > {\em device}}
+  \item userspace 
+  \begin{lstlisting}{language=bash}
+   userspace-led theDevice on|off
+  \end{lstlisting}
+%  \item read: \cod{cat {\em device}}
+%  \item write:\cod{cat {\em file} > {\em device}}
  \end{itemize}
 \end{frame}
