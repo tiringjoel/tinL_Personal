@@ -1,0 +1,27 @@
+Boards
+------
+
+- Arduino Yun: AVR 8 bit
+- Beaglebone Black
+
+
+- SAMA5D3 Xplained Board http://www.linux4sam.org/
+
+- http://www.calao-systems.com/index.php/products/system-platform/snowball-dual-a9
+
+
+- https://www.ledato.de/shop_content.php?coID=13&language=de
+
+- http://www.ethernut.de/en/hardware/enut5/index.html
+
+- http://www.myirtech.com/list.asp?id=510
+
+
+- http://solid-run.com/freescale-imx6-family/hummingboard/hummingboard-specifications/
+
+http://microcontrollershop.com/product_info.php?cPath=154_170_280&products_id=6458
+		CORE9G25-CON
+		DEV-11712
+		DEV-12749
+
+http://littlebits.cc/bits/cloudbit

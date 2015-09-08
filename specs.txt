@@ -1,0 +1,9 @@
+specs
+-----
+
+- Speisung über USB
+- serielle Verbindung über USB
+- SD-Card
+- Linux fähig
+- Ethernet
+
