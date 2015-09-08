@@ -15,10 +15,13 @@
 }
 BUILD=${PWD}/kernel
 cd ${KERNEL_SRC}
+START=$(date '+%s')
 #MAKE='make'
-${MAKE} V=1 O=${BUILD} \
+${MAKE} V=0 O=${BUILD} \
 ARCH=arm \
 CROSS_COMPILE=${CROSS_COMPILE} \
 INSTALL_HDR_PATH=${TARGET_ROOT}/usr \
 ${@}
+END=$(date '+%s')
+echo "----------------------- diff $((END-START))"
 

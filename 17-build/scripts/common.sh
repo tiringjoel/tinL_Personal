@@ -22,7 +22,7 @@ CROSS_COMPILE=${TC_PREFIX}/bin/${TARGET}-
 SYSROOT=${TARGET_ROOT}
 #----------------- the source code
 RESOURCES=${BUILD_HOME}/../resources/
-KERNEL_SRC=${RESOURCES}/linux/
+KERNEL_SRC=${RESOURCES}/kernel/linux/
 BINUTILS_SRC=${RESOURCES}/binutils-2.25
 GCC_SRC=${RESOURCES}/gcc-5-20150329
 EGLIBC_SRC=${RESOURCES}/eglibc-2.19/
@@ -35,7 +35,7 @@ SSHFS_SRC=${RESOURCES}/sshfs-fuse-2.5
 GLIB_SRC=${RESOURCES}/glib-2.44.0
 #the make command
 #-jn the number of the cpu on the host 
-MAKE="make -j6"
+MAKE="make -j1"
 
 cd build
 
