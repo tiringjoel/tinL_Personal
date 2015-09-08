@@ -10,13 +10,6 @@
 \title[Setup]{Setup}
 \begin{document}
 
-\frame{\titlepage}
-\begin{frame}{Terminologie}
- \begin{description}[Target]
-  \item[Host] der Entwicklungsrechner Notebook
-  \item[Target] \raspberry
- \end{description}
-\end{frame}
 
 \begin{frame}{Ziel}{Verbindung: Host-Target}
  \begin{description}
@@ -28,21 +21,32 @@
   \end{itemize}
  \item[Target]
   \begin{itemize}
-   \item \url{www.raspberry.org/downloads}
+   \item \beaglebone per USB
    \begin{itemize}
-    \item eines auswählen
-    \begin{itemize}
-     \item Vorschlag: {\em Arch Linux}
-    \end{itemize}
+    \item Speicher: USB Stick 
+	\item Serielle Schnittstelle \cod{/dev/ttyACM0}
+	\item Ethernet
    \end{itemize}
+  \end{itemize}
+  \item[Verbindung]
+  \begin{itemize}
+   \item \cod{ping}
+   \item \cod{ssh}
   \end{itemize}
  \end{description}
 \end{frame}
 
-\section{Image}
-\input{image.tex}
+\frame{\titlepage}
+\begin{frame}{Terminologie}
+ \begin{description}[Target]
+  \item[Host] der Entwicklungsrechner Notebook
+  \item[Target] \beaglebone
+ \end{description}
+\end{frame}
 
-\section{Kontakt zum Target}
+%\section{Image}
+%\input{image.tex}
+
 \input{kontakt-zum-target.tex}
 
 \end{document}

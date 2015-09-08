@@ -1,90 +1,106 @@
-\begin{frame}{Der \raspberry Default}{\cod{HDMI}, \cod{USB}}
- \begin{itemize}
-  \item Speisung per \cod{USB} vom Host
-  \item Bildschirm per \cod{HDMI}
-  \item Tastatur per \cod{USB}
- \end{itemize}
-
- \begin{block}{Vorteil}
+\begin{frame}{USB: Linux Foundation Multifunction Composite Gadget}
+             {der Befehl \cod{lsusb} auf dem \host}
   \begin{itemize}
-  \item der Standard 
-  \end{itemize} 
- \end{block}
-
- \begin{block}{Nachteil}
- \begin{itemize}
-  \item braucht Bildschirm/Tastatur
-  \begin{itemize}
-  \item nicht so viele vorhanden
+   \item \cod{lsusb} für den Überblick
+   \item \cod{lsusb -d 1d6b:0104} der \beaglebone
+   \begin{itemize}
+    \item \cod{lsusb -v -d 1d6b:0104} was \beaglebone alles kann
+   \end{itemize} 
   \end{itemize}
- \end{itemize}
- \end{block}
 \end{frame}
 
-\subsection{Via Netzwerk}
-\begin{frame}{Via Netzwerk/Ethernet}{\cod{ssh}}
+\section{Mass Storage}
+\begin{frame}{Mass Storage}{\beaglebone als USB Stick} 
  \begin{itemize}
-  \item Speisung via \cod{USB} vom Host
-  \item Verbindung zum Target via \cod{ssh}
+  \item der Befehl \cod{ls}
+  \begin{itemize}
+   \item \cod{ls {\em mount-point}}
+   \item wo ist der \cod{{\em mount-point}}
+  \end{itemize}
  \end{itemize}
-  \begin{block}{Vorteil}
+\end{frame}
+
+\section{RS232}
+\begin{frame}{Communications device class CDC}{Terminal Programm \cod{minicom}}
+ \begin{itemize}
+  \item \cod{minicom -D /dev/tty{\em XYZ}} \cod{\em XYZ} typ \cod{ACM0}
+  \item einfache Bedienung
+  \begin{itemize} 
+   \item \cod{CTRL-A} Z for help
+   \item \cod{ESC} escape Schritt zurück
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\section{Via Netzwerk}
+\begin{frame}{Ethernet}{über USB}
+ \begin{itemize}
+  \item Der Befehl \cod{ifconfig}
   \begin{itemize}
-  \item braucht keinen Bildschirm/Tastatur
-  \end{itemize} 
- \end{block}
- \begin{block}{Nachteil}
-  \begin{itemize}
-   \item etwas komplexere Konfiguration
+   \item \cod{ifconfig} für den Überblick
    \begin{itemize}
-    \item vor allem im Schulnetz
+    \item auf dem \target 
+	\item auf dem \host
    \end{itemize}
-  \end{itemize} 
- \end{block}
- \remark{Ist aber unser Ziel}
+   \item \cod{ifconfig {\em ifc} {\em ip} up} auf dem \host
+   \begin{description}
+    \item[ifc] das Interface, die (virtuelle) Netzwerkkarte
+	\item[ip] Internetadresse vom \host
+	
+	typisch: 
+	\begin{itemize}
+	 \item Netzwerk \cod{192.168.7.*}
+	 \item Rechner im Netzwerk \cod{192.168.7.\bf X}
+	\end{itemize}
+   \end{description}
+  \end{itemize}
+ \end{itemize}
 \end{frame}
 
 \begin{frame}{Die Tools}{für die Verbindung}
+\begin{block}{Wichtig}
  \begin{itemize}
-  \item \cod{wireshark} für die Netzüberwachung
-  \item \cod{nmap} für Portscans
   \item \cod{ifconfig} für die Netzschnittstelle
-  \item Ein DHCP Server z.B. \cod{dnsmasq}
+  \item \cod{ping} für den Verbindungstest
+  \item \cod{ssh} für die Verbindung
  \end{itemize}
+ \end{block}
  \see{net-setup.txt}
-\end{frame}
-
-\begin{frame}{Lokales Netzwerk}{Host $\to$Target}
- \begin{description}
-  \item[Host] DHCP Server
-  \item[Target] Mit dem Host verbunden
- \end{description}
-\end{frame}
-
-\begin{frame}{Via Schulnetz}
+ \begin{block}{Weiterführend}
  \begin{itemize}
-  \item einfach einstecken
+  \item \cod{nmap} für Portscans
+  \item Ein DHCP Server z.B. \cod{dnsmasq}
+  \item \cod{wireshark} für die Netzüberwachung
  \end{itemize}
+ \end{block}
+\end{frame}
+
+
+\subsection{ssh}
+\begin{frame}{SSH}{Secure Shell}
+ \begin{description}
+  \item[shell] \cod{ssh name@ip} 
+  \begin{description}
+   \item[name] Benutzername auf dem \target
+   \item[ip] Internetadresse vom \target 
+  \end{description}
+  \item[mount] \cod{sshfs name@ip:directory mount-point}
+  \begin{description}
+   \item[directory] auf dem \target
+   \item[mount-point] auf dem \host
+  \end{description}
+ \end{description}
 \end{frame}
 
 \begin{frame}{Konfiguration \cod{SSH}}{Server}
  \begin{itemize}
   \item \cod{ssh-keygen -t{\em type} -f /etc/ssh/ssh\_host\_{\em type}\_key}
   \begin{itemize}
-   \item mit \cod{{\em type}=rsa\textbar dsa}s
+   \item mit \cod{{\em type}=rsa\textbar dsa}
   \end{itemize}
+  \item \cod{ssh-copy-id}
   \remark{Auf dem {\em Target}}
  \end{itemize}
  
 \end{frame}
 
-\subsection{RS232}
-\begin{frame}{\cod{RS232}}{Adapter \cod{RS232}$\to$\cod{USB}: die direkteste Verbindung}
- \includegraphics[width=8cm]{board.pdf}
- \begin{textblock}{150}(90,50)
-  \begin{itemize}
-   \item 115200 Baud
-   \item 8N1
-   \item no handshake
-  \end{itemize}
- \end{textblock}
-\end{frame}

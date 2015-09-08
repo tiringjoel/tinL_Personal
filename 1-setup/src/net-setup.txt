@@ -1,11 +1,10 @@
 net-setup
 ---------
-Connectivity
- wireshark DHCP Request
- 
 Setup Network:
 
-ifconfig eth0 192.168.5.1 up
+Host:
+ ifconfig ifc 192.168.7.1 up
+ ping 192.168.7.2
 
-DHCP Server
-dnsmasq -p 0 -d -i eth0 -a 192.168.5.1 -F 192.168.5.2,192.168.5.10
+Target:
+ ping 192.168.7.1 
