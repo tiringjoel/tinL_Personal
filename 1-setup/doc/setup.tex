@@ -10,6 +10,7 @@
 \title[Setup]{Setup}
 \begin{document}
 
+\frame{\titlepage}
 
 \begin{frame}{Ziel}{Verbindung: Host-Target}
  \begin{description}
@@ -36,7 +37,6 @@
  \end{description}
 \end{frame}
 
-\frame{\titlepage}
 \begin{frame}{Terminologie}
  \begin{description}[Target]
   \item[Host] der Entwicklungsrechner Notebook
@@ -47,7 +47,21 @@
 %\section{Image}
 %\input{image.tex}
 
-\input{kontakt-zum-target.tex}
+\begin{frame}{USB: Linux Foundation Multifunction Composite Gadget}
+             {der Befehl \cod{lsusb} auf dem \host}
+  \begin{itemize}
+   \item \cod{lsusb} für den Überblick
+   \item \cod{lsusb -d 1d6b:0104} der \beaglebone
+   \begin{itemize}
+    \item \cod{lsusb -v -d 1d6b:0104} was \beaglebone alles kann
+   \end{itemize} 
+  \end{itemize}
+\end{frame}
+
+\input{mass-storage.tex}
+\input{rs232.tex}
+\input{network.tex}
+
 
 \end{document}
 

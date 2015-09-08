@@ -34,3 +34,7 @@ ssh-keygen
 sshfs
 wlan
 raspi pacman.conf
+
+
+
+http://elinux.org/Beagleboard:BeagleBone_Black_Serial
