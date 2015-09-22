@@ -19,3 +19,5 @@ tc
 build
 modules
 17-build/image
+images
+__pycache__
