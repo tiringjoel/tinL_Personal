@@ -17,5 +17,5 @@ TODO:
   ---> hello-world 
   
  3-network
-   Verbindung mit dem Internet
+   BeagleBoneBlack (BBB) am Schulnetz
    ---> apt-get install 

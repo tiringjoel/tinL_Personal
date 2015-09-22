@@ -16,352 +16,184 @@
 
 \begin{frame}{Ziel}{\target am Schulnetz}
  \begin{itemize}
-  \item verschiedenen Netze
-  
-  \hspace{5mm}
-  
-  \begin{tabular}{r|c|c|c}
-       & public & vpn & eduroam\\
-\hline       
-   LAN &  x     &  x  & \\
-   WLAN&  x     &  x  & x  
-  \end{tabular}
-  \item Sicherheit 
+  \item Verschiedene Netze
   \begin{itemize}
-   \item keine sichtbaren Passworte
+   \item {\em Schulnetz} passwortgeschützt
+   \item {\em lokales Netz} \host{} \target 
   \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{Wichtig}{Wichtig}
- \begin{itemize}
-  \item {\Huge richtiges} Passwort auf \target
-  \item \cod{passwd}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{Probleme}{Konfiguration mit restriktivem Netzzugriff}
-  \begin{tabular}{r|c|c|c}
-       & public & vpn & eduroam\\
-\hline       
-   LAN &  {\em local} & {\em full}  & \\
-   WLAN&  {\em local} & {\em full}  & {\em full}
-  \end{tabular}
-\vspace{5mm}  
-\begin{description}[local]
- \item[local] Zugriff nur im lokalen Netz
- \item[full] voller Zugriff nach Konfiguration
-\end{description}  
-\end{frame}
-
-\begin{frame}{Was haben wir ?}{Verbindung zum \target}
- \begin{description}[RS232 online]
-  \item[\host offline] \cod{mount} SD-Card 
-  \item[RS232 online] wichtige Verbindung
- \end{description}
-\end{frame}
-
-\begin{frame}{Die Schritte}{Bootstrapping}
- \begin{itemize}
-  \item Ethernet Verbindung \host - \target 
-  \item \target Installation der notwendigen {\em packages}
+  \item Gesucht
   \begin{itemize}
-   \item vom Internet mit \host als gateway
+   \item Verbindung {\em Schulnetz} $\leftrightarrow$ {\em lokales Netz}
   \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{\cod{ssh} \& Co}
- \begin{itemize}
-   \item die Stärken von \unix \cod{ssh} nutzen
-   \begin{itemize}
-    \item \cod{glbs/8-ssh/doc/ssh.pdf}
-   \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{Die Schritte}
- \begin{itemize}
-  \item LAN \target \host
+  \item Wichtiger Begriff
   \begin{description}
-   \item[\cod{ssh}]  für die Verbindung
-   \item[\cod{sshfs}] für die einfache Konfiguration Files editieren
+   \item[Proxy] Stellvertreter
   \end{description}
-  \item WLAN public
-  \item WLAN vpn
-  \item WLAN eduroam
- \end{itemize}
-\end{frame}
-
-\begin{frame}{LAN}{\host \target}
- \begin{description}[\target]
-  \item[\host] \cod{eth0} Schnittstelle
-   \begin{itemize}
-    \item \cod{ifconfig eth0 192.168.1.1 up}
-   \end{itemize}
-   \item[\target] \cod{eth0} Schnittstelle
-   \begin{itemize}
-    \item \cod{ifconfig eth0 192.168.1.2 up}
-   \end{itemize}
-   \item[test] mit \cod{ping}
- \end{description}
-\end{frame}
-
-\begin{frame}{\cod{ssh}/\cod{sshfs}}{\target}
-\begin{description}
- \item[ssh] \cod{ssh user@ip}
- \begin{itemize}
-  \item ohne Passwort $\to$ \cod{ssh-copy-id} 
- \end{itemize}
- \item[sshfs] \cod{sshfs user@ip:dir dir} 
-\end{description}
-\end{frame}
-
-\begin{frame}[fragile]{\cod{pacman}}{Der {\em packetmanager}}
- \begin{itemize}
-  \item Die Files
+  \item Was wir möchten
   \begin{itemize}
-   \item \cod{/etc/pacman.conf}
-   \begin{lstlisting}
-...
-#XferCommand = /usr/bin/curl -C - -f %u > %o
-#XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
-..
-   \end{lstlisting}
-   \item \cod{/etc/pacman.d/mirrorlist}
+   \item \cod{HTTP} auf \target
+   \item \cod{apt-get ...}
   \end{itemize}
  \end{itemize}
 \end{frame}
 
-\begin{frame}{\cod{wget}}{für das Internet}
- \begin{description}[\target]
-  \item[\host] Probieren
-  \begin{itemize}
-   \item \cod{wget} 
-  \end{itemize}
-  \item[\target] Mit \cod{ssh} Tunnel
-  \begin{itemize}
-   \item \cod{ssh user@host 'wget ...' {\Huge >} file} 
-   \begin{description}
-    \item[\cod{\Huge >}] redirect
-   \end{description}
-  \end{itemize}
- \end{description}
-\end{frame}
-
-\begin{frame}{\target \cod{ssh} Tunnel}{Alles ist ein File}
+\begin{frame}{Zwei Netze}{zwei Rechner}
+ \begin{center}
+ \includegraphics[width=0.875\textwidth]{two-networks.png}
+ \end{center}
  \begin{itemize}
-  \item \cod{ssh \host cmd} \cod{cmd} auf dem host ausführen
-  \item \cod{stdout} von \cod{cmd} auf \target
- \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Bootstrap}
- \begin{description}[\target]
-  \item[\host]   \cod{sshfs} \target \host
-  \item[\host]   \target \cod{/etc/pacman.conf} editieren
-  \item[\target] \cod{pacman -Suy} 
- \end{description}
-\begin{lstlisting}
-#XferCommand = /usr/bin/curl -C - -f %u > %o
-#XferCommand = /usr/bin/wget --no-check-certificate --passive-ftp -c -O %o %u
-XferCommand = ssh user@ip 'wget -O - -c %u' > %o
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}{ip forwarding}{provisorisch}
- \begin{itemize}
-  \item {\footnotesize \url{https://wiki.archlinux.org/index.php/Internet_sharing}}
-  \item Testen ob das {\em forwarding} wirklich funktioniert
- \end{itemize}
-\end{frame}
-
-
-\section{WLAN}
-\begin{frame}{Die Probleme}
- \begin{itemize}
-  \item die Administration ist nicht ganz einfach
-  \item es gibt verschiedene {\em tool}s:
-  \begin{itemize}
-   \item \cod{netctl} 
-   \item \cod{wicd}
-   \item \cod{NetworkManager}
-   \item ...
-  \end{itemize}
-  \item verschiedene Verfahren für eine sichere Verbindung
-  \begin{itemize}
-   \item IEEE 802.11i
-  \end{itemize}
- \end{itemize}
- \begin{remarks}
-   \item es sollte nur ein {\em tool} laufen
-   \item die {\em tools} verwalten LAN und WLAN
- \end{remarks}
-\end{frame}
-
-\begin{frame}{geschichtete Software}{vereinfachtes Bild}
- 
- \begin{tabular}{l|l}
-  administration & \cod{netctl} \& Co.\\
-  \hline
-  WLAN Konfiguration & \cod{wpa\_supplicant}\\
-  \hline
-  \multicolumn{2}{c}{Hardware}
- \end{tabular}
-\end{frame}
-
-\begin{frame}{\cod{wpa\_supplicant}}{der WLAN der Bittsteller}
- \begin{itemize}
-  \item zwei Komponenten
-  \begin{description}
-   \item[Prozess] \cod{wpa\_supplicant {\em options}}
-   \begin{itemize}
-    \item Konfiguration typ. 
-   \end{itemize}
-   \item[Bedienung] \cod{wpa\_cli} \footnote{\cod{cli} command line interface}
+  \item Netze
+  \begin{description}[LokalesNetz (LN)]
+  \item[Schulnetz   (SN)] {\em mit} Verbindung zum Internet
+  \item[LokalesNetz (LN)] {\em ohne} Verbindung zum Internet
+  \end{description}
+  \item Rechner
+  \begin{description}[\target(BBB)]
+   \item[Workstation(WS)] am SN und LN
+   \item[\target(BBB)] am LN  
   \end{description}
  \end{itemize}
 \end{frame}
 
-\subsection{VPN}
-\begin{frame}[fragile]{VPN}{Konfiguration}
-\begin{verbatim}
-IPSec gateway vpn.fhnw.ch
-IPSec secret  29HeiowA
-IPSec ID STU-03-001
-IKE Authmode psk
-Xauth username kkkkk
-Xauth obfuscated password iii
-\end{verbatim}
-\end{frame}
+\section{HTTT Proxy}
 
-\begin{frame}{Die Sache mit \cod{obfuscated}}{Vernebeln}
+\begin{frame}{Proxy}{Stellvertreter}
+  \begin{center}
+ \includegraphics[width=0.875\textwidth]{proxy.pdf}
+ \end{center}
  \begin{itemize}
-  \item das Programm \cod{obfuscate.c}
-  \item das Programm \cod{cisco-decrypt}
+  \item Server auf \host
+  \item reicht die \cod{http} {\em requests/responses} weiter
  \end{itemize}
+
 \end{frame}
 
-\section{WLAN/LAN Konfiguration}
-\subsection{LAN \cod{ssh}}
-\begin{frame}{\cod{ssh}}{\cod{ssh} mount}
- \begin{itemize}
-  \item \cod{ssh} ohne Passwort \cod{ssh-copy-id}
+\begin{frame}{Test mit \cod{curl}}{\url{http://curl.haxx.se/}}
   \begin{itemize}
-   \item Kopiere {\Huge public key} vom \host auf \target
+   \item \cod{curl address}
+   \begin{itemize}
+    \item \cod{curl fhnw.ch}
+   \end{itemize}
   \end{itemize}
-  \item \cod{sshfs} 
-  \begin{itemize} 
-   \item {\em target-root} auf \host sichtbar
-   \item \cod{fusermount -u} für {\em unmount}
-  \end{itemize}
- \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{\cod{ssh}}{Vorbereitungen \target}
+\begin{frame}{Proxy Server}{zwei Vorschläge}
  \begin{itemize}
-  \item Setze Datum/Zeit \cod{date} 
-  \begin{itemize}
-   \item Gewisse Zertifikate schauen auf das Datum
-  \end{itemize}
-  \item Konfiguriere \cod{/etc/pacman.conf} für \cod{ssh} Tunnel:
-   \begin{lstlisting}
-   XferCommand = ssh user@ip 'wget -O - -c %u' > %o
-   \end{lstlisting}
-   \vspace{-2mm}
+  \item \cod{polipo}
+   \vspace{-5mm}
+   \begin{quote} 
+   is a lightweight caching and forwarding web proxy server
+   \end{quote}
+%   \vspace{-5mm}
    \begin{itemize}
-    \item via \host 
+    \item {\scriptsize\url{http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/}}
    \end{itemize}
-   \item update 
+  \item \cod{squid}
+   \vspace{-5mm}
+   \begin{quote} 
+   is a caching proxy for the Web supporting
+   \end{quote}
    \begin{itemize}
-    \item \cod{pacman -Suy}
-   \end{itemize}
-   \item vpnc package
-   \begin{itemize}
-    \item \cod{package -Su vpnc}
+     \item {\scriptsize\url{http://www.squid-cache.org/}}
    \end{itemize}
  \end{itemize}
 \end{frame}
 
-\subsection{wpa\_supplicant}
 
-\begin{frame}{Prozess/CLI}
- \begin{itemize}
-  \item Prozess \cod{wpa\_supplicant {\em options}}
-  \item CLI \cod{wpa\_cli}
+\begin{frame}{\cod{polipo}}{direkter Aufruf}
+ \begin{description}[\target]
+  \item[\host] Skript Server
   \begin{itemize}
-   \item wie funktioniert das \cod{cli}
+   \item \cod{sh tools/polipo.sh}
   \end{itemize}
-  \item WLAN \cod{fhnw-public}
+  \item[\target] Client
   \begin{itemize}
-   \item \cod{dhcpcd} für eine \cod{ip} Adresse 
+   \item \cod{curl --proxy http://192.168.7.1:8123  \textbackslash\\ http://www.google.ch}
   \end{itemize}
-  \item Konfigurationsfile
-  \item VPN
-  \begin{itemize}
-   \item mit \cod{vpnc}
-  \end{itemize}
-  \item eduroam
-  \begin{itemize}
-   \item mit s\cod{wpa\_supplicant}
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{Nützliche Files und Adressen}
- \begin{tabular}{ll}
-  \cod{host-success.txt}	& log für eduroam\\
-  \cod{wpa*}	& Konfiguration \\
-  \url{https://cat-test.eduroam.org} & sollte gehen
-     \footnote{\url{https://cat.eduroam.org} funktioniert nicht}\\
-  \cod{connect.txt} & zeigt die Schritte     
- \end{tabular}
-\end{frame}
-
-\subsection{Das sollte funktionieren}
-
-\begin{frame}{Zwei Verbindungen:LAN/WLAN}{für \target}
- \begin{description}[WLAN]
-  \item[WLAN] mit der Welt
-   \begin{itemize}
-    \item \target ist Client
-   \end{itemize}
-  \item[LAN] mit den \host im gleichen Netz
-   \begin{itemize}
-    \item \target ist Server
-   \end{itemize}
- \end{description}
- \remark{\cod{connect.txt} zeigt die Befehle} 
-\end{frame}
-
-\begin{frame}{LAN}
- \begin{block}{\host}
- \begin{itemize}
-  \item \cod{ifconfig eth0:0 192.168.1.1 up}
-  \remark{die anderen Verbindungen bleiben}
- \end{itemize}
- \end{block}
- \begin{block}{\target}
-  \begin{itemize}
-   \item \cod{ifconfig eth0 192.168.1.2 up}
-  \end{itemize}
- \end{block}
-\end{frame}
-
-\begin{frame}{WLAN \target}{Manuell}
- \begin{description}[Konfiguration]
-  \item[Background] \cod{wpa\_supplicant -D wext -i wlan0 -c{\em wpa.conf} -B}
-  \item[Foreground] \cod{wpa\_cli}
-  \item[Konfiguration] \cod{wpa\_supplicant.conf}
-  \remark{Passwort noch in Klartext}
  \end{description}
 \end{frame}
 
-\begin{frame}{WLAN \target}{netctl}
+\begin{frame}{\target}{\cod{apt-get}}
  \begin{itemize}
-  \item {\footnotesize\url{https://wiki.archlinux.org/index.php/netctl}}
-  \item Passwort mindestens verschleiern
+  \item Konfiguration
+  \begin{itemize}
+   \item File \cod{apt.conf.d/05proxy}
+   \begin{itemize}
+    \item \cod{Acquire::http::proxy "{}http://192.168.7.1:8123"{};}
+   \end{itemize}
+  \end{itemize}
+  \item Test
+  \begin{itemize}
+   \item \cod{apt-get update}
+   \item \cod{apt-get install sshfs}
+  \end{itemize}
  \end{itemize}
 \end{frame}
+
+\section{SSH}
+\begin{frame}{\target}{Server \cod{socks}}
+ \begin{itemize}
+  \item \cod{ssh -D{\em port} user@host}
+  \item \cod{curl --proxy socks5h localhost:{\em port} {\em http:address}}
+  \item \cod{atp-get} funktioniert nicht
+  \begin{itemize}
+   \item File \cod{apt.conf.d/05proxy} 
+    \begin{itemize}
+     \item \cod{Acquire::http::proxy "{}socks4a://localhost:8123"{};}
+	 \item[] oder ??
+	 \item \cod{Acquire::socks::proxy "{}socks4a://localhost:8123"{};}
+	 \item port=8123
+    \end{itemize}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\section{Forwarding}
+\begin{frame}{Forwarding}{\host ist ein router}
+ \begin{center}
+  \includegraphics[width=0.875\textwidth]{router.pdf}
+ \end{center}
+ \begin{itemize}
+  \item alle IP Protokolle 
+  \item NAT Network Address Translation
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Konfiguration}
+ \begin{description}[\target]
+  \item[\host] \cod{config/forwarding.sh}
+  \item[\target] Setze gateway
+  \begin{lstlisting}[language=bash]
+  route add default gw host-ip usb0
+  \end{lstlisting}
+ \end{description}
+\end{frame}
+
+\section{Aufgaben}
+\subsection{Proxy}
+
+\begin{frame}{Aufgaben}{Proxy}
+ \begin{itemize}
+  \item Installiere Proxy
+  \item Teste Proxy 
+  \item Was wird auf den lokalen Netz übertragen 
+  \begin{itemize}
+   \item \cod{wireshark}
+  \end{itemize}
+  \item Setze \cod{apt-get} \& Co. so auf, dass \target per Internet/Proxy funktioniert 
+ \end{itemize}
+\end{frame}
+
+\subsection{Forwarding}
+
+\begin{frame}{Aufgaben}{Forwarding}
+ \begin{itemize}
+  \item Setze \host auf
+  \item Setze \target auf
+  \item Teste mit \cod{ping}
+  \item Test mit \cod{apt-get}
+ \end{itemize}
+\end{frame}
+
 \end{document}
 
