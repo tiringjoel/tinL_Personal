@@ -7,10 +7,15 @@
  
    
 TODO:
-  . minimales linux initrd
-  . systemd/systemctl
-  . netctl
-  . accessing hardware
-  . Makefile
-  . ntpd
-  . qemu
+	- USB over VirtualBox
+
+23.Sept. 2015
+-------------
+ 2-unix-use
+  mount
+  ssh
+  ---> hello-world 
+  
+ 3-network
+   Verbindung mit dem Internet
+   ---> apt-get install 

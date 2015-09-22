@@ -19,6 +19,7 @@
   \item alles ist ein File 
   \begin{itemize}
    \item $0-te$ Näherung
+   \item File: {\em stream of bits}
   \end{itemize}
   \item Filesysteme
   \begin{itemize}
@@ -35,31 +36,42 @@
 
 \begin{frame}{Wichtig}
  \begin{itemize}
-  \item wo ist was
+  \item wo ist was ?
+  \begin{itemize}
   \item {\Large Verzeichnisstruktur}
+  \end{itemize}
+  \item wo sind wir ?
+  \begin{itemize}
+   \item \host
+   \item[] oder
+   \item \target
+  \end{itemize}
  \end{itemize}
 \end{frame}
 
 \section{Alles ist ein File}
 \begin{frame}{Alles ist ein File}
-\includegraphics{file-bits.jpg}
-\begin{itemize}
- \item \cod{\em name} Referenz auf die Bits (Bytes)
+ \begin{center}
+  \includegraphics[width=0.5\textwidth]{file-bits.jpg}
+ \end{center}
  \begin{itemize}
-  \item Bits(bytes) der Reihe nach
- \end{itemize}
- \item File
- \begin{itemize}
-  \item Datenquelle
+  \item \cod{\em name} Referenz auf die Bits (Bytes)
   \begin{itemize}
-   \item liefert Daten: Bits(Bytes)
+   \item Bits(bytes) der Reihe nach
+   \item indexiert $0\dots n-1$
   \end{itemize}
-  \item Datensenke
+  \item File
   \begin{itemize}
-   \item absorbiert Daten: Bits(Bytes)
+   \item Datenquelle
+   \begin{itemize}
+	\item liefert Daten: Bits(Bytes)
+   \end{itemize}
+   \item Datensenke
+   \begin{itemize}
+	\item absorbiert Daten: Bits(Bytes)
+   \end{itemize}
   \end{itemize}
  \end{itemize}
-\end{itemize}
 \end{frame}
 
 \begin{frame}{Ein paar Befehle}
@@ -70,12 +82,13 @@
   \end{itemize}
   \item \cod{hexdump -C {\em name}}
   \begin{itemize}
-   \item zeigt den Inhalt hexadezimal
+   \item zeigt die Bits hexadezimal
   \end{itemize}
  \end{itemize}
 \end{frame}
 
-\begin{frame}{Devices sind auch Files}{z.B. SD-Karte}
+\subsection{Devices}
+\begin{frame}{Devices sind auch Files}{am Beispiel SD-Karte}
  \begin{description}
   \item[\cod{/dev/mmcblk{\bf i}}] $i=0,1,2 ...$
   \remark{Name vom Betriebssystem bestimmt}
@@ -138,36 +151,43 @@
 
 \begin{frame}{\cod{mount {\em fileSystem} {\em mountPoint}}}
              {Verbindet Filesysteme}
-  \includegraphics[height=4.5cm]{mount.jpg}
-  \begin{textblock}{150}(68,40)
+  \includegraphics[height=3.5cm]{mount.jpg}
+  \begin{textblock}{150}(58,40)
    \begin{itemize}
-    \item \cod{mount {\em /dev/mmcblk0p1} \textbackslash \\
-    \ \ \ \ {\em mountPoint}}
+    \item \cod{mount {\em /dev/mmcblk0p1} %\textbackslash \\
+    {\em mountPoint}}
+	\item \cod{umount {\em mountPoint}}
    \end{itemize}
   \end{textblock}
-  \remark{Sieht wie ein normales Verzeichnis aus}
+  \remark{{\em mountPoint} sieht wie ein normales Verzeichnis aus}
 \end{frame}
 
-\begin{frame}{\cod{sshfs user@host mountPoint}}{via \cod{ssh}}
- \includegraphics[height=4.5cm]{sshfs.jpg}
-   \begin{textblock}{150}(68,40)
+\begin{frame}{\cod{sshfs user@target:{\em path} {\em mountPoint}}}{via \cod{ssh}}
+ \includegraphics[height=3.5cm]{sshfs.pdf}
+   \begin{textblock}{150}(58,40)
    \begin{itemize}
-    \item braucht \cod{ssh}
+    \item \cod{sshfs user@target:{\em path} {\em mountPoint}}
+	\begin{itemize}
+     \item braucht \cod{ssh}
+	\end{itemize}
+	\item \cod{fusermount -u {\em mountPoint}}
+	\begin{itemize}
+	 \item umount
+	\end{itemize}
    \end{itemize}
   \end{textblock}
-  \remark{Sieht wie ein normales Verzeichnis aus}
+  \remark{{\em mountPoint} Sieht wie ein normales Verzeichnis aus}
 \end{frame}
 
 \section{Cross development}
-\begin{frame}{Verzeichnisstruktur}{\host \target}
+\begin{frame}{Verzeichnisstruktur}{\host$\leftrightarrow$ \target}
  \begin{block}{Host} 
  \dirtree{%
   .1 devel \DTcomment{somewhere on the host}.
   .2 config.
   .3 Makefile \DTcomment{for making \target executables}.
-  .2 java \DTcomment{source}.
-  .2 src  \DTcomment{c c++}.
-  .2 tc    \DTcomment{normally a link}.
+  .2 src  \DTcomment{c,c++}.
+  .2 tc   \DTcomment{normally toolchain}.
   .2 {\bf work} \DTcomment{connected with \target {\em current dir}}.
  }
  \end{block}
@@ -180,18 +200,39 @@
 \end{frame}
 
 
-\section{}
-\begin{frame}{Aufgaben}
+\section{Aufgaben}
+\begin{frame}{Vorbereitung}
  \begin{itemize}
   \item Verbindung mit \target via \cod{ssh}
-  \item upgrade \cod{pacman -Suy}
-  \item {\em user} auf \target \cod{useradd}
-  \item {\em toolchain} auf \host
-  \item mount \host auf \target mit \cod{sshfs}
-  \item \cod{HelloWorld.java}, \cod{hello-world-cpp.cc}, \cod{hello-world-c.c}, 
-        \cod{primes.cc}\\
-  auf \target
+%  \item upgrade \cod{pacman -Suy}
+%  \item {\em user} auf \target \cod{useradd}
+  \item Installation {\em toolchain} auf \host
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Verbindung}{mit \target}
+ \begin{itemize}
+  \item \cod{ssh} für die Ausführung der Programme
+  \item {\em mount} Varianten
+  \begin{itemize}
+   \item \host auf \target 
+   \item \target auf \host
+  \end{itemize}
+  \item Kopiere  {\em executable} auf \target 
+   \begin{itemize}
+    \item \cod{scp} secure copy
+    \item \cod{scp {\em executable} user@target:}
+   \end{itemize}
  \end{itemize}
 \end{frame}
+
+\begin{frame}{Programme}{auf \target}
+ \begin{itemize}
+  \item \c Programme:, \cod{hello-world-c.c} 
+  \item \cpp Programme \cod{hello-world-cpp.cc}, \cod{primes.cc} 
+  \remark{Toolchain funktioniert für \cpp noch nicht}
+ \end{itemize}
+\end{frame}
+
 \end{document}
 

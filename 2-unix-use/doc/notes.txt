@@ -14,3 +14,12 @@ c,c++
 
 unix boot
 modules
+
+wer ist server
+wer ist client
+- ssh
+- sshfs
+- mount
+- tunnel
+- proxy
+
