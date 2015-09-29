@@ -5,6 +5,7 @@
 ----------------------*/
 #include <stdio.h>
 #include <unistd.h>
+#define __USE_POSIX199309 /* why */
 #include <time.h>
 #define SECOND 1000000000
 int main(int argc,char** args)
@@ -12,9 +13,9 @@ int main(int argc,char** args)
  
  unsigned tickN=0;
  printf("Hello World %s\n",__FILE__);
- struct timespec tick={0, /* 0 seconds */
-                       SECOND/4
-                      };
+ struct timespec tick = { 0, /* 0 seconds */
+                          SECOND/4
+                        };
  while(tickN<20)
  {
   printf("Tick %d\n",tickN++);

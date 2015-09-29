@@ -2,7 +2,8 @@
 #forwarding.sh
 #(c) H.Buchmann FHNW 2015
 #----------------------
-INTER_NET=enp0s20u2
+#INTER_NET=enp0s20u2
+INTER_NET=tun0
 LOCAL_NET=enp0s20u3
 
 sudo sysctl net.ipv4.ip_forward=1

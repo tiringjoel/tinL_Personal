@@ -161,11 +161,16 @@
 
 \begin{frame}[fragile]{Konfiguration}
  \begin{description}[\target]
-  \item[\host] \cod{config/forwarding.sh}
+  \item[\host] \cod{tools/forwarding.sh}
   \item[\target] Setze gateway
   \begin{lstlisting}[language=bash]
   route add default gw host-ip usb0
   \end{lstlisting}
+  \item Setze DNS Server
+  \begin{itemize}
+   \item \cod{cp config/resolv.conf /etc/resolv.conf}
+  \end{itemize}
+  einfach aber nicht universell
  \end{description}
 \end{frame}
 

@@ -22,3 +22,12 @@ TODO:
 
 30.Sept 2015
 ------------
+ 3-network
+   BBB Zugang zum Internet:
+     - per Proxy nur HTTP
+	 - per Router alles
+
+ 4-devel/2-unix-use
+	cross-development
+	 rootfs auf host
+	 rootfs auf target sshfs

@@ -1,7 +1,6 @@
 %-------------------------
-%big-picture
-%(c) H.Buchmann FHNW 2008
-%$Id$
+%devel
+%(c) H.Buchmann FHNW 2015
 %export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
 %-------------------------
 \documentclass{beamer}
@@ -18,41 +17,36 @@
  \begin{itemize}
   \item (fast) wie auf dem \host
   \item {\em Toolchain} auf dem \host
-  \item nur Programme ({\em runtime}) auf dem \target
+  \item nur Programme ({\em runtime/executables}) auf dem \target
+  \begin{itemize}
+   \item Sourcefiles bleiben auf dem \host (Ausnahme Skripts)
+  \end{itemize}
   \item Entwicklung für 
   \begin{description}[C/C++]
-   \item[Java]  Java SE Runtime Environment \target
    \item[C/C++] Posix {\em runtime} 
+   \item[Java]  Java SE Runtime Environment \target
+   \begin{itemize}
+    \item nicht prioritär
+   \end{itemize}
+   \item[Python] Praktische platformunabhängige Sprache
   \end{description}
   vom \target aus gesehen
  \end{itemize}
 \end{frame}
 
-\begin{frame}{Outline}{für Java und C/C++}
- \begin{block}{\host}
-  \dirtree{%
-   .1 somewhere\_on\_your\_host.
-   .2 config.
-   .2 src \DTcomment{the own source files}.
-   .2 work \DTcomment{seen by \target}.
-   .2 target-root \DTcomment{for the toolchain}.
-   .2 tc \DTcomment{toolchain}.
-  }
- \end{block}
- \begin{block}{\target}
-  \dirtree{%
-   .1 somewhere\_on\_your\_\target.
-   .2 work \DTcomment{mounted on \host per \cod{sshfs}}.
-  }
- \end{block}
-\end{frame}
+
+
+\part{C/C++}
+\frame{\partpage}
+\input{cpp.tex}
 
 \part{Java}
 \frame{\partpage}
 \input{java.tex}
 
-\part{C/C++}
+\part{Python}
 \frame{\partpage}
-\input{cpp.tex}
+\input{python.tex}
+
 \end{document}
 
