@@ -2,7 +2,6 @@
 #binutils.sh
 #(c) H.Buchmann FHNW 2015
 #-------------------------
-
 . scripts/common.sh  #load common
 #-------------------- we are in build
 [[ ! -d binutils ]] && mkdir binutils 

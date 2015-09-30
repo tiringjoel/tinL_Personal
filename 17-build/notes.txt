@@ -1,6 +1,8 @@
 Notes
 -----
-<<<<<<< HEAD
+see https://sourceware.org/ml/libc-alpha/2014-05/msg00573.html
+
+
 manufacturing:
 
 sh scripts/binutils.sh
@@ -14,7 +16,7 @@ sh scripts/eglibc.sh
 
 install headers
 make headers_install INSTALL_HDR_PATH=path-to-target-root/usr
-=======
+
 binutils:
 	scripts/binutils.sh
 >>>>>>> d3d6b2f45b30afad8028527ae68d30a081c707a2
