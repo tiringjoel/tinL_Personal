@@ -4,7 +4,7 @@
 #-------------------
 #we are in work
 TC=../tc/
-PREFIX=arm-fhnw-linux-gnueabi
+PREFIX=arm-linux-gnueabihf
 SYSROOT=../target-root
 CROSS_COMPILE=${TC}/bin/${PREFIX}-
 CC=${CROSS_COMPILE}gcc --sysroot=${SYSROOT}
