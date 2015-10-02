@@ -10,7 +10,7 @@ CC=${PREFIX}gcc -O2 --sysroot=${SYSROOT}
 LD=${PREFIX}ld 
 CXX=${PREFIX}g++ --sysroot=${SYSROOT} -O2
 CXXFLAGS=-std=c++11
-LDFLAGS=-static
+###LDFLAGS=-static
 VPATH=../src
 
 #compile/link in ome step
