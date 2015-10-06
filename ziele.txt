@@ -31,3 +31,8 @@ TODO:
 	cross-development
 	 rootfs auf host
 	 rootfs auf target sshfs
+
+ 7.Okt. 2015
+ ----------- 
+ 4-devel
+	Makefile

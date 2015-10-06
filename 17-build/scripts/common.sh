@@ -27,12 +27,12 @@ BINUTILS_SRC=${HOME}/devel/gcc/dist/binutils-2.25/
 #----------------- the source code
 RESOURCES=${BUILD_HOME}/../resources/
 EGLIBC_SRC=${RESOURCES}/eglibc/
-
-
+OPENSSL_SRC=${RESOURCES}/openssl-1.0.2a
 KERNEL_SRC=${RESOURCES}/beaglebone-black/linux/
 BUSYBOX_SRC=${RESOURCES}/busybox-1.23.2/
-OPENSSH_SRC=${RESOURCES}/openssh-6.7p1
-OPENSSL_SRC=${RESOURCES}/openssl-1.0.2a
+
+
+OPENSSH_SRC=${RESOURCES}/openssh-7.1p1
 ZLIB_SRC=${RESOURCES}/zlib-1.2.8
 FUSE_SRC=${RESOURCES}/fuse-2.9.3
 SSHFS_SRC=${RESOURCES}/sshfs-fuse-2.5

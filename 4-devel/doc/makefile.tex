@@ -3,18 +3,6 @@
 %(c) H.Buchmann FHNW 2015
 %export TEXINPUTS=.:${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
 %-------------------------
-\documentclass{beamer}
-\usepackage{beamer}
-\input{defines.tex}
-\input{/home/buchmann/latex/dirtree/dirtree.tex}
-
-\usepackage[absolute]{textpos}
-\setlength{\TPHorizModule}{1mm}
-\setlength{\TPVertModule}{1mm}
-
-\begin{document}
-
-
 \title{Makefile}
 
 \frame{\titlepage}
@@ -119,13 +107,13 @@
  \end{enumerate}
 \end{frame}
 
-\begin{frame}{Verzeichnisstruktur}
+\begin{frame}{Verzeichnisstruktur}{auf dem \host}
  \dirtree{%
   .1 somewhere \DTcomment{on your \host}.
   .2 src \DTcomment{home of source files}.
   .2 config \DTcomment{home of configuration files}.
-  .3 Makefike.
-  .2 work \DTcomment{workspace}.
+  .3 Makefile.
+  .2 work \DTcomment{workspace, connected with \targetS}.
   .3 Makefile $\to$ ../config/Makefile \DTcomment{link}.
  }
  \remark{Wie immer!}
@@ -162,6 +150,8 @@
  \fig{rules-1.pdf}{0.5}{0}
 \end{frame}
 
+\section{Aufgaben}
+
 \begin{frame}{Aufgabe}
  \begin{itemize}
   \item Anpassung an \target
@@ -169,6 +159,10 @@
   \begin{itemize}
    \item ist POSIX
   \end{itemize}
+  \item Nutzen Sie die {\em tools}
+  \begin{itemize}
+   \item \cod{netcat}
+   \item \cod{wireshark}
+  \end{itemize}
  \end{itemize}
 \end{frame}
-\end{document}

@@ -8,7 +8,9 @@
 int main(int argc,char** args)
 {
  udp_ServerSocket server;
- int cod=udp_open_server((udp_Port)0x12345,&server); 
+ int port=1234;
+ printf("listening on port %d\n",port);
+ int cod=udp_open_server((udp_Port)port,&server); 
                          /* TODO proper suffix for unsigned short */
  udp_Address client;
  char data[1024];
