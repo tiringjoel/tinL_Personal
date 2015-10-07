@@ -25,7 +25,7 @@ TODO:
  3-network
    BBB Zugang zum Internet:
      - per Proxy nur HTTP
-	 - per Router alles
+     - per Router alles
 
  4-devel/2-unix-use
 	cross-development
