@@ -3,12 +3,19 @@
 #(c) H.Buchmann FHNW 2014
 #we are in work
 #-----------------------
-SYSROOT=../target-root
+#-------------------------------- configuration for target
+SYSROOT=--sysroot=../target-root
 PREFIX=../tc/bin/arm-linux-gnueabihf-
+
+#-------------------------------- configuration for host
+#SYSROOT=
+#PREFIX=
+
+#-------------------------------- common variables
 CFLAGS=-std=c99
-CC=${PREFIX}gcc -O2 --sysroot=${SYSROOT}
+CC=${PREFIX}gcc -O2 ${SYSROOT}
 LD=${PREFIX}ld 
-CXX=${PREFIX}g++ --sysroot=${SYSROOT} -O2
+CXX=${PREFIX}g++ ${SYSROOT} -O2
 CXXFLAGS=-std=c++11
 ###LDFLAGS=-static
 VPATH=../src

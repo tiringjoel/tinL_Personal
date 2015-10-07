@@ -35,7 +35,7 @@
   \item SLOC: Source Line Of Code
   \begin{itemize}
    \item \cod{tools/sloc-count.sh}
-   \item Analyse mit excec
+   \item Analyse mit z.B. {\em excel}
   \end{itemize}
  \end{itemize}
 \end{frame}
@@ -65,6 +65,11 @@
        \footnote{Allgemeiner: \cod{name} ist der Name einer Regel}
   \item[Makefile] muss nicht angegeben werden. \cod{make} sucht den
   File mit dem Namen \cod{Makefile} im {\em current directory}
+  \begin{itemize}
+   \item Alternative:
+   
+   \cod{make -f {\em path-to-makefile} name}
+  \end{itemize}
  \end{description}
 \end{frame}
 
@@ -100,11 +105,16 @@
 \end{frame}
 
 \subsection{Unser Beispiel}
+
 \begin{frame}{Ziel}
+\begin{block}{Programme}
  \begin{enumerate}
   \item lauffähig auf \host
   \item lauffähig auf \target
  \end{enumerate}
+ dank {\bf POSIX}
+\end{block}
+
 \end{frame}
 
 \begin{frame}{Verzeichnisstruktur}{auf dem \host}
