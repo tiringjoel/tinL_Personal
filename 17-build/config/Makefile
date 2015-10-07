@@ -39,6 +39,9 @@ cpp-hello-world: cpp-hello-world.cc
 thread-demo-1:	LDFLAGS=-static -lpthread
 thread-demo-1:	thread-demo-1.cc
 
+#------------------ getpwname test for sshd: Privilege separation user sshd does not exist
+getpwnam:	getpwnam.c
+
 #------------------ Dot-test
 Dot_test:	Dot_test.o bcm2835.o
 Dot_test.o:	Dot_test.c bcm2835.h
