@@ -16,7 +16,9 @@ ${OPENSSH_SRC}/configure \
 --prefix=/ \
 --build=x86_64-unknown-linux-gnu \
 --disable-strip \
---disable-option-checking
+--disable-option-checking \
+--with-sandbox=seccomp_filter \
+--with-ldflags='-static'
 
 #remove check-config from makefile
 ${MAKE} 

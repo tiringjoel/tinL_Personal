@@ -25,8 +25,11 @@ ${GCC_SRC}/configure \
  --disable-multilib \
  --disable-libgomp \
  --disable-libmudflap \
- --with-float=hard
+ --with-float=hard \
+ --with-arch=armv7-a \
+ --with-fpu=vfpv3-d16
  
+
 # --with-fpu=vfp
 # --disable-threads \
  

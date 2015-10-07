@@ -13,7 +13,7 @@ cd ${BUILD_HOME}
 export CC=${CROSS_COMPILE}gcc --sysroot=${SYSROOT}
 export AS=${CROSS_COMPILE}as
 
-./Configure linux-elf no-asm --prefix=${SYSROOT}/usr
+./Configure linux-elf no-asm shared --prefix=${SYSROOT}/usr --
 #export CC=${CROSS_COMPILE}gcc --sysroot=${SYSROOT}
 ##${OPENSSL_SRC}/ \
 ##--prefix=${SYSROOT} \

@@ -4,7 +4,7 @@
 #-------------------
 #we are in work
 TC=../tc/
-PREFIX=arm-fhnw-linux-gnueabi
+PREFIX=arm-linux-gnueabihf
 SYSROOT=../target-root
 CROSS_COMPILE=${TC}/bin/${PREFIX}-
 CC=${CROSS_COMPILE}gcc --sysroot=${SYSROOT}
@@ -38,6 +38,9 @@ cpp-hello-world: cpp-hello-world.cc
 #------------------ not yet working
 thread-demo-1:	LDFLAGS=-static -lpthread
 thread-demo-1:	thread-demo-1.cc
+
+#------------------ getpwname test for sshd: Privilege separation user sshd does not exist
+getpwnam:	getpwnam.c
 
 #------------------ Dot-test
 Dot_test:	Dot_test.o bcm2835.o
