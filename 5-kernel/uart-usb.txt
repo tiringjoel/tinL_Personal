@@ -1,0 +1,6 @@
+UART-USB
+--------
+J1 pin          Kabel
+   1    -> GND  black
+   4    -> RX   green
+   5    -> TX   white

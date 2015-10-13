@@ -1,7 +1,9 @@
 #---------------------
-#make.sh
-#(c) H.Buchmann FHNW 2014
-# make.sh args-for-make
+#kernel.sh
+#(c) H.Buchmann FHNW 2015
+# kernel.sh args/target
+# important targets
+#   bb.org_defconfig
 # make.sh help
 #---------------------
 #we are in 5-kernel
