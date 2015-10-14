@@ -1,0 +1,103 @@
+\renewcommand{\src}[1]{\cod{{\bf #1}.src}}
+\newcommand{\exe}[2]{\cod{{\bf #1}(#2)}}
+\newcommand{\tc}[3]
+% #1 file
+% #2 target
+% #3 exec
+{
+ \src{#1}\to\boxed{\exe{tc[#2]}{#3}}\to\exe{#1}{#2}
+}
+
+\begin{frame}{CrossToolchain}{Begriffe}
+ \begin{itemize}
+  \item der CrossCompiler gehört zur CrossToolchain
+  \item neben dem CrossCompile gibt es noch andere Komponenten:
+  \begin{itemize}
+   \item Assembler
+   \item Linker
+   \item ...
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Die ganze gcc Toolchain}
+
+\begin{lstlisting}{language=bash}
+ls path-to-tc-bin
+\end{lstlisting}
+
+{\scriptsize
+\verbatiminput{gcc-tc.lst}
+}
+\end{frame}
+
+\begin{frame}{CrossToolchain}{Notationen}
+\begin{description}[Targetrechner]
+ \item[Hostrechner] $H$
+ \item[Targetrechner] $T$ 
+  \begin{itemize}
+   \item Beispiel \target
+  \end{itemize}
+ \item[Sourcefile] \src{file}
+  \begin{itemize}
+   \item Beispiel \cod{hello-world.c}
+  \end{itemize}
+ \item[Executable] \exe{file}{M} ausführbar auf dem Rechner $M$, \\$M=H|T$
+  \begin{itemize}
+   \item Beispiel \cod{hello-world(T)} \\für $T=\target$
+  \end{itemize}
+\end{description}
+\end{frame}
+
+\begin{frame}{CrossToolchain}{Definition}
+\[
+\tc{file}{T}{H}
+\]
+\begin{description}[$\exe{compiler}{M}$]
+ \item[$\src{file}$] der Source File
+ \item[$\exe{tc[T]}{H}$] der Compiler/Toolchain ein {\em executable} für den Rechner $H$
+ 	erzeugt {\em executables} für den Rechner $T$
+ \item[$\exe{file}{T}$] das {\em executable} für den Rechner $T$
+\end{description}
+\remark{Der Compiler ist ein (wichtiger) Bestandteil der ganzen {\em Toolchain}} 
+\end{frame}
+
+\begin{frame}[fragile]{Beispiel}{Programm auf dem \host}
+ \[
+  \tc{{hello\_world}}{H}{H}
+ \]
+ \begin{lstlisting}{language=bash}
+  gcc -O2  -std=c99 \
+  ../src/hello-world-c.c \
+  -o hello-world-c
+ \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Beispiel}{CrossToolchain}
+ \[
+  \tc{{hello\_world}}{T}{H}
+ \]
+ \begin{lstlisting}{language=bash}
+ ../tc/bin/arm-linux-gnueabihf-gcc -O2 \
+  --sysroot=../target-root -std=c99\
+  ../src/hello-world-c.c \
+  -o hello-world-c
+ \end{lstlisting}
+ \begin{itemize}
+  \item \cod{arm-linux-gnueabihf-} entspricht $T$ 
+  \begin{itemize}
+   \item im gcc Terminologie {\em target}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{CrossToolchain}{Herstellung}
+\[
+ \tc{tc[T]}{H}{H}
+\]
+\begin{itemize}
+ \item erzeugt auf dem Rechner $H$ eine {\em toolchain} die auf dem Rechner $H$ läuft
+ und {\em executables} für den Rechner $T$ erstellt
+\end{itemize}
+
+\end{frame}

@@ -37,3 +37,8 @@ TODO:
  4-devel
         python 
 	Makefile
+
+14.Okt. 2015
+------------
+ cross-compiler
+ 5-kernel

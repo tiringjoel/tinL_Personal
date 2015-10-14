@@ -37,7 +37,13 @@
  \end{description}
 \end{frame}
 
-\begin{frame}{Grosses Projekt}
+\begin{frame}{Die Schichten}
+ \begin{center}
+  \includegraphics[width=0.75\textwidth]{layers.pdf}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Kernel}{Grosses Projekt}
 \begin{block}{Was ist einfach ?}
  \begin{itemize}
   \item \kernel hängt nicht von anderen Software Komponenten ab
@@ -58,7 +64,7 @@
 \end{frame}
 
 \section{Download}
-\begin{frame}{\url{https://github.com/raspberrypi/linux}}
+\begin{frame}{\url{https://github.com/beagleboard/linux}}
              {Mehrere Möglichkeiten}
  \begin{itemize}
   \item das ganze git repository
@@ -70,14 +76,15 @@
 \section{Setup}
 \begin{frame}{Tools}{Siehe \cod{4-devel}}
  \begin{description}[toolchain]
+ 
   \item[toolchain] {\small \url{https://sourceforge.net/projects/fhnw-tinl/files}}
    \begin{itemize}
-    \item \cod{gcc-4.9.1-raspberry-pi.tar.gz}
-    \item Prefix: \cod{armv6l-unknown-linux-gnueabihf-}
+    \item \cod{beaglebone-black-toolchain-64bit.tar.bz2}
+    \item Prefix: \cod{arm-linux-gnueabihf-}
     \begin{itemize}
      \item beschreibt:
      \begin{itemize}
-      \item Architektur: \cod{armv6l}
+      \item Architektur: \cod{armv7}
       \item {\bf A}pplication {\bf B}inary {\bf I}nterface: \cod{gnueabihf}
      \end{itemize}
     \end{itemize}
@@ -100,21 +107,21 @@
   .3 tools \DTcomment{for making}.
   .4 make.sh \DTcomment{wrapper to \kernel Makefile}.
   .3 config.
-  .4 config.sh \DTcomment{for make.sh}.
+  .4 config.sh \DTcomment{for kernel.sh}.
   .2 resources.
-  .3 kernel.
+  .3 beaglebone-black
   .4 linux \DTcomment{the source tree}.
  }
 \end{frame}
 
 \section{Herstellung}
-\begin{frame}{Konfiguration}{\cod{sh make.sh help}}
+\begin{frame}{Konfiguration}{\cod{sh kernel.sh help}}
  \begin{itemize}
-  \item \cod{sh tools/make.sh bcmrpi\_defconfig}
+  \item \cod{sh tools/kernel.sh bb.org\_defconfig}
   \begin{itemize}
    \item Vordefinierte Konfiguration
   \end{itemize}
-  \item \cod{sh tools/make.sh menuconfig}
+  \item \cod{sh tools/kernel.sh.sh menuconfig}
   \begin{itemize}
    \item Anpassung der Konfiguration
   \end{itemize}
@@ -123,9 +130,15 @@
 
 \begin{frame}{Kompilation}
  \begin{itemize}
-  \item \cod{sh tools/make.sh}
+  \item \cod{sh tools/kernel.sh zImage}
   \begin{itemize}
-   \item erzeugt  \cod{build/arch/arm/boot/Image}
+   \item erzeugt  \cod{build/arch/arm/boot/zImage}
+  \end{itemize} 
+  \item \cod{sh tools/kernel.sh dtbs}
+  \begin{itemize}
+   \item erzeugt \cod{build/arch/arm/boot/dts/am335x-boneblack-wl1835mod.dtb}
+   {\em Devicetree} 
+   \remark{später}
   \end{itemize} 
  \end{itemize}
 \end{frame}
@@ -133,16 +146,25 @@
 \begin{frame}{Installation}{auf SD-Card}
  \begin{itemize}
   \item Kopiere
-  \begin{itemize}
-   \item \cod{build/arch/arm/boot/Image}
-  \end{itemize}
-  als 
-  \begin{itemize}
-   \item \cod{kernel.img}
-  \end{itemize}
-  nach
+  \begin{description}[Devicetree]
+   \item[Image] \cod{build/arch/arm/boot/zImage}
+   \item[Devicetree] \cod{build/arch/arm/boot/dts/am335x-boneblack.dtb}
+  \end{description}
+  auf
   \begin{itemize}
    \item SD-Card {\em boot-partition}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Start}{auf \target}
+ \begin{itemize}
+  \item u-boot
+  \begin{itemize}
+   \item UART-USB Kabel
+  \end{itemize}
+  \begin{itemize}
+   \item Befehle in \cod{scripts/u-boot.cmd}
   \end{itemize}
  \end{itemize}
 \end{frame}
@@ -150,12 +172,9 @@
 \begin{exercise}{\kernel}
  \begin{itemize}
   \item \target default Konfiguration
-  \item füge Treiber für WLAN hinzu
-  \item Info
-  \begin{itemize}
-   \item \url{http://elinux.org/Raspberry\_Pi_Kernel\_Compilation}
-  \end{itemize}
+%  \item füge Treiber für WLAN hinzu
  \end{itemize}
 \end{exercise}
+
 \end{document}
 

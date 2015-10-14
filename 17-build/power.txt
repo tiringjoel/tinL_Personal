@@ -1,0 +1,15 @@
+Power
+-----
+5V@xxxmA   
+
+u-boot: 	260
+linux-idle:	150
+
+echo mem     > /sys/power/state :   52
+echo standby > /sys/power/state:	57 
+
+governor powersave:  132 
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+
+
+http://processors.wiki.ti.com/index.php/AM335x_Linux_Power_Management_User_Guide#cpufreq

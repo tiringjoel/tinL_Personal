@@ -8,6 +8,7 @@ SYSROOT=--sysroot=../target-root
 PREFIX=../tc/bin/arm-linux-gnueabihf-
 
 #-------------------------------- configuration for host
+#uncomment for host
 #SYSROOT=
 #PREFIX=
 
