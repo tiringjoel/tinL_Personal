@@ -40,5 +40,5 @@ TODO:
 
 14.Okt. 2015
 ------------
- compiler front-/backend
+ cross-compiler
  5-kernel
