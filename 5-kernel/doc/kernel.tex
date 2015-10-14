@@ -105,11 +105,11 @@
   .2 5-kernel.
   .3 build \DTcomment{generated kernel files}.
   .3 tools \DTcomment{for making}.
-  .4 make.sh \DTcomment{wrapper to \kernel Makefile}.
+  .4 kernel.sh \DTcomment{wrapper to \kernel Makefile}.
   .3 config.
   .4 config.sh \DTcomment{for kernel.sh}.
   .2 resources.
-  .3 beaglebone-black
+  .3 beaglebone-black.
   .4 linux \DTcomment{the source tree}.
  }
 \end{frame}
@@ -138,7 +138,7 @@
   \begin{itemize}
    \item erzeugt \cod{build/arch/arm/boot/dts/am335x-boneblack-wl1835mod.dtb}
    {\em Devicetree} 
-   \remark{später}
+   \remark{{\em Devicetree} später behandelt}
   \end{itemize} 
  \end{itemize}
 \end{frame}
@@ -171,7 +171,13 @@
 
 \begin{exercise}{\kernel}
  \begin{itemize}
-  \item \target default Konfiguration
+  \item \target {\em default} Konfiguration
+  \begin{itemize}
+   \item herstellen
+   \item auf SD-Karte
+   \item ausprobieren
+  \end{itemize}
+  \item Die {\em default} Konfiguration ändern
 %  \item füge Treiber für WLAN hinzu
  \end{itemize}
 \end{exercise}
