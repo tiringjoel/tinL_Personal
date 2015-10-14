@@ -42,3 +42,10 @@ TODO:
 ------------
  cross-compiler
  5-kernel
+
+
+21.Okt. 2015
+------------
+ -minicom
+ -das device /dev/ttyUSB
+ -Partitionen
