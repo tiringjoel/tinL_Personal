@@ -114,5 +114,25 @@ dd if=/dev/mmcblk0 count=1|hexdump -C
 
 \end{frame}
 
+\section{Distribution}
+\begin{frame}[fragile]{Alles ist ein File}{und umgekehrt}
+\begin{itemize}
+ \item Der File \url{minimal-distro.img.gz}
+ ist das Bild einer ganzen SD-Karte
+ \item Mache SD-Karte
+ \begin{itemize}
+  \item Kopiere {\tiny\url{http://sourceforge.net/projects/fhnw-tinl/files/minimal-distro.img.gz/download}} 
+  \item entzippe
+  \item kopiere
+  \begin{lstlisting}
+dd if=minimal-distro.img of=/dev/sd-card
+  \end{lstlisting}
+  \cod{sd-card} typ \cod{mmcblk\em{N}} $N=0|1 ..$
+ \end{itemize}
+ \remark{Alles mit {\em pipes}}
+ 
+\end{itemize}
+
+\end{frame}
 \end{document}
 
