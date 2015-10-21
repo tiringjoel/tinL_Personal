@@ -47,5 +47,7 @@ TODO:
 21.Okt. 2015
 ------------
  -minicom
+ -partitions 
+ 5-kernel
  -das device /dev/ttyUSB
  -Partitionen

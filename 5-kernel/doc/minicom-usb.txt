@@ -1,0 +1,25 @@
+Minicom-/dev/ttyUSB
+-------------------
+
+
+1. Verbindung
+-------------
+ls -l /dev/ttyUSB0
+
+crw-rw---- 1 root uucp 188, 0 21. Okt 10:00 /dev/ttyUSB0
+
+groups
+uucp bumblebee wireshark buchmann edu android
+
+Als root:
+usermod -a -G uucp login
+
+uucp heisst auf anderen Systemen auch
+
+dialout
+
+
+2.Protokoll
+-----------
+
+Kein Handshake
