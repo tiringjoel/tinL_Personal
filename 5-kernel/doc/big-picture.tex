@@ -1,0 +1,38 @@
+\section{The Big Picture}
+\begin{frame}{The Big Picture}{grosses Projekt}
+ \begin{description}
+  \item[Gegeben] Eine grosse Anzahl {\em source} Files
+  \item[Gesucht] ein einziger File: das {\Large Image}
+  \item[Lösung] Ähnlich wie in {\bf 4-devel} 
+  \begin{itemize}
+   \item Toolchain
+   \item Makefile
+  \end{itemize}
+ \end{description}
+\end{frame}
+
+\begin{frame}{Die Schichten}
+ \begin{center}
+  \includegraphics[width=0.75\textwidth]{layers.pdf}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Kernel}{Grosses Projekt}
+\begin{block}{Was ist einfach ?}
+ \begin{itemize}
+  \item \kernel hängt nicht von anderen Software Komponenten ab
+  \begin{itemize}
+   \item stand alone
+  \end{itemize}
+  \item Braucht nur \cod{make} und {\em toolchain}
+ \end{itemize}
+\end{block}
+\begin{block}{Was ist schwierig ?}
+ \begin{itemize}
+  \item Konfiguration
+  \begin{itemize}
+   \item Wahl der richtigen {\em source} Files für das {\Large Image}
+  \end{itemize}
+ \end{itemize}
+\end{block}
+\end{frame}

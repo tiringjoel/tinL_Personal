@@ -51,3 +51,14 @@ TODO:
  5-kernel
  -das device /dev/ttyUSB
  -Partitionen
+
+28.Okt. 2015
+------------
+ 5-kernel
+  - Konfiguration
+  - startup
+     u-boot -> kernel
+	  kernel-parameters.txt
+	 
+    kernel -> unix
+	

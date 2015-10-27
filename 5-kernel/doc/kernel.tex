@@ -24,139 +24,16 @@
  \end{itemize}
 \end{frame}
 
-\section{The Big Picture}
-\begin{frame}{The Big Picture}{grosses Projekt}
- \begin{description}
-  \item[Gegeben] Eine grosse Anzahl {\em source} Files
-  \item[Gesucht] ein einziger File: das {\Large Image}
-  \item[Lösung] Ähnlich wie in {\bf 4-devel} 
-  \begin{itemize}
-   \item Toolchain
-   \item Makefile
-  \end{itemize}
- \end{description}
-\end{frame}
+\input{big-picture.tex}
 
-\begin{frame}{Die Schichten}
- \begin{center}
-  \includegraphics[width=0.75\textwidth]{layers.pdf}
- \end{center}
-\end{frame}
 
-\begin{frame}{Kernel}{Grosses Projekt}
-\begin{block}{Was ist einfach ?}
- \begin{itemize}
-  \item \kernel hängt nicht von anderen Software Komponenten ab
-  \begin{itemize}
-   \item stand alone
-  \end{itemize}
-  \item Braucht nur \cod{make} und {\em toolchain}
- \end{itemize}
-\end{block}
-\begin{block}{Was ist schwierig ?}
- \begin{itemize}
-  \item Konfiguration
-  \begin{itemize}
-   \item Wahl der richtigen {\em source} Files für das {\Large Image}
-  \end{itemize}
- \end{itemize}
-\end{block}
-\end{frame}
+\input{manufacturing.tex}
 
-\section{Download}
-\begin{frame}{\url{https://github.com/beagleboard/linux}}
-             {Mehrere Möglichkeiten}
- \begin{itemize}
-  \item das ganze git repository
-  \item nur die letzten $n$ Versionen \cod{--depth=$n$}
-  \item zip File 
- \end{itemize}
-\end{frame}
+\input{startup.tex}
 
-\section{Setup}
-\begin{frame}{Tools}{Siehe \cod{4-devel}}
- \begin{description}[toolchain]
- 
-  \item[toolchain] {\small \url{https://sourceforge.net/projects/fhnw-tinl/files}}
-   \begin{itemize}
-    \item \cod{beaglebone-black-toolchain-64bit.tar.bz2}
-    \item Prefix: \cod{arm-linux-gnueabihf-}
-    \begin{itemize}
-     \item beschreibt:
-     \begin{itemize}
-      \item Architektur: \cod{armv7}
-      \item {\bf A}pplication {\bf B}inary {\bf I}nterface: \cod{gnueabihf}
-     \end{itemize}
-    \end{itemize}
-    \end{itemize}
-  \item[make] Normales \cod{make}
-  \begin{itemize}
-   \item \kernel Herstellung:
-   \begin{itemize}
-    \item \cod{make {\em cmd}}
-   \end{itemize}
-  \end{itemize}
- \end{description}
-\end{frame}
+\input{workflow.tex}
 
-\begin{frame}{Wo ist was ?}
- \dirtree{%
-  .1 tinL.
-  .2 5-kernel.
-  .3 build \DTcomment{generated kernel files}.
-  .3 tools \DTcomment{for making}.
-  .4 kernel.sh \DTcomment{wrapper to \kernel Makefile}.
-  .3 config.
-  .4 config.sh \DTcomment{for kernel.sh}.
-  .2 resources.
-  .3 beaglebone-black.
-  .4 linux \DTcomment{the source tree}.
- }
-\end{frame}
-
-\section{Herstellung}
-\begin{frame}{Konfiguration}{\cod{sh kernel.sh help}}
- \begin{itemize}
-  \item \cod{sh tools/kernel.sh bb.org\_defconfig}
-  \begin{itemize}
-   \item Vordefinierte Konfiguration
-  \end{itemize}
-  \item \cod{sh tools/kernel.sh.sh menuconfig}
-  \begin{itemize}
-   \item Anpassung der Konfiguration
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{Kompilation}
- \begin{itemize}
-  \item \cod{sh tools/kernel.sh zImage}
-  \begin{itemize}
-   \item erzeugt  \cod{build/arch/arm/boot/zImage}
-  \end{itemize} 
-  \item \cod{sh tools/kernel.sh dtbs}
-  \begin{itemize}
-   \item erzeugt \cod{build/arch/arm/boot/dts/am335x-boneblack-wl1835mod.dtb}
-   {\em Devicetree} 
-   \remark{{\em Devicetree} später behandelt}
-  \end{itemize} 
- \end{itemize}
-\end{frame}
-
-\begin{frame}{Installation}{auf SD-Card}
- \begin{itemize}
-  \item Kopiere
-  \begin{description}[Devicetree]
-   \item[Image] \cod{build/arch/arm/boot/zImage}
-   \item[Devicetree] \cod{build/arch/arm/boot/dts/am335x-boneblack.dtb}
-  \end{description}
-  auf
-  \begin{itemize}
-   \item SD-Card {\em boot-partition}
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
+\section{}
 \begin{frame}{Start}{auf \target}
  \begin{itemize}
   \item u-boot
@@ -177,7 +54,12 @@
    \item auf SD-Karte
    \item ausprobieren
   \end{itemize}
-  \item Die {\em default} Konfiguration ändern
+  \item Die {\em default} Konfiguration ändern:
+  \begin{itemize}
+   \item nur eine CPU
+   \item keine ALSA Soundkarte
+   \item ... 
+  \end{itemize}
 %  \item füge Treiber für WLAN hinzu
  \end{itemize}
 \end{exercise}

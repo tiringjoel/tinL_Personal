@@ -1,0 +1,23 @@
+\section{Workflow}
+\begin{frame}{Workflow}{schrittweise Herstellung}
+\begin{description}
+ \item[0] Setup der Toolchain
+ \item[1] Default Konfiguration (falls vorhanden)
+ \begin{itemize}
+  \item \cod{sh tools/kernel.sh bb.org\_defconfig}
+ \end{itemize}
+ \item[2] Herstellung 
+  \begin{itemize}
+   \item \cod{tools/kernel.sh zImage}
+  \end{itemize}
+ \item[3] Transfer/Start/Test auf \target
+ \begin{itemize}
+  \item U-Boot 
+ \end{itemize}
+ \item[4] (Re)Konfiguration
+ \begin{itemize}
+  \item \cod{sh tools/kernel.sh menuconfig}
+ \end{itemize}
+ \item[$\to$2]  ev. \cod{cp build/.config config/kernel.config} 
+\end{description}
+\end{frame}

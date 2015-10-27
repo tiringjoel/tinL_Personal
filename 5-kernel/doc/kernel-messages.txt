@@ -1,0 +1,285 @@
+U-Boot 2014.04-00014-g47880f5 (Apr 22 2014 - 13:23:54)
+
+I2C:   ready
+DRAM:  512 MiB
+NAND:  0 MiB
+MMC:   OMAP SD/MMC: 0, OMAP SD/MMC: 1
+*** Warning - readenv() failed, using default environment
+
+Net:   <ethaddr> not set. Validating first E-fuse MAC
+cpsw, usb_ether
+Hit any key to stop autoboot:  1  0 
+U-Boot# fatload mmc 0 0x82000000 zimage;fatload mmc 0 0x88000000 am335x-boneblack.dtb 
+reading zimage
+8238592 bytes read in 446 ms (17.6 MiB/s)
+reading am335x-boneblack.dtb
+58797 bytes read in 9 ms (6.2 MiB/s)
+U-Boot# setenv bootargs 'root=/dev/mmcblk0p2 rw rootdelay=1 init=linuxrc console=ttyO0,115200n8';bootz 0x82000000 -  0x88000000
+Kernel image @ 0x82000000 [ 0x000000 - 0x7db600 ]
+## Flattened Device Tree blob at 88000000
+   Booting using the fdt blob at 0x88000000
+   Using Device Tree in place at 88000000, end 880115ac
+
+Starting kernel ...
+
+Booting Linux on physical CPU 0x0
+Initializing cgroup subsys cpuset
+Initializing cgroup subsys cpu
+Initializing cgroup subsys cpuacct
+Linux version 4.1.6 (buchmann@buchmann) (gcc version 5.2.0 (GCC) ) #2 SMP PREEMPT Tue Oct 27 11:59:06 CET 2015
+CPU: ARMv7 Processor [413fc082] revision 2 (ARMv7), cr=10c5387d
+CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+Machine model: TI AM335x BeagleBone Black
+cma: Reserved 24 MiB at 0x9e000000
+Memory policy: Data cache writeback
+CPU: All CPU(s) started in SVC mode.
+AM335X ES2.1 (sgx neon )
+PERCPU: Embedded 13 pages/cpu @df926000 s22336 r8192 d22720 u53248
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 129408
+Kernel command line: root=/dev/mmcblk0p2 rw rootdelay=1 init=linuxrc console=ttyO0,115200n8
+PID hash table entries: 2048 (order: 1, 8192 bytes)
+Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+Memory: 475376K/522240K available (10729K kernel code, 929K rwdata, 3804K rodata, 672K init, 710K bss, 22288K reserved, 24576K cma-reserved, 0K highmem)
+Virtual kernel memory layout:
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+    vmalloc : 0xe0800000 - 0xff000000   ( 488 MB)
+    lowmem  : 0xc0000000 - 0xe0000000   ( 512 MB)
+    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+      .text : 0xc0008000 - 0xc0e39754   (14534 kB)
+      .init : 0xc0e3a000 - 0xc0ee2000   ( 672 kB)
+      .data : 0xc0ee2000 - 0xc0fca6e4   ( 930 kB)
+       .bss : 0xc0fcd000 - 0xc107e87c   ( 711 kB)
+Preemptible hierarchical RCU implementation.
+	RCU dyntick-idle grace-period acceleration is enabled.
+	RCU restricting CPUs from NR_CPUS=2 to nr_cpu_ids=1.
+RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+NR_IRQS:16 nr_irqs:16 16
+IRQ: Found an INTC at 0xfa200000 (revision 5.0) with 128 interrupts
+OMAP clockevent source: timer2 at 24000000 Hz
+sched_clock: 32 bits at 24MHz, resolution 41ns, wraps every 89478484971ns
+clocksource timer1: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 79635851949 ns
+OMAP clocksource: timer1 at 24000000 Hz
+Console: colour dummy device 80x30
+WARNING: Your 'console=ttyO0' has been replaced by 'ttyS0'
+This ensures that you still see kernel messages. Please
+update your kernel commandline.
+Calibrating delay loop... 996.14 BogoMIPS (lpj=4980736)
+pid_max: default: 32768 minimum: 301
+Security Framework initialized
+AppArmor: AppArmor disabled by boot time parameter
+Yama: becoming mindful.
+Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+Initializing cgroup subsys blkio
+Initializing cgroup subsys memory
+Initializing cgroup subsys devices
+Initializing cgroup subsys freezer
+Initializing cgroup subsys net_cls
+Initializing cgroup subsys perf_event
+Initializing cgroup subsys net_prio
+CPU: Testing write buffer coherency: ok
+ftrace: allocating 34644 entries in 102 pages
+CPU0: thread -1, cpu 0, socket -1, mpidr 0
+Setting up static identity map for 0x80008280 - 0x800082d8
+Brought up 1 CPUs
+SMP: Total of 1 processors activated (996.14 BogoMIPS).
+CPU: All CPU(s) started in SVC mode.
+devtmpfs: initialized
+VFP support v0.3: implementor 41 architecture 3 part 30 variant c rev 3
+omap_hwmod: tptc0 using broken dt data from edma
+omap_hwmod: tptc1 using broken dt data from edma
+omap_hwmod: tptc2 using broken dt data from edma
+omap_hwmod: debugss: _wait_target_disable failed
+clocksource jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+xor: measuring software checksum speed
+   arm4regs  :  1219.600 MB/sec
+   8regs     :  1092.400 MB/sec
+   32regs    :  1090.000 MB/sec
+   neon      :  1670.400 MB/sec
+xor: using function: neon (1670.400 MB/sec)
+pinctrl core: initialized pinctrl subsystem
+NET: Registered protocol family 16
+DMA: preallocated 256 KiB pool for atomic coherent allocations
+OMAP GPIO hardware version 0.1
+No ATAGs?
+hw-breakpoint: debug architecture 0x4 unsupported.
+omap4_sram_init:Unable to allocate sram needed to handle errata I688
+omap4_sram_init:Unable to get sram pool needed to handle errata I688
+raid6: int32x1  gen()   231 MB/s
+raid6: int32x1  xor()   175 MB/s
+raid6: int32x2  gen()   289 MB/s
+raid6: int32x2  xor()   198 MB/s
+raid6: int32x4  gen()   284 MB/s
+raid6: int32x4  xor()   200 MB/s
+raid6: int32x8  gen()   282 MB/s
+raid6: int32x8  xor()   183 MB/s
+raid6: neonx1   gen()  1464 MB/s
+raid6: neonx2   gen()  1937 MB/s
+raid6: neonx4   gen()  1144 MB/s
+raid6: neonx8   gen()  1092 MB/s
+raid6: using algorithm neonx2 gen() 1937 MB/s
+raid6: using intx1 recovery algorithm
+edma-dma-engine edma-dma-engine.0: TI EDMA DMA engine driver
+vgaarb: loaded
+SCSI subsystem initialized
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+omap_i2c 44e0b000.i2c: could not find pctldev for node /ocp/l4_wkup@44c00000/scm@210000/pinmux@800/pinmux_i2c0_pins, deferring probe
+omap_i2c 4819c000.i2c: could not find pctldev for node /ocp/l4_wkup@44c00000/scm@210000/pinmux@800/pinmux_i2c2_pins, deferring probe
+pps_core: LinuxPPS API ver. 1 registered
+pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+PTP clock support registered
+omap-mailbox 480c8000.mailbox: omap mailbox rev 0x400
+Advanced Linux Sound Architecture Driver Initialized.
+NetLabel: Initializing
+NetLabel:  domain hash size = 128
+NetLabel:  protocols = UNLABELED CIPSOv4
+NetLabel:  unlabeled traffic allowed by default
+Switched to clocksource timer1
+NET: Registered protocol family 2
+TCP established hash table entries: 4096 (order: 2, 16384 bytes)
+TCP bind hash table entries: 4096 (order: 3, 32768 bytes)
+TCP: Hash tables configured (established 4096 bind 4096)
+UDP hash table entries: 256 (order: 1, 8192 bytes)
+UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+NET: Registered protocol family 1
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+CPU PMU: Failed to parse /pmu/interrupt-affinity[0]
+hw perfevents: enabled with armv7_cortex_a8 PMU driver, 5 counters available
+futex hash table entries: 256 (order: 2, 16384 bytes)
+audit: initializing netlink subsys (disabled)
+audit: type=2000 audit(2.920:1): initialized
+zpool: loaded
+VFS: Disk quotas dquot_6.6.0
+VFS: Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+NFS: Registering the id_resolver key type
+Key type id_resolver registered
+Key type id_legacy registered
+nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+fuse init (API version 7.23)
+SGI XFS with ACLs, security attributes, realtime, no debug enabled
+NET: Registered protocol family 38
+Block layer SCSI generic (bsg) driver version 0.4 loaded (major 250)
+io scheduler noop registered
+io scheduler deadline registered
+io scheduler cfq registered (default)
+pinctrl-single 44e10800.pinmux: 142 pins at pa f9e10800 size 568
+wkup_m3_ipc 44e11324.wkup_m3_ipc: could not get rproc handle
+Serial: 8250/16550 driver, 6 ports, IRQ sharing disabled
+44e09000.serial: ttyS0 at MMIO 0x44e09000 (irq = 155, base_baud = 3000000) is a 8250
+console [ttyS0] enabled
+[drm] Initialized drm 1.1.0 20060810
+usbcore: registered new interface driver udl
+pegasus: v0.9.3 (2013/04/25), Pegasus/Pegasus II USB Ethernet driver
+usbcore: registered new interface driver pegasus
+usbcore: registered new interface driver rtl8150
+usbcore: registered new interface driver r8152
+ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+ehci-pci: EHCI PCI platform driver
+ehci-platform: EHCI generic platform driver
+ehci-omap: OMAP-EHCI Host Controller driver
+47401300.usb-phy supply vcc not found, using dummy regulator
+47401b00.usb-phy supply vcc not found, using dummy regulator
+musb-hdrc musb-hdrc.1.auto: MUSB HDRC host driver
+musb-hdrc musb-hdrc.1.auto: new USB bus registered, assigned bus number 1
+usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+usb usb1: Product: MUSB HDRC host driver
+usb usb1: Manufacturer: Linux 4.1.6 musb-hcd
+usb usb1: SerialNumber: musb-hdrc.1.auto
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 1 port detected
+mousedev: PS/2 mouse device common for all mice
+omap_rtc 44e3e000.rtc: already running
+omap_rtc 44e3e000.rtc: rtc core: registered 44e3e000.rtc as rtc0
+i2c /dev entries driver
+omap_wdt: OMAP Watchdog Timer Rev 0x01: initial timeout 60 sec
+omap_hsmmc 48060000.mmc: Got CD GPIO
+mmc0: host does not support reading read-only switch, assuming write-enable
+ledtrig-cpu: registered to indicate activity on CPUs
+omap-aes 53500000.aes: OMAP AES hw accel rev: 3.2
+mmc0: new high speed SDHC card at address b368
+mmcblk0: mmc0:b368 00000 3.67 GiB 
+omap-sham 53100000.sham: hw accel on OMAP rev 4.3
+ mmcblk0: p1 p2
+hidraw: raw HID events driver (C) Jiri Kosina
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+ashmem: initialized
+ remoteproc0: wkup_m3 is available
+ remoteproc0: Note: remoteproc is still under development and considered experimental.
+ remoteproc0: THE BINARY FORMAT IS NOT YET FINALIZED, and backward compatibility isn't yet guaranteed.
+oprofile: using arm/armv7
+NET: Registered protocol family 10
+mip6: Mobile IPv6
+NET: Registered protocol family 17
+mmc1: MAN_BKOPS_EN bit is not set
+Key type dns_resolver registered
+mpls_gso: MPLS GSO support
+omap_voltage_late_init: Voltage driver support not added
+mmc1: new high speed MMC card at address 0001
+cpu cpu0: of_pm_voltdm_notifier_register: Failed to get cpu0 regulator/voltdm: -517
+mmcblk1: mmc1:0001 MMC04G 3.65 GiB 
+mmcblk1boot0: mmc1:0001 MMC04G partition 1 1.00 MiB
+cpu cpu0: cpu0 clock notifier not ready, retry
+PM: bootloader does not support rtc-only!
+mmcblk1boot1: mmc1:0001 MMC04G partition 2 1.00 MiB
+ThumbEE CPU extension supported.
+ mmcblk1: p1 p2
+Registering SWP/SWPB emulation handler
+registered taskstats version 1
+Btrfs loaded
+Key type encrypted registered
+tps65217 0-0024: TPS65217 ID 0xe version 1.2
+at24 0-0050: 32768 byte 24c256 EEPROM, writable, 1 bytes/write
+omap_i2c 44e0b000.i2c: bus 0 rev0.11 at 400 kHz
+at24 2-0054: 32768 byte 24c256 EEPROM, writable, 1 bytes/write
+at24 2-0055: 32768 byte 24c256 EEPROM, writable, 1 bytes/write
+at24 2-0056: 32768 byte 24c256 EEPROM, writable, 1 bytes/write
+at24 2-0057: 32768 byte 24c256 EEPROM, writable, 1 bytes/write
+omap_i2c 4819c000.i2c: bus 2 rev0.11 at 100 kHz
+ remoteproc0: powering up wkup_m3
+ remoteproc0: Booting fw image am335x-pm-firmware.elf, size 219735
+ remoteproc0: remote processor wkup_m3 is now up
+wkup_m3_ipc 44e11324.wkup_m3_ipc: CM3 Firmware Version = 0x191
+bone_capemgr bone_capemgr: Baseboard: 'A335BNLT,00C0,2315BBBK24FE'
+bone_capemgr bone_capemgr: compatible-baseboard=ti,beaglebone-black - #slots=4
+bone_capemgr bone_capemgr: slot #0: No cape found
+bone_capemgr bone_capemgr: slot #1: No cape found
+bone_capemgr bone_capemgr: slot #2: No cape found
+bone_capemgr bone_capemgr: slot #3: No cape found
+bone_capemgr bone_capemgr: initialized OK.
+cpu cpu0: of_pm_voltdm_notifier_register: Fail calculating voltage latency[950000<->1325000]:-22
+cpu cpu0: of_pm_voltdm_notifier_register: Fail calculating voltage latency[950000<->1325000]:-22
+davinci_mdio 4a101000.mdio: davinci mdio revision 1.6
+davinci_mdio 4a101000.mdio: detected phy mask fffffffe
+davinci_mdio: dt: updated phy_id[0] from phy_mask[fffffffe]
+libphy: 4a101000.mdio: probed
+davinci_mdio 4a101000.mdio: phy[0]: device 4a101000.mdio:00, driver SMSC LAN8710/LAN8720
+cpsw 4a100000.ethernet: Detected MACID = 54:4a:16:c9:7e:bf
+omap_rtc 44e3e000.rtc: setting system clock to 2000-01-01 00:48:06 UTC (946687686)
+of_cfs_init
+of_cfs_init: OK
+ALSA device list:
+  No soundcards found.
+Waiting 1 sec before mounting root device...
+EXT4-fs (mmcblk0p2): couldn't mount as ext3 due to feature incompatibilities
+EXT4-fs (mmcblk0p2): couldn't mount as ext2 due to feature incompatibilities
+EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+VFS: Mounted root (ext4 filesystem) on device 179:2.
+devtmpfs: mounted
+Freeing unused kernel memory: 672K (c0e3a000 - c0ee2000)
+net eth0: initializing cpsw version 1.12 (0)
+net eth0: phy found : id is : 0x7c0f1
+IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+//etc/sshd_config: No such file or directory
+
+Please press Enter to activate this console. 
+/ # 

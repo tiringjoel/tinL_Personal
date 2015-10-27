@@ -1,0 +1,92 @@
+\section{Startup}
+
+\begin{frame}{Startup}{Bootloaders bei eingebetteten Systemen}
+\begin{tabular}{ll|l}
+ Reset $\to$ & fbl 		& {\em first stage bootloader}\\
+ 			 & sbc  	& ev. weitere bootloader {\em second stage bootloader}\\
+			 & u-boot	& Hier haben wir Zugriff\\
+			 & kernel	& Konfiguration/Parametrisierung \\
+			 & linux	& 
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Startup}{Bootloader beim \host}
+\begin{tabular}{ll|l}
+ Reset $\to$ & BIOS 	& {\em first stage bootloader}\\
+ 			 & grub  	& {\em second stage bootloader}\\
+			 & kernel	& Konfiguration/Parametrisierung \\
+			 & linux	& 
+\end{tabular}
+\end{frame}
+
+\subsection{U-Boot}
+\begin{frame}{\url{http://www.denx.de/wiki/U-Boot/WebHome}}{ein typischer Bootloader für eingebettete Systeme}
+ \begin{itemize}
+  \item Kommandozeilen
+  \item Verbindung zum \host via RS232/USB
+  \begin{itemize}
+   \item \host: \cod{minicom -D /dev/ttyUSB{\em N}}, $N=0,1..$
+   \item 115200 Baud \cod{8N1}
+   \item {\Large no} Handshaking
+  \end{itemize}
+  \item Daten von
+  \begin{itemize}
+   \item SD-Karten
+   \item Netz
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Ein paar typische Befehle}
+ \begin{itemize}
+  \item \cod{help}
+  \item \cod{printenv} Zeigt die Umgebung
+  \item \cod{md addr} Memory display
+  \item \cod{fatls mmc p}  vfat sd-card partition p
+  \item \cod{fatload mmc p memAddr file}
+  \item \cod{tftpboot [loadAddress] [[hostIPaddr:]bootfilename]} 
+  \item \cod{bootz kernelAddr - fdt}
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}{U-Boot Bedienung}{Siehe \cod{5-kernel/tools/u-boot.cmd}}
+ \begin{itemize}
+  \item copy paste
+  \remark{kann sich ändern}
+ \end{itemize}
+\end{frame}
+
+\subsection{Kernel}
+\begin{frame}[fragile]{Übergang U-Boot-Kernel}{Bootargs}
+{\scriptsize
+\begin{verbatim}
+ bootargs 
+ 'root=/dev/mmcblk0p2 rw rootdelay=1 init=linuxrc console=ttyO0,115200n8'
+\end{verbatim}
+}
+\begin{itemize}
+ \item \cod{kernel-source/Documentation/kernel-parameters.txt}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Die Kernel messages}{}
+{\scriptsize
+\begin{verbatim}
+Starting kernel ...
+
+Booting Linux on physical CPU 0x0
+Initializing cgroup subsys cpuset
+Initializing cgroup subsys cpu
+Initializing cgroup subsys cpuacct
+...
+Kernel command line: root=/dev/mmcblk0p2 rw rootdelay=1 init=linuxrc console=ttyO0,115200n8
+...
+Waiting 1 sec before mounting root device...
+EXT4-fs (mmcblk0p2): couldn't mount as ext3 due to feature incompatibilities
+EXT4-fs (mmcblk0p2): couldn't mount as ext2 due to feature incompatibilities
+EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+VFS: Mounted root (ext4 filesystem) on device 179:2.
+\end{verbatim}
+}
+\end{frame}
