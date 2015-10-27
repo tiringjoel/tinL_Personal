@@ -23,7 +23,6 @@ SYSROOT=${TARGET_ROOT}
 #----------------- toolchain
 GCC_SRC=${HOME}/devel/gcc/dist/gcc-5.2.0/
 BINUTILS_SRC=${HOME}/devel/gcc/dist/binutils-2.25/
-
 #----------------- the source code
 RESOURCES=${BUILD_HOME}/../resources/
 EGLIBC_SRC=${RESOURCES}/eglibc/
@@ -31,16 +30,17 @@ OPENSSL_SRC=${RESOURCES}/openssl-1.0.2a
 KERNEL_SRC=${RESOURCES}/beaglebone-black/linux/
 BUSYBOX_SRC=${RESOURCES}/busybox-1.23.2/
 CPUFREQUTILS_SRC=${RESOURCES}/cpufrequtils-008
+NET_TOOLS_SRC=${RESOURCES}/net-tools
 
 OPENSSH_SRC=${RESOURCES}/openssh-7.1p1
 ZLIB_SRC=${RESOURCES}/zlib-1.2.8
 FUSE_SRC=${RESOURCES}/fuse-2.9.3
 SSHFS_SRC=${RESOURCES}/sshfs-fuse-2.5
-GLIB_SRC=${RESOURCES}/glib-2.44.0
+GLIB_SRC=${RESOURCES}/glib-2.46.1
 #the make command
 
 #-jn the number of the cpu on the host 
-MAKE="make -j4"
+MAKE="make -j8"
 
 cd build
 

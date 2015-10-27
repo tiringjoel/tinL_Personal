@@ -11,5 +11,43 @@ echo standby > /sys/power/state:	57
 governor powersave:  132 
 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 
-
+echo userspace > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+echo 300000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_setspeed
 http://processors.wiki.ti.com/index.php/AM335x_Linux_Power_Management_User_Guide#cpufreq
+
+
+TPS65217
+--------
+i2c address: 0x24
+
+chip-id
+i2cget -y -f 0 0x24 0
+
+VLDO2: 0x13
+i2cget -y -f 0 0x24 0x13
+i2cset -y -f 0 0x24 0x13 0
+
+passwd: 0xb
+i2cget -y -f 0 0x24 0x0b
+i2cset -y -f 0 0x24 0x0b 0x7e
+
+
+
+i2cset -y -f 0 0x24 0x0b 0x7e 
+i2cset -y -f 0 0x24 0x0         0x00010011
+                                0x01111101
+						 xor    0x01101110 		
+
+
+enable 0x16
+
+i2cget -y -f 0 0x24 0x16
+
+
+TDA19988 CEC 0x34 HDMI 0x70
+
+
+http//free­electrons.com
+http://free-electrons.com/services/power-management/
+http://elinux.org/OMAP_Power_Management
+TODO: USB abschalten

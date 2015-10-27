@@ -40,7 +40,11 @@ thread-demo-1:	LDFLAGS=-static -lpthread
 thread-demo-1:	thread-demo-1.cc
 
 #------------------ getpwname test for sshd: Privilege separation user sshd does not exist
+getpwnam:	LDFLAGS=-static
 getpwnam:	getpwnam.c
+
+#------------------ i2c
+i2c:		i2c.c
 
 #------------------ Dot-test
 Dot_test:	Dot_test.o bcm2835.o

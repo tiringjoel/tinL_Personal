@@ -12,7 +12,7 @@ int main(int argc,char** args)
 	 fprintf(stderr,"usage %s user\n",args[0]);
 	 return 1;
 	}
- struct passwd* pw=getpwnam(args[1]);
+ struct passwd* pw=getpwuid(0);
  if (pw==0) 
     {
 	 fprintf(stderr,"no user %s \n",args[1]);

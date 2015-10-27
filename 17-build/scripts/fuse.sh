@@ -9,11 +9,11 @@ cd fuse
 
 #${FUSE_SRC}/configure --help
 
-export CC=${CROSS_COMPILE}gcc --sysroot=${SYSROOT}
+export CC="${CROSS_COMPILE}gcc --sysroot=${SYSROOT}"
 ${FUSE_SRC}/configure \
---prefix=${TARGET_ROOT} \
 --host=${TARGET}
 #
+#--prefix=${TARGET_ROOT} \
 ##remove check-config from makefile
 ${MAKE} 
 ${MAKE} install DESTDIR=${SYSROOT}

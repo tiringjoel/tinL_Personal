@@ -3,7 +3,7 @@
 #(c) H.Buchmann FHNW 2015
 # kernel.sh args
 # args 
-#  bb.org-defconfig
+#  bb.orgdefconfig
 #  menuconfig
 #  zImage
 #  headers_install

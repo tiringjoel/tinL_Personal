@@ -18,7 +18,9 @@ ${OPENSSH_SRC}/configure \
 --disable-strip \
 --disable-option-checking \
 --with-sandbox=seccomp_filter \
---with-ldflags='-static'
+--without-stackprotect
+
+#--with-ldflags='-static'
 
 #remove check-config from makefile
 ${MAKE} 
