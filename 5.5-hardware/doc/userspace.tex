@@ -1,0 +1,51 @@
+\section{Userspace}
+\subsection{sys/class/gpio}
+\begin{frame}{\cod{sys/class/gpio}}
+ \begin{itemize}
+  \item \cod{kernel/Documentation/gpio.txt}
+  \item Gute Pins:
+  \begin{itemize}
+   \item USR\{0,1,2,3\}
+   \item ev. {\em kernel} anpassen
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\subsection{mmap}
+\begin{frame}{\cod{mmap}}{Direkter Zugriff auf die Hardware}
+ \begin{itemize}
+  \item Beschreibung
+   \begin{itemize}
+    \item Siehe Abschnitt {\em Direkt}
+   \end{itemize}
+  \item Wo im Speicher
+   \begin{itemize}
+    \item \cod{/proc/iomem}
+   \end{itemize}
+ \item Der wichtige Aufruf
+  \begin{itemize}
+   \item \cod{mmap}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{mmap}
+\begin{center}
+ \includegraphics[width=8cm]{mmap.pdf}
+\end{center}
+\begin{lstlisting}[language=C]
+ mem=(unsigned char*)mmap(0, /* addr hint */
+     length,
+     PROT_READ|PROT_WRITE,
+     MAP_SHARED, 
+     memId,
+     offset);
+\end{lstlisting}
+\end{frame}
+
+\subsection{Aufaben}
+\begin{frame}{Aufgaben}
+ \begin{itemize}
+  \item Der Code \cod{src/led-demo.c}
+ \end{itemize}
+\end{frame}

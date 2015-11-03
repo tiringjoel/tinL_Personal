@@ -1,0 +1,102 @@
+%-------------------------
+%minimal-unix
+%(c) H.Buchmann FHNW 2014
+%export TEXINPUTS=.:${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+\title{Hardware/Devices}
+
+\frame{\titlepage}
+
+\section{Begriffe}
+\begin{frame}{Devices}
+ \begin{itemize}
+  \item Driver für Devices
+  \begin{itemize}
+   \item Vereinfacht den Zugriff 
+   \item alles ist ein File {\em Stream of Bits} 
+   \item gehören zum {\em kernel}
+   \item Verbindung {\em userspace} $\leftrightarrow$ {\em kernelspace}
+  \end{itemize}
+
+  \item Userspace
+  \begin{itemize}
+   \item komfortabler Zugriff via {\em Driver} auf die {\em Devices}
+   \item alles ist ein File {\em Stream of Bits}
+   \item \cod{mmap} Verschiedene Arten von Memory 
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Kernelspace}
+ \begin{itemize}
+  \item Kernelspace
+  \begin{itemize}
+   \item extrem privilegierter Zugriff
+   \item {\em kernelmodules}
+   \item Heimat der {\em Driver}
+  \end{itemize}
+  \item Devicetree
+  \begin{itemize}
+   \item Versuch einer Normierung
+   \item wo ist was
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\linux}{Befehle}
+ \begin{itemize}
+  \item \cod{dmesg} 
+  \begin{itemize}
+   \item Meldungen von {\em kernel}
+  \end{itemize}
+  \item \cod{ls*}
+  \begin{itemize}
+   \item \cod{lspci}, \cod{lsblk}, \cod{lscpu} ...
+  \end{itemize}
+  \item\cod{hwdb}
+  \item ...
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\linux}{Verzeichnisse}
+  \begin{itemize}
+  \item \cod{/proc}
+  \begin{itemize}
+   \item \cod{/proc/iomem}: wo ist die Hardware
+   \item \cod{/proc/devices}: die {\em major} Nummern
+   \item \cod{/proc/config.gz}: die aktuelle {\em kernel} Konfiguration
+  \end{itemize}
+  \item \cod{/dev} Devices Namen
+  \item \cod{/sys} Devices im Detail
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Um was geht es ?}{Zugriff auf mehrere Arten}
+ \begin{itemize}
+  \item userspace
+  \begin{itemize}
+   \item per \cod{/sys/class/gpio}
+   \item per \cod{mmap} mit eigenem Programm: 
+  \end{itemize}
+  \item kernelspace
+  \begin{itemize}
+   \item mit eigenem module
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\input{direct.tex}
+\input{userspace.tex}
+\input{kernelspace.tex}
+\end{document}
