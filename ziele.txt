@@ -62,3 +62,9 @@ TODO:
 	 
     kernel -> unix
 	
+4.Nov. 2015
+-----------
+ 5-kernel
+ 5.5-hardware
+  Unsere Hardware: LEDS
+   USR{0,1,2,3}
