@@ -1,0 +1,79 @@
+\section{\mdev}
+
+\begin{frame}{Die Entwicklungsumgebung}
+
+Die die {\color{green} Verzeichnisse} sind versionert
+
+\dirtree{%
+ .1 somewhere-on-your-\host.
+ .2 {\color{green} src} \DTcomment{your source}.
+ .2 {\color{green}config}.
+ .3 Makefile \DTcomment{linked from work}.
+ .2 tc \DTcomment{gcc toolchain}.
+ .2 target-root \DTcomment{the devel part}.
+ .2 {\color{green}tools} \DTcomment{for downloading}.
+ .2 work \DTcomment{can be deleted without pain}.
+ .3 Makefile $\to$ ../config/Makefile.
+}
+\end{frame}
+
+\subsection{Das {\em devel} root Filesystem}
+
+\begin{frame}{Das {\em devel} root Filesystem}
+\label{devel-target-fs}
+\begin{columns}
+\begin{column}{0.375\textwidth}
+\input{target-root.tex}
+\end{column}
+\begin{column}{0.75\textwidth}
+\begin{block}{Was braucht es für  {\em devel}}
+\begin{itemize}
+ \item include Files \cod{*.h}
+ \item Statische Bibliotheken \cod{*.a} Files
+ \item Dynamische Libraries \cod{*.so} Files
+ \item ...
+\end{itemize}
+\end{block}
+\begin{block}{Was braucht es für {\em devel} sicher {\bf nicht}}
+ \begin{itemize}
+  \item Executables \cod{bin/*},\cod{sbin/*}
+  \item Initialisierungen \cod{/etc/init.d/*}
+  \item ...
+ \end{itemize}
+\end{block}
+\end{column}
+\end{columns}
+\hyperlink{runtime-target-fs}{Vergleiche mit {\em runtime} root Filesystem}
+\end{frame}
+
+\subsection{Herstellung}
+
+\begin{frame}{Herstellung}
+ \begin{block}{Gegeben}
+  \vspace{-2mm}
+  \begin{itemize}
+   \item die Toolchain \cod{beaglebone-black-toolchain-64bit.tar.bz2}
+    in \url{http://sourceforge.net/projects/fhnw-tinl/files}
+   \item ein vollständiges \cod{target-root} als \cod{tar.gz} File 
+   \item ein paar Sourcefiles 
+   \item ein Makefile
+  \end{itemize}
+ \end{block}
+ \vspace{-2mm}
+ \begin{block}{Gesucht}
+  \vspace{-2mm}
+  \begin{itemize}
+   \item die Entwicklungsumgebung \mdev
+  \end{itemize}
+ \end{block}
+ \vspace{-2mm}
+  \begin{block}{Test/Installation}
+  \vspace{-2mm}
+  \begin{itemize}
+   \item \cod{tar -xjf md-bbb-devel-version.tar.gz -Cpath-to-bbb-devel}
+   \item Mache work 
+   \item \cod{make} 
+  \end{itemize}
+ \end{block}
+\end{frame}
+
