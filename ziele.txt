@@ -77,3 +77,8 @@ TODO:
    
  5.5-hardware
  
+
+18.Nov.2015
+-----------
+ 19-minimal-distro
+ das Programm rsync
