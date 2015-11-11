@@ -11,5 +11,8 @@ OE          =     0x134  0x4804c134  Output enable
 CLEARDATAOUT=     0x190  0x4804c190
 SETDATAOUT  =     0x194  0x4804c194
 
-mw memory write
+memory write
+mw addr data
 
+memory display
+md addr len 
