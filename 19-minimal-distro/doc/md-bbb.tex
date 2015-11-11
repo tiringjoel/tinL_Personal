@@ -1,0 +1,98 @@
+\section{\md}
+\begin{frame}[fragile]{Die Partionen}
+\begin{verbatim}
+NAME        FSTYPE  SIZE
+mmcblk0            29.9G
+|-mmcblk0p1 vfat     16M
+`-mmcblk0p2 ext4    127M
+\end{verbatim}
+\begin{itemize}
+ \item Ausdruck gemacht mit \\
+ \cod{lsblk  -i -o'NAME,FSTYPE,SIZE'  /dev/mmcblk0}
+\end{itemize}
+\end{frame}
+
+\subsection{Partition 1}
+
+\begin{frame}[fragile]{Partition 1}{\cod{vfat}}
+\label{partition1}
+\begin{tabular}{rll}
+   SIZE    \\
+\hline 
+    58K &  am335x-boneblack.dtb & {\em 5-kernel}\\
+   7.9M & zImage				& {\em 5-kernel}\\
+   102K & MLO					& nächste Folie\\
+   350K & u-boot.img			& \"{}\\
+    788 & uEnv.txt				& \"{}\\
+\end{tabular}
+\end{frame}
+
+\begin{frame}{u-boot}
+ \begin{itemize}
+  \item Source 
+  \begin{itemize}
+   \item \url{https://github.com/beagleboard/u-boot}
+  \end{itemize}
+  \item Image  
+  \begin{itemize}
+   \item \url{http://s3.armhf.com/dist/bone/bone-uboot.tar.xz}
+   \item mit den Files:
+   \begin{itemize}
+    \item \cod{MLO} Siehe Abschnitt {\em 18-boot}
+	\item \cod{u-boot.img}
+	\item \cod{uEnv.txt}
+   \end{itemize}	   
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\subsection{Partition 2}
+\begin{frame}[fragile]{Partition 2}{Das {\em runtime} root Filesystem}
+\label{runtime-target-fs}
+\begin{columns}
+\begin{column}{0.375\textwidth}
+\input{target-root.tex}
+\end{column}
+\begin{column}{0.75\textwidth}
+\begin{block}{Was braucht es für die {\em runtime}}
+\begin{itemize}
+ \item Executables \cod{bin/*},\cod{sbin/*}
+ \item Dynamische Libraries \cod{*.so} Files
+ \item Initialisierungen \cod{/etc/init.d/*}
+ \item ...
+\end{itemize}
+\end{block}
+\begin{block}{Was braucht es für die {\em runtime} sicher {\bf nicht}}
+ \begin{itemize}
+  \item include Files \cod{*.h}
+  \item Statische Bibliotheken \cod{*.a} Files
+  \item ...
+ \end{itemize}
+\end{block}
+\end{column}
+\end{columns}
+\hyperlink{devel-target-fs}{Vergleiche mit {\em devel} root Filesystem}
+\end{frame}
+
+\subsection{Herstellung}
+\begin{frame}{Herstellung}
+ \begin{block}{Gegeben}
+  \begin{itemize}
+   \item die Files \hyperlink{partition1}{für Partition 1}
+   \item ein vollständiges \cod{target-root} als \cod{tar.gz} File 
+  \end{itemize}
+ \end{block}
+ \begin{block}{Gesucht}
+  \begin{itemize}
+   \item der Image File \md\cod{.gz}
+  \end{itemize}
+ \end{block}
+ \begin{block}{Test/Installation}
+  \begin{itemize}
+   \item SD-Card: \cod{dd if=\md of=/dev/mmcblk{\em N}} $N=0,1 ..$
+   \item SD-Card in den \targetS schieben reset start siehe \cod{u-boot.cmd}
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+

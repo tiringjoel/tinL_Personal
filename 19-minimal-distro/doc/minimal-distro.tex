@@ -1,0 +1,74 @@
+%-------------------------
+%minimal-unix
+%(c) H.Buchmann FHNW 2014
+%export TEXINPUTS=.:${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+\newcommand{\md}{\cod{md-bbb-{\em version}.img}}
+\newcommand{\mdev}{\cod{md-bbb-devel-{\em version}.tar.gz}}
+\title[Minimal Distro]{Minimal Distro\\md}
+
+\frame{\titlepage}
+
+\begin{frame}{Ziel:Minimal Distro}{möglichst klein}
+ \begin{itemize}
+  \item Zwei Files:
+  \begin{itemize}
+   \item \md
+   \begin{itemize}
+    \item das ganze System für \targetS
+   \end{itemize}
+   \item \mdev
+   \begin{itemize}
+    \item die Entwicklungsumgebung für \host
+   \end{itemize}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Use Case}{Installation}
+ \begin{itemize}
+  \item für \targetS SD-Card:
+  \begin{itemize}
+   \item \cod{dd if=\md\ of={\em mmc-device}}
+  \end{itemize}
+  \item für \host
+  \begin{itemize}
+   \item \cod{tar -xjf \mdev\ -C{\em path-to-bbb-devel}}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\input{md-bbb.tex}
+\input{md-bbb-devel.tex}
+\section{Wichtige Konfigurationsfiles}
+\begin{frame}{Konfigurationsfiles}
+\begin{block}{\md}
+ \begin{tabular}{l|l|l}
+ Komponente & Config\\
+ \hline
+ \cod{u-boot} & \cod{uEnv.txt} & automatisiert U-Boot\\
+ \cod{zImage} & bootargs & Info für den {\em kernel}
+ \end{tabular}
+\end{block}
+
+\begin{block}{\mdev}
+ \begin{tabular}{l|l|l}
+ Komponente & Config\\
+ \hline
+ target-root-fs & \cod{/etc/init.d/rcS} & \linux startup\\
+ \end{tabular}
+\end{block}
+\end{frame}
+
+\end{document}

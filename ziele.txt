@@ -68,3 +68,12 @@ TODO:
  5.5-hardware
   Unsere Hardware: LEDS
    USR{0,1,2,3}
+
+11.Nov.2015
+-----------
+ 19-minimal-distro
+  root-fs-dev
+  root-fs-run
+   
+ 5.5-hardware
+ 
