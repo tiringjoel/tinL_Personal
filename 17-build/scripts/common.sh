@@ -20,11 +20,15 @@ TC_PREFIX=${BUILD_HOME}/tc
 
 CROSS_COMPILE=${TC_PREFIX}/bin/${TARGET}-
 SYSROOT=${TARGET_ROOT}
+
 #----------------- toolchain
 GCC_SRC=${HOME}/devel/gcc/dist/gcc-5.2.0/
 BINUTILS_SRC=${HOME}/devel/gcc/dist/binutils-2.25/
+
 #----------------- the source code
 RESOURCES=${BUILD_HOME}/../resources/
+U_BOOT_SRC=${RESOURCES}/beaglebone-black/u-boot
+
 EGLIBC_SRC=${RESOURCES}/eglibc/
 OPENSSL_SRC=${RESOURCES}/openssl-1.0.2a
 KERNEL_SRC=${RESOURCES}/beaglebone-black/linux/
