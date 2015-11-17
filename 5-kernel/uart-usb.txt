@@ -1,5 +1,6 @@
 UART-USB
 --------
+5Volt Buchse oben links
 J1 pin          Kabel
    1    -> GND  black
    4    -> RX   green

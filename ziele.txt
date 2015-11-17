@@ -80,5 +80,9 @@ TODO:
 
 18.Nov.2015
 -----------
+ 18-boot Teil 1
+ 20-tools
+  das Programm rsync
+  tftp server/client
+
  19-minimal-distro
- das Programm rsync

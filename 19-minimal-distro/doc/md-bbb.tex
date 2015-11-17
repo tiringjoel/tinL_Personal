@@ -25,20 +25,25 @@ mmcblk0            29.9G
    350K & u-boot.img			& \"{}\\
     788 & uEnv.txt				& \"{}\\
 \end{tabular}
+\begin{block}{Wichtig}
+\begin{itemize}
+ \item Partition muss als {\em active} bezeichnet werden
+\end{itemize}
+\end{block}
 \end{frame}
 
 \begin{frame}{u-boot}
  \begin{itemize}
   \item Source 
   \begin{itemize}
-   \item \url{https://github.com/beagleboard/u-boot}
+   \item \url{git://git.denx.de/u-boot.git}
   \end{itemize}
   \item Image  
   \begin{itemize}
-   \item \url{http://s3.armhf.com/dist/bone/bone-uboot.tar.xz}
+   \item \cod{tools/u-boot.sh}
    \item mit den Files:
    \begin{itemize}
-    \item \cod{MLO} Siehe Abschnitt {\em 18-boot}
+    \item \cod{MLO} 
 	\item \cod{u-boot.img}
 	\item \cod{uEnv.txt}
    \end{itemize}	   

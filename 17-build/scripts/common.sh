@@ -27,7 +27,7 @@ BINUTILS_SRC=${HOME}/devel/gcc/dist/binutils-2.25/
 
 #----------------- the source code
 RESOURCES=${BUILD_HOME}/../resources/
-U_BOOT_SRC=${RESOURCES}/beaglebone-black/u-boot
+U_BOOT_SRC=${RESOURCES}/u-boot
 
 EGLIBC_SRC=${RESOURCES}/eglibc/
 OPENSSL_SRC=${RESOURCES}/openssl-1.0.2a
