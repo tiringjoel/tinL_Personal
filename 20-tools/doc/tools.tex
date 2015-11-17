@@ -1,0 +1,77 @@
+%-------------------------
+%minimal-unix
+%(c) H.Buchmann FHNW 2014
+%export TEXINPUTS=.:${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+\newcommand{\md}{\cod{md-bbb-{\em version}.img}}
+\newcommand{\mdev}{\cod{md-bbb-devel-{\em version}.tar.gz}}
+
+\title{Tools}
+
+\frame{\titlepage}
+
+\begin{frame}{Ein paar wichtige Tools}
+ \begin{itemize}
+  \item \cod{dd}
+  \begin{itemize}
+   \item Kopiert rohe {\em bitstreams}
+%   \item \cod{dd if=... of=... count=..}
+  \end{itemize}
+  \item \cod{fdisk}
+  \begin{itemize}
+   \item Ezeugt Partitionen
+  \end{itemize}
+  \item Cient \cod{ssh}/Server \cod{sshd}
+  \begin{itemize}
+   \item sichere Verbindung zwischen Rechnern
+  \end{itemize}
+  \item \cod{minicom}
+  \begin{itemize}
+   \item direkte unsichere serielle Verbindung 
+  \end{itemize}
+  \item \cod{rsync}
+  \begin{itemize}
+   \item Update/Backup 
+  \end{itemize}
+  \item Client \cod{tftp}/Server \cod{tftpd}
+  \begin{itemize}
+   \item elementare schneller Transfer von Files
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{{\tt rsync}}{\url{https://rsync.samba.org/}}
+ \begin{itemize}
+  \item effiziener Transfer von vielen Files
+  \item typisch
+\begin{lstlisting}{language=bash}
+rsync -av rootfs/ path-to-sd-card/
+\end{lstlisting}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\tt tftp}{{\bf t}rivial {\bf f}ile {\bf t}ransfer {\bf p}rotocol}
+ \begin{itemize}
+  \item Client-Server
+  \item Client 
+  \begin{itemize}
+   \item als {\em shell}
+   \item als einzelnes Kommando 
+\lstinputlisting[language=bash]{../tools/tftp-put.sh}   
+  \end{itemize}
+   \item Server
+\lstinputlisting[language=bash]{../tools/tftp-server.sh}   
+ \end{itemize}
+\end{frame}
+\end{document}
