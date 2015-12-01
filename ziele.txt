@@ -86,3 +86,13 @@ TODO:
   tftp server/client
 
  19-minimal-distro
+
+25.Nov. 2015
+-----------
+Projektwoche
+
+2.Dez.2015
+----------
+ mount Zugriffsrechte
+ MMC-USB Adapter
+
