@@ -93,6 +93,6 @@ Projektwoche
 
 2.Dez.2015
 ----------
- mount Zugriffsrechte
- MMC-USB Adapter
+ 21-udev
+ 19-minimal-distro
 
