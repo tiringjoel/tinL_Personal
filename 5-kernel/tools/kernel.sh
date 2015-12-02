@@ -4,6 +4,8 @@
 # kernel.sh args/target
 # important targets
 #   bb.org_defconfig
+#   zImage
+#   dtbs
 # make.sh help
 #---------------------
 #we are in 5-kernel
