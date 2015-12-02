@@ -96,3 +96,7 @@ Projektwoche
  21-udev
  19-minimal-distro
 
+9.Dez.2015
+----------
+ 21-udev
+   korrekte rule fuer SD-Card
