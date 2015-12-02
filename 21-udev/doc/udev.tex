@@ -80,10 +80,13 @@
 
 \begin{frame}{Aufgabe}{SD-Card richtig montieren}
  \begin{itemize}
-  \item \cod{udevadm monitor}
+  \item \cod{udevadm monitor -p}
+  \begin{itemize}
+   \item liefert die Informationen
+  \end{itemize}
   \item \cod{udevadm test}
   \item \cod{udevadm control -R} reload
-  \item eigene {\em rule} in \cod{/etc/udev/rules.d}
+  \item eigene {\em rule} \cod{src/90-myrule.rules} in \cod{/etc/udev/rules.d}
   \begin{itemize}
    \item \cod{RUN} eigenes Programm
   \end{itemize}

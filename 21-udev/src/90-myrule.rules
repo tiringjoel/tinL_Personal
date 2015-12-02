@@ -1,0 +1,5 @@
+#-----------------------
+#myrule
+#copy to /etc/udev/rules.d 
+ACTION=="add", SUBSYSTEM=="block" ,RUN+="/bin/sh -c 'echo ${DEVNAME} >> /tmp/callback.log'"
+
