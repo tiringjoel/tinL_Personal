@@ -10,10 +10,11 @@ class MyJava
  }
  
  static native void myJNICall();
-
+ static native void myJNInit();
  static
  {
   System.loadLibrary("my-java");
+  myJNInit();
  }
  
  public static void main(String args[])
