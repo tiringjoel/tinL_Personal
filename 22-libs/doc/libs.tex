@@ -1,0 +1,173 @@
+%-------------------------
+%minimal-unix
+%(c) H.Buchmann FHNW 2014
+%export TEXINPUTS=.:${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+\newcommand{\md}{\cod{md-bbb-{\em version}.img}}
+\newcommand{\mdev}{\cod{md-bbb-devel-{\em version}.tar.gz}}
+
+\title[Dynamische Bibliotheken]{Dynamische Bibliotheken\\und ihre Anwendung}
+
+\frame{\titlepage}
+
+\begin{frame}{Um was geht es ?}{Dynamische Bibliotheken}
+ \begin{itemize}
+  \item die Herstellung
+  \item die Benutzung
+  \item Java JNI (Java Native Interface)  
+ \end{itemize}
+\end{frame}
+
+\section{Herstellung}
+\begin{frame}{Die Files}
+ \begin{itemize}
+ \item im Verzeichnis \cod{src}
+ \begin{description}[my-lib-use.c]
+  \item[my-lib.h] der öffentliche Teil
+  \item[my-lib.c] die Implementation
+  \item[my-lib-use.c] die Anwendung
+ \end{description}
+ \item im Verzeichnis \cod{config}
+ \begin{description}
+  \item[Makefile] für die Herstellung
+ \end{description}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Die Herstellung}{Zwei Arten}
+\begin{itemize}
+ \item static
+ \item shared 
+{\scriptsize
+\begin{verbatim}
+./my-lib-use: error while loading shared libraries: libmy-lib.so: 
+cannot open shared object file: No such file or directory  
+\end{verbatim}
+}
+\end{itemize}
+\remark{\cod{make clean} bei Wechsel {\em static} {\em shared} und umgekehrt}
+\end{frame}
+
+\section{Die Benutzung}
+\begin{frame}[fragile]{Wo ist die Bibliothek}{\cod{LD\_LIBRARY\_PATH}}
+ \begin{itemize}
+  \item einmalig
+  \begin{lstlisting}[language=bash]
+   LD_LIBRARY_PATH=. ./my-lib-use
+  \end{lstlisting}
+  \item in der gleichen {\em shell}
+  \begin{lstlisting}[language=bash]
+   export LD_LIBRARY_PATH=. #or absolute path
+   ./my-lib-use
+  \end{lstlisting}
+ \end{itemize}
+\end{frame}
+
+\section{Java Native Interface}
+\begin{frame}{Um was geht es ?}
+ \begin{itemize}
+  \item Java ruft Bibliotheksfunktionen auf
+  \item Typisch auch für
+  \begin{itemize}
+   \item matlab
+   \item python
+   \item etc.
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Die Files}
+ \begin{itemize}
+ \item im Verzeichnis \cod{src}
+ \begin{description}[MyJava.java]
+  \item[MyJava.java] das Java Programm
+  \item[my-java.c] die Implementation von \cod{native}
+ \end{description}
+ \item im Verzeichnis \cod{config}
+ \begin{description}
+  \item[Makefile] für die Herstellung
+ \end{description}
+ \end{itemize}
+\end{frame}
+
+\subsection{Herstellung}
+\begin{frame}[fragile]{Herstellung}
+ \begin{itemize}
+  \item Der \cod{class} File
+  \begin{lstlisting}[language=bash]
+   javac -d . MyJava.java
+  \end{lstlisting}
+  \item Der include File
+  \begin{lstlisting}[language=bash]
+   javah MyJava
+  \end{lstlisting}
+  \item der  \cod{so} File (dynamische Bibliothek)
+  \begin{lstlisting}[language=bash]
+   make libmy-java.so
+  \end{lstlisting}
+ \end{itemize}
+\end{frame}
+
+\subsection{Ausführung}
+\begin{frame}[fragile]{Ausführung}
+\begin{lstlisting}[language=bash]
+ java MyJava
+\end{lstlisting}
+{\scriptsize
+\begin{verbatim}
+Exception in thread "main" java.lang.UnsatisfiedLinkError: no my-java in java.library.path
+    at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1864)
+    at java.lang.Runtime.loadLibrary0(Runtime.java:870)
+    at java.lang.System.loadLibrary(System.java:1122)
+    at MyJava.<clinit>(MyJava.java:16)
+\end{verbatim}
+}
+\begin{lstlisting}[language=bash]
+java -Djava.library.path=. MyJava
+\end{lstlisting}
+{\scriptsize
+\begin{verbatim}
+-------- myCall
+------------ myJNICall
+\end{verbatim}
+}
+
+\end{frame}
+\subsection{Geschachtelte Bibliotheken}
+\begin{frame}[fragile]{Geschachtelte Bibliotheken}
+\begin{lstlisting}[language=bash]
+java -Djava.library.path=. MyJava
+\end{lstlisting}
+{\scriptsize
+\begin{verbatim}
+-------- myCall
+------------ myJNICall
+java: symbol lookup error: \
+/home/buchmann/fhnw/edu/tinL/22-libs/work/libmy-java.so: \ 
+undefined symbol: my_hello 
+\end{verbatim}
+}
+\begin{lstlisting}[language=bash]
+LD_PRELOAD=./libmy-lib.so java -Djava.library.path=. MyJava
+\end{lstlisting}
+{\scriptsize
+\begin{verbatim}
+-------- myCall
+------------ myJNICall
+--------------- my-hello
+\end{verbatim}
+}
+
+\end{frame}
+\end{document}
