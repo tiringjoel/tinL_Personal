@@ -100,5 +100,6 @@ Projektwoche
 ----------
  21-udev
    korrekte rule fuer SD-Card
+   ein paar scripts
  22-libs
  

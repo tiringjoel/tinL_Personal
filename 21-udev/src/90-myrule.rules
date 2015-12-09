@@ -1,5 +1,6 @@
 #-----------------------
 #myrule
 #copy to /etc/udev/rules.d 
-ACTION=="add", SUBSYSTEM=="block" ,RUN+="/bin/sh -c 'echo ${DEVNAME} >> /tmp/callback.log'"
+ACTION=="add", SUBSYSTEM=="block", ENV{ID_FS_UUID}=="ab309c05-085f-4356-9ea9-e697f1496470", \
+RUN+="/home/buchmann/fhnw/edu/tinL/21-udev/src/mount.sh $env{DEVNAME}"
 
