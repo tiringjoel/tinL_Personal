@@ -11,7 +11,7 @@ JNIEXPORT void JNICALL Java_MyJava_myJNInit
   (JNIEnv* env, jclass clazz)
 {
  printf("------------ myJNInit\n");
- printf("p=%p\n",dlopen("libmy-java.so",RTLD_NOW|RTLD_GLOBAL));
+ printf("p=%p\n",dlopen("libmy-lib.so",RTLD_NOW|RTLD_GLOBAL));
 }
 
 JNIEXPORT void JNICALL Java_MyJava_myJNICall
