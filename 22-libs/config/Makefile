@@ -6,12 +6,12 @@ VPATH=.:../src
 JAVA_HOME=/usr/lib/jvm/java-8-openjdk/
 CPPFLAGS=-I. -I../src -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux
 CC=gcc
-
+CFLAGS=-g
 #------------------------ uncomment for dynamic library
-CFLAGS=-fPIC
-LDLIBS=-ldl
-#LOADLIBES=-L.
-#LDLIBS=-lmy-lib
+CFLAGS+=-fPIC
+#LDLIBS=-ldl
+LOADLIBES=-L.
+LDLIBS=-lmy-lib
 lib%.so:	%.o; ${CC} -shared -o${@} ${^}
 
 libmy-lib.so:	my-lib.o
