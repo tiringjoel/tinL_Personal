@@ -22,7 +22,7 @@
  \begin{itemize}
   \item ein \linux von Grund auf bauen
   \begin{itemize}
-   \item nicht meht so schwer wie auch schon
+   \item nicht mehr so schwer wie auch schon
   \end{itemize}
   \item nicht völlig automatisiert
   \item Alternative zu {\bf yocto} \& Co.
@@ -118,8 +118,7 @@
  .2 config.
  .3 Makefile.
  .2 build \DTcomment{home of the build files}.
- .2 target-root.
- .2 target-mount.
+ .2 target-root \DTcomment{top of targer root}.
  .2 tc \DTcomment{the new toolchain}.
  .2 src \DTcomment{own programs}.
  .2 work.
@@ -128,55 +127,83 @@
 \end{frame}
 
 \section{Build}
-\begin{frame}{Build}{die Schritte 1}
+\begin{frame}{Build 1}{Toolchain 1}
  \begin{itemize}
   \item \cod{binutils}
   \item \cod{gcc-bare} 
-  \item \cod{kernel} mit ein paar {\em rules}
+  \begin{itemize}
+   \item nur für den {\em kernel}
+   \item das bare minimum
+   \item nur {\Large C}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Build 2}{Kernel}
+ \begin{itemize} 
+  \item \cod{kernel} mit ein paar {\em targets}
    \begin{itemize}
-    \item \cod{bcmrpi\_defconfig}
+    \item \cod{bb.org\_defconfig}
     \item \cod{zImage}
-    \item \cod{headers\_install}
+    \item \cod{headers\_install} 
+	\begin{itemize}
+	 \item Interface: {\em kernel}-{\em libc}
+	\end{itemize}
    \end{itemize}
-   
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Build 3}{libc}{Wir brauchen eglibc}
+ \begin{itemize} 
   \item \cod{eglibc} 
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Build 4}{Toolchain 2}
+ \begin{itemize} 
   \item \cod{gcc} 
+  \begin{itemize}
+   \item mit \cod{sysroot}
+   \item {\Large C} und {\Large C++}
+  \end{itemize}
   \item Test
   \begin{itemize}\item im Verzeichnis \cod{work}\end{itemize}
  \end{itemize}
 \end{frame}
 
-\begin{frame}{Build}{die Schritte 2}
+\begin{frame}{Build 5}{busybox}
  \begin{itemize}
   \item \cod{busybox}
   \begin{itemize}
    \item Installation auf SD-Card
    \item \cod{fakeroot}
   \end{itemize}
-  \item \cod{openssh} die volle Implementation 
-  \begin{itemize}
-   \item \cod{zlib}
-   \item \cod{openssl}
-   \item \cod{openssh}
-  \end{itemize}
-  \item \cod{sshfs}
  \end{itemize}
 \end{frame}
 
 
 \begin{frame}{Skripts und Argumente}{initiales System}
- \begin{tabular}{lll}
-  \cod{binutils.sh}\\
+ \begin{tabular}{l|l|l}
+  Skript & target & gebraucht für\\
+  \hline\hline
+  \cod{binutils.sh}& &alles\\
+  \hline
   \cod{gcc-bare.sh}& &kernel libc\\
+  \hline
   \cod{kernel.sh}  & \cod{bcmrpi\_defconfig}\\
                    & \cod{zImage}\\
                    & \cod{headers\_install}\\
-  \cod{eglibc.sh}  &\\
-  \cod{gcc.sh}     &&C/C++ POSIX\\
-  \cod{busybox.sh} &busybox\\
-  		   &install\\
-  \cod{target-root.sh}
+  \hline
+  \cod{eglibc.sh}  & &POSIX\\
+  \hline
+  \cod{gcc.sh}     & &C/C++ POSIX\\
+  \hline
+  \cod{busybox.sh} & \cod{busybox}\\
+  		   &\cod{install}\\
+  \hline
+  \cod{target-root.sh}&&Transfer auf SD-Card
  \end{tabular}
+ \remark{Alle Skripte sind {\Large\tt bash} Skripte}
 \end{frame}
 
 \begin{frame}{Target}{erster Versuch}
@@ -196,13 +223,26 @@
   ab}
 \end{frame}
 
-\begin{frame}{Target}{ssh}
-\begin{itemize}
- \item \cod{ssh}
- \item \cod{sshd}
- \item Keys
-\end{itemize}
+\begin{frame}{Build 6}{\cod{ssh}}
+ \begin{itemize}
+  \item \cod{openssh} die volle Implementation 
+  \begin{itemize}
+   \item \cod{zlib}
+   \item \cod{openssl}
+   \item \cod{openssh}
+  \end{itemize}
+%  \item \cod{sshfs}
+ \end{itemize}
 \end{frame}
+
+
+%\begin{frame}{Target}{ssh}
+%\begin{itemize}
+% \item \cod{ssh}
+% \item \cod{sshd}
+% \item Keys
+%\end{itemize}
+%\end{frame}
 
 \begin{frame}{sshfs}{funktioniert noch nicht}
  \begin{itemize}
@@ -254,5 +294,5 @@
  \end{block}
 \end{frame}
 
-\input{tft-display.tex}
+%\input{tft-display.tex}
 \end{document}
