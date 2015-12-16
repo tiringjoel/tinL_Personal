@@ -21,17 +21,19 @@ TC_PREFIX=${BUILD_HOME}/tc
 CROSS_COMPILE=${TC_PREFIX}/bin/${TARGET}-
 SYSROOT=${TARGET_ROOT}
 
+RESOURCES=${BUILD_HOME}/../resources/
+
 #----------------- toolchain
-GCC_SRC=${HOME}/devel/gcc/dist/gcc-5.2.0/
-BINUTILS_SRC=${HOME}/devel/gcc/dist/binutils-2.25/
+BINUTILS_SRC=${RESOURCES}/binutils-2.25/
+GCC_SRC=${RESOURCES}/gcc-5.3.0/
 
 #----------------- the source code
-RESOURCES=${BUILD_HOME}/../resources/
+KERNEL_SRC=${RESOURCES}/linux/
 U_BOOT_SRC=${RESOURCES}/u-boot
 
 EGLIBC_SRC=${RESOURCES}/eglibc/
 OPENSSL_SRC=${RESOURCES}/openssl-1.0.2a
-KERNEL_SRC=${RESOURCES}/beaglebone-black/linux/
+
 BUSYBOX_SRC=${RESOURCES}/busybox-1.23.2/
 CPUFREQUTILS_SRC=${RESOURCES}/cpufrequtils-008
 NET_TOOLS_SRC=${RESOURCES}/net-tools

@@ -5,6 +5,7 @@
 # args 
 #  bb.org_defconfig
 #  menuconfig
+#  dtbs devicetree
 #  zImage
 #  headers_install
 #  help

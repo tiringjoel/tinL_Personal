@@ -1,3 +1,4 @@
+#!/bin/bash
 #-------------------------
 #binutils.sh
 #(c) H.Buchmann FHNW 2015
