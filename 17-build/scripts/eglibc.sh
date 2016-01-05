@@ -14,7 +14,7 @@ cp ${CONFIG}/option-groups.config .
 DESTDIR=${SYSROOT} \
 ${EGLIBC_SRC}/libc/configure \
     --prefix=/usr \
-    --host=${TARGET} \
+    --host=${TARGET} \mak
     --build=x86_64-unknown-linux-gnu \
     --with-headers=${SYSROOT}/usr/include \
     --disable-profile --without-gd --without-cvs --enable-add-ons\

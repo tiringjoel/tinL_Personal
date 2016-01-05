@@ -106,3 +106,11 @@ Projektwoche
 15.Dez. 2015
 ------------
  17-build 
+
+6.Jan. 2016
+-----------
+ 17-build
+  eglibc mit Fehler
+  gcc
+  busybox
+  erste Tests  
