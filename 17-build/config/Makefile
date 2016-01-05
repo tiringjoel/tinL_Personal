@@ -11,6 +11,7 @@ CC=${CROSS_COMPILE}gcc --sysroot=${SYSROOT}
 CFLAGS=-O2 
 CXX=${CROSS_COMPILE}g++ --sysroot=${SYSROOT} 
 CXXFLAGS=${CFLAGS} -std=c++11
+CC=${CXX}
 LD=${CROSS_COMPILE}ld
 #CC=gcc
 #LD=ld
@@ -73,3 +74,6 @@ direct-memory:	direct-memory.cc
 
 userspace-led:	userspace-led.o
 userspace-led.o:	userspace-led.c simple-hw.h
+
+mem:	mem.o
+mem.o:	mem.cc mem.h

@@ -1,0 +1,5 @@
+#----------------
+#u-boot environment
+#(c) H.Buchmann FHNW 2015
+#----------------
+abc=123
