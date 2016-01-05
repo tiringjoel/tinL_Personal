@@ -28,7 +28,7 @@ BINUTILS_SRC=${RESOURCES}/binutils-2.25/
 GCC_SRC=${RESOURCES}/gcc-5.3.0/
 
 #----------------- the source code
-KERNEL_SRC=${RESOURCES}/linux/
+KERNEL_SRC=${RESOURCES}/beaglebone-black/linux/
 U_BOOT_SRC=${RESOURCES}/u-boot
 
 EGLIBC_SRC=${RESOURCES}/eglibc/
