@@ -891,6 +891,14 @@
 						linux,phandle = <0x36>;
 						phandle = <0x36>;
 					};
+//----------------
+					pinmux_bb_spi1_pins {
+						pinctrl-single,pins = <0x190 0x33 0x194 0x33 0x198 0x13 0x19c 0x13>;
+						linux,phandle = <0x123>;
+						phandle = <0x123>;
+					};
+
+
 				};
 
 				scm_conf@0 {
@@ -1672,9 +1680,24 @@
 			ti,hwmods = "spi1";
 			dmas = <0x2a 0x2a 0x2a 0x2b 0x2a 0x2c 0x2a 0x2d>;
 			dma-names = "tx0", "rx0", "tx1", "rx1";
-			status = "disabled";
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <0x123>;
 			linux,phandle = <0xb1>;
 			phandle = <0xb1>;
+
+			channel@0 {
+				compatible = "spidev";
+				spi-max-frequency = <0xf42400>;
+				reg = <0x0>;
+				spi-cpha;
+			};
+
+			channel@1 {
+				compatible = "spidev";
+				spi-max-frequency = <0xf42400>;
+				reg = <0x1>;
+			};
 		};
 
 		usb@47400000 {
