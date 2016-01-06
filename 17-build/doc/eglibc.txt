@@ -1,0 +1,24 @@
+Making eglibc
+-------------
+
+Der Fehler
+---------
+ /home/edu/tinl/17-build/build/eglibc/libc_pic.os: In function `_Unwind_Resume':
+:(.text+0x510): undefined reference to `libgcc_s_resume'
+collect2: error: ld returned 1 exit status
+
+
+In welchem File:
+----------------
+grep grep libgcc_s_resume . -R
+
+libc/sysdeps/gnu/unwind-resume.c
+libc/ports/sysdeps/unix/sysv/linux/arm/nptl/unwind-resume.c
+libc/ports/sysdeps/unix/sysv/linux/arm/nptl/unwind-forcedunwind.c
+
+Test mit #error am Anfang
+
+
+Korrektur
+---------
+ __attribute__((used));
