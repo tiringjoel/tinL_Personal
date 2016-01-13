@@ -25,14 +25,16 @@ RESOURCES=${BUILD_HOME}/../resources/
 
 #----------------- toolchain
 BINUTILS_SRC=${RESOURCES}/binutils-2.25/
-GCC_SRC=${RESOURCES}/gcc-5.3.0/
+GCC_SRC=${HOME}/devel/gcc/dist/gcc-5.3.0/
 
 #----------------- the source code
 KERNEL_SRC=${RESOURCES}/beaglebone-black/linux/
 U_BOOT_SRC=${RESOURCES}/u-boot
 
 EGLIBC_SRC=${RESOURCES}/eglibc/
-OPENSSL_SRC=${RESOURCES}/openssl-1.0.2a
+GLIBC_SRC=${RESOURCES}/glibc-2.22/
+NEWLIB_SRC=${RESOURCES}/newlib-2.2.0-1/
+OPENSSL_SRC=${RESOURCES}/openssl-1.0.2a/
 
 BUSYBOX_SRC=${RESOURCES}/busybox-1.24.1/
 CPUFREQUTILS_SRC=${RESOURCES}/cpufrequtils-008

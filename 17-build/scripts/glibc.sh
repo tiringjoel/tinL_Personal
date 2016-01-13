@@ -4,17 +4,17 @@
 #see EGLIBC.cross
 #-----------------------
 . scripts/common.sh
-[[ ! -d eglibc ]] && { mkdir eglibc; }
+[[ ! -d glibc ]] && { mkdir glibc; }
 export CFLAGS="--sysroot=${SYSROOT} -O2"
 export CC=${TC_PREFIX}/bin/${TARGET}-gcc
 
-cd eglibc
+cd glibc
 cp ${CONFIG}/option-groups.config .
-#${EGLIBC_SRC}/libc/configure --help
+#${GLIBC_SRC}/libc/configure --help
 DESTDIR=${SYSROOT} \
-${EGLIBC_SRC}/libc/configure \
+${GLIBC_SRC}/configure \
     --prefix=/usr \
-    --host=${TARGET}\
+    --host=${TARGET} \
     --build=x86_64-unknown-linux-gnu \
     --with-headers=${SYSROOT}/usr/include \
     --disable-profile --without-gd --without-cvs --enable-add-ons\

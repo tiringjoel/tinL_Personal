@@ -19,5 +19,5 @@ export AS=${CROSS_COMPILE}as
 ##--prefix=${SYSROOT} \
 ##--host=${TARGET}
 #check target-root/include
-#${MAKE}
-#${MAKE} install
+${MAKE}
+${MAKE} install
