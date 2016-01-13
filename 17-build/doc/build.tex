@@ -127,6 +127,7 @@
 \end{frame}
 
 \section{Build}
+\subsection{Initiales \linux}
 \begin{frame}{Build 1}{Toolchain 1}
  \begin{itemize}
   \item \cod{binutils}
@@ -223,7 +224,8 @@
   ab}
 \end{frame}
 
-\begin{frame}{Build 6}{\cod{ssh}}
+\subsection{ssh}
+\begin{frame}{\cod{ssh}}
  \begin{itemize}
   \item \cod{openssh} die volle Implementation 
   \begin{itemize}
@@ -235,6 +237,31 @@
  \end{itemize}
 \end{frame}
 
+\subsection{Workflow}
+\begin{frame}{Workflow}{Begriffe}
+\begin{description}[target-root]
+ \item[target-root] Verzeichnis auf dem \host
+ \begin{itemize}
+  \item enthält das \target Rootfilesystem
+  \item soll aktuell sein
+ \end{itemize}
+ \item[SD-Card] Speicherkarte mit dem \target Rootfilesystem
+ \begin{itemize}
+  \item entspricht  \cod{target-root}
+ \end{itemize}
+\end{description}
+\end{frame}
+
+\begin{frame}{target-root - SD-Card}{\cod{tar} \cod{rsync}}
+
+\begin{tabular}{lcccc}
+	&target-root&&SD-Card\\
+\hline	
+initiales \linux &$\to$& \cod{tar}   &$\to$\\
+SD-Card          &$\leftarrow$& \cod{rsync} &$\leftarrow$\\  
+target-root      &$\to$& \cod{rsync} &$\to$
+\end{tabular}
+\end{frame}
 
 %\begin{frame}{Target}{ssh}
 %\begin{itemize}
