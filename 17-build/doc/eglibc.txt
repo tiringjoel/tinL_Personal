@@ -10,7 +10,7 @@ collect2: error: ld returned 1 exit status
 
 In welchem File:
 ----------------
-grep grep libgcc_s_resume . -R
+grep libgcc_s_resume . -R
 
 libc/sysdeps/gnu/unwind-resume.c
 libc/ports/sysdeps/unix/sysv/linux/arm/nptl/unwind-resume.c
