@@ -113,4 +113,10 @@ Projektwoche
   eglibc mit Fehler
   gcc
   busybox
-  erste Tests  
+  erste Tests 
+
+13.Jan.2016
+-----------
+  rcS init
+  ssh  einrichten
+  sshd einrichten
