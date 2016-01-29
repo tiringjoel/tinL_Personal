@@ -24,20 +24,26 @@ Bytes::Bytes(unsigned at,unsigned size)
 ,page((unsigned char*)mmap(0,len,PROT_READ|PROT_WRITE,MAP_SHARED,id,at-offset))
 ,mem(page+offset)
 {
- 
+ std::printf("len=%x at=%x offset=%x\n",len,at,offset);
 }
 
 Bytes::~Bytes()
 {
- munmap(mem,len);
+ munmap((void*)mem,len);
 }
 
 #ifdef MEM_TEST
 int main(int argc,char** args)
 {
- Mem<unsigned> m(0x44E10000,128*(1<<10)/4);
- unsigned v=m()[0x950/4];
- std::printf("v=%x\n",v);
+ std::printf("------\n");
+ Mem<unsigned> m(0x44E10800,128*(1<<10)/4);
+ unsigned* v=m();
+ v[84]=0x37;
+ v[85]=0x37;
+ for(unsigned p=84;p<84+5;++p)
+ {
+  std::printf("v[%d]=%x  \n",p,v[p]);
+ }
  return 0;
 }
 #endif

@@ -16,7 +16,8 @@ LD=${CROSS_COMPILE}ld
 #CC=gcc
 #LD=ld
 #LDFLAGS=-static
-VPATH=../src:../src/3rdparty:../modules
+VPATH=../src:../src/3rdparty:../modules:../../resources/dterm-0.3
+
 CPPFLAGS=-I../src -I../src/3rdparty -I../modules
 
 hello-world:	hello-world.c
@@ -77,3 +78,7 @@ userspace-led.o:	userspace-led.c simple-hw.h
 
 mem:	mem.o
 mem.o:	mem.cc mem.h
+
+dterm:	CPPFLAGS=-I ../../resources/dterm-0.3 
+dterm:	CC=${CROSS_COMPILE}gcc --sysroot=${SYSROOT}
+dterm:	dterm.c

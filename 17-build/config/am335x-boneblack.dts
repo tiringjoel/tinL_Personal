@@ -1,3 +1,8 @@
+/*----------------------------------
+  adapted H.Buchmann FHNW 2016 
+  [1] AM335x SitaraTM Processors 
+      File spruh73l.pdf
+*/
 /dts-v1/;
 
 / {
@@ -814,6 +819,9 @@
 						phandle = <0x2b>;
 					};
 
+
+
+
 					pinmux_clkout2_pin {
 						pinctrl-single,pins = <0x1b4 0x3>;
 						linux,phandle = <0x21>;
@@ -886,16 +894,33 @@
 						phandle = <0x45>;
 					};
 
+/* 
 					pinmux_bb_spi0_pins {
 						pinctrl-single,pins = <0x150 0x30 0x154 0x30 0x158 0x10 0x15c 0x10>;
 						linux,phandle = <0x36>;
 						phandle = <0x36>;
 					};
+*/
+
 //----------------
 					pinmux_bb_spi1_pins {
 						pinctrl-single,pins = <0x190 0x33 0x194 0x33 0x198 0x13 0x19c 0x13>;
 						linux,phandle = <0x123>;
 						phandle = <0x123>;
+					};
+
+					pinmux_uart2_pins {
+						pinctrl-single,pins = <0x150 0x21    //RX
+						                       0x154 0x01>;  //TX
+						linux,phandle = <0x124>;
+						phandle = <0x124>;
+					};
+
+					pinmux_uart5_pins {
+						pinctrl-single,pins = <0x0c4 0x24    //RX PIN 49 P8_38
+						                       0x0c0 0x04>;  //TX PIN 48 P8_37
+						linux,phandle = <0x125>;
+						phandle = <0x125>;
 					};
 
 
@@ -1154,7 +1179,7 @@
 			phandle = <0x8c>;
 		};
 
-		serial@44e09000 {
+		serial@44e09000 {  //UART0 in [1]
 			compatible = "ti,am3352-uart", "ti,omap3-uart";
 			ti,hwmods = "uart1";
 			clock-frequency = <0x2dc6c00>;
@@ -1175,20 +1200,22 @@
 			clock-frequency = <0x2dc6c00>;
 			reg = <0x48022000 0x2000>;
 			interrupts = <0x49>;
-			status = "disabled";
+			status = "okay";
 			dmas = <0x2a 0x1c 0x2a 0x1d>;
 			dma-names = "tx", "rx";
 			linux,phandle = <0x8e>;
 			phandle = <0x8e>;
 		};
 
-		serial@48024000 {
+		serial@48024000 {   //UART2 in [1]
 			compatible = "ti,am3352-uart", "ti,omap3-uart";
 			ti,hwmods = "uart3";
 			clock-frequency = <0x2dc6c00>;
 			reg = <0x48024000 0x2000>;
 			interrupts = <0x4a>;
-			status = "disabled";
+			pinctrl-names = "default";
+			pinctrl-0 = <0x124>;
+			status = "okay";
 			dmas = <0x2a 0x1e 0x2a 0x1f>;
 			dma-names = "tx", "rx";
 			linux,phandle = <0x8f>;
@@ -1201,7 +1228,7 @@
 			clock-frequency = <0x2dc6c00>;
 			reg = <0x481a6000 0x2000>;
 			interrupts = <0x2c>;
-			status = "disabled";
+			status = "okay";
 			linux,phandle = <0x90>;
 			phandle = <0x90>;
 		};
@@ -1212,18 +1239,20 @@
 			clock-frequency = <0x2dc6c00>;
 			reg = <0x481a8000 0x2000>;
 			interrupts = <0x2d>;
-			status = "disabled";
+			status = "okay";
 			linux,phandle = <0x91>;
 			phandle = <0x91>;
 		};
 
-		serial@481aa000 {
+		serial@481aa000 {  // [1] UART5 
 			compatible = "ti,am3352-uart", "ti,omap3-uart";
 			ti,hwmods = "uart6";
 			clock-frequency = <0x2dc6c00>;
 			reg = <0x481aa000 0x2000>;
 			interrupts = <0x2e>;
-			status = "disabled";
+			pinctrl-names = "default";
+			pinctrl-0 = <0x125>;
+			status = "okay";
 			linux,phandle = <0x92>;
 			phandle = <0x92>;
 		};
@@ -1640,6 +1669,7 @@
 			phandle = <0xaf>;
 		};
 
+/*
 		spi@48030000 {
 			compatible = "ti,omap4-mcspi";
 			#address-cells = <0x1>;
@@ -1670,6 +1700,7 @@
 			};
 		};
 
+*/
 		spi@481a0000 {
 			compatible = "ti,omap4-mcspi";
 			#address-cells = <0x1>;
