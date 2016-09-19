@@ -1,3 +1,4 @@
+#!/bin/bash
 #-----------------------
 #eglibc
 #(c) H.Buchmann FHNW 2015
@@ -21,8 +22,8 @@ ${GLIBC_SRC}/configure \
     --enable-hacker-mode\
     --with-elf \
     --enable-kernel=2.6.20 \
-    --disable-sanity-checks
-
+    --disable-sanity-checks \
+    --disable-werror
 #    --enable-rpc\
 ${MAKE} 
 ${MAKE} install install_root=${SYSROOT}

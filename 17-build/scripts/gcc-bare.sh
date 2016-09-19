@@ -1,11 +1,13 @@
+#!/bin/bash
 #-----------------------
 #gcc-bare.sh 
 #(c) H.Buchmann FHNW 2015
 #gcc for kernel
 #-----------------------
+
 . scripts/common.sh  #load common
-[[ ! -d gcc ]] && mkdir gcc 
-cd gcc
+[[ ! -d gcc ]] && mkdir gcc-bare
+cd gcc-bare
 
 #${GCC_SRC}/configure --help
 

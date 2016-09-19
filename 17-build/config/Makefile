@@ -11,7 +11,7 @@ CC=${CROSS_COMPILE}gcc --sysroot=${SYSROOT}
 CFLAGS=-O2 
 CXX=${CROSS_COMPILE}g++ --sysroot=${SYSROOT} 
 CXXFLAGS=${CFLAGS} -std=c++11
-CC=${CXX}
+#CC=${CXX}
 LD=${CROSS_COMPILE}ld
 #CC=gcc
 #LD=ld
