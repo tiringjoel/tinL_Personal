@@ -1,0 +1,15 @@
+Modulbeschreibung
+-----------------
+Die letzte Station im 'Internet of Things' (IoT) ist oft ein eingebettetes System, ein kleines
+System (z.B. ein Raspberry Pi)  mit einer grossen Architektur (ARM). Dank Linux lassen sich
+solche Systeme komfortabel konfigurieren und programmieren.
+
+Auf einem kleinen System bauen wir ein vollständiges Linux und verwenden dazu die originalen
+Quellen. Ziel ist es nicht nicht ein grosses Linux zu bauen, da gibt es viele vorgefertigte
+Distributionen, sondern ein kleines, auf unsere Bedürfnisse zugeschnittenes Linux.
+
+  
+
+Die Hardware von eingebetteten Systemen ist, im Gegensatz zu Workstations, sehr heterogen. Wir
+befassen uns mit der Integration von Hardwarekomponenten in ein kleines linuxbasiertes System. 
+
