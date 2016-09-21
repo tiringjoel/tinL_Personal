@@ -1,4 +1,4 @@
-31.Sept. 2016
+21.Sept. 2016
 -------------
  - Umgebung aufsetzen
  - BeagleBone verbunden mit Host
