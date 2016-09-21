@@ -1,3 +1,4 @@
+#!/bin/bash
 #-----------------------
 #gcc.sh build
 #(c) H.Buchmann FHNW 2015
@@ -21,6 +22,7 @@ ${GCC_SRC}/configure \
  --disable-nls \
  --disable-libssp \
  --disable-lto \
+ --disable-clocale \
  --enable-shared \
  --disable-multilib \
  --disable-libgomp \
@@ -44,8 +46,8 @@ ${GCC_SRC}/configure \
 # yocto-rootfs
 # 
 #  error
-${MAKE}
-${MAKE} install
+#${MAKE}
+#${MAKE} install
 #echo "--------------------------------------"
 #echo "----------- proceed manually in $(pwd)"
 #echo "--------------------------------------"

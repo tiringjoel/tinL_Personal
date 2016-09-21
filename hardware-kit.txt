@@ -1,0 +1,9 @@
+Beaglebone Black
+----------------
+- Beaglebone Black
+
+- FTDI Cable 3.3 Volt
+  https://www.adafruit.com/products/70
+
+- micro sd-card 16 GB
+  

@@ -1,3 +1,4 @@
+#!/bin/bash
 #--------------------
 #busybox.sh
 #(c) H.Buchmann FHNW 2015
@@ -5,6 +6,8 @@
 #args 
 # help
 # menuconfig
+# busybox
+# install
 # see kernel.sh
 #--------------------
 #we are in build
@@ -19,6 +22,6 @@ BUSYBOX=${PWD}/busybox
  }
 }
 cd ${BUSYBOX_SRC}
-#MAKE=make -j1
+##MAKE=make
 ${MAKE} CONFIG_PREFIX=${SYSROOT} CROSS_COMPILE=${CROSS_COMPILE} V=1 O=${BUSYBOX} ${@}
 

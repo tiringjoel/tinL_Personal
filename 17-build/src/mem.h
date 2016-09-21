@@ -13,7 +13,7 @@ class Bytes
  const unsigned len;
  int            id=-1;
  unsigned char*const page;
- unsigned char*const mem;
+ volatile unsigned char*const mem;
 };
 
 template<typename T>

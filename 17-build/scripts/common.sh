@@ -24,15 +24,18 @@ SYSROOT=${TARGET_ROOT}
 RESOURCES=${BUILD_HOME}/../resources/
 
 #----------------- toolchain
-BINUTILS_SRC=${RESOURCES}/binutils-2.25/
-GCC_SRC=${HOME}/devel/gcc/dist/gcc-5.3.0/
+BINUTILS_SRC=${HOME}/devel/gcc/dist/binutils-2.27/
+GCC_SRC=${HOME}/devel/gcc/dist/gcc-6.2/
 
 #----------------- the source code
-KERNEL_SRC=${RESOURCES}/beaglebone-black/linux/
 U_BOOT_SRC=${RESOURCES}/u-boot
+KERNEL_SRC=${RESOURCES}/beaglebone-black/linux/
+
 
 EGLIBC_SRC=${RESOURCES}/eglibc/
-GLIBC_SRC=${RESOURCES}/glibc-2.22/
+GLIBC_SRC=${RESOURCES}/glibc-2.23/
+MUSL_SRC=${RESOURCES}/musl-1.1.15/
+
 NEWLIB_SRC=${RESOURCES}/newlib-2.2.0-1/
 OPENSSL_SRC=${RESOURCES}/openssl-1.0.2a/
 
@@ -42,6 +45,8 @@ NET_TOOLS_SRC=${RESOURCES}/net-tools
 
 OPENSSH_SRC=${RESOURCES}/openssh-7.1p1
 ZLIB_SRC=${RESOURCES}/zlib-1.2.8
+RSYNC_SRC=${RESOURCES}/rsync-3.1.2
+MINICOM_SRC=${RESOURCES}/minicom-2.7
 FUSE_SRC=${RESOURCES}/fuse-2.9.3
 SSHFS_SRC=${RESOURCES}/sshfs-fuse-2.5
 GLIB_SRC=${RESOURCES}/glib-2.46.1
