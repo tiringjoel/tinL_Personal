@@ -1,3 +1,4 @@
+#!/bin/bash
 #------------------
 #target-root.sh
 #(c) H.Buchmann FHNW 2015
@@ -27,5 +28,5 @@ DATE=$(date '+%Y.%m.%d')
 
 fakeroot tar -cvzf ${BUILD_HOME}/target-root-${DATE}.tar.gz -C ${TARGET_ROOT} .
 #copy to sd-card
-# sudo tar -xzvf target-root.tar.gz  -C home-of-sd-card  .
+#   home-of-sd-card  .
 #sync
