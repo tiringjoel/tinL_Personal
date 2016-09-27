@@ -5,5 +5,10 @@
   - usb/uart
   - usb/ethernet
   - ssh
- 
-   
+
+ 28.Sept. 2016
+ -------------
+ 4.5-partitions
+ 18-boot
+ 2-unix-use   
+ Installation von einem Image
