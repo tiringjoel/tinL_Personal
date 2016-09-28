@@ -23,6 +23,7 @@ VPATH=../src
 
 #compile/link in one step
 hello-world-c:		hello-world-c.c
+hello-world-cc: 	hello-world-cc.cc
 minimal-1:		minimal-1.c
 minimal-2:		minimal-2.c
 

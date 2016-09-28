@@ -34,7 +34,7 @@ libc-bare-init: 	libc-bare-init.o
 libc-bare-init.o:	libc-bare-init.c
 
 #------------------------- made with c++
-cpp-hello-world:	LDFLAGS=-static
+##cpp-hello-world:	LDFLAGS=-static
 cpp-hello-world: cpp-hello-world.cc
 
 #------------------ not yet working
