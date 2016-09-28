@@ -12,6 +12,8 @@
 \title{Partitionen}
 \begin{document}
 
+\newcommand{\distro}{sd-2016-09-28.img.gz}
+
 \frame{\titlepage}
 
 \begin{frame}{Ziele}{alles ist ein File: {\em stream of bits}}
@@ -117,15 +119,15 @@ dd if=/dev/mmcblk0 count=1|hexdump -C
 \section{Distribution}
 \begin{frame}[fragile]{Alles ist ein File}{und umgekehrt}
 \begin{itemize}
- \item Der File \url{minimal-distro.img.gz}
+ \item Der File \cod{\distro}
  ist das Bild einer ganzen SD-Karte
  \item Mache SD-Karte
  \begin{itemize}
-  \item Kopiere {\tiny\url{sourceforge.net/projects/fhnw-tinl/files/minimal-distro.img.gz/download}} 
+  \item Kopiere {\tiny\url{sourceforge.net/projects/fhnw-tinl/files/{\distro}/download}} 
   \item entzippe
   \item kopiere
   \begin{lstlisting}
-dd if=minimal-distro.img of=/dev/sd-card
+dd if=distro.img of=/dev/sd-card
   \end{lstlisting}
   \cod{sd-card} typ \cod{mmcblk\em{N}} $N=0|1 ..$
  \end{itemize}
