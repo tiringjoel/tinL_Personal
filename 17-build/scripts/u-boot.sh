@@ -1,3 +1,4 @@
+#!/bin/bash
 #------------------
 #make.sh
 #(c) H.Buchmann FHNW 2014
@@ -5,7 +6,7 @@
 #      2: am335x_boneblack_defconfig
 #      3: all
 #------------------
-#we are in 7-startup
+#we are in 17-build
 . scripts/common.sh
 [[ ! -d u-boot ]] &&
 {

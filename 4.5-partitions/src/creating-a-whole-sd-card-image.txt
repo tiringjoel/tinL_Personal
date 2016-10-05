@@ -1,0 +1,78 @@
+Creating a whole sd-card image
+------------------------------
+
+Directly on sd-card
+
+SD-Card Outline:
+----------------
+minimal:
+
+ MBR  512B
+ P1   16MiB filesystem vfat: bootfs
+ P2   64MiB filesystem ext4: rootfs 
+
+label: dos
+label-id: 0xecc911b3
+device: /dev/mmcblk0
+unit: sectors
+
+/dev/mmcblk0p1 : start=        2048, size=       32768, type=b, bootable
+/dev/mmcblk0p2 : start=       34816, size=      131072, type=83
+
+Tools:
+creating partitions:
+
+fdisk /dev/sd-card
+
+creating filesystems:
+mkfs.vfat /dev/sd-card-p1
+mkfs.ext4 /dev/sd-card-p2
+
+
+copy files
+----------
+ mount filesystems
+ MLO,u-boot.img -> bootfs
+ zImage,am335x-boneblack.dtb -> bootfs
+
+contents of  target-root-2016.09.25.tar.gz ->rootfs
+
+
+
+
+Indirectly file on host sd-{version}.img
+minimal root access
+
+-create raw sd-image file:
+ 165888 sectors a 512 B
+
+-fdisk
+
+-mount via loop
+losetup -P /dev/loop0 sd.img
+
+mkfs.vfat/ext4 /dev/loop0{p1|p2}
+
+copy files
+
+copy sd.img to sd-card
+
+dd if=sd.img of=..
+sync
+
+Important commands Host
+-----------------------
+dd             for accessing raw bytes
+fdisk          for creating partitions
+mkfs.vfat/ext4 for creating filesystems
+tar -xvzf      for exctracting
+cp             for copying
+sync           for flushing buffers
+mount          for connecting filesystems with directories
+
+Important commands Target/u-boot
+--------------------------------
+fatload mmc 0 0x82000000 zimage
+fatload mmc 0 0x88000000 am335x-boneblack.dtb 
+setenv bootargs 'root=/dev/mmcblk0p2 rw rootdelay=1 init=linuxrc console=ttyO0,115200n8'
+bootz 0x82000000 -  0x88000000

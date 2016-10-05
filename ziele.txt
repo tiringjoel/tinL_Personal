@@ -12,3 +12,15 @@
  18-boot
  2-unix-use   
  Installation von einem Image
+
+ 5.Okt.2016
+ ----------
+ Installation von einem Image
+  - direkt auf der SD-Karte
+  - zuerst ein File auf dem Host
+
+  zwei Partitionen
+   P1 vfat boot
+   P2 ext4 GNU/Linux 
+
+ 2-unix-use p8
