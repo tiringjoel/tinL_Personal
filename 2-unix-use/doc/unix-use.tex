@@ -180,61 +180,9 @@
 \end{frame}
 
 \section{Cross development}
-\begin{frame}{Verzeichnisstruktur}{\host$\leftrightarrow$ \target}
- \begin{block}{Host} 
- \dirtree{%
-  .1 devel \DTcomment{somewhere on the host}.
-  .2 config.
-  .3 Makefile \DTcomment{for making \target executables}.
-  .2 src  \DTcomment{c,c++}.
-  .2 tc   \DTcomment{normally toolchain}.
-  .2 {\bf work} \DTcomment{connected with \target {\em current dir}}.
- }
- \end{block}
- \begin{block}{\target} 
- \dirtree{%
-  .1 user \DTcomment{somewhere on the \target}.
-  .2 {\bf work} \DTcomment{connected with \host {\em current dir}}.
- }
- \end{block}
-\end{frame}
+\input{cross-development.tex}
 
 
-\section{Aufgaben}
-\begin{frame}{Vorbereitung}
- \begin{itemize}
-  \item Verbindung mit \target via \cod{ssh}
-%  \item upgrade \cod{pacman -Suy}
-%  \item {\em user} auf \target \cod{useradd}
-  \item Installation {\em toolchain} auf \host
-  
-  {\tiny\url{sourceforge.net/projects/fhnw-tinl/files/}}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{Verbindung}{mit \target}
- \begin{itemize}
-  \item \cod{ssh} für die Ausführung der Programme
-  \item {\em mount} Varianten
-  \begin{itemize}
-   \item \host auf \target 
-   \item \target auf \host
-  \end{itemize}
-  \item Kopiere  {\em executable} auf \target 
-   \begin{itemize}
-    \item \cod{scp} secure copy
-    \item \cod{scp {\em executable} user@target:}
-   \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{Programme}{auf \target}
- \begin{itemize}
-  \item \c Programme:, \cod{hello-world-c.c} 
-  \item \cpp Programme \cod{hello-world-cpp.cc}, \cod{primes.cc} 
-  \remark{Toolchain funktioniert für \cpp noch nicht}
- \end{itemize}
-\end{frame}
 
 \end{document}
 
