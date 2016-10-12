@@ -4,13 +4,13 @@
 #we are in work
 #-----------------------
 TARGET=../target-root/
-PREFIX=../tc/bin/armv6l-unknown-linux-gnueabihf-
+PREFIX=../tc/bin/arm-linux-gnueabihf-
 CFLAGS=-std=c99
 CC=${PREFIX}gcc -O2 --sysroot=${TARGET}
 LD=${PREFIX}ld 
 CXX=${PREFIX}g++ --sysroot=${TARGET} -O2
 CXXFLAGS=-std=c++11
-LDFLAGS=-static
+#LDFLAGS=-static
 VPATH=../src
 minimal-1:		minimal-1.o
 minimal-1.o:		minimal-1.c
