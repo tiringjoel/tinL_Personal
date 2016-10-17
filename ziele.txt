@@ -30,3 +30,12 @@
  2-unix-use
   Development
   Crossdevelopment
+
+19.Okt.2016
+-----------
+ 2-unix-use
+  hello-world-c auf verschiedene Arten hergestellt
+
+ 4-devel
+  Crossdevelopment
+

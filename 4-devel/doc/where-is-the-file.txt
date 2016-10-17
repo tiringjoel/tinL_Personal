@@ -1,0 +1,64 @@
+Where is the file ?
+
+Configuration Host:Host Target::BBB (Debian)
+-------------
+ program:   src/hello-world-cc.cc C++ 
+ toolchain: tc/bin/arm-linux-gnueabihf-g++ -v
+ target-root: sshfs root@192.168.7.2:/ target-root
+ 
+
+Error:
+../src/hello-world-cc.cc:5:20: fatal error: iostream: No such file or directory
+compilation terminated.
+
+Where looking for the include files:
+
+../tc/bin/arm-linux-gnueabihf-g++ --sysroot=../target-root -v -O2 -std=c++11    ../src/hello-world-cc.cc   -o hello-world-cc
+
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/buchmann/fhnw/edu/tinL/toolchain/tc/lib/gcc/arm-linux-gnueabihf/5.2.0/include
+ ../target-root/usr/local/include
+ /home/buchmann/fhnw/edu/tinL/toolchain/tc/lib/gcc/arm-linux-gnueabihf/5.2.0/include-fixed
+ ../target-root/usr/include/arm-linux-gnueabihf
+ ../target-root/usr/include
+
+Configuration: Host:BBB(Debian) Target:BBB(Debian) 
+-------------
+program:   hello-world-cc.cc C++ 
+toolchain: g++ -v
+target-root: /
+
+Where looking for the include files:
+g++ -v hello-world-cc.cc -o hello-world-cc
+
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/include/c++/4.6  <----------------------------- here
+ /usr/include/c++/4.6/arm-linux-gnueabihf/.
+ /usr/include/c++/4.6/backward
+ /usr/lib/gcc/arm-linux-gnueabihf/4.6/include
+ /usr/local/include
+ /usr/lib/gcc/arm-linux-gnueabihf/4.6/include-fixed
+ /usr/include/arm-linux-gnueabihf
+ /usr/include
+
+Configuration Host:Host Target:BBB(minimal)
+-------------
+
+ program:   src/hello-world-cc.cc C++ 
+ toolchain: tc/bin/arm-linux-gnueabihf-g++ -v
+ target-root: sshfs root@192.168.7.2:/ target-root
+
+Where looking for the include files:
+../tc/bin/arm-linux-gnueabihf-g++ --sysroot=../target-root -v -O2 -std=c++11    ../src/hello-world-cc.cc   -o hello-world-cc
+
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/buchmann/fhnw/edu/tinL/17-build/tc/lib/gcc/arm-linux-gnueabihf/6.2.0/../../../../arm-linux-gnueabihf/include/c++/6.2.0
+ /home/buchmann/fhnw/edu/tinL/17-build/tc/lib/gcc/arm-linux-gnueabihf/6.2.0/../../../../arm-linux-gnueabihf/include/c++/6.2.0/arm-linux-gnueabihf
+ /home/buchmann/fhnw/edu/tinL/17-build/tc/lib/gcc/arm-linux-gnueabihf/6.2.0/../../../../arm-linux-gnueabihf/include/c++/6.2.0/backward
+ /home/buchmann/fhnw/edu/tinL/17-build/tc/lib/gcc/arm-linux-gnueabihf/6.2.0/include
+ /home/buchmann/fhnw/edu/tinL/17-build/tc/lib/gcc/arm-linux-gnueabihf/6.2.0/include-fixed
+ /home/buchmann/fhnw/edu/tinL/17-build/tc/lib/gcc/arm-linux-gnueabihf/6.2.0/../../../../arm-linux-gnueabihf/include
+ ../target-root/usr/include
