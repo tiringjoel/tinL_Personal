@@ -28,6 +28,7 @@ BINUTILS_SRC=${HOME}/devel/gcc/dist/binutils-2.27/
 GCC_SRC=${HOME}/devel/gcc/dist/gcc-6.2/
 
 #----------------- the source code
+PYTHON_SRC=${RESOURCES}/Python-3.5.2
 U_BOOT_SRC=${RESOURCES}/u-boot-2016.07
 KERNEL_SRC=${RESOURCES}/beaglebone-black/linux/
 
