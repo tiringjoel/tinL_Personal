@@ -22,6 +22,9 @@ CXXFLAGS=-std=c++11
 VPATH=../src
 
 #compile/link in one step
+thread-demo-1:	LDLIBS=-lpthread
+thread-demo-1:		thread-demo-1.cc
+primes: 		primes.cc
 hello-world-c:		hello-world-c.c
 hello-world-cc: 	hello-world-cc.cc
 minimal-1:		minimal-1.c
