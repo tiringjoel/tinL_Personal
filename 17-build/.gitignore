@@ -2,3 +2,5 @@ build
 target*
 tc
 modules/*.cmd
+*.tar.gz
+*.img

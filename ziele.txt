@@ -48,3 +48,9 @@
  4-devel
   Crossdevelopment
 
+26.Okt.2016
+-----------
+ 3-network
+ 4-crossdevelopment 
+  WS   BBB(Debian)
+  WS   BBB(minimal)

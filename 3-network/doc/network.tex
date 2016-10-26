@@ -68,7 +68,7 @@
 
 \end{frame}
 
-\begin{frame}{Test mit \cod{curl}}{\url{http://curl.haxx.se/}}
+\begin{frame}{Test mit \cod{curl}}{\url{curl.haxx.se/}}
   \begin{itemize}
    \item \cod{curl address}
    \begin{itemize}
@@ -86,7 +86,7 @@
    \end{quote}
 %   \vspace{-5mm}
    \begin{itemize}
-    \item {\scriptsize\url{http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/}}
+    \item {\scriptsize\url{www.pps.univ-paris-diderot.fr/~jch/software/polipo/}}
    \end{itemize}
   \item \cod{squid}
    \vspace{-5mm}
@@ -94,7 +94,7 @@
    is a caching proxy for the Web supporting
    \end{quote}
    \begin{itemize}
-     \item {\scriptsize\url{http://www.squid-cache.org/}}
+     \item {\scriptsize\url[http]{www.squid-cache.org/}}
    \end{itemize}
  \end{itemize}
 \end{frame}
@@ -108,16 +108,17 @@
   \end{itemize}
   \item[\target] Client
   \begin{itemize}
-   \item \cod{curl --proxy http://192.168.7.1:8123  \textbackslash\\ http://www.google.ch}
+   \item \cod{curl --proxy http://192.168.7.1:8123  \textbackslash\\ www.google.ch}
   \end{itemize}
  \end{description}
+ \remark{Wie steht es mit \cod{https}}
 \end{frame}
 
 \begin{frame}{\target}{\cod{apt-get}}
  \begin{itemize}
-  \item Konfiguration
+  \item Konfiguration \targetS
   \begin{itemize}
-   \item File \cod{apt.conf.d/05proxy}
+   \item File \cod{/etc/apt/apt.conf.d/05proxy}
    \begin{itemize}
     \item \cod{Acquire::http::proxy "{}http://192.168.7.1:8123"{};}
    \end{itemize}
