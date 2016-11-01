@@ -1,3 +1,4 @@
+#!/bin/bash
 #-----------------------
 #polipo.sh direct call
 #(c) H.Buchmann FHNW 2015
