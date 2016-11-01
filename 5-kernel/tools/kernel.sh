@@ -1,3 +1,4 @@
+#!/bin/bash
 #---------------------
 #kernel.sh
 #(c) H.Buchmann FHNW 2015
