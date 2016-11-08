@@ -32,7 +32,7 @@
 
 \begin{frame}{Informationen}
  \begin{itemize}
-  \item \url{http://www.denx.de/wiki/U-Boot}
+  \item \url[http]{www.denx.de/wiki/U-Boot}
  \end{itemize}
 \end{frame}
 
@@ -48,28 +48,24 @@
  \end{enumerate}
 \end{frame}
 
-\begin{frame}{Reset}{beim \target}
+\begin{frame}{Startup}{beim \target}
  \begin{enumerate}
   \item  {\Large Reset} Signal
   \item {\em first stage bootloader} 
   \begin{itemize}
    \item nicht zugänglich
+   \item aber konfigurierbar
   \end{itemize}
-  \item {\em second stage bootloader} \cod{bootcode.bin}
+  \item {\em second stage bootloader} \cod{MLO}
   \begin{itemize}
-   \item schwierig zugänglich
+   \item \cod{MLO} in boot partition
   \end{itemize}
-  \item {\em GPU firmware} \cod{start.elf}
+   
+  \item {\em u-boot}
   \begin{itemize}
-   \item \target GPU Code
-   \item Konfiguration:
-   \begin{itemize}
-    \item \cod{config.txt}
-    \item \cod{cmdline.txt} für \linux
-   \end{itemize}
-   \item ziemlich schwierig zugänglich
+   \item ein gängiger Bootloader
+   \item Kommandozeilenbasiert
   \end{itemize}
-  
   \item {\em User Code}
   \begin{itemize}
    \item normalerweise \linux Kernel
@@ -77,15 +73,44 @@
  \end{enumerate}
 \end{frame}
 
+\subsection{U-Boot}
+\begin{frame}{U-Boot}
+\begin{center}
+\includegraphics{memory.pdf}
+\end{center}
+\begin{itemize}
+ \item {\color{red} reserviert}
+ \item \uboot \cod{fatload mmc 0 addr file}
+\end{itemize}
+\end{frame}
+
+\subsection{User Code}
 \begin{frame}{User Code}{\linux Startup}
  \begin{enumerate}
   \setcounter{enumi}{5}
-  \item {\em kernel} \cod{kernel.img}
+  \item {\em kernel} \cod{zImage}
   \item {\unix} \cod{init} Prozess
  \end{enumerate}
 \end{frame}
 
 \section{Aufgaben}
+\subsection{u-boot}
+\begin{frame}{Aufgabe}{Herstellung}
+\begin{itemize}
+ \item Code \url[http]{git.denx.de}
+ \item fast gleich wie der \linux \kernel
+ \item \cod{tools/u-boot.sh}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Aufgabe}{Konfiguration}
+ \begin{itemize}
+  \item manuell: \cod{tools/u-boot.cmd}
+  \item automatisch: \cod{uEnv.txt} 
+ \end{itemize}
+\end{frame}
+
+
 \subsection{Init}
 \begin{frame}{Aufgabe}{eigener \unix \cod{init} Prozess}
  \begin{itemize}
@@ -94,78 +119,57 @@
  \end{itemize}
 \end{frame}
 
-\subsection{u-boot}
-\begin{frame}{Aufgabe}{\uboot als zusätzlicher Zwischenschritt}
- \begin{enumerate}
-  \setcounter{enumi}{5}
-  \item \uboot nun \kernel 
-  \item[] startet
-  \item \linux \kernel
-  \item \unix
- \end{enumerate}
-\end{frame}
 
-\begin{frame}{Herstellung}
-\begin{itemize}
- \item Code \cod{git://github.com/swarren/u-boot.git}
- \item fast gleich wie der \linux \kernel
- \item im File \cod{config.txt} Eintrag:
- \begin{itemize}
-  \item \cod{kernel={\em name-of-uboot-image}}
- \end{itemize}
-\end{itemize}
-\end{frame}
+%\begin{frame}{\linux}{mit \uboot starten}
+% \begin{itemize}
+%  \item von der SD-Karte
+%  \item vom Netz
+%  \item ein U-Boot Image
+% \end{itemize}
+%\end{frame}
 
-\begin{frame}{\linux}{mit \uboot starten}
- \begin{itemize}
-  \item von der SD-Karte
-  \item vom Netz
-  \item ein U-Boot Image
- \end{itemize}
-\end{frame}
+%\section{Probleme}
+%\begin{frame}[fragile]{Etwas Terminologie}
+% \begin{description}[direct-boot]
+%  \item[direct-boot] {\bf ohne} \uboot
+%  \item[u-boot] {\bf mit} \uboot
+%  \item[kernel.img] das orignale {\em image}
+%  \item[Image] der selber gemachte
+% \end{description}
+% \remark{Test mit \cod{uname -a}}
+%\end{frame}
 
-\section{Probleme}
-\begin{frame}[fragile]{Etwas Terminologie}
- \begin{description}[direct-boot]
-  \item[direct-boot] {\bf ohne} \uboot
-  \item[u-boot] {\bf mit} \uboot
-  \item[kernel.img] das orignale {\em image}
-  \item[Image] der selber gemachte
- \end{description}
- \remark{Test mit \cod{uname -a}}
-\end{frame}
-
-\begin{frame}{Die Probleme}
-\begin{tabular}{l|l|l}
-		& kernel.img 	& Image\\
-\hline
-direct-boot	& ok	     	& ok\\
-u-boot	   	& (ok) ohne rootfs	& error\\
-\end{tabular}
-\begin{block}{Aufgabe}
-\begin{itemize}
- \item nachprüfen
-\end{itemize}
-\end{block}
-\end{frame}
-
-\subsection{Was kann man machen ?}
-\begin{frame}{Memory}{\uboot Sicht}
-\begin{center}
-\includegraphics{memory.pdf}
-\end{center}
-\begin{itemize}
- \item {\color{red} reserviert}
- \item \uboot \cod{fatload mmc 0:1 addr file}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Verschiedene Image Formate}
- \begin{itemize}
-  \item Image
-  \item zImage
-  \item uImage
- \end{itemize}
-\end{frame}
+%\begin{frame}{Die Probleme}
+%\begin{tabular}{l|l|l}
+%		& kernel.img 	& Image\\
+%\hline
+%direct-boot	& ok	     	& ok\\
+%u-boot	   	& (ok) ohne rootfs	& error\\
+%\end{tabular}
+%\begin{block}{Aufgabe}
+%\begin{itemize}
+% \item nachprüfen
+%\end{itemize}
+%\end{block}
+%\end{frame}
+%
+%\subsection{Was kann man machen ?}
+%\begin{frame}{Memory}{\uboot Sicht}
+%\begin{center}
+%\includegraphics{memory.pdf}
+%\end{center}
+%\begin{itemize}
+% \item {\color{red} reserviert}
+% \item \uboot \cod{fatload mmc 0:1 addr file}
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Verschiedene Image Formate}
+% \begin{itemize}
+%  \item Image
+%  \item zImage
+%  \item uImage
+% \end{itemize}
+%\end{frame}
 
 \end{document}

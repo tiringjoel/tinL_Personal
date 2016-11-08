@@ -58,3 +58,14 @@
 2.Nov.2016
 ----------
  5-kernel
+
+9.Nov.2016
+----------
+ 7-startup
+
+ 5-kernel
+  .Konfiguration
+    Internet über USB
+ 
+
+
