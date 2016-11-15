@@ -7,11 +7,11 @@
 #TODO solve the libgcc problems
 #     why you have to use --with-sysroot
 #----------------------
-SOURCE=${HOME}/devel/gcc/dist/gcc-6.2.0
+
 . ./tools/defines.sh
 
 cd build/gcc
-${SOURCE}/configure -v\
+${GCC_SRC}/configure -v\
  --prefix=${TC_HOME}\
  --target=${TARGET} \
  --enable-languages=c,c++\

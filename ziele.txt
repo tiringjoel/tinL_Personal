@@ -67,5 +67,16 @@
   .Konfiguration
     Internet über USB
  
+16.Nov.2016
+-----------
+ Automatisierung
+  bootfs
+   u-boot
+   uEnv.txt
+   Internet über USB
+
+  rootfs
+   /etc/init.d/rcS 
+     
 
 

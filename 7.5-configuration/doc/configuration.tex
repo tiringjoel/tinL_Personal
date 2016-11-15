@@ -1,0 +1,129 @@
+%-------------------------
+%makefile
+%(c) H.Buchmann FHNW 2014
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+\newcommand{\uboot}{{U-Boot \xspace}}
+
+\title{Konfiguration}
+
+\frame{\titlepage}
+
+\begin{frame}{Um was geht es ?}{Automatisches Aufstarten}
+ \begin{itemize}
+  \item Bootloader \uboot
+  \item \kernel
+  \item \unix 
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Das Ziel}{für \targetS}
+ \begin{block}{Nach dem Reset:}
+ \begin{enumerate}
+  \item \uboot startet \kernel
+  \item \kernel startes \unix
+  \item \unix 
+   \begin{itemize}
+    \item konfiguriert {\em ethernet über USB}
+    \item startet \cod{ssh} Server 
+   \end{itemize}
+ \end{enumerate}
+ \end{block}
+\end{frame}
+
+\begin{frame}{Was wir schon haben}
+ \begin{description}[root Filesystem:]
+  \item[Toolchain:] download
+  \item[\uboot:] selber gemacht
+  \item [\kernel:] selber gemacht
+  \item[root Filesystem:] download 
+ \end{description}
+\end{frame}
+
+\begin{frame}{Die Partitionen und Filesysteme}
+ \begin{description}
+  \item[p1] bootfs:vfat $\approx 20MiB$
+   \begin{itemize}
+    \item \uboot
+    \begin{itemize}
+     \item \cod{MLO}  
+     \item \cod{u-boot.img}
+     \item \cod{uEnv.txt} Konfiguration
+    \end{itemize}
+    \item \kernel
+    \begin{itemize}
+      \item \cod{zImage}
+	  \item \cod{am335x-boneblack.dtb}
+    \end{itemize}
+   \end{itemize}
+  \item[p2] rootfs:ext4 $\approx 200MiB$
+  \begin{itemize}
+   \item \cod{etc/init.d/rcS} init-script
+  \end{itemize}
+ \end{description}
+\end{frame}
+
+\section{\uboot}
+\begin{frame}{\uboot}{Wichtige Befehle}
+ \begin{itemize}
+  \item \cod{boot} startet \cod{bootcmd}
+  \item \cod{fatload mmc 0 {\em addr} {\em file}}
+  \item \cod{setenv {\em key} {\em value}}
+  \item \cod{run {\em script}}
+  
+  \remark{Siehe \url[http]{www.denx.de/wiki/view/DULG/UBootCmdGroupEnvironment}}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\uboot}{Wichtige Variablen}
+\begin{itemize}
+ \item \cod{bootcmd} für \uboot \cod{boot}
+ \item \cod{bootargs} für den \kernel
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\uboot}{Wichtiger File}
+ \begin{itemize}
+  \item \cod{uEnv.txt} setzt:
+  \begin{itemize}
+   \item \cod{bootcmd}
+   \item load-script für den\kernel
+   \item \cod{bootargs}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\section{RootFS}
+\begin{frame}{Init Script}{\cod{target-root-python-2016.10.18.tar.xz/download}}
+ \begin{itemize}
+  \item \cod{/etc/init.d/rcS} das {\em Init-Script}
+  \item \cod{ifconfg} für Internet
+  \item \cod{sshd} Server für Verbindung
+ \end{itemize}
+\end{frame}
+
+\section{Aufgabe}
+\begin{frame}{Aufgabe}
+ \begin{description}
+  \item[\uboot] Automatisches booten: \cod{uEnv.txt}
+  \item[\kernel] Ethernet über USB
+  \item[\unix] Automatisches starten: \cod{/etc/init.d/tcS}
+  \begin{itemize}
+   \item Internet:\cod{ifconfig}
+   \item ssh Server: \cod{sshd}
+  \end{itemize}
+ \end{description}
+\end{frame}
+
+\end{document}

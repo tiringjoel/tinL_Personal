@@ -8,10 +8,8 @@
 #--------------------------
 . ./tools/defines.sh
 
-SOURCE=${HOME}/devel/gcc/dist/binutils-2.24
-
 cd build/binutils
-${SOURCE}/configure \
+${BINUTILS_SRC}/configure \
  --prefix=${TC_HOME} \
  --target=${TARGET} \
  --with-sysroot=${SYSROOT} \
@@ -21,5 +19,3 @@ ${SOURCE}/configure \
  --disable-werror
 ${MAKE}
 ${MAKE} install
-# --with-sysroot=/ \
-# --with-sysroot=${SYSROOT} \
