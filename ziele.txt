@@ -69,7 +69,7 @@
  
 16.Nov.2016
 -----------
- Automatisierung
+ 7.5-configuration
   bootfs
    u-boot
    uEnv.txt
