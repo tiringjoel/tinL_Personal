@@ -105,7 +105,7 @@
 \end{frame}
 
 \section{RootFS}
-\begin{frame}{Init Script}{\cod{target-root-python-2016.10.18.tar.xz/download}}
+\begin{frame}{Init Script}{\cod{target-root-2016.11.22.tar.gz}}
  \begin{itemize}
   \item \cod{/etc/init.d/rcS} das {\em Init-Script}
   \item \cod{ifconfg} für Internet
@@ -126,4 +126,33 @@
  \end{description}
 \end{frame}
 
+
+\begin{frame}{Workflow}{Notationen}
+ \begin{description}[\cod{target-root-{\em V}.tar.gz}]
+  \item[\cod{\em sd-card}] die Partition vom rootfs auf der SD Karte
+  \item[\cod{target-root-{\em V}.tar.gz}] das heruntergeladene rootfs
+  \item[\cod{\em target-root}] das rootfs von \targetS auf dem \host
+ \end{description}
+\end{frame}
+
+\begin{frame}{Workflow}{schrittweise Verbesserung}
+ \begin{enumerate}
+  \item Initialer Download \cod{target-root-{\em V}.tar.gz}
+  \item \cod{target-root}
+  \begin{itemize}
+   \item \cod{tar target-root-{\em V}.tar.gz -C {\em target-root}}
+  \end{itemize} 
+  \item Transfer auf \cod{\em sd-card}
+  \begin{itemize}
+   \item \cod{rsync -av {\em target-root}/ {\em sd-card}/}
+   \item \cod{sync} 
+  \end{itemize} 
+  \item Test/Konfiguration auf dem \targetS
+  \item Update auf dem \host
+  \begin{itemize}
+   \item \cod{rsync -av {\em sd-card}/ {\em target-root}/}
+  \end{itemize} 
+  \item $\to$ 4
+ \end{enumerate}
+\end{frame}
 \end{document}

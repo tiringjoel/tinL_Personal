@@ -78,5 +78,19 @@
   rootfs
    /etc/init.d/rcS 
      
+23.Nov.2016
+-----------
+ 7.5-configuration
+  bootfs
+   u-boot
+    Warum funktioniert uEnv.txt nicht
+   Internet über USB
 
+  rootfs
+   /etc/init.d/rcS
+   sshd 
+
+   python 
+    hello-world.py
+ 
 
