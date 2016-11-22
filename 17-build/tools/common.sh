@@ -25,7 +25,7 @@ RESOURCES=${BUILD_HOME}/../resources/
 
 #----------------- toolchain
 BINUTILS_SRC=${HOME}/devel/gcc/dist/binutils-2.27/
-GCC_SRC=${HOME}/devel/gcc/dist/gcc-6.2/
+GCC_SRC=${HOME}/devel/gcc/dist/gcc-6.2.0/
 
 #----------------- the source code
 PYTHON_SRC=${RESOURCES}/Python-3.5.2
@@ -40,7 +40,7 @@ MUSL_SRC=${RESOURCES}/musl-1.1.15/
 NEWLIB_SRC=${RESOURCES}/newlib-2.2.0-1/
 OPENSSL_SRC=${RESOURCES}/openssl-1.0.2a
 
-BUSYBOX_SRC=${RESOURCES}/busybox-1.24.1/
+BUSYBOX_SRC=${RESOURCES}/busybox-1.25.1/
 CPUFREQUTILS_SRC=${RESOURCES}/cpufrequtils-008
 NET_TOOLS_SRC=${RESOURCES}/net-tools
 

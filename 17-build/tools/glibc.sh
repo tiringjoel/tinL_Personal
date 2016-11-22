@@ -1,10 +1,10 @@
 #!/bin/bash
 #-----------------------
-#eglibc
+#glibc
 #(c) H.Buchmann FHNW 2015
 #see EGLIBC.cross
 #-----------------------
-. scripts/common.sh
+. $(dirname ${0})/common.sh
 [[ ! -d glibc ]] && { mkdir glibc; }
 export CFLAGS="--sysroot=${SYSROOT} -O2"
 export CC=${TC_PREFIX}/bin/${TARGET}-gcc

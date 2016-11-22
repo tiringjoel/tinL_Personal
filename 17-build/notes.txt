@@ -5,71 +5,32 @@ see https://sourceware.org/ml/libc-alpha/2014-05/msg00573.html
 
 manufacturing:
 
-sh scripts/binutils.sh
-sh scripts/gcc-bare.sh
-sh scripts/kernel.sh help 
-sh scripts/kernel.sh bcmrpi_defconfig
-sh scripts/kernel.sh zImage
-sh scripts/kernel.sh headers_install
-sh scripts/eglibc.sh
+tools/binutils.sh
+tools/gcc-bare.sh
+tools/kernel.sh help 
+tools/kernel.sh bb.org_defconfig
+tools/kernel.sh zImage
+tools/kernel.sh dtbs
+tools/kernel.sh headers_install
+
+tools/glibc.sh
+tools/gcc.sh
+tools/busybox.sh
 
 
-install headers
-make headers_install INSTALL_HDR_PATH=path-to-target-root/usr
-
-binutils:
-	scripts/binutils.sh
->>>>>>> d3d6b2f45b30afad8028527ae68d30a081c707a2
-
-toolchain: kernel eglibs
-	scripts/gcc-bare.sh
-
-kernel:
-	scripts/kernel.sh bcmrpi_defconfig
-	scripts/kernel.sh zImage
-
-kernel-headers:
-	scripts/kernel.sh headers_install	
-
-eglibc:
-	scripts/eglibc.sh
-
-toolchain: posix
-	rm -rf build/gcc
-	scripts/gcc.sh
-	
-busybox:
-	scripts/busybox.sh busybox
-	scripts/busybox.sh install
-	
-
-root filesystem:
-	scripts/target-root.sh
-
-sd-card:
-	target-root.tar.gz -> SD-Card
-	  tar
-	target-root->SD-Card
-	  rsync
 ssh
-	scripts/zlib.sh
-	scripts/openssl.sh
-	scripts/openssh.sh
+tools/zlib.sh
+tools/openssl.sh
+tools/openssh.sh
 
-on target
- mount -t proc none /proc
- mount -t sysfs none /sys
- mount -t tmpfs -o mode=0755 none /dev
- mkdir /dev/pts
- mount -tdevpts none /dev/pts
- mdev  -s
- 
- ifconfig eth0 ip-address up
-
-	
 initial group/user
 addgroup -g 0 -S root
-adduser -u 0 -h /home/root -G root -S -D root
+adduser -u 0 -h /root -G root -S -D root
+
+
+python
+PYTHONHOME=/lib/python3.5/
+PYTHONPATH=/lib/python3.5/
 
 USB->RS232
 Connector J8
