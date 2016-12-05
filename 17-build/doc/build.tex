@@ -66,17 +66,17 @@
   \item[Hardware] \target
   \item[Kernel] zugeschnitten auf \target
   \begin{itemize}
-    \item {\tiny \url{https://github.com/beagleboard/linux}}
+    \item {\tiny \url{github.com/beagleboard/linux}}
   \end{itemize}	
   \item[root] das Filesystem
   \begin{description}
-   \item[LibC] eglibc 
+   \item[LibC] glibc 
    \begin{itemize}
-    \item {\tiny \url{http://www.eglibc.org/home}}
+    \item {\tiny \url{www.gnu.org/software/libc/index.html}}
    \end{itemize}	
    \item[\unix] busybox
    \begin{itemize}
-    \item {\tiny \url{http://www.busybox.net/}}
+    \item {\tiny \url{www.busybox.net/}}
    \end{itemize}
    \item[...] Weitere \unix basierte Komponenten
    \begin{itemize}
@@ -113,7 +113,7 @@
 \begin{frame}{Die Verzeichnisstruktur}
 \dirtree{%
  .1 .
- .2 scripts.
+ .2 tools.
  .3 common.h \DTcomment{used in (all) scripts}.
  .2 config.
  .3 Makefile.
@@ -191,11 +191,11 @@
   \hline
   \cod{gcc-bare.sh}& &kernel libc\\
   \hline
-  \cod{kernel.sh}  & \cod{bcmrpi\_defconfig}\\
+  \cod{kernel.sh}  & \cod{defconfig}\\
                    & \cod{zImage}\\
                    & \cod{headers\_install}\\
   \hline
-  \cod{eglibc.sh}  & &POSIX\\
+  \cod{glibc.sh}  & &POSIX\\
   \hline
   \cod{gcc.sh}     & &C/C++ POSIX\\
   \hline
