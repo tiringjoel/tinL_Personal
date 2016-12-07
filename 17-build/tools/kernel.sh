@@ -16,7 +16,7 @@
 # zImage :kernel
 # dtbs   :devicetree
 #---------------------
-. scripts/common.sh
+. $(dirname ${0})/common.sh
 [[ ! -d kernel ]] &&
 {
  mkdir kernel

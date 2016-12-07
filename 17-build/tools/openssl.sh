@@ -3,7 +3,7 @@
 #(c) H.Buchmann FHNW 2015
 # depends on zlib
 #------------------------
-. scripts/common.sh
+. $(dirname ${0})/common.sh
 BUILD_HOME=$(basename ${OPENSSL_SRC})
 [[ ! -d ${BUILD_HOME} ]] &&
 {

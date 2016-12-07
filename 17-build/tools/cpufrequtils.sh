@@ -3,7 +3,7 @@
 #(c) H.Buchmann FHNW 2015
 #--------------------
 #we are in build
-. scripts/common.sh
+. $(dirname ${0})/common.sh  #load common
 CPUFREQUTILS=${PWD}/cpufrequtils
 [[ ! -d cpufrequtils ]] && 
 { 

@@ -1,9 +1,9 @@
 #------------------------
-#openssl
+#net-tools
 #(c) H.Buchmann FHNW 2015
 # depends on zlib
 #------------------------
-. scripts/common.sh
+. $(dirname ${0})/common.sh  #load common
 BUILD_HOME=$(basename ${NET_TOOLS_SRC})
 [[ ! -d ${BUILD_HOME} ]] &&
 {

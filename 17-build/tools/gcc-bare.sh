@@ -4,8 +4,7 @@
 #(c) H.Buchmann FHNW 2015
 #gcc for kernel
 #-----------------------
-
-. scripts/common.sh  #load common
+. $(dirname ${0})/common.sh  #load common
 [[ ! -d gcc ]] && mkdir gcc-bare
 cd gcc-bare
 

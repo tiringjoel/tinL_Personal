@@ -4,7 +4,7 @@
 #(c) H.Buchmann FHNW 2015
 #see EGLIBC.cross
 #-----------------------
-. scripts/common.sh
+. $(dirname ${0})/common.sh  #load common
 [[ ! -d musl ]] && { mkdir musl; }
 
 export CFLAGS="--sysroot=${SYSROOT} -O2"

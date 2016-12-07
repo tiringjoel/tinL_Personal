@@ -4,7 +4,8 @@
 #(c) H.Buchmann FHNW 2015
 #gcc for kernel
 #-----------------------
-. scripts/common.sh  #load common
+. $(dirname ${0})/common.sh
+
 #-------------------- we are in build
 [[ ! -d gcc ]] && mkdir gcc 
 cd gcc
@@ -46,8 +47,8 @@ ${GCC_SRC}/configure \
 # yocto-rootfs
 # 
 #  error
-#${MAKE}
-#${MAKE} install
+${MAKE}
+${MAKE} install
 #echo "--------------------------------------"
 #echo "----------- proceed manually in $(pwd)"
 #echo "--------------------------------------"

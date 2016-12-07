@@ -2,7 +2,7 @@
 #fuse
 #(c) H.Buchmann FHNW 2015
 #------------------------
-. scripts/common.sh
+. $(dirname ${0})/common.sh  #load common
 [[ ! -d fuse ]] && mkdir fuse
 
 cd fuse

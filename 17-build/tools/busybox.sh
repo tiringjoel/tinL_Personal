@@ -11,7 +11,7 @@
 # see kernel.sh
 #--------------------
 #we are in build
-. scripts/common.sh
+. $(dirname ${0})/common.sh
 BUSYBOX=${PWD}/busybox
 [[ ! -d busybox ]] && 
 { 
@@ -22,6 +22,6 @@ BUSYBOX=${PWD}/busybox
  }
 }
 cd ${BUSYBOX_SRC}
-##MAKE=make
-${MAKE} CONFIG_PREFIX=${SYSROOT} CROSS_COMPILE=${CROSS_COMPILE} V=1 O=${BUSYBOX} ${@}
+MAKE=make
+${MAKE} CONFIG_PREFIX=${SYSROOT} CROSS_COMPILE=${CROSS_COMPILE} V=0 O=${BUSYBOX} ${@}
 

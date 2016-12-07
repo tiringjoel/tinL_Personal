@@ -2,7 +2,7 @@
 #zlib
 #(c) H.Buchmann FHNW 2015
 #---------------------------
-. scripts/common.sh
+. $(dirname ${0})/common.sh
 [[ ! -d zlib-1.2.8 ]] && 
 {
  tar -xzf ${ZLIB_SRC}.tar.gz -C .

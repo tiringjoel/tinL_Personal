@@ -3,7 +3,7 @@
 #target-root.sh
 #(c) H.Buchmann FHNW 2015
 #------------------
-. scripts/common.sh
+. $(dirname ${0})/common.sh
 
 function copy() # $1 src $2 dest in ${TARGET_ROOT}
 {
@@ -25,7 +25,7 @@ crdir etc/init.d
 copy config/rcS.first /etc/init.d/rcS
 
 DATE=$(date '+%Y.%m.%d')
-
+touch ${TARGET_ROOT}/made-${DATE}
 fakeroot tar -cvzf ${BUILD_HOME}/target-root-${DATE}.tar.gz -C ${TARGET_ROOT} .
 #copy to sd-card
 #   home-of-sd-card  .
