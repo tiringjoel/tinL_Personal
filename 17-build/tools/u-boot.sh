@@ -7,7 +7,7 @@
 #      3: all
 #------------------
 #we are in 17-build
-. scripts/common.sh
+. $(dirname ${0})/common.sh  #load common
 [[ ! -d u-boot ]] &&
 {
  mkdir u-boot

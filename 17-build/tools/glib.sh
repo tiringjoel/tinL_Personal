@@ -4,7 +4,7 @@
 # depends on zlib
 #https://developer.gnome.org/glib/stable/glib-cross-compiling.html
 #------------------------
-. scripts/common.sh
+. $(dirname ${0})/common.sh  #load common
 [[ ! -d glib ]] && mkdir glib
 
 cd glib
