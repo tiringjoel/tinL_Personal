@@ -7,4 +7,8 @@
 # chmod a+x rsync.sh
 #--------------------
 echo "build rsync"
+#setup pathnames
+# all paths absolute
+BUILD_HOME=${PWD}
 
+RSYNC_SRC=${BUILD_HOME}/../../resources/rsync-3.1.2/
