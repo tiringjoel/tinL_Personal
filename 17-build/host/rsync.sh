@@ -27,6 +27,9 @@ RSYNC_BUILD=${RSYNC_HOME}/rsync-build
 if [ ! -e ${RSYNC_BUILD} ]
  then mkdir ${RSYNC_BUILD}
 fi
-
+#-jn
+# n the number of cpu's
+MAKE="make -j8"
 cd ${RSYNC_BUILD}
 ${RSYNC_SRC}/configure --prefix=${RSYNC_HOME}
+${MAKE}
