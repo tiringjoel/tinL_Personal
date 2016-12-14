@@ -22,5 +22,10 @@ echo "RSYNC_HOME=${RSYNC_HOME}"
 echo "script ${0}"
 
 RSYNC_SRC=${RSYNC_HOME}/../../resources/rsync-3.1.2/
+RSYNC_BUILD=${RSYNC_HOME}/rsync-build
 
-${RSYNC_SRC}/configure --help
+if [ ! -e ${RSYNC_BUILD} ]
+ then mkdir ${RSYNC_BUILD}
+fi
+
+echo ${RSYNC_SRC}/configure --prefix=${RSYNC_HOME}
