@@ -28,4 +28,5 @@ if [ ! -e ${RSYNC_BUILD} ]
  then mkdir ${RSYNC_BUILD}
 fi
 
-echo ${RSYNC_SRC}/configure --prefix=${RSYNC_HOME}
+cd ${RSYNC_BUILD}
+${RSYNC_SRC}/configure --prefix=${RSYNC_HOME}
