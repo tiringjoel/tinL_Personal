@@ -101,5 +101,7 @@
 
 14.Dez.2016
 -----------
- Termin
+ Termin muendliche Pruefung letzte Stunde
+ 17-build
+  ssh
 
