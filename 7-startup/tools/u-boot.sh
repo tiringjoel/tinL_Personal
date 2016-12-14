@@ -6,7 +6,7 @@
 #      2: am335x_boneblack_defconfig
 #      3: all
 # important files found in u-boot
-# MLO:        second state bootloader
+# MLO:        second stage bootloader
 # u-boot.img: the u-boot code
 #------------------
 #we are in 7-startup
@@ -21,7 +21,7 @@ TC_PREFIX=${STARTUP_HOME}/tc
 CROSS_COMPILE=${TC_PREFIX}/bin/${TARGET}-
 
 #how to make
-MAKE="make -j8"
+MAKE="make -j1"
 
 [[ ! -d u-boot ]] &&
 {
@@ -29,6 +29,6 @@ MAKE="make -j8"
 }
 BUILD=${STARTUP_HOME}/u-boot
 pushd ${U_BOOT_SRC}
-${MAKE} CROSS_COMPILE=${CROSS_COMPILE} O=${BUILD} ${@}
+${MAKE} ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} V=1 O=${BUILD} ${@}
 popd
 
