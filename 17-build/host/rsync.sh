@@ -6,9 +6,21 @@
 # make it executable with
 # chmod a+x rsync.sh
 #--------------------
+#file made with: 
+# touch .$(uuidgen)
+SIGNATURE=.7480a5c2-dee2-4957-8e9a-9fef190869b1
+if [ ! -e ${SIGNATURE} ]
+ then echo "you are not in the correct directory"
+      exit 1
+fi
+
 echo "build rsync"
 #setup pathnames
 # all paths absolute
 BUILD_HOME=${PWD}
+echo "BUILD_HOME=${BUILD_HOME}"
+echo "script ${0}"
 
 RSYNC_SRC=${BUILD_HOME}/../../resources/rsync-3.1.2/
+
+#${RSYNC_SRC}/configure --help
