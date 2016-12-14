@@ -33,3 +33,4 @@ MAKE="make -j8"
 cd ${RSYNC_BUILD}
 ${RSYNC_SRC}/configure --prefix=${RSYNC_HOME}
 ${MAKE}
+${MAKE} install
