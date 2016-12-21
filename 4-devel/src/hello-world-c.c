@@ -5,6 +5,7 @@
 #include <stdio.h>
 int main(int argc,char** args)
 {
- printf("Hello World "__DATE__"\n");
+ unsigned val=100;
+ printf("Hello World "__DATE__" %d\n",val);
  return 0;
 }

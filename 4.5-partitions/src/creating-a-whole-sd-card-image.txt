@@ -63,6 +63,7 @@ sync
 Important commands Host
 -----------------------
 dd             for accessing raw bytes
+losetup        for loop devices
 fdisk          for creating partitions
 mkfs.vfat/ext4 for creating filesystems
 tar -xvzf      for exctracting

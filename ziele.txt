@@ -101,13 +101,13 @@
 
 14.Dez.2016
 -----------
+ Termin muendliche Pruefung letzte Stunde
  17-build
   ssh
-  
+
 21.Dez.2016
 -----------
  5.5-hardware 
   nur das Beispiel mit gpio 
-
  17-build
   immer noch ssh

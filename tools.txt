@@ -1,5 +1,7 @@
 Tools
 -----
+file 
+ls list directory
 fdisk 
 losetup
 mount
