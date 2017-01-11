@@ -1,6 +1,7 @@
+#!/bin/bash
 #--------------------
 #install-rule
-#(c) H.Buchmann FHNW 2015
+#(c) H.Buchmann FHNW 2017
 #${1} the rule
 #--------------------
  

@@ -80,6 +80,12 @@
 
 \begin{frame}{Aufgabe}{SD-Card richtig montieren}
  \begin{itemize}
+  \item wo ist was ?
+   \begin{itemize}
+    \item die Regeln
+    \item die Programme
+   \end{itemize}
+   \item wer darf was ?
   \item \cod{udevadm monitor -p}
   \begin{itemize}
    \item liefert die Informationen
@@ -89,6 +95,10 @@
   \item eigene {\em rule} \cod{src/90-myrule.rules} in \cod{/etc/udev/rules.d}
   \begin{itemize}
    \item \cod{RUN} eigenes Programm
+  \end{itemize}
+  \item Debug
+  \begin{itemize}
+   \item Siehe \cod{src/mount.sh}
   \end{itemize}
  \end{itemize}
 \end{frame}

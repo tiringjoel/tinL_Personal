@@ -2,7 +2,9 @@
 #-------------------
 #mount.sh
 # must be executable 
-#(c) H.Buchmann FHNW 2015
+#(c) H.Buchmann FHNW 2017
+# use tail -f /tmp/callback.log 
+# for live observing 
 #--------------------
 BASENAME=$(dirname $(dirname ${0}))
 TARGET_ROOT=${BASENAME}/target-root

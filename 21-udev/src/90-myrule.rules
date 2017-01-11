@@ -1,6 +1,8 @@
 #-----------------------
 #myrule
-#copy to /etc/udev/rules.d 
-ACTION=="add", SUBSYSTEM=="block", ENV{ID_FS_UUID}=="ab309c05-085f-4356-9ea9-e697f1496470", \
+# (c) H.Buchmann FHNW 2017
+#copy to /etc/udev/rules.d
+#----------------------- 
+ACTION=="add", SUBSYSTEM=="block", ENV{ID_FS_UUID}=="1bf96135-8b38-4975-9773-a558f9c10ca8", \
 RUN+="/home/buchmann/fhnw/edu/tinL/21-udev/src/mount.sh $env{DEVNAME} $env{ID_FS_UUID}"
 
