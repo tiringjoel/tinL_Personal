@@ -109,5 +109,15 @@
 -----------
  5.5-hardware 
   nur das Beispiel mit gpio 
+
  17-build
   immer noch ssh
+
+11.Jan.2017
+-----------
+ 21-udev:
+   eine Anwendung vom call-back
+
+ 17-build:
+  immer noch ssh 
+  die Sache mit den Versionen
