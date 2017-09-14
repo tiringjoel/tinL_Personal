@@ -38,13 +38,15 @@ GLIBC_SRC=${RESOURCES}/glibc-2.23/
 MUSL_SRC=${RESOURCES}/musl-1.1.15/
 
 NEWLIB_SRC=${RESOURCES}/newlib-2.2.0-1/
+
+#newest version openssl-1.1.0c dont works for openssl
 OPENSSL_SRC=${RESOURCES}/openssl-1.0.2a
 
 BUSYBOX_SRC=${RESOURCES}/busybox-1.25.1/
 CPUFREQUTILS_SRC=${RESOURCES}/cpufrequtils-008
 NET_TOOLS_SRC=${RESOURCES}/net-tools
 
-OPENSSH_SRC=${RESOURCES}/openssh-7.1p1
+OPENSSH_SRC=${RESOURCES}/openssh-7.4p1
 ZLIB_SRC=${RESOURCES}/zlib-1.2.8
 RSYNC_SRC=${RESOURCES}/rsync-3.1.2
 MINICOM_SRC=${RESOURCES}/minicom-2.7

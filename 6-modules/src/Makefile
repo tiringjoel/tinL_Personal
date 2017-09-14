@@ -6,10 +6,10 @@
 #see http://www.tldp.org/LDP/lkmpg/2.6/html/x181.html
 #----------------------
 #-------------------- add here your modules
-obj-m += simple-module.o simple-hw.o
+obj-m += simple-module.o 
 
 all:
-	make -C${KERNEL}  M=${PWD} modules
+	make V=1 -C${KERNEL}  M=${PWD} modules
 clean:
 	make -C${KERNEL}  M=$(PWD) clean
 	rm -f call-ioctl
