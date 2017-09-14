@@ -22,17 +22,17 @@
   \end{itemize}
  \item[Target]
   \begin{itemize}
-   \item \beaglebone per USB
-   \begin{itemize}
-    \item Speicher: USB Stick 
-	\item Serielle Schnittstelle \cod{/dev/ttyACM0}
-	\item Ethernet
-   \end{itemize}
+   \item \beaglebone
   \end{itemize}
-  \item[Verbindung]
+  \item[Verbindung] 
   \begin{itemize}
-   \item \cod{ping}
-   \item \cod{ssh}
+   \item USB\dotfill{\color{red} unser Fokus heute}
+   \begin{itemize}
+	\item Serielle Schnittstelle RS232 \cod{/dev/ttyACM0}
+	\item Ethernet
+        \item Speicher: USB Stick 
+   \end{itemize}
+   \item Wi-Fi
   \end{itemize}
  \end{description}
 \end{frame}
@@ -47,6 +47,7 @@
 %\section{Image}
 %\input{image.tex}
 
+
 \begin{frame}{USB: Linux Foundation Multifunction Composite Gadget}
              {der Befehl \cod{lsusb} auf dem \host}
   \begin{itemize}
@@ -58,9 +59,9 @@
   \end{itemize}
 \end{frame}
 
-\input{mass-storage.tex}
 \input{rs232.tex}
 \input{network.tex}
+\input{mass-storage.tex}
 
 
 \end{document}
