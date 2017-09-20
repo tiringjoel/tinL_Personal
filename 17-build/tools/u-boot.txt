@@ -4,7 +4,7 @@ setenv serverip 192.168.1.134;setenv ipaddr 192.168.1.4
 tftpboot 0x82000000 192.168.1.134:zImage;tftpboot 0x88000000 192.168.1.134:dts/am335x-boneblack.dtb 
 setenv bootargs 'root=/dev/mmcblk0p2 rw rootdelay=1 init=linuxrc console=ttyO0,115200n8';bootz 0x82000000 -  0x88000000
 
-fatload mmc 0 0x82000000 zimage;fatload mmc 0 0x88000000 am335x-boneblack.dtb 
+fatload mmc 0 0x82000000 zimage;fatload mmc 0 0x88000000  am335x-boneblack-wireless.dtb
 
 setenv kernel 'fatload mmc 0 0x82000000 zimage;fatload mmc 0 0x88000000 am335x-boneblack.dtb'
 setenv bootcmd 'run kernel;bootz 0x82000000 -  0x88000000'

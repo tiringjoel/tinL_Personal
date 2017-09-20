@@ -34,7 +34,7 @@ KERNEL_SRC=${RESOURCES}/beaglebone-black/linux/
 
 
 EGLIBC_SRC=${RESOURCES}/eglibc/
-GLIBC_SRC=${RESOURCES}/glibc-2.23/
+GLIBC_SRC=${RESOURCES}/glibc-2.26/
 MUSL_SRC=${RESOURCES}/musl-1.1.15/
 
 NEWLIB_SRC=${RESOURCES}/newlib-2.2.0-1/
@@ -42,7 +42,7 @@ NEWLIB_SRC=${RESOURCES}/newlib-2.2.0-1/
 #newest version openssl-1.1.0c dont works for openssl
 OPENSSL_SRC=${RESOURCES}/openssl-1.0.2a
 
-BUSYBOX_SRC=${RESOURCES}/busybox-1.25.1/
+BUSYBOX_SRC=${RESOURCES}/busybox-1.27.2/
 CPUFREQUTILS_SRC=${RESOURCES}/cpufrequtils-008
 NET_TOOLS_SRC=${RESOURCES}/net-tools
 
