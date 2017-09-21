@@ -18,11 +18,13 @@
 	.global _start
 
 _start: 
+#if 1
 	ldr r7,=4     /* the sys call */
 	ldr r0,=0     /* 0 fildes stdout */
 	ldr r1,=1f    /* the msg */
 	ldr r2,=16    /* nbyte */
 	swi 0         /* make call */
+#endif
 0:	b 0b
 	
 1:	.ascii "-- S Hello World\n"	
