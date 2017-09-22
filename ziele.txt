@@ -6,3 +6,7 @@
   - usb/ethernet
   - ssh
 
+27.Sept. 2017
+-------------
+ - probleme mit minicom 
+   mail von Herrn Binggeli

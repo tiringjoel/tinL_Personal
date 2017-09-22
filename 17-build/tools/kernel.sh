@@ -25,7 +25,7 @@ BUILD=${PWD}/kernel
 cd ${KERNEL_SRC}
 START=$(date '+%s')
 #MAKE='make'
-${MAKE} V=0 O=${BUILD} \
+${MAKE} V=1 O=${BUILD} \
 LOADADDR=0x8000 \
 ARCH=arm \
 CROSS_COMPILE=${CROSS_COMPILE} \

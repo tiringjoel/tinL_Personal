@@ -5,7 +5,7 @@
 #gcc for kernel
 #-----------------------
 . $(dirname ${0})/common.sh  #load common
-[[ ! -d gcc ]] && mkdir gcc-bare
+[[ ! -d gcc-bare ]] && mkdir gcc-bare
 cd gcc-bare
 
 #${GCC_SRC}/configure --help

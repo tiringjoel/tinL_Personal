@@ -16,7 +16,7 @@
     console=ttyAMA0,115200 root=/dev/mmcblk0p3 rootfstype=ext4 rootwait init=/s-bare-init
   ------------------------*/
 	.global _start
-
+//        .thumb
 _start: 
 #if 1
 	ldr r7,=4     /* the sys call */

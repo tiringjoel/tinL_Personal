@@ -12,10 +12,12 @@
 static const char Msg[]="Hello World";
 void _start()
 {
+#if 1
  syscall(__NR_write,
         0, //fildes
 	Msg,
 	sizeof(Msg)-1);
+#endif
  while(1)
  {
  }
