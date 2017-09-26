@@ -6,12 +6,14 @@
 TARGET=../target-root/
 PREFIX=../tc/bin/arm-linux-gnueabihf-
 CFLAGS=-std=c99
-CC=${PREFIX}gcc -O2 --sysroot=${TARGET}
+#CPPFLAGS=-I${TARGET}/usr/include/arm-linux-gnueabihf/
+#LDFLAGS=${TARGET}/usr/lib/arm-linux-gnueabihf/crti.o
+CC=${PREFIX}gcc  -O2 
 LD=${PREFIX}ld 
-CXX=${PREFIX}g++ --sysroot=${TARGET} -O2
+CXX=${PREFIX}g++ 
 CXXFLAGS=-std=c++11
 #LDFLAGS=-static
-VPATH=../src
+VPATH=../src 
 minimal-1:		minimal-1.o
 minimal-1.o:		minimal-1.c
 hello-world-c:		hello-world-c.o

@@ -151,14 +151,17 @@
 \end{frame}
 
 \begin{frame}{Development}{\cod{hello-world-c.c}}
- \begin{tabular}{lllll}
- Host & Target & OS & Toolchain & Verbindung\\
+\hspace*{-8mm}
+{
+\begin{tabular}{llllll}
+ Host & Target & OS & Toolchain & Verbindung & Bemerkungen\\
  \hline
- \targetS & \targetS & Debian & mitgeliefert&\\
- \host   & \targetS & Debian & \cod{gcc-5.2.0-arm-64bit.tar.bz2} & sshfs\\
- \host   & \targetS & minimal & \cod{gcc-6.2.0-arm-64bit.tar.gz} & SD-Card\\
- \host   & \targetS & minimal & \cod{gcc-6.2.0-arm-64bit.tar.gz} & curlftpfs\\
- \end{tabular}
+ \targetS & \targetS & Debian & mitgeliefert&&\\
+ \host   & \targetS & Debian & \cod{\tiny gcc-7.2.0-arm-64bit.tar.bz2} & sshfs\\
+ \host   & \targetS & minimal & \cod{\tiny gcc-7.2.0-arm-64bit.tar.gz} & SD-Card  &später\\
+ \host   & \targetS & minimal & \cod{\tiny gcc-7.2.0-arm-64bit.tar.gz} & curlftpfs&später\\
+\end{tabular}
+}
 \end{frame}
 
 %\begin{frame}{Crossdevelopment}{\cod{hello-world-c.c}}

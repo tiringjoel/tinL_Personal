@@ -10,3 +10,6 @@
 -------------
  - probleme mit minicom 
    mail von Herrn Binggeli
+   terminal programme
+    
+ - 2-unix-use
