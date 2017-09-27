@@ -1,4 +1,6 @@
 *.bz2
+*.xz
 build
 tc
 root-fs
+gcc-linaro*
