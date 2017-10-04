@@ -19,7 +19,8 @@ ${GCC_SRC}/configure \
  --disable-werror \
  --enable-threads \
  --enable-languages=c,c++\
- --with-sysroot=${TARGET_ROOT} \
+ --with-build-sysroot=${TARGET_ROOT} \
+ --with-sysroot=${TC_PREFIX}/libc \
  --disable-nls \
  --disable-libssp \
  --disable-lto \

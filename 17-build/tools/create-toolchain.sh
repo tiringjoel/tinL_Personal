@@ -5,5 +5,5 @@
 #--------------------------
 #we are in 17-build
 find tc/ -executable -type f -exec strip '{}' \;
-TOOLCHAIN=gcc-7.2.0-arm-64bit
+TOOLCHAIN=gcc-7.2.0-arm-64bit-$(date +'%Y-%m-%d')
 tar --transform "s,^.,${TOOLCHAIN}," -czvf ${TOOLCHAIN}.tar.gz -C tc .
