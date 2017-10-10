@@ -20,3 +20,12 @@
    https://drive.switch.ch/index.php/s/SR9s26Wppx1Zvzq
  - 3-network
 
+11.Okt.2017
+-----------
+  -3-network
+       wifi von Hand
+  -4.5-partitions
+  -18-boot
+       https://drive.switch.ch/index.php/s/SR9s26Wppx1Zvzq
+    
+  
