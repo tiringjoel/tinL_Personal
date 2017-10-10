@@ -1,0 +1,63 @@
+\begin{frame}{Outline}{Wi-Fi von Hand}
+ \begin{itemize}
+  \item normalerweise automatische Konfiguration
+  \item einmal von Hand
+  \item wo sind die Passwörter
+  \item zwei Sachen 
+  \begin{itemize}
+   \item das Wireless Netz
+   \item das Internet
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\subsection{Das Wireless Netz}
+\begin{frame}{Das Wireless Netz}
+\begin{block}{Information}
+ \begin{itemize}
+  \item \cod{iw dev}
+  \item \cod{ip link show} 
+ \end{itemize}
+\end{block}
+\begin{block}{Start}
+ \begin{itemize}
+  \item \cod{ip link set wlan0 up}
+ \end{itemize}
+\end{block}
+\begin{block}{Examine}
+ \begin{itemize}
+  \item \cod{ip link show wlan0}
+  \item \cod{iw wlan0 scan} bzw. \cod{iw wlan0 scan | grep SSID}
+ \end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Das Wireless Netz}{Connect}
+\begin{block}{fhnw-public}
+\begin{itemize}
+ \item \cod{iwconfig wlan0 essid fhnw-public}
+\end{itemize}
+\end{block}
+\begin{block}{eduroam}
+ \begin{itemize}
+  \item \cod{wpa\_supplicant  -D wext -i wlan0 -c {\em config-file}}
+  \end{itemize}
+\end{block}
+\end{frame}
+
+\subsection{Internet}
+\begin{frame}{Internet}
+\begin{block}{Connect}
+ \begin{itemize}
+  \item \cod{dhclient wlan0}
+ \end{itemize}
+\end{block}
+\begin{block}{Test}
+ \begin{itemize}
+  \item \cod{ping ...}
+  \item \cod{curl ...}
+ \end{itemize}
+\end{block}
+\end{frame}
+
