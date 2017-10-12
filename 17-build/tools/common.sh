@@ -29,7 +29,7 @@ GCC_SRC=${HOME}/devel/gcc/dist/gcc-7.2.0/
 
 #----------------- the source code
 PYTHON_SRC=${RESOURCES}/Python-3.5.2
-U_BOOT_SRC=${RESOURCES}/u-boot-2016.07
+U_BOOT_SRC=${RESOURCES}/u-boot-2017.09
 KERNEL_SRC=${RESOURCES}/beaglebone-black/linux/
 
 
