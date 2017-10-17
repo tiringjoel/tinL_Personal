@@ -28,4 +28,10 @@
   -18-boot
        https://drive.switch.ch/index.php/s/SR9s26Wppx1Zvzq
     
+ 
+18.Okt.2017
+-----------
+ -4.5-partitions/18-boot revisited
+ -5-kernel
+
   

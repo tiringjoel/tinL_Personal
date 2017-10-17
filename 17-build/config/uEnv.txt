@@ -1,5 +1,8 @@
 #----------------
 #u-boot environment
-#(c) H.Buchmann FHNW 2015
+#(c) H.Buchmann FHNW 2017
 #----------------
-abc=123
+
+bootargs='root=/dev/mmcblk0p2 rw rootdelay=1 init=linuxrc console=ttyO0,115200n8'
+kernel='fatload mmc 0 0x82000000 zimage;fatload mmc 0 0x88000000 am335x-boneblack-wireless.dtb'
+bootcmd='run kernel;bootz 0x82000000 -  0x88000000'

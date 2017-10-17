@@ -7,6 +7,8 @@
 #   bb.org_defconfig
 #   zImage
 #   dtbs
+#   distclean 
+#   clean
 # make.sh help
 #---------------------
 #we are in 5-kernel

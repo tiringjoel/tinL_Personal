@@ -26,21 +26,6 @@ ROOTFS_SIZE_SECT=$(((ROOTFS_SIZE_MB)<<11))
 BOOTFS_POS_SECT=${PARTTABLE_SIZE_SECT}
 ROOTFS_POS_SECT=$((BOOTFS_POS_SECT+BOOTFS_SIZE_SECT))
 
-#dd if=/dev/urandom of=${IMG} count=${PARTTABLE_SIZE_SECT}
-#dd if=/dev/urandom of=${BOOTFS} count=${BOOTFS_SIZE_SECT}
-#dd if=/dev/urandom of=${ROOTFS} count=${ROOTFS_SIZE_SECT}
-#
-#mkfs.vfat ${BOOTFS}
-#
-#mkfs.ext4 ${ROOTFS}
-#
-#
-#dd if=${BOOTFS} of=${IMG} seek=${BOOTFS_POS_SECT}
-#dd if=${ROOTFS} of=${IMG} seek=${ROOTFS_POS_SECT}
-#cat<<EOF | sfdisk ${IMG}
-#boot :   start=${BOOTFS_POS_SECT} size=      ${BOOTFS_SIZE_MB}MiB, type=b, bootable
-#rootfs : start=${ROOTFS_POS_SECT} size=      ${ROOTFS_SIZE_MB}MiB, type=83
-#EOF
 
 echo "------------------- $(pwd)"
 LOOP_DEV=$(losetup -f)

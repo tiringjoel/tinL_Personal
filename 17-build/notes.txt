@@ -42,3 +42,16 @@ Connector J8
 enp0s20u6
 
 
+debian@beaglebone:~$ dmesg | grep wl
+[    2.601338] wlan-en-regulator: disabling
+[   52.107949] wlcore: wl18xx HW: 183x or 180x, PG 2.2 (ROM 0x11)
+[   52.200444] wlcore: loaded
+
+
+Beaglebone Black deian: modules
+wl18xx                101036  0 
+wlcore                228113  1 wl18xx
+mac80211              626271  2 wl18xx,wlcore
+cfg80211              530783  3 mac80211,wl18xx,wlcore
+wlcore_sdio             8781  0 
+

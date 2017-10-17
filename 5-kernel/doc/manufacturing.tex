@@ -16,7 +16,10 @@
  
   \item[toolchain] {\small \url{sourceforge.net/projects/fhnw-tinl/files}}
    \begin{itemize}
-    \item \cod{gcc-6.2.0-arm-64bit.tar.gz}
+    \item \cod{gcc-7.2.0-arm-64bit-2017-10-04.tar.gz}
+    \begin{itemize}
+     \item auf \url{drive.switch.ch/index.php/s/SR9s26Wppx1Zvzq}
+    \end{itemize}
     \item Prefix: \cod{arm-linux-gnueabihf-}
     \begin{itemize}
      \item beschreibt:
@@ -47,6 +50,7 @@
   .3 config.
   .4 config.sh \DTcomment{for kernel.sh}.
   .4 kernel.config \DTcomment{'gute' kernel Konfiguration}.
+  .3 tc \DTcomment{link to toolchain}.
   .2 resources.
   .3 beaglebone-black.
   .4 linux \DTcomment{the source tree}.
@@ -80,7 +84,7 @@
   \end{itemize} 
   \item \cod{./tools/kernel.sh dtbs}
   \begin{itemize}
-   \item erzeugt \cod{build/arch/arm/boot/dts/am335x-boneblack-wl1835mod.dtb}
+   \item erzeugt \cod{build/arch/arm/boot/dts/am335x-boneblack-wireless.dtb}
    {\em Devicetree} 
    \remark{{\em Devicetree} später behandelt}
   \end{itemize} 
