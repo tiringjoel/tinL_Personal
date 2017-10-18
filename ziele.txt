@@ -31,6 +31,9 @@
  
 18.Okt.2017
 -----------
+ -3-network
+   wpk_eduroam
+   wpk_psk
  -4.5-partitions/18-boot revisited
  -5-kernel
 

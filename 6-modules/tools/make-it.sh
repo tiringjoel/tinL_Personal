@@ -9,14 +9,14 @@
 # make clean
 
 #---------------------- for host system
-export KERNEL=/lib/modules/$(uname -r)/build
-make -C ${KERNEL} V=1 M=${PWD} ${@}
+#export KERNEL=/lib/modules/$(uname -r)/build
+#make -C ${KERNEL} V=1 M=${PWD} ${@}
 
 ###---------------------- for target system
-#PREFIX=armv6l-unknown-linux-gnueabihf
+PREFIX=arm-linux-gnueabihf
 #LINUX_SRC=../../resources/kernel/linux/
-#export KERNEL=../../5-kernel/build
-#make  -C ${KERNEL} \
-#     ARCH=arm \
-#     CROSS_COMPILE=${PWD}/../../12-toolchain/tc/bin/${PREFIX}- \
-#     M=${PWD} $@
+export KERNEL=${PWD}/../17-build/build/kernel
+make  -C ${KERNEL} \
+     ARCH=arm \
+     CROSS_COMPILE=${PWD}/tc/bin/${PREFIX}- \
+     M=${PWD}/src $@
