@@ -10,7 +10,7 @@ cd openssh
 
 #${OPENSSH_SRC}/configure --help
 
-export CC=${CROSS_COMPILE}gcc --sysroot=${SYSROOT}
+export CC="${CROSS_COMPILE}gcc --sysroot=${SYSROOT}"
 ${OPENSSH_SRC}/configure \
 --host=${TARGET} \
 --prefix=/ \

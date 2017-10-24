@@ -37,4 +37,10 @@
  -4.5-partitions/18-boot revisited
  -5-kernel
 
+25.Okt.201
+----------
+ -4-uboot
+ -5-kernel
+  . startup 
+  . configuration
   

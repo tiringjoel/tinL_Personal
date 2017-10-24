@@ -9,7 +9,7 @@
 }
 
 cd zlib-1.2.8
-export CC=${CROSS_COMPILE}gcc --sysroot=${SYSROOT}
+export CC="${CROSS_COMPILE}gcc --sysroot=${SYSROOT}"
 #./configure --help
 ./configure \
 --prefix=${SYSROOT} \
