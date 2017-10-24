@@ -1,0 +1,47 @@
+%-------------------------
+%big-picture
+%(c) H.Buchmann FHNW 2008
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\title{U-Boot}
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Bootstrapping}{Der Bootloader \cod{u-boot}}
+ \begin{itemize}
+  \item Bootstrapping
+  \item u-boot
+  \begin{itemize}
+  \item Download
+  \item Herstellung
+  \item Installation
+  \item Die Umgebung 
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\input{bootstrapping.tex}
+\input{u-boot.tex}
+%\section{}
+%\begin{frame}{Start}{auf \target}
+% \begin{itemize}
+%  \item u-boot
+%  \begin{itemize}
+%   \item UART-USB Kabel
+%  \end{itemize}
+%  \begin{itemize}
+%   \item Befehle in \cod{scripts/u-boot.cmd}
+%  \end{itemize}
+% \end{itemize}
+%\end{frame}
+
+%\input{exercises.tex}
+
+\end{document}
+

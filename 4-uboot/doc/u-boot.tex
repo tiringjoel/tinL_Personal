@@ -1,0 +1,104 @@
+\section{U-Boot}
+\begin{frame}{\url{www.denx.de/wiki/U-Boot/WebHome}}{ein typischer Bootloader für eingebettete Systeme}
+ \begin{itemize}
+  \item Kommandozeilen
+  \item Verbindung zum \host via RS232/USB
+  \begin{itemize}
+   \item \host: \cod{minicom -D /dev/ttyUSB{\em N}}, $N=0,1..$
+   \item 115200 Baud \cod{8N1}
+   \item {\Large no} Handshaking
+  \end{itemize}
+  \item Kopiert Daten von
+  \begin{itemize}
+   \item SD-Karten
+   \item Netz
+  \end{itemize}
+  in das Memory vom \targetS
+ \end{itemize}
+\end{frame}
+
+\subsection{Bedienung}
+\begin{frame}{Ein paar typische Befehle}
+ \begin{itemize}
+  \item \cod{help}
+  \item \cod{printenv} Zeigt die Umgebung
+  \item \cod{md addr} Memory display
+  \item \cod{fatls mmc p}  vfat sd-card partition p
+  \item \cod{fatload mmc p memAddr file}
+  \item \cod{tftpboot [loadAddress] [[hostIPaddr:]bootfilename]} 
+  \item \cod{bootz kernelAddr - fdt}
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}{U-Boot Bedienung}{Siehe \cod{tools/u-boot-copy-paste.cmd}}
+ \begin{itemize}
+  \item copy paste
+  \remark{kann sich ändern}
+ \end{itemize}
+\end{frame}
+
+
+\subsection{Herstellung}
+
+\begin{frame}{Verzeichnisstruktur}
+\dirtree{%
+.1 4-uboot \DTcomment{u-boot section}.
+.2 tc \DTcomment{link to toolchain}.
+.2 tools \DTcomment{scripts}.
+.2 config \DTcomment{configuration}.
+.2 build \DTcomment{home of binaries}.
+.3 MLO \DTcomment{second stage bootloader}.
+.3 u-boot.img \DTcomment{the U-Boot}.
+}
+\end{frame}
+
+\begin{frame}{Herstellung}
+ \begin{itemize}
+  \item Repository \url[http]{git.denx.de/u-boot.git}
+  \item Script \cod{tools/u-boot.sh {\em what}}
+  \begin{itemize}
+   \item {\em what}:\cod{am335x\_boneblack\_defconfig}, \cod{all}, \cod{help}, \cod{distclean}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\subsection{Installation}
+
+\begin{frame}[fragile]{SD-Karte:Partionierung}
+ \begin{itemize}
+  \item Partitionen: \cod{fdisk}
+{\footnotesize
+\begin{verbatim}  
+Device         Boot Start    End Sectors  Size Id Type
+/dev/mmcblk0p1 *     2048  36863   34816   17M  b W95 FAT32
+/dev/mmcblk0p2      36864 299007  262144  128M 83 Linux
+\end{verbatim}
+}
+ \item Filesysteme
+ \begin{itemize}
+  \item Partition 1: vfat: \cod{mkfs.vfat} für U-Boot
+  \item Partition 1: ext4: \cod{mkfs.ext4}
+ \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Partition 1}
+\begin{block}{Die U-Boot Files}
+{\footnotesize
+\begin{verbatim} 
+  76048 Oct 17 11:41 MLO
+ 376224 Oct 17 11:41 u-boot.img
+\end{verbatim}
+}
+\end{block}
+\begin{block}{Für \linux}
+{\footnotesize
+\begin{verbatim}
+9941512 Oct 17 17:52 zImage
+  56658 Oct 17 12:21 am335x-boneblack-wireless.dtb
+\end{verbatim}
+}
+\end{block}
+\end{frame}
+

@@ -1,0 +1,23 @@
+Wo ist das U-Boot environment ?
+-----------------------------
+Mache Variable
+setenv tinL 'f1db7446-0dd8-499e-a34b-cc7fba3f6430'
+
+Suche in SD-Karte 
+dd if=/dev/mmc* | grep f1db7446
+Benutze Host
+ partition 1 
+ partition 2
+ 
+ 
+Suche in MMC(1)
+Benutze Target
+ 
+
+mmc
+
+unit=sector 512 B
+offset      size
+0             1       MBR
+512         512       u-boot environment
+513                   start of partitions

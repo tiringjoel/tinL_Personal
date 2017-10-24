@@ -1,0 +1,57 @@
+\section{Bootstrapping}
+
+\begin{frame}{Bootloader bei eingebetteten Systemen}
+\begin{tabular}{ll|l}
+ Reset $\to$ & fsbl 	 & {\em first stage bootloader}\\
+ 			 & sbl  	& ev. weitere bootloader {\em second stage bootloader}\\
+			 & u-boot	& Hier haben wir Zugriff\\
+			 & kernel	& Konfiguration/Parametrisierung \\
+			 & linux	& 
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Bootloader beim \host}
+\begin{tabular}{ll|l}
+ Reset $\to$ & BIOS 	& {\em first stage bootloader}\\
+ 			& grub  	& {\em second stage bootloader}\\
+			& kernel	& Konfiguration/Parametrisierung \\
+			& linux0	& kleines \linux im RAM\\
+                        & linux         & grosses \linux auf Festplatte
+\end{tabular}
+\end{frame}
+
+
+
+\subsection{Kernel}
+\begin{frame}[fragile]{Übergang U-Boot-Kernel}{Bootargs}
+{\scriptsize
+\begin{verbatim}
+ bootargs 
+ 'root=/dev/mmcblk0p2 rw rootdelay=1 init=linuxrc console=ttyO0,115200n8'
+\end{verbatim}
+}
+\begin{itemize}
+ \item \cod{kernel-source/Documentation/kernel-parameters.txt}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Die Kernel messages}{}
+{\scriptsize
+\begin{verbatim}
+Starting kernel ...
+
+Booting Linux on physical CPU 0x0
+Initializing cgroup subsys cpuset
+Initializing cgroup subsys cpu
+Initializing cgroup subsys cpuacct
+...
+Kernel command line: root=/dev/mmcblk0p2 rw rootdelay=1 init=linuxrc console=ttyO0,115200n8
+...
+Waiting 1 sec before mounting root device...
+EXT4-fs (mmcblk0p2): couldn't mount as ext3 due to feature incompatibilities
+EXT4-fs (mmcblk0p2): couldn't mount as ext2 due to feature incompatibilities
+EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+VFS: Mounted root (ext4 filesystem) on device 179:2.
+\end{verbatim}
+}
+\end{frame}
