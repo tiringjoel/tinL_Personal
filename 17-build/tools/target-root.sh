@@ -24,6 +24,7 @@ crdir dev/pts
 crdir etc/init.d
 copy config/rcS.first /etc/init.d/rcS
 
+rm -f made*
 DATE=$(date '+%Y.%m.%d')
 touch ${TARGET_ROOT}/made-${DATE}
 fakeroot tar -cvzf ${BUILD_HOME}/target-root-${DATE}.tar.gz -C ${TARGET_ROOT} .

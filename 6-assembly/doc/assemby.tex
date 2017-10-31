@@ -16,11 +16,11 @@
 
 \newcommand{\uboot}{{U-Boot \xspace}}
 
-\title{Konfiguration}
+\title[Assembly]{Zusammenbau\\Assembly}
 
 \frame{\titlepage}
 
-\begin{frame}{Um was geht es ?}{Automatisches Aufstarten}
+\begin{frame}{Um was geht es ?}{Ein erstes vollständiges System}
  \begin{itemize}
   \item Bootloader \uboot
   \item \kernel
@@ -64,7 +64,7 @@
     \item \kernel
     \begin{itemize}
       \item \cod{zImage}
-	  \item \cod{am335x-boneblack.dtb}
+	  \item \cod{am335x-boneblack-wireless.dtb}
     \end{itemize}
    \end{itemize}
   \item[p2] rootfs:ext4 $\approx 200MiB$
@@ -140,7 +140,7 @@
   \item Initialer Download \cod{target-root-{\em V}.tar.gz}
   \item \cod{target-root}
   \begin{itemize}
-   \item \cod{tar target-root-{\em V}.tar.gz -C {\em target-root}}
+   \item \cod{tar -xf target-root-{\em V}.tar.gz -C {\em target-root}}
   \end{itemize} 
   \item Transfer auf \cod{\em sd-card}
   \begin{itemize}
