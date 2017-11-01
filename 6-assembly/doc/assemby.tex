@@ -28,6 +28,12 @@
  \end{itemize}
 \end{frame}
 
+\begin{frame}{Die Schichten}
+\begin{center}
+ \includegraphics[width=0.75\textwidth]{../../5-kernel/doc/layers.pdf}
+\end{center}
+\end{frame}
+
 \begin{frame}{Das Ziel}{für \targetS}
  \begin{block}{Nach dem Reset:}
  \begin{enumerate}
@@ -47,7 +53,10 @@
   \item[Toolchain:] download
   \item[\uboot:] selber gemacht
   \item [\kernel:] selber gemacht
-  \item[root Filesystem:] download 
+  \item[root Filesystem:] download
+  \begin{itemize}
+   \item libc/\unix
+  \end{itemize} 
  \end{description}
 \end{frame}
 
@@ -104,6 +113,14 @@
  \end{itemize}
 \end{frame}
 
+\section{Kernel}
+
+\begin{frame}{Konfiguration}{USB-Gadget Support}
+\begin{center}
+\includegraphics[height=0.875\textheight]{usb-gadget-support.png}
+\end{center}
+\end{frame}
+
 \section{RootFS}
 \begin{frame}{Init Script}{\cod{target-root-2016.11.22.tar.gz}}
  \begin{itemize}
@@ -155,4 +172,25 @@
   \item $\to$ 4
  \end{enumerate}
 \end{frame}
+
+\begin{frame}{Die Files}
+ \begin{block}{Partition 1: vfat}
+  \begin{itemize}
+   \item \cod{MLO}
+   \item \cod{u-boot.img}
+   \item \cod{zImage}
+   \item \cod{am335x-boneblack-wireless.dtb}
+  \end{itemize}
+ \end{block}
+% \vspace{-4mm}
+ \begin{block}{Partition 1: ext4}
+  \begin{itemize}
+   \item rootfs auf dem \host
+   \item \cod{rsync -av target-root/ {\em sd-card/}}
+   \item \cod{sync}
+  \end{itemize}
+ \end{block}
+ 
+\end{frame}
+
 \end{document}
