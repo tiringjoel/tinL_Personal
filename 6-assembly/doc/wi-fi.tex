@@ -62,3 +62,47 @@ network={
 }
  \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]{DHCP}
+ \begin{block}{manuell}
+  \begin{itemize}
+   \item \cod{udhcpc -v -i wlan0}
+   \item \cod{ifconfig wlan0 {\em ip}}
+   \begin{itemize}
+    \item \cod{\em ip} abgelesen von \cod{udhcpc -v -i wlan0}
+   \end{itemize}
+  \end{itemize}
+ \end{block}
+ \begin{block}{automatisch/callback}
+\vspace{-3mm}
+{\tiny
+\begin{verbatim}
+#!/bin/sh
+#---------------------
+#on-udhcpc.sh
+#(c) H.Buchmann FHNW 2017
+#---------------------
+case ${1} in
+ defconfig)
+  echo defconfig------- ${interface} ${ip};;
+  bound)
+   ifconfig ${interface} ${ip};;
+esac
+\end{verbatim}
+}
+\end{block}
+\end{frame}
+
+\begin{frame}{route/dns}
+\begin{itemize}
+ \item route
+ \begin{itemize}
+  \item \cod{route add default gw {\em gw-ip} wlan0}
+ \end{itemize}
+ \item DNS
+ \begin{itemize}
+   \item \cod{/etc/resolv.conf}
+ \end{itemize}
+\end{itemize}
+\end{frame}
+
