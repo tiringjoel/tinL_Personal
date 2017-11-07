@@ -1,0 +1,64 @@
+\subsection{wi-fi}
+
+\begin{frame}{Kernel}{Konfiguration}
+{\footnotesize
+ \dirtree{%
+ .1 Kernel Configuration.
+ .2 Networking support.
+ .3 Wireless.
+ .4 <*> cfg80211 - wireless configuration API.
+ .4 <*> Generic IEEE 802.11 Networking Stack (mac80211).
+ .2 Device Drivers.
+ .3 Network device support.
+ .4 Wireless LAN.
+ .5 <*> TI wl18xx support.
+ .5 <*> TI wlcore SPI support.
+ .5 <*> TI wlcore SDIO support.
+ }
+}
+\vspace{-5mm}
+\begin{block}{Resultate}
+ \begin{itemize}
+  \item \cod{dmesg | grep wl}
+ \end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Firmware}{Weitere Konfiguration}
+ {\footnotesize
+ \dirtree{%
+ .1 Kernel Configuration.
+ .2 Device Drivers.
+ .3 Generic Driver Options.
+ .4 [*] Include in-kernel firmware blobs in kernel binary.
+ }
+}
+\vspace{-5mm}
+\begin{block}{Resultate}
+ \begin{itemize}
+  \item \cod{dmesg | grep wl}
+  \item \cod{ip link set wlan0 up}
+  \item \cod{iw wlan0 scan}
+  \item Weitere Konfiguration
+ \end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{wpa}
+ \begin{itemize}
+  \item \cod{wpa\_passphrase}
+  \item eduroam Versuch
+{\footnotesize
+\begin{verbatim}
+network={
+  ssid="eduroam"
+  key_mgmt=WPA-EAP
+  identity="hans.buchmann@fhnw.ch"
+  domain_suffix_match="welcome.fhnw.ch"
+  phase2="auth=MSCHAPV2"
+  password="----"
+}
+\end{verbatim}
+}
+ \end{itemize}
+\end{frame}

@@ -38,7 +38,7 @@
  \begin{block}{Nach dem Reset:}
  \begin{enumerate}
   \item \uboot startet \kernel
-  \item \kernel startes \unix
+  \item \kernel startet \unix
   \item \unix 
    \begin{itemize}
     \item konfiguriert {\em ethernet über USB}
@@ -83,114 +83,82 @@
  \end{description}
 \end{frame}
 
-\section{\uboot}
-\begin{frame}{\uboot}{Wichtige Befehle}
+\section{Erster Zusammenbau}
+\input{u-boot.tex}
+
+\input{kernel.tex}
+
+\input{root-fs.tex}
+
+\input{workflow.tex}
+
+
+\section{Ergänzungen}
+\begin{frame}{Ziele}{wi-fi}
  \begin{itemize}
-  \item \cod{boot} startet \cod{bootcmd}
-  \item \cod{fatload mmc 0 {\em addr} {\em file}}
-  \item \cod{setenv {\em key} {\em value}}
-  \item \cod{run {\em script}}
-  
-  \remark{Siehe \url[http]{www.denx.de/wiki/view/DULG/UBootCmdGroupEnvironment}}
+  \item Konfiguration: \kernel
+  \item Neues root-fs: download
+  \item Konfiguration: wi-fi Zugang
+  \item schrittweises Vorgehen
  \end{itemize}
 \end{frame}
 
-\begin{frame}{\uboot}{Wichtige Variablen}
-\begin{itemize}
- \item \cod{bootcmd} für \uboot \cod{boot}
- \item \cod{bootargs} für den \kernel
-\end{itemize}
-\end{frame}
+\input{wi-fi.tex}
 
-\begin{frame}{\uboot}{Wichtiger File}
- \begin{itemize}
-  \item \cod{uEnv.txt} setzt:
-  \begin{itemize}
-   \item \cod{bootcmd}
-   \item load-script für den\kernel
-   \item \cod{bootargs}
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
-\section{Kernel}
-
-\begin{frame}{Konfiguration}{USB-Gadget Support}
-\begin{center}
-\includegraphics[height=0.875\textheight]{usb-gadget-support.png}
-\end{center}
-\end{frame}
-
-\section{RootFS}
-\begin{frame}{Init Script}{\cod{target-root-2016.11.22.tar.gz}}
- \begin{itemize}
-  \item \cod{/etc/init.d/rcS} das {\em Init-Script}
-  \item \cod{ifconfg} für Internet
-  \item \cod{sshd} Server für Verbindung
- \end{itemize}
-\end{frame}
-
-\section{Aufgabe}
+\section{Aufgaben}
 \begin{frame}{Aufgabe}
  \begin{description}
-  \item[\uboot] Automatisches booten: \cod{uEnv.txt}
+%  \item[\uboot] Automatisches booten: \cod{uEnv.txt}
   \item[\kernel] Ethernet über USB
   \item[\unix] Automatisches starten: \cod{/etc/init.d/tcS}
   \begin{itemize}
    \item Internet:\cod{ifconfig}
    \item ssh Server: \cod{sshd}
   \end{itemize}
+  \item[wi-fi]
+   \begin{itemize}
+    \item \kernel firmware
+    \item \unix wpa
+   \end{itemize}
  \end{description}
 \end{frame}
 
-
-\begin{frame}{Workflow}{Notationen}
- \begin{description}[\cod{target-root-{\em V}.tar.gz}]
-  \item[\cod{\em sd-card}] die Partition vom rootfs auf der SD Karte
-  \item[\cod{target-root-{\em V}.tar.gz}] das heruntergeladene rootfs
-  \item[\cod{\em target-root}] das rootfs von \targetS auf dem \host
- \end{description}
+\subsection{sshd}
+\begin{frame}{Ein paar tools}
+ \begin{itemize}
+  \item \cod{touch} - change file timestamps
+  \item \cod{chown} - change file owner and group
+ \end{itemize}
 \end{frame}
 
-\begin{frame}{Workflow}{schrittweise Verbesserung}
- \begin{enumerate}
-  \item Initialer Download \cod{target-root-{\em V}.tar.gz}
-  \item \cod{target-root}
+\begin{frame}{sshd}
+\begin{itemize}
+ \item sshd re-exec requires execution with an absolute path
+ \item Privilege separation user sshd does not exist
+ \item create group \cod{root}
+ \begin{itemize}
+  \item \cod{addgroup -g 0 -S root} 
+ \end{itemize}
+ \item create user \cod{root}
   \begin{itemize}
-   \item \cod{tar -xf target-root-{\em V}.tar.gz -C {\em target-root}}
-  \end{itemize} 
-  \item Transfer auf \cod{\em sd-card}
-  \begin{itemize}
-   \item \cod{rsync -av {\em target-root}/ {\em sd-card}/}
-   \item \cod{sync} 
-  \end{itemize} 
-  \item Test/Konfiguration auf dem \targetS
-  \item Update auf dem \host
-  \begin{itemize}
-   \item \cod{rsync -av {\em sd-card}/ {\em target-root}/}
-  \end{itemize} 
-  \item $\to$ 4
- \end{enumerate}
-\end{frame}
-
-\begin{frame}{Die Files}
- \begin{block}{Partition 1: vfat}
-  \begin{itemize}
-   \item \cod{MLO}
-   \item \cod{u-boot.img}
-   \item \cod{zImage}
-   \item \cod{am335x-boneblack-wireless.dtb}
+   \item \cod{adduser -h /home/root/ -s /bin/sh -G root -S -u 0 root}
   \end{itemize}
- \end{block}
-% \vspace{-4mm}
- \begin{block}{Partition 1: ext4}
-  \begin{itemize}
-   \item rootfs auf dem \host
-   \item \cod{rsync -av target-root/ {\em sd-card/}}
-   \item \cod{sync}
+\item create group/user \cod{sshd}
+ \begin{itemize}
+  \item \cod{addgroup sshd}
+  \item \cod{adduser -D -H -G sshd sshd}
   \end{itemize}
- \end{block}
- 
+\item create key
+ \begin{itemize}
+  \item \cod{ssh-keygen -t rsa -f /etc/ssh\_host\_rsa\_key}
+ \end{itemize}
+ \item File \cod{/var/empty} gehört root
+ \item File \cod{/etc/sshd\_config}
+ \begin{itemize}
+  \item \cod{PermitRootLogin yes}
+ \end{itemize}
+\end{itemize}
 \end{frame}
+
 
 \end{document}

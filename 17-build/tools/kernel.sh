@@ -20,6 +20,10 @@
 [[ ! -d kernel ]] &&
 {
  mkdir kernel
+ [[ ! -f kernel/.config ]] &&
+ {
+  cp ${CONFIG}/kernel.config kernel/.config
+ }
 }
 BUILD=${PWD}/kernel
 cd ${KERNEL_SRC}

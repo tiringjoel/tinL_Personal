@@ -18,9 +18,9 @@ ${OPENSSH_SRC}/configure \
 --disable-strip \
 --disable-option-checking \
 --with-sandbox=seccomp_filter \
---without-stackprotect \
-
-#--without-openssl only for test
+--without-stackprotect 
+#--without-openssl 
+#only for test
 #--with-ldflags='-static'
 
 #remove check-config from makefile

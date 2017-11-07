@@ -1,0 +1,29 @@
+\subsection{\uboot}
+\begin{frame}{\uboot}{Wichtige Befehle}
+ \begin{itemize}
+  \item \cod{boot} startet \cod{bootcmd}
+  \item \cod{fatload mmc 0 {\em addr} {\em file}}
+  \item \cod{setenv {\em key} {\em value}}
+  \item \cod{run {\em script}}
+  
+  \remark{Siehe \url[http]{www.denx.de/wiki/view/DULG/UBootCmdGroupEnvironment}}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\uboot}{Wichtige Variablen}
+\begin{itemize}
+ \item \cod{bootcmd} für \uboot \cod{boot}
+ \item \cod{bootargs} für den \kernel
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\uboot}{Wichtiger File}
+ \begin{itemize}
+  \item \cod{uEnv.txt} setzt:
+  \begin{itemize}
+   \item \cod{bootcmd}
+   \item load-script für den\kernel
+   \item \cod{bootargs}
+  \end{itemize}
+ \end{itemize}
+\end{frame}

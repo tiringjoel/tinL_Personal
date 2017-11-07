@@ -48,4 +48,9 @@
 ----------
  6-assembly der Zusammenbau
 
-  
+8.Nov.2017
+----------
+ 6-assembly
+  . sshd step by step
+  . /etc/init.d/rcS
+  . wi-fi 

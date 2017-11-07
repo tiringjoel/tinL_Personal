@@ -1,0 +1,49 @@
+\begin{frame}{Workflow}{Notationen}
+ \begin{description}[\cod{target-root-{\em V}.tar.gz}]
+  \item[\cod{\em sd-card}] die Partition vom rootfs auf der SD Karte
+  \item[\cod{target-root-{\em V}.tar.gz}] das heruntergeladene rootfs
+  \item[\cod{\em target-root}] das rootfs von \targetS auf dem \host
+ \end{description}
+\end{frame}
+
+\begin{frame}{Workflow}{schrittweise Verbesserung}
+ \begin{enumerate}
+  \item Initialer Download \cod{target-root-{\em V}.tar.gz}
+  \item \cod{target-root}
+  \begin{itemize}
+   \item \cod{tar -xf target-root-{\em V}.tar.gz -C {\em target-root}}
+  \end{itemize} 
+  \item Transfer auf \cod{\em sd-card}
+  \begin{itemize}
+   \item \cod{rsync -av {\em target-root}/ {\em sd-card}/}
+   \item \cod{sync} 
+  \end{itemize} 
+  \item Test/Konfiguration auf dem \targetS
+  \item Update auf dem \host
+  \begin{itemize}
+   \item \cod{rsync -av {\em sd-card}/ {\em target-root}/}
+  \end{itemize} 
+  \item $\to$ 4
+ \end{enumerate}
+\end{frame}
+
+\begin{frame}{Die Files}
+ \begin{block}{Partition 1: vfat}
+  \begin{itemize}
+   \item \cod{MLO}
+   \item \cod{u-boot.img}
+   \item \cod{zImage}
+   \item \cod{am335x-boneblack-wireless.dtb}
+  \end{itemize}
+ \end{block}
+% \vspace{-4mm}
+ \begin{block}{Partition 1: ext4}
+  \begin{itemize}
+   \item rootfs auf dem \host
+   \item \cod{rsync -av target-root/ {\em sd-card/}}
+   \item \cod{sync}
+  \end{itemize}
+ \end{block}
+ 
+\end{frame}
+

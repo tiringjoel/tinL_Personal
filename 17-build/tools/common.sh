@@ -40,19 +40,23 @@ MUSL_SRC=${RESOURCES}/musl-1.1.15/
 NEWLIB_SRC=${RESOURCES}/newlib-2.2.0-1/
 
 #newest version openssl-1.1.0c dont works for openssl
-OPENSSL_SRC=${RESOURCES}/openssl-1.0.2a
+OPENSSL_SRC=${RESOURCES}/openssl-1.0.2m
 
 BUSYBOX_SRC=${RESOURCES}/busybox-1.27.2/
 CPUFREQUTILS_SRC=${RESOURCES}/cpufrequtils-008
 NET_TOOLS_SRC=${RESOURCES}/net-tools
 
-OPENSSH_SRC=${RESOURCES}/openssh-7.4p1
+OPENSSH_SRC=${RESOURCES}/openssh-7.6p1
+#OPENSSH_SRC=${RESOURCES}/openssh-7.1p1
 ZLIB_SRC=${RESOURCES}/zlib-1.2.8
 RSYNC_SRC=${RESOURCES}/rsync-3.1.2
 MINICOM_SRC=${RESOURCES}/minicom-2.7
 FUSE_SRC=${RESOURCES}/fuse-2.9.3
 SSHFS_SRC=${RESOURCES}/sshfs-fuse-2.5
 GLIB_SRC=${RESOURCES}/glib-2.46.1
+IW_SRC=${RESOURCES}/iw-4.9
+LIBNL_SRC=${RESOURCES}/libnl-3.2.25
+WPA_SUPPLICANT_SRC=${RESOURCES}/wpa_supplicant-2.6
 #the make command
 
 #-jn the number of the cpu on the host 
