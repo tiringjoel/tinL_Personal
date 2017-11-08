@@ -46,7 +46,7 @@
 \end{frame}
 
 \subsection{Connect}
-\begin{frame}[fragile]{wpa}
+\begin{frame}[fragile]{wpa}{Konfiguration}
  \begin{itemize}
   \item \cod{wpa\_passphrase}
   \item eduroam Versuch
@@ -62,6 +62,19 @@ network={
 }
 \end{verbatim}
 }
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{wpa}{\cod{wpa\_supplicant}, \cod{wpa}}
+ \begin{itemize}
+  \item Process:
+  \begin{itemize}
+   \item \cod{wpa\_supplicant -D wext -i wlan0 -c {\em path\_to\_config}}
+  \end{itemize}
+  \item Bedienung
+  \begin{itemize}
+   \item \cod{wpa\_cli -s {\em  wpa\_client\_socket\_file\_path}}
+  \end{itemize}
  \end{itemize}
 \end{frame}
 
