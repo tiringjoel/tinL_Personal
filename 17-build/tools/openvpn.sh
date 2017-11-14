@@ -1,7 +1,7 @@
 #!/bin/bash
 #------------------------
 #openvpn
-#(c) H.Buchmann FHNW 2015
+#(c) H.Buchmann FHNW 2017
 # depends on zlib
 #------------------------
 . $(dirname ${0})/common.sh

@@ -44,13 +44,19 @@
   . startup 
   . configuration
 
-1.Nov.2017
-----------
+ 1.Nov.2017
+ ----------
  6-assembly der Zusammenbau
 
-8.Nov.2017
-----------
+ 8.Nov.2017
+ ----------
  6-assembly
   . sshd step by step
   . /etc/init.d/rcS
   . wi-fi 
+
+15.Nov.2017
+-----------
+ wpa_supplicant.conf
+  verschleiertes Passwort
+ 7-standalone

@@ -57,7 +57,9 @@ GLIB_SRC=${RESOURCES}/glib-2.46.1
 IW_SRC=${RESOURCES}/iw-4.9
 LIBNL_SRC=${RESOURCES}/libnl-3.2.25
 WPA_SUPPLICANT_SRC=${RESOURCES}/wpa_supplicant-2.6
+HOSTAPD_SRC=${RESOURCES}/hostapd-2.6
 OPENVPN_SRC=${RESOURCES}/openvpn-2.4.4
+OPENCONNECT_SRC=${RESOURCES}/openconnect-7.08
 #the make command
 
 #-jn the number of the cpu on the host 
