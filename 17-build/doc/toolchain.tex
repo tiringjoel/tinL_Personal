@@ -28,9 +28,9 @@
 
 \begin{frame}{Toolchain}{Beispiel}
  \begin{itemize}
-  \item Sourcefile \cod{source.c}
-  \item Compilat/object File \cod{source.o}
-  \item Executable/Image \cod{source}
+  \item Sourcefile \cod{\{c|cc\}-source.\{c|cc\}}
+  \item Compilat/object File \cod{\{c|cc\}-source.o}
+  \item Executable/Image \cod{\{c|cc\}-source}
  \end{itemize}
 \end{frame}
 
@@ -38,7 +38,7 @@
 \begin{frame}{Cross toolchain}{2 Verschiedene Rechner}
 \begin{description}[Cross\{Programm\}]
  \item[Host] Workstation leistungsfähiger Rechner
- \item[Target] Eingebettetes System (\raspberry)
+ \item[Target] Eingebettetes System (\beaglebone)
  \item[Cross\{Programm\}] Programm (Compiler etc.) das
  \begin{itemize}
   \item läuft auf dem {\em Host} und erzeugt Files für das {\em Target}
