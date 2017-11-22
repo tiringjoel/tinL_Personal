@@ -60,3 +60,9 @@
  wpa_supplicant.conf
   verschleiertes Passwort
  7-standalone
+ 
+22.Nov.2017
+-----------
+Herr Sondereggers Image
+17-build
+ 

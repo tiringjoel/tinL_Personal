@@ -71,16 +71,12 @@
 
 \begin{frame}{Die Verzeichnisstruktur}
 \dirtree{%
- .1 .
+ .1 {\em somewhere\_on\_the\_host}.
  .2 tools.
  .3 common.h \DTcomment{used in (all) scripts}.
- .2 config.
- .3 Makefile.
+ .2 config \DTcomment{of the components}.
  .2 build \DTcomment{home of the build files}.
  .2 target-root \DTcomment{top of targer root}.
  .2 tc \DTcomment{the new toolchain}.
- .2 src \DTcomment{own programs}.
- .2 work.
- .3 $\to$ {../config/Makefile}.
 }
 \end{frame}

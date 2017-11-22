@@ -1,0 +1,7 @@
+zImage
+------
+uname -a 
+ 4.14.0-rc7 funktioniert nicht
+
+uname -a
+ 4.14.0-rc4+

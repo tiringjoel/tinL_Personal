@@ -1,0 +1,91 @@
+%-------------------------
+%minimal-unix
+%(c) H.Buchmann FHNW 2014
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\newcommand{\qemu}{{\em qemu}\xspace}
+\newcommand{\busybox}{{\em busybox}\xspace}
+\newcommand{\yocto}{{\em yocto}\xspace}
+
+\section{Toolchain}
+\begin{frame}{Toolchain}{tc}
+ \begin{itemize}
+  \item die grossen zwei:
+  \begin{itemize}
+  \item Compiler
+  \item Linker
+  \end{itemize}
+  \item kleinere Programme:
+  \begin{itemize}
+   \item Assembler
+   \item ...
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Toolchain}{Beispiel}
+ \begin{itemize}
+  \item Sourcefile \cod{source.c}
+  \item Compilat/object File \cod{source.o}
+  \item Executable/Image \cod{source}
+ \end{itemize}
+\end{frame}
+
+\subsection{Cross toolchain}
+\begin{frame}{Cross toolchain}{2 Verschiedene Rechner}
+\begin{description}[Cross\{Programm\}]
+ \item[Host] Workstation leistungsfähiger Rechner
+ \item[Target] Eingebettetes System (\raspberry)
+ \item[Cross\{Programm\}] Programm (Compiler etc.) das
+ \begin{itemize}
+  \item läuft auf dem {\em Host} und erzeugt Files für das {\em Target}
+ \end{itemize}
+\end{description}
+\end{frame}
+
+\begin{frame}{Cross toolchain}
+ \begin{itemize}
+  \item erzeugt auf dem {\em Host} Programme für das {\em Target}
+ \end{itemize}
+\end{frame}
+
+\subsection{GNU/Toolchain}
+
+\begin{frame}{GNU/Toolchain}{Zwei Komponenten}
+\begin{description}[binutils]
+ \item[binutils] Linker, assembler, ...
+ \item[gcc] Compiler
+\end{description}
+\end{frame}
+
+\subsection{Das klassische Build}
+\begin{frame}{Build}{die drei Schritte}
+ \begin{itemize}
+  \item configure
+  \item make
+  \item make install
+ \end{itemize}
+ \remark{auf dem {\Huge Host}}
+\end{frame}
+
+\begin{frame}{Build}{der Kontext}
+ \begin{description}
+  \item[prefix] wo die Toolchain auf dem {\em Host} installiert wird
+  \begin{itemize}
+   \item option \cod{--prefix={\em path-to-toolchain-install}} 
+  \end{itemize}
+  \item[sysroot] wo ist das {\em Target} root system (auf dem {\em Host})
+  \begin{itemize}
+   \item option \cod{--with-sysroot={\em path-to-target-sysroot}}
+  \end{itemize}
+  \item[target] was für eine {\em Target} System
+  \begin{itemize}
+   \item option \cod{--target=armv6l-unknown-linux-gnueabihf}
+   \remark{Warum ???}
+  \end{itemize}
+ \end{description}
+\end{frame}
+
