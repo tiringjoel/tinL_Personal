@@ -35,7 +35,7 @@ KERNEL_SRC=${RESOURCES}/beaglebone-black/linux/
 
 EGLIBC_SRC=${RESOURCES}/eglibc/
 GLIBC_SRC=${RESOURCES}/glibc-2.26/
-MUSL_SRC=${RESOURCES}/musl-1.1.15/
+MUSL_SRC=${RESOURCES}/musl-1.1.18/
 
 NEWLIB_SRC=${RESOURCES}/newlib-2.2.0-1/
 
