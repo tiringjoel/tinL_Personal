@@ -1,7 +1,7 @@
 \section{Mini}
 \begin{frame}
 \begin{center}
-\includegraphics[width=0.75\textwidth]{mini.pdf}
+\includegraphics[width=0.5\textwidth]{mini.pdf}
 \end{center}
 \vspace{-5mm}
 \begin{itemize}
@@ -9,7 +9,13 @@
  \item \cod{src/mini.c}
  \begin{itemize}
   \item static
+  \begin{description}
+   \item[target-root] \cod{libc.a}
+  \end{description}
   \item dynamic
+  \begin{description}
+   \item[target-root] \cod{libc.so}, \cod{loader}
+  \end{description}
  \end{itemize}
 \end{itemize}
 \end{frame}
@@ -40,4 +46,9 @@
  \end{block}
 \end{frame}
 
+\begin{frame}{Dynamische Bibliothek}{der Loader}
+ \begin{itemize}
+  \item \cod{/lib/ld-2.26.so}
+ \end{itemize}
+\end{frame}
 

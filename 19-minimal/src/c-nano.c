@@ -4,8 +4,9 @@
   using syscall for
   ssize_t write(int fildes, const void *buf, size_t nbyte)
  --------------------------*/
-
-#define __NR_write	4
+#include <syscall.h>
+#include <unistd.h>
+//#define __NR_write	4
 
 static const char Msg[]="Hello: "__FILE__"\n";
 

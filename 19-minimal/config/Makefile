@@ -6,7 +6,6 @@
 
 #--------------------------------- target-root
 TARGET_ROOT=${PWD}/../../17-build/target-root
-
 #--------------------------------- toolchain
 TC=${PWD}/../tc/
 PREFIX=${TC}/bin/arm-linux-gnueabihf-
@@ -41,5 +40,8 @@ mini-dynamic:	mini
 
 mini:		mini.c
 
+.PHONY: clean
+clean:
+	rm -f *.o s-nano c-nano mini-static mini-dynamic mini
 
 
