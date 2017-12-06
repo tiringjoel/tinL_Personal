@@ -1,0 +1,120 @@
+%-------------------------
+%minimal-unix
+%(c) H.Buchmann FHNW 2017
+%export TEXINPUTS=.:${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+\newcommand{\md}{\cod{md-bbb-{\em version}.img}}
+\newcommand{\mdev}{\cod{md-bbb-devel-{\em version}.tar.gz}}
+\title[Minimal]{Ein kleines \unix}
+
+\frame{\titlepage}
+
+\begin{frame}{Ein kleines \unix}
+ \begin{itemize}
+  \item die einzelnen Komponenten
+  \item für Test
+  \item übersichtlich
+  \item grosse Systeme haben ähnliche Komponenten
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Die grossen Blöcke}{Übergänge}
+\includegraphics[width=\textwidth]{components.pdf}
+\begin{textblock}{100}(10,50)
+ \begin{description}[reset]
+  \item[reset] start: BigBang
+  \item[A] unprotected$\to$ protected ?
+  \item[B] concurrency
+ \end{description}
+\end{textblock}
+\end{frame}
+
+\begin{frame}[fragile]{Boot:u-boot}{Zwei Files}
+\begin{block}{reset}
+{\tiny
+\begin{verbatim}
+ U-Boot SPL 2017.09 (Oct 24 2017 - 12:23:25)
+\end{verbatim}
+}
+\end{block}
+ \begin{itemize}
+  \item \cod{MLO} Wegen TI
+  \item \cod{u-boot.img}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Kernel}{Zwei Files}
+\begin{block}{A}
+{
+\tiny
+\begin{verbatim}
+Booting Linux on physical CPU 0x0
+Linux version 4.14.0-rc4+ (buchmann@buchmann) (gcc version 7.2.0 (GCC)) #1 SMP Tue Nov 21 09:35:03 CET 2017
+\end{verbatim}
+}
+\end{block}
+\begin{itemize}
+ \item \cod{zImage} Der {\em kernel}
+ \item \cod{am335x-boneblack-wireless.dtb} device tree
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{RootFS: Viele Files}{Unser Interesse}
+\begin{block}{A}
+{
+\tiny
+\begin{verbatim}
+VFS: Mounted root (ext4 filesystem) on device 179:2.
+devtmpfs: mounted
+Freeing unused kernel memory: 1024K
+
+Please press Enter to activate this console. 
+\end{verbatim}
+}
+\end{block}
+\begin{itemize}
+ \item \cod{linuxrc} Init-Process
+ \item ...
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{RootFS}{Flavours}
+ \begin{itemize}
+  \item nano
+  \begin{itemize}
+   \item Assembler ohne {\em libraries} \cod{s-nano.S}
+   \item \c fast ohne {\em libraries} \cod{c-nano.c}
+  \end{itemize}
+  \item mini
+  \begin{itemize}
+   \item {\em libraries}
+   \begin{itemize}
+    \item static
+    \item dynamic
+   \end{itemize}
+  \end{itemize}
+  \item full
+  \begin{itemize}
+   \item \cod{busybox}
+   \item \cod{ssh}
+   \item ...
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\input{nano.tex}
+\input{mini.tex}
+\input{exercises.tex}
+\end{document}

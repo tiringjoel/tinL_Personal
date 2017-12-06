@@ -1,0 +1,37 @@
+\section{Aufgaben}
+
+\begin{frame}{Verzeichnisstruktur}
+\dirtree{%
+.1 19-minimal.
+.2 config .
+.3 Makefile .
+.2 doc \DTcomment{die Folien}.
+.2 src \DTcomment{die source files}.
+.2 tc \DTcomment{toolchain normalerweise link}.
+.2 work \DTcomment{hier sind Sie}.
+.3 Makefile $\to$ ../config/Makefile.
+}
+\end{frame}
+
+\begin{frame}{Die Files}{\url{drive.switch.ch/index.php/s/SR9s26Wppx1Zvzq}}
+ \begin{itemize}
+  \item \cod{target-root-2017.12.06.tar.gz} minimales \cod{RootFS} 
+  \item \cod{gcc-7.2.0-arm-64bit-2017-12-06.tar.gz} volle Toolchain
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Aufgaben}
+ \begin{itemize}
+  \item Erzeugen Sie ein:
+  \begin{itemize}
+   \item {\bf s-nano}
+   \item {\bf c-nano}
+   \item {\bf mini-static}
+   \item {\bf mini-dynamic}
+  \end{itemize}
+  auf dem \targetS\ \cod{RootFS}
+  \item ändern Sie den \cod{Makefile} so ab, dass er {\bf s-nano}, {\bf c-nano}, 
+  {\bf mini-static} und {\bf mini-dynamic} auf den \host erzeugt
+ \end{itemize}
+\end{frame}
+

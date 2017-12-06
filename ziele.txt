@@ -66,3 +66,7 @@
 Herr Sondereggers Image
 17-build
  
+ 6.Dez.2017
+ ----------
+17-build
+19-minimal
