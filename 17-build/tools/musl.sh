@@ -13,8 +13,8 @@ PATH=${TC_PREFIX}/bin:${PATH}
 cd musl
 #${MUSL_SRC}/configure --help
 
-#${MUSL_SRC}/configure \
-#	--target=${TARGET} \
-#	--prefix=/usr
-#${MAKE} 
+${MUSL_SRC}/configure \
+	--target=${TARGET} \
+	--prefix=/usr
+${MAKE} 
 ${MAKE} DESTDIR=${TARGET_ROOT} install

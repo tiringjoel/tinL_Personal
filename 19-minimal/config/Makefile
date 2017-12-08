@@ -10,7 +10,7 @@ TARGET_ROOT=${PWD}/../../17-build/target-root
 TC=${PWD}/../tc/
 PREFIX=${TC}/bin/arm-linux-gnueabihf-
 AS=${PREFIX}as
-CC=${PREFIX}gcc
+CC=${PREFIX}gcc -v
 LD=${PREFIX}ld
 CFLAGS=--sysroot=${TARGET_ROOT}
 LDFLAGS=--sysroot=${TARGET_ROOT}
