@@ -5,16 +5,23 @@
 #see EGLIBC.cross
 #-----------------------
 . $(dirname ${0})/common.sh  #load common
-[[ ! -d musl ]] && { mkdir musl; }
+BUILD_DIR=musl
+
+[[ ! -d ${BUILD_DIR} ]] && { mkdir ${BUILD_DIR}; }
 
 export CFLAGS="--sysroot=${SYSROOT} -O2"
 export CC=${TC_PREFIX}/bin/${TARGET}-gcc
 PATH=${TC_PREFIX}/bin:${PATH}
-cd musl
+cd ${BUILD_DIR}
+
 #${MUSL_SRC}/configure --help
 
-${MUSL_SRC}/configure \
-	--target=${TARGET} \
-	--prefix=/usr
-${MAKE} 
-${MAKE} DESTDIR=${TARGET_ROOT} install
+#${MUSL_SRC}/configure \
+#       --target=${TARGET} \
+#       --prefix=/usr
+#${MAKE} 
+#${MAKE} DESTDIR=${TARGET_ROOT} install
+
+#------------------ TODO adapt tools/gcc.sh
+cd ${TARGET_ROOT}/lib
+ln -s /usr/lib/libc.so ld-linux-armhf.so.3
