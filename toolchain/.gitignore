@@ -1,6 +1,9 @@
 *.bz2
 *.xz
+*.tar.gz
 build
 tc
 root-fs
 gcc-linaro*
+gcc-7.2*
+
