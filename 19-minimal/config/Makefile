@@ -11,8 +11,11 @@ TC=${PWD}/../tc/
 PREFIX=${TC}/bin/arm-linux-gnueabihf-
 AS=${PREFIX}as
 CC=${PREFIX}gcc
+CXX=${PREFIX}g++
+
 LD=${PREFIX}ld
 CFLAGS=--sysroot=${TARGET_ROOT}
+CXXFLAGS=${CFLAGS}
 LDFLAGS=--sysroot=${TARGET_ROOT}
 #--------------------------------- src 
 VPATH=../src
@@ -25,24 +28,19 @@ s-nano.o:	s-nano.S
 		${AS} -o${@} ${^}
 
 c-nano:		c-nano.o
-		${LD} -o${@} ${^} ${TARGET_ROOT}/usr/lib/libc.a
-		@echo "----->copy ${@} to SD-Card/linuxrc"
+		${LD} -o${@} ${^} --dynamic-linker="/usr/lib/libc.so" -L${TARGET_ROOT}/usr/lib/ -lc
 c-nano.o:	c-nano.c
 
 
-mini-static:	LDFLAGS=-static
-mini-static:	mini
-		cp mini mini-static
-		@echo "----->copy ${@} to SD-Card/linuxrc"
 
-mini-dynamic:	mini
-		cp mini mini-dynamic
-		@echo "----->copy ${@} to SD-Card/linuxrc"
+c-mini:	        c-mini.o
+c-mini.o:       c-mini.c
 
-mini:		mini.c
+cc-mini:        cc-mini.o
+cc-mini.o:      cc-mini.cc
 
 .PHONY: clean
 clean:
-	rm -f *.o s-nano c-nano mini-static mini-dynamic mini
+	rm -f *.o s-nano c-nano c-mini
 
 

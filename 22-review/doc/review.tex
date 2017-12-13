@@ -1,0 +1,91 @@
+%-------------------------
+%minimal-unix
+%(c) H.Buchmann FHNW 2017
+%export TEXINPUTS=.:${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+\newcommand{\md}{\cod{md-bbb-{\em version}.img}}
+\newcommand{\mdev}{\cod{md-bbb-devel-{\em version}.tar.gz}}
+\title{Überblick}
+
+\frame{\titlepage}
+
+\begin{frame}{Die Herstellung von einem \linux}{eine komplexe Angelegenheit}
+ \begin{block}{Gegegben}
+  \begin{itemize}
+   \item Files von überall her  
+   \begin{itemize}
+    \item meistens Sourcefiles
+   \end{itemize}
+  \end{itemize}
+ \end{block}
+ \begin{block}{Gesucht}
+  \begin{itemize}
+   \item \linux, \unix
+   \begin{itemize}
+    \item Betriebssystem
+   \end{itemize}
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}{Betriebssystem}{Sammlung von Programmen auf einem Rechner}
+  \begin{itemize}
+   \item wenig-viele Programme
+   \item kleiner-grosser Rechner
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Unser Betriebssystem und Rechner} 
+ \begin{itemize}
+  \item Target 
+  \begin{itemize}
+   \item \target
+   \item \linux eher klein
+  \end{itemize}
+  \item \host
+  \begin{itemize}
+   \item \unix eher gross
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\section{\target}
+\begin{frame}{\target}{Was haben wir ?}
+ \begin{itemize}
+  \item Hardware mit WLAN
+  \item Debian im Flash
+  \item SD-Card Fassung
+  \begin{itemize}
+   \item für eigenes \linux
+  \end{itemize}
+  \item \cod{doc/beaglebone-black/BBB\_SRM.pdf}
+ \end{itemize}
+\end{frame}
+
+\section{Debian}
+\begin{frame}{Debian:Verbindungen}{Siehe \cod{3-network}}
+  \begin{itemize}
+   \item USB/Internet
+   \item WLAN/Internet
+   \item \cod{ssh} Secure Shell 
+   \item \target - WAN
+  \end{itemize}
+\end{frame}
+
+
+\section{From Scratch}
+\input{from-scratch.tex}
+
+\input{exercises.tex}
+\end{document}

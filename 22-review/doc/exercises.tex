@@ -1,0 +1,53 @@
+\section{Aufgaben}
+\begin{frame}{Toolchain}
+ Die {\em toolchain} kommt überall vor und wird per {\em link} in die einzelnen Verzeichnisse
+ importiert \cod{ln -s}.
+ \begin{itemize}
+  \item Machen Sie einen eignen Abschnitt {\em toolchain-bare}. Benutzen Sie dazu
+  \begin{itemize}
+   \item \cod{17-build/tools/binutils.sh}
+   \item \cod{17-build/tools/gcc-bare.sh}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Kernel: in Partition 2}
+Die beiden Files: {\em KernelImage} {\em DeviceTree} können auch auf Partition 2
+liegen.
+ \begin{itemize}
+  \item Legen Sie das {\em KernelImage}/{\em DeviceTree} auf Partition 2
+  \item Passen Sie \cod{u-boot} an
+  \begin{itemize}
+   \item Umgebungsvariable \cod{kernel}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{LibC}
+Neben der \cod{glibc} gibt es noch weitere \cod{libc}'s. 
+\url{www.musl-libc.org/} ist eine kleine \cod{libc}.
+\begin{itemize}
+ \item erzeugen Sie an Stelle von \cod{glibc} \cod{musl}
+ 
+ (Siehe \cod{17-build/tools/musl.sh})
+\end{itemize} 
+
+\end{frame}
+
+\begin{frame}{Toybox}
+ Neben \cod{busybox} gibt es noch ein kleineres \unix: 
+  \url[http]{www.landley.net/toybox}.
+ \begin{itemize}
+  \item erzeugen Sie an Stelle von \cod{busybox} \cod{toybox}
+  
+  (Siehe \cod{17-build/tools/toybox.sh})
+ \end{itemize}   
+\end{frame}
+
+\begin{frame}{SD Karte}
+ Das Target RootFS auf der SD-Karte kann nur als \cod{root} modifiziert werden
+ \begin{itemize}
+  \item passen Sie Ihrem \host so an, dass Sie als (gewöhlicher) {\em user} das RootFS
+  modifizieren können
+ \end{itemize}
+\end{frame}

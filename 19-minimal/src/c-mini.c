@@ -7,10 +7,7 @@
 
 int main(int argc,char** args)
 {
- while(1)
- {
-  printf("Hello World" __FILE__ "\n");
- }
+ printf("Hello World" __FILE__ "\n");
  return 0;
 }
 
