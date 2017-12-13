@@ -19,9 +19,10 @@ VPATH=../src
 
 s-nano:		s-nano.o
 		${LD} -o${@} ${^}
+		@echo "----->copy ${@} to SD-Card/linuxrc"
+
 s-nano.o:	s-nano.S
 		${AS} -o${@} ${^}
-		@echo "----->copy ${@} to SD-Card/linuxrc"
 
 c-nano:		c-nano.o
 		${LD} -o${@} ${^} ${TARGET_ROOT}/usr/lib/libc.a
