@@ -15,13 +15,14 @@ PATH=${TC_PREFIX}/bin:${PATH}
 cd ${BUILD_DIR}
 
 #${MUSL_SRC}/configure --help
+#exit 0
 
-#${MUSL_SRC}/configure \
-#       --target=${TARGET} \
-#       --prefix=/usr
-#${MAKE} 
-#${MAKE} DESTDIR=${TARGET_ROOT} install
+${MUSL_SRC}/configure \
+       --target=${TARGET} \
+       --prefix=/usr
+${MAKE} 
+${MAKE} DESTDIR=${TARGET_ROOT} install
 
 #------------------ TODO adapt tools/gcc.sh
 cd ${TARGET_ROOT}/lib
-ln -s /usr/lib/libc.so ld-linux-armhf.so.3
+ln -sf /usr/lib/libc.so ld-linux-armhf.so.3
