@@ -16,11 +16,11 @@ cd ${BUILD_DIR}
 
 #${MUSL_SRC}/configure --help
 
-#${MUSL_SRC}/configure \
-#       --target=${TARGET} \
-#       --prefix=/usr
-#${MAKE} 
-#${MAKE} DESTDIR=${TARGET_ROOT} install
+${MUSL_SRC}/configure \
+       --target=${TARGET} \
+       --prefix=/usr
+${MAKE} 
+${MAKE} DESTDIR=${TARGET_ROOT} install
 
 #------------------ TODO adapt tools/gcc.sh
 cd ${TARGET_ROOT}/lib

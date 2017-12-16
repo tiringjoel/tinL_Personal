@@ -48,12 +48,21 @@ ${GCC_SRC}/configure \
 # yocto-rootfs
 # 
 #  error
-${MAKE}
-${MAKE} install
+#${MAKE}
+#${MAKE} install
 #echo "--------------------------------------"
 #echo "----------- proceed manually in $(pwd)"
 #echo "--------------------------------------"
 
+
+#/home/buchmann/devel/gcc/dist/gcc-7.2.0/libstdc++-v3/config/os/generic/ctype_base.h
+#./arm-linux-gnueabihf/libstdc++-v3/include/arm-linux-gnueabihf/bits/ctype_base.h
+
+#/home/buchmann/devel/gcc/dist/gcc-7.2.0/libstdc++-v3/config/os/generic/ctype_configure_char.cc
+
+#./arm-linux-gnueabihf/libstdc++-v3/src/c++11/ctype_configure_char.cc
+#OS_INC_SRCDIR in arm-linux-gnueabihf/libstdc++-v3/src/c++11/Makefile
+ 
 
 #---------------------------- the bare compiler
 #make -j8 all-gcc
@@ -65,6 +74,8 @@ ${MAKE} install
 #make -j8 install-target-libgcc
 #examine the installed files
 
+#----------------------------- configuration
+#make configure-target-libstdc++-v3
 #---------------------------- the c++ libs
 #make -j8 all-target-libstdc++-v3
 #make -j8 install-target-libstdc++-v3

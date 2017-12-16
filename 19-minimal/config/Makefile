@@ -10,7 +10,7 @@ TARGET_ROOT=${PWD}/../../17-build/target-root
 TC=${PWD}/../tc/
 PREFIX=${TC}/bin/arm-linux-gnueabihf-
 AS=${PREFIX}as
-CC=${PREFIX}gcc
+CC=${PREFIX}g++
 CXX=${PREFIX}g++
 
 LD=${PREFIX}ld
@@ -34,6 +34,9 @@ c-nano.o:	c-nano.c
 
 c-mini:	        c-mini.o
 c-mini.o:       c-mini.c
+
+cc-mini:        cc-mini.o
+cc-mini.o:      cc-mini.cc
 
 cc-mini:        cc-mini.o
 cc-mini.o:      cc-mini.cc
