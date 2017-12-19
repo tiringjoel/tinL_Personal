@@ -11,28 +11,32 @@
 cd gcc
 
 #${GCC_SRC}/configure --help
+#exit 0
 
-#${GCC_SRC}/configure \
-# --prefix=${TC_PREFIX} \
-# --target=${TARGET} \
-# --disable-nls \
-# --disable-werror \
-# --enable-threads \
-# --enable-languages=c,c++\
-# --with-build-sysroot=${TARGET_ROOT} \
-# --with-sysroot=${TC_PREFIX}/libc \
-# --disable-nls \
-# --disable-libssp \
-# --disable-lto \
-# --disable-clocale \
-# --enable-shared \
-# --disable-multilib \
-# --disable-libgomp \
-# --disable-libmudflap \
-# --with-float=hard \
-# --with-arch=armv7-a \
+${GCC_SRC}/configure \
+ --prefix=${TC_PREFIX} \
+ --target=${TARGET} \
+ --disable-nls \
+ --disable-werror \
+ --enable-threads \
+ --enable-languages=c,c++\
+ --with-sysroot=${TARGET_ROOT} \
+ --disable-nls \
+ --disable-libssp \
+ --disable-lto \
+ --disable-clocale \
+ --enable-shared \
+ --disable-multilib \
+ --disable-libgomp \
+ --disable-libmudflap \
+ --with-float=hard \
+ --with-arch=armv7-a \
+
+
 # --with-fpu=vfpv3-d16
  
+
+# --with-sysroot=${TC_PREFIX}/libc \
 
 # --with-fpu=vfp
 # --disable-threads \
