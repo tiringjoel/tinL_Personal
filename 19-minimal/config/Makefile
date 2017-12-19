@@ -41,8 +41,10 @@ cc-mini.o:      cc-mini.cc
 cc-mini:        cc-mini.o
 cc-mini.o:      cc-mini.cc
 
+cc-threads:     cc-threads.cc
+
 .PHONY: clean
 clean:
-	rm -f *.o s-nano c-nano c-mini
+	rm -f *.o s-nano c-nano c-mini cc-mini cc-threads
 
 
