@@ -52,8 +52,8 @@ ${GCC_SRC}/configure \
 # yocto-rootfs
 # 
 #  error
-###${MAKE}
-###${MAKE} install
+${MAKE}
+${MAKE} install
 #echo "--------------------------------------"
 #echo "----------- proceed manually in $(pwd)"
 #echo "--------------------------------------"
