@@ -11,6 +11,7 @@
 cd gcc
 
 #${GCC_SRC}/configure --help
+#exit 0
 
 ${GCC_SRC}/configure \
  --prefix=${TC_PREFIX} \
@@ -19,8 +20,7 @@ ${GCC_SRC}/configure \
  --disable-werror \
  --enable-threads \
  --enable-languages=c,c++\
- --with-build-sysroot=${TARGET_ROOT} \
- --with-sysroot=${TC_PREFIX}/libc \
+ --with-sysroot=${TARGET_ROOT} \
  --disable-nls \
  --disable-libssp \
  --disable-lto \
@@ -31,8 +31,12 @@ ${GCC_SRC}/configure \
  --disable-libmudflap \
  --with-float=hard \
  --with-arch=armv7-a \
- --with-fpu=vfpv3-d16
+
+
+# --with-fpu=vfpv3-d16
  
+
+# --with-sysroot=${TC_PREFIX}/libc \
 
 # --with-fpu=vfp
 # --disable-threads \
