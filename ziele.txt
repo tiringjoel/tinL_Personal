@@ -78,6 +78,8 @@ Herr Sondereggers Image
 
 20.Dez.2017
 -----------
+ https://drive.switch.ch/index.php/s/A6H382zEGDrgfAL
+ 
  17-build
   .toolchain A
   .kernel
