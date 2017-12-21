@@ -1,0 +1,24 @@
+#!/bin/sh
+#----------------------------
+#rcS
+#(c) H.Buchmann FHNW 2015
+#----------------------------
+mount -t proc none /proc
+mount -t sysfs none /sys
+mount -t tmpfs -o mode=0755 none /dev
+mkdir /dev/pts
+mount -tdevpts none /dev/pts
+mount  -t debugfs debugfs /sys/kernel/debug/
+mdev  -s
+
+#--------------------------
+#uncomment to enable network
+#while [ true ]
+#do
+# sleep 0.125
+# ifconfig eth0 up
+# [ ${?} == "0" ] && break
+#done
+
+#ifconfig eth0 192.168.1.4
+#/sbin/sshd 

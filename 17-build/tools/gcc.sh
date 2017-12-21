@@ -24,7 +24,7 @@ ${GCC_SRC}/configure \
  --disable-nls \
  --disable-libssp \
  --disable-lto \
- --disable-clocale \
+ --enable-clocale=generic \
  --enable-shared \
  --disable-multilib \
  --disable-libgomp \

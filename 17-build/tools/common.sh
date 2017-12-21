@@ -15,6 +15,7 @@ BUILD_HOME=${PWD}
 CONFIG=${PWD}/config
 
 TARGET=arm-linux-gnueabihf
+#TARGET=arm-linux-musl does not work already in gcc-bare
 TARGET_ROOT=${BUILD_HOME}/target-root
 TC_PREFIX=${BUILD_HOME}/tc
 
