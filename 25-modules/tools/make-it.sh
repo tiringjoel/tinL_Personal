@@ -4,19 +4,17 @@
 #$Id$
 #see http://www.tldp.org/LDP/lkmpg/2.6/html/x181.html
 #-------------------------
-#we are in 8-module/src
 #before switching from host to target or vice versa
 # make clean
 
 #---------------------- for host system
 #export KERNEL=/lib/modules/$(uname -r)/build
-#make -C ${KERNEL} V=1 M=${PWD} ${@}
+#make -j $(getconf _NPROCESSORS_ONLN) -C ${KERNEL} V=1 M=${PWD}/src ${@}
 
 ###---------------------- for target system
 PREFIX=arm-linux-gnueabihf
-#LINUX_SRC=../../resources/kernel/linux/
 export KERNEL=${PWD}/../17-build/build/kernel
-make  -C ${KERNEL} \
+make  -j $(getconf _NPROCESSORS_ONLN) -C ${KERNEL} \
      ARCH=arm \
      CROSS_COMPILE=${PWD}/tc/bin/${PREFIX}- \
      M=${PWD}/src $@

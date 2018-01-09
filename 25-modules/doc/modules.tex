@@ -29,65 +29,26 @@
 
 \begin{frame}{Informationen}
  \begin{itemize}
-  \item \url{tldp.org/LDP/lkmpg/2.6/html/}
-  \item \url{Documentation/kbuild/modules.txt}
-  \item \url{www.kernel.org/doc/}
-  \item \url{lxr.free-electrons.com}
+  \item \url[http]{tldp.org/LDP/lkmpg/2.6/html/}
+  \item \hreff{git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/tree/Documentation/kbuild/modules.txt}
+             {Module}
+  \item \url[http]{www.kernel.org/doc/}
+  \item \url[http]{lxr.free-electrons.com}
  \end{itemize}
 \end{frame}
 
-\section{Beispiele}
-\subsection{simple-device}
-\begin{frame}{simple-module}{Modul für \host}
- \begin{description}[Makefile]
-  \item[Code]     \cod{scr/simple-module.c}
-  \item[Makefile] \cod{src/Makefile} von linux Makefile aufgerufen
-  \item[Script]   \cod{config/make-it.sh} für einfachen Aufruf
-  \item[Test]
-      \begin{itemize}
-        \item \cod{tail -f /var/log/kern.log} für die {\em kernel messages}
-	\item \cod{dmesg -w}
-        \item \cod{sudo insmod simple-module.ko} wir sind in \cod{src} 
-	\item \cod{lsmod | grep simple} ist installiert
-	\item \cod{sudo rmmod simple-module} deinstalliert
-	\item Der File \url{proc/modules}
-      \end{itemize}
- \end{description}
-\end{frame}
+\section{simple-module}
+\input{simple-module.tex}
 
-\subsection{simple-device}
+\section{simple-device}
+\input{simple-device.tex}
 
-\begin{frame}{simple-device}
- \begin{description}
-  \item[Module] \cod{src/simple-device.c}, \cod{src/Makefile}
-  \item[Test] 
-     \begin{itemize}
-       \item \cod{insmod simple-device.ko} Major Number
-       \item \cod{mknod -ma=rw simple c Major 1} Device File Zugriff für alle
-       \item \cod{cat simple} read 
-       \item \cod{cat aFile > simple} write
-     \end{itemize} 
- \end{description}
- \begin{todos}
-  \item Automatische Erzeugung von \cod{simple}
-  \item die \cod{file\_operations}: \cod{open} und \cod{close}
- \end{todos}
-\end{frame}
 
-\begin{frame}{\cod{simple-device.c}}{userspace $\leftrightarrow$ kernelspace}
- \begin{description}[kernelspace $\to$ userspace]
-  \item[Module] brauche  \cod{print\_hex\_dump} eine praktische Funktion
-  \item[userspace $\to$ kernelspace] \cod{simple\_write}
-  \item[kernelspace $\to$ userspace] \cod{simple\_read}
-  \item[Test] \cod{simple-device} im userspace
- \end{description}
- \todo{Erzeuge Absturz}
-\end{frame}
+\section{simple-ioctl}
+\input{simple-ioctl.tex}
 
-\subsection{simple-ioctl}
-\begin{frame}{\cod{simple-ioctl.c}}
-\end{frame}
-
+\section{simple-hw}
+\input{simple-hw.tex}
 
 %\begin{frame}{TODO}
 % \begin{itemize}
@@ -103,12 +64,12 @@
 %
 \begin{frame}{Aufgaben}
  \begin{itemize}
-  \item \url{scr/simple-module.c} für \target
+  \item \url{scr/simple-module.c} für \targetS
   \begin{itemize}
    \item Machen Sie eine 'ewige Schlaufe'
   \end{itemize}
-  \item \url{read-device.c} \url{scr/simple-device.c} für \target
-  \item \url{call-ioctl.c} \url{scr/simple-ioctl.c} für \target
+  \item \url{read-device.c} \url{scr/simple-device.c} für \targetS
+  \item \url{call-ioctl.c} \url{scr/simple-ioctl.c} für \targetS
 
 %  \item Das {\em userspace }Programm \url{9-accessing-hw/hw-access.c}
 %  als Modul mit \cod{ioctl} 

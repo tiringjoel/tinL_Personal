@@ -1,8 +1,6 @@
 /*---------------------------
- simple-device
+ simple-ioctl
  (c) H.Buchmann FHNW 2012
- $Id
- see http://tldp.org/LDP/lkmpg/2.6/html
  ---------------------------*/
 #include <linux/module.h>
 #include <linux/kernel.h>

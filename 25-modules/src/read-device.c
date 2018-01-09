@@ -1,7 +1,6 @@
 /*----------------------------
   read-device
   (c) H.Buchmann FHNW 2012
-  $Id$
   ----------------------------
  calling read-device name 
 */
