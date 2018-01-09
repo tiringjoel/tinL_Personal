@@ -76,7 +76,6 @@ Herr Sondereggers Image
  21-udev
  22-review
 
-<<<<<<< HEAD
 20.Dez.2017
 -----------
  https://drive.switch.ch/index.php/s/A6H382zEGDrgfAL
@@ -89,8 +88,6 @@ Herr Sondereggers Image
   .busybox
   .init 
     
-=======
 10.Jan.2018
 -----------
  25-modules intro
->>>>>>> musl
