@@ -2,7 +2,6 @@
 /*-----------------------
   simple-ioctl.h
   (c) H.Buchmann FHNW 2012
-  $Id$
   see Documentation/ioctl/ioctl-number.txt
       Documentation/ioctl/ioctl-decoding.txt 
 -------------------------*/

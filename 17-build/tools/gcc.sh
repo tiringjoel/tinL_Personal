@@ -66,7 +66,7 @@ ${GCC_SRC}/configure \
 
 #./arm-linux-gnueabihf/libstdc++-v3/src/c++11/ctype_configure_char.cc
 #OS_INC_SRCDIR in arm-linux-gnueabihf/libstdc++-v3/src/c++11/Makefile
- 
+#OS_INC_SRCDIR =  config/os/generic
 
 #---------------------------- the bare compiler
 make -j8 all-gcc

@@ -1,7 +1,6 @@
 /*----------------------
   call-ioctl adapted for button
   (c) H.Buchmann FHNW 2012
-  $Id$
   we are in user space
 ------------------------*/
 #include <sys/ioctl.h>
