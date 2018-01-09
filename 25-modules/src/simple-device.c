@@ -1,8 +1,6 @@
 /*---------------------------
  simple-device
  (c) H.Buchmann FHNW 2012
- $Id$
- see http://tldp.org/LDP/lkmpg/2.6/html
  ---------------------------*/
 #include <linux/module.h>
 #include <linux/kernel.h>
@@ -14,7 +12,7 @@
 
 static int Major;  
 
-static const char      Msg[] =DEVICE " file='" __FILE__ "' made on: '" __DATE__ "'\n";
+static const char      Msg[] =DEVICE " file='" __FILE__ "' made on: '" "__DATE__" "'\n";
 static const unsigned  MsgLen=sizeof(Msg);  /* incl terminating zero */
 
 /*kernelspace  -> userspace*/
@@ -24,10 +22,12 @@ static ssize_t simple_read(struct file* src,
 			loff_t* ofs)
 {
  unsigned j=0;  /* index in buffer */
+#if 1
  while((j<len)&&(*ofs < MsgLen))
  {
   buffer[j++]=Msg[(*ofs)++];  
  }
+#endif
  return j;
 }
 

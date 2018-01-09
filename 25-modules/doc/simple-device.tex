@@ -1,0 +1,39 @@
+\begin{frame}{simple-device}{userspace$\leftrightarrow$kernelspace}
+ \begin{itemize}
+  \item alles ist ein File
+  \begin{itemize}
+   \item {\em stream of bits}
+  \end{itemize}
+  \item Trennung {\bf userspace} {\bf kernelspace}
+  \begin{itemize}
+   \item meltdown, spectre
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{simple-device}
+ \begin{description}
+  \item[Module] \cod{src/simple-device.c}, \cod{src/Makefile}
+  \item[Test] 
+     \begin{itemize}
+       \item \cod{insmod simple-device.ko} Major Number
+       \item \cod{mknod -ma=rw simple c Major 1} Device File Zugriff für alle
+       \item \cod{cat simple} read 
+       \item \cod{cat aFile > simple} write
+     \end{itemize} 
+ \end{description}
+ \begin{todos}
+  \item Automatische Erzeugung von \cod{simple}
+  \item die \cod{file\_operations}: \cod{open} und \cod{close}
+ \end{todos}
+\end{frame}
+
+\begin{frame}{\cod{simple-device.c}}{userspace $\leftrightarrow$ kernelspace}
+ \begin{description}[kernelspace $\to$ userspace]
+  \item[Module] brauche  \cod{print\_hex\_dump} eine praktische Funktion
+  \item[userspace $\to$ kernelspace] \cod{simple\_write}
+  \item[kernelspace $\to$ userspace] \cod{simple\_read}
+  \item[Test] \cod{simple-device} im userspace
+ \end{description}
+ \todo{Erzeuge Absturz}
+\end{frame}

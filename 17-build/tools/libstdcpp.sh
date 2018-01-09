@@ -1,42 +1,39 @@
 #!/bin/bash
 #-----------------------
-#gcc.sh build
-#(c) H.Buchmann FHNW 2015
+#libstd++
+#(c) H.Buchmann FHNW 2017
 #gcc for kernel
 #-----------------------
 . $(dirname ${0})/common.sh
-
+BUILD=libstdcpp
+LIBSTDCPP_SRC=${GCC_SRC}/libstdc++-v3
 #-------------------- we are in build
-[[ ! -d gcc ]] && mkdir gcc 
-cd gcc
+[[ ! -d ${BUILD} ]] && mkdir ${BUILD}
+cd ${BUILD}
 
-#${GCC_SRC}/configure --help
+echo "-------------------------- not yet working -------------"
+exit 1
+
+LIBSTDCPP_PREFIX=${BUILD_HOME}/libstdcpp
+
+#${LIBSTDCPP_SRC}/configure --help
 #exit 0
 
-${GCC_SRC}/configure \
- --prefix=${TC_PREFIX} \
+export CXX="${CROSS_COMPILE}g++ --sysroot=${SYSROOT}"
+export CXXCPP="${CROSS_COMPILE}cpp --sysroot=${SYSROOT}"
+
+${LIBSTDCPP_SRC}/configure \
+ --prefix=${LIBSTDCPP_PREFIX} \
  --target=${TARGET} \
  --disable-nls \
+ --disable-libstdcxx-pch \
  --disable-werror \
- --enable-threads \
- --enable-languages=c,c++\
- --with-sysroot=${TARGET_ROOT} \
- --disable-nls \
- --disable-libssp \
- --disable-lto \
- --enable-clocale=generic \
+ --disable-clocale \
  --enable-shared \
  --disable-multilib \
- --disable-libgomp \
- --disable-libmudflap \
- --with-float=hard \
- --with-arch=armv7-a \
-
-
-# --with-fpu=vfpv3-d16
  
-
-# --with-sysroot=${TC_PREFIX}/libc \
+exit 0
+ 
 
 # --with-fpu=vfp
 # --disable-threads \
@@ -52,8 +49,6 @@ ${GCC_SRC}/configure \
 # yocto-rootfs
 # 
 #  error
-${MAKE}
-${MAKE} install
 #${MAKE}
 #${MAKE} install
 #echo "--------------------------------------"
@@ -68,27 +63,27 @@ ${MAKE} install
 
 #./arm-linux-gnueabihf/libstdc++-v3/src/c++11/ctype_configure_char.cc
 #OS_INC_SRCDIR in arm-linux-gnueabihf/libstdc++-v3/src/c++11/Makefile
-#OS_INC_SRCDIR =  config/os/generic
+ 
 
 #---------------------------- the bare compiler
-make -j8 all-gcc
-make -j8 install-gcc 
+#make -j8 all-gcc
+#make -j8 install-gcc 
 #examine the installed files
 
 #---------------------------- the compiler libgcc
-make -j8 all-target-libgcc
-make -j8 install-target-libgcc
+#make -j8 all-target-libgcc
+#make -j8 install-target-libgcc
 #examine the installed files
 
 #----------------------------- configuration
 #libstdc++-v3 
-make configure-target-libstdc++-v3
-echo ${GCC_SRC}/libstdc++-v3/config/os/generic/
-echo ${TARGET}/libstdc++-v3/include/${TARGET}/bits
-ln -sf ${GCC_SRC}/libstdc++-v3/config/os/generic/ctype_base.h \
-${TARGET}/libstdc++-v3/include/${TARGET}/bits
-ln -sf ${GCC_SRC}/libstdc++-v3/config/os/generic/ctype_configure_char.cc \
-${TARGET}/libstdc++-v3/src/c++11/
+#make configure-target-libstdc++-v3
+#echo ${GCC_SRC}/libstdc++-v3/config/os/generic/
+#echo ${TARGET}/libstdc++-v3/include/${TARGET}/bits
+#ln -sf ${GCC_SRC}/libstdc++-v3/config/os/generic/ctype_base.h \
+#${TARGET}/libstdc++-v3/include/${TARGET}/bits
+#ln -sf ${GCC_SRC}/libstdc++-v3/config/os/generic/ctype_configure_char.cc \
+#${TARGET}/libstdc++-v3/src/c++11/
 
 #---------------------------- the c++ libs
 #make -j8 all-target-libstdc++-v3
