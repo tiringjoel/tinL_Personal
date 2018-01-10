@@ -2,11 +2,10 @@
  \begin{description}[Makefile]
   \item[Code]     \cod{scr/simple-module.c}
 %  \item[Makefile] \cod{src/Makefile} von linux Makefile aufgerufen
-  \item[Script]   \cod{tools/make-it.sh} für einfachen Aufruf
+  \item[Script]   \cod{tools/module.sh} für einfachen Aufruf
   \item[Makefile] \cod{src/Makefile} für mehr Module
   \item[Test]
       \begin{itemize}
-        \item \cod{tail -f /var/log/kern.log} für die {\em kernel messages}
 	\item \cod{dmesg -w}
         \item \cod{sudo insmod simple-module.ko} wir sind in \cod{src} 
 	\item \cod{lsmod | grep simple} ist installiert
