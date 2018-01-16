@@ -4,3 +4,4 @@ modules/*.cmd
 !config/target-root
 *.tar.gz
 *.img
+target-devel
