@@ -20,10 +20,10 @@
 
 \begin{frame}{Um was geht es ?}{\linux}
  \begin{itemize}
-  \item Toolchain 1 \cod{tc1}
+  \item Toolchain bare 
   \item \cod{kernel}
   \item \cod{libc}
-  \item Toolchain 2 \cod{tc2}
+  \item Toolchain full
   \begin{itemize}
    \item inkl. \cpp
   \end{itemize}
@@ -38,19 +38,13 @@
 
 \begin{frame}{Host}{Verzeichnisstruktur}
  \dirtree{%
-  .1 SIGNATURE \DTcomment{invisible uniqe number}.
   .1 18-resume.
+  .2 SIGNATURE \DTcomment{invisible uniqe number}.
+  .2 config.
   .2 tools \DTcomment{scripts}.
-  .3 config.sh.
-  .3 kernel.sh.
-  .3 glibc.sh.
-  .3 busybox.sh.
-  .3 {...}sh. 
+  .3 {\em component.}sh. 
   .2 build \DTcomment{data during build}.
-  .3 kernel.
-  .3 glibc.
-  .3 busybox.
-  .3 {...}.
+  .3 {\em component}.
   .2 tc \DTcomment{toolchain}.
   .2 target-root.
  }
@@ -79,8 +73,21 @@
  & \cod{openssl.sh}\\
  & \cod{openssh.sh}\\
  \hline
- Distro & \cod{target-root.sh}
+ Distro & \cod{target-root.sh}\\
+ 	& \cod{tc.sh}
  \end{tabular}
+\end{frame}
+
+\begin{frame}{Development}
+ \dirtree{%
+ .1 18-resume.
+ .2 config.
+ .3 Makefile.
+ .2 src \DTcomment{source files}.
+ .2 work.
+ .3 $\to$ Makefile \DTcomment{link}.
+ .2 target-devel \DTcomment{mounted e.g. via sshfs}.
+ }
 \end{frame}
 
 \end{document}
