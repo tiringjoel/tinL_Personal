@@ -1,16 +1,13 @@
 #!/bin/bash
 #-----------------------
 #gcc.sh build
-#(c) H.Buchmann FHNW 2015
-#gcc for kernel
+#(c) H.Buchmann FHNW 2018
 #-----------------------
 . $(dirname ${0})/config.sh
 
 #-------------------- we are in build
 [[ ! -d gcc ]] && mkdir gcc 
 cd gcc
-
-
 ${GCC_SRC}/configure \
  --prefix=${TC} \
  --target=${TARGET} \
@@ -29,6 +26,7 @@ ${GCC_SRC}/configure \
  --disable-libmudflap \
  --with-float=hard \
  --with-arch=armv7-a 
+
 ${MAKE}
 ${MAKE} install
 #---------------------------- the bare compiler
@@ -37,7 +35,7 @@ ${MAKE} install
 #examine the installed files
 
 #---------------------------- the compiler libgcc
-make -j8 all-target-libgcc
-make -j8 install-target-libgcc
+#make -j8 all-target-libgcc
+#make -j8 install-target-libgcc
 #examine the installed files
 

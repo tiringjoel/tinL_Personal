@@ -1,14 +1,12 @@
 #!/bin/bash
 #-----------------------
 #gcc-bare.sh 
-#(c) H.Buchmann FHNW 2015
+#(c) H.Buchmann FHNW 2018
 #gcc for kernel
 #-----------------------
 . $(dirname ${0})/config.sh  #load common
 [[ ! -d gcc-bare ]] && mkdir gcc-bare
 cd gcc-bare
-
-#${GCC_SRC}/configure --help
 
 ${GCC_SRC}/configure \
  --prefix=${TC} \

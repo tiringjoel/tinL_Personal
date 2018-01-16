@@ -21,6 +21,7 @@ OPENSSL_SRC=${RESOURCES}/openssl-1.0.2m       #tar.gz
 OPENSSH_SRC=${RESOURCES}/openssh-7.6p1
 
 #--------------------------------------- locations here
+BUILD_HOME=${PWD}
 TARGET=arm-linux-gnueabihf
 TARGET_ROOT=${PWD}/target-root
 TC=${PWD}/tc
@@ -30,5 +31,7 @@ CROSS_COMPILE=${TC}/bin/${TARGET}-
 
 #--------------------------------------- the make command
 MAKE="make -j $(getconf _NPROCESSORS_ONLN)"
+
+cd build
 
 

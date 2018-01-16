@@ -57,17 +57,29 @@
 \end{frame}
 
 \begin{frame}{Build}
- \begin{tabular}{lll}
- 
- binutils& \cod{binutils.sh} \\
-         & \cod{gcc-bare.sh}\\ 
- kernel  & see \cod{kernel.sh} ohne Parameter\\ 
- libc    & \cod{glibc.sh}\\
- tc2     & \cod{gcc.sh}\\
- busybox & \cod{busybox.sh}\\
- zlib	 & \cod{zlib.sh}\\
- openssl & \cod{openssl.sh}\\
- openssh & \cod{openssh.sh}
+ \begin{tabular}{rl|l}
+ 		 &	& args\\
+ \hline\hline
+  toolchain bare & \cod{binutils.sh} \\
+ 		 &\cod{gcc-bare.sh}\\ 
+ \hline
+   kernel 	 & \cod{kernel.sh} & [\cod{bb.org\_defconfig}]\\
+ 		 & &\cod{zImage}\\
+                 & &\cod{dtbs}\\
+                 & &\cod{headers\_install}\\
+ \hline
+ libc 		 & \cod{glibc.sh}\\
+ \hline
+ toolchain full  & \cod{gcc.sh}\\
+ \hline
+ \unix & \cod{busybox.sh} & [\cod{menuconfig}] \\
+       &		  & \cod{busybox}\\
+       &	          & \cod{install}\\
+ & \cod{zlib.sh}\\
+ & \cod{openssl.sh}\\
+ & \cod{openssh.sh}\\
+ \hline
+ Distro & \cod{target-root.sh}
  \end{tabular}
 \end{frame}
 

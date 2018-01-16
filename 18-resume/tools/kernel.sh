@@ -36,19 +36,3 @@ INSTALL_HDR_PATH=${TARGET_ROOT}/usr \
 ${@}
 popd   > /dev/null
 
-ZIMAGE=kernel/arch/arm/boot/zImage
-DTB=kernel/arch/arm/boot/dts/am335x-boneblack-wireless.dtb
-
-[[ ! -f ${ZIMAGE} ]] &&
-{
-echo "------------  no zImage available"
-exit 1
-}
-
-[[ ! -f ${DTB} ]] &&
-{
-echo "------------  no devicetree available"
-exit 1
-}
-
-cp ${ZIMAGE} ${DTB} ${TARGET_ROOT}/boot
