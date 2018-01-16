@@ -1,0 +1,74 @@
+%-------------------------
+%resume
+%(c) H.Buchmann FHNW 2018
+%export TEXINPUTS=.:${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+\title[Resume]{Resume}
+
+\frame{\titlepage}
+
+\begin{frame}{Um was geht es ?}{\linux}
+ \begin{itemize}
+  \item Toolchain 1 \cod{tc1}
+  \item \cod{kernel}
+  \item \cod{libc}
+  \item Toolchain 2 \cod{tc2}
+  \begin{itemize}
+   \item inkl. \cpp
+  \end{itemize}
+  \item \cod{busybox}
+  \item \cod{ssh}
+  \begin{itemize}
+   \item Client/Server
+  \end{itemize}
+ \end{itemize}
+ \remark{basierend auf 17-build}
+\end{frame}
+
+\begin{frame}{Host}{Verzeichnisstruktur}
+ \dirtree{%
+  .1 SIGNATURE \DTcomment{invisible uniqe number}.
+  .1 18-resume.
+  .2 tools \DTcomment{scripts}.
+  .3 config.sh.
+  .3 kernel.sh.
+  .3 glibc.sh.
+  .3 busybox.sh.
+  .3 {...}sh. 
+  .2 build \DTcomment{data during build}.
+  .3 kernel.
+  .3 glibc.
+  .3 busybox.
+  .3 {...}.
+  .2 tc \DTcomment{toolchain}.
+  .2 target-root.
+ }
+\end{frame}
+
+\begin{frame}{Build}
+ \begin{tabular}{lll}
+ 
+ binutils& \cod{binutils.sh} \\
+         & \cod{gcc-bare.sh}\\ 
+ kernel  & see \cod{kernel.sh} ohne Parameter\\ 
+ libc    & \cod{glibc.sh}\\
+ tc2     & \cod{gcc.sh}\\
+ busybox & \cod{busybox.sh}\\
+ zlib	 & \cod{zlib.sh}\\
+ openssl & \cod{openssl.sh}\\
+ openssh & \cod{openssh.sh}
+ \end{tabular}
+\end{frame}
+
+\end{document}
