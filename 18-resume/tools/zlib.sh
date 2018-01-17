@@ -5,6 +5,13 @@
 #---------------------------
 . $(dirname ${0})/config.sh
 
+[[ ! -f ${ZLIB_SRC}.tar.gz ]] &&
+{
+ echo "${ZLIB_SRC} target does not exist"
+ exit 1
+}
+
+
 [[ ! -d zlib ]] && 
 {
  mkdir zlib

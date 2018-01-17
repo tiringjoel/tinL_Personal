@@ -6,7 +6,13 @@
 #------------------------
 . $(dirname ${0})/config.sh
 
+[[ ! -f ${OPENSSL_SRC}.tar.gz ]] && 
+{
+ echo "${OPENSSL_SRC} target does not exist"
+ exit 1
+}
 
+ 
 [[ ! -d openssl ]] &&
 {
  mkdir openssl
