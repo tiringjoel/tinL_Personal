@@ -78,6 +78,20 @@
  \end{tabular}
 \end{frame}
 
+\begin{frame}{\target}{Verzeichnisstruktur}
+\dirtree{%
+.1 / \DTcomment{target-root on \host}.
+.2 etc.
+.3 ssh* \DTcomment{private key server}.
+.3 init.d.
+.4 rcS \DTcomment{init script}.
+.2 boot \DTcomment{new}.
+.3 zImage \DTcomment{kernel}.
+.3 m335x-boneblack-wireless.dtb \DTcomment{device tree}.
+.2 {...} \DTcomment{normal \unix}.
+}
+\end{frame}
+
 \begin{frame}{Development}
  \dirtree{%
  .1 18-resume.
