@@ -10,7 +10,7 @@ export CFLAGS="--sysroot=${SYSROOT} -O2"
 export CC=${TC_PREFIX}/bin/${TARGET}-gcc
 
 cd glibc
-cp ${CONFIG}/option-groups.config .
+#cp ${CONFIG}/option-groups.config .
 #${GLIBC_SRC}/libc/configure --help
 DESTDIR=${SYSROOT} \
 ${GLIBC_SRC}/configure \
@@ -26,4 +26,4 @@ ${GLIBC_SRC}/configure \
     --disable-werror
 #    --enable-rpc\
 ${MAKE} 
-${MAKE} install install_root=${SYSROOT}
+#${MAKE} install install_root=${SYSROOT}
