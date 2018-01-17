@@ -9,6 +9,7 @@
 #-------------------
 GPIO=/sys/class/gpio
 pin=${1}
+
 #your work
 
 

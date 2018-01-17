@@ -91,3 +91,7 @@ Herr Sondereggers Image
 10.Jan.2018
 -----------
  25-modules intro
+
+17.Jan.2018
+-----------
+ beagle bone configuration

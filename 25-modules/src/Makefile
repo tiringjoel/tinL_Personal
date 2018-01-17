@@ -9,7 +9,7 @@
 #KERNEL=${PWD}/../../5-kernel/build
 #-------------------- add here your modules
 obj-m += simple-module.o 
-obj-m += simple-device.o
+#obj-m += simple-device.o
 
 all:
 	make V=1  -C${KERNEL} M=${PWD} modules
