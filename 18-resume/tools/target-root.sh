@@ -1,4 +1,6 @@
 #!/bin/bash
+# zImage
+# fakeroot
 #------------------
 #target-root.sh
 #(c) H.Buchmann FHNW 2018
