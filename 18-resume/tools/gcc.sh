@@ -29,6 +29,13 @@ ${GCC_SRC}/configure \
 
 ${MAKE}
 ${MAKE} install
+
+#---------------------------- copy libraries
+cp ${TC}/${TARGET}/lib/{libstdc++.so.6.0.24,libgcc_s.so.1} ${TARGET_ROOT}/usr/lib
+pushd ${TARGET_ROOT}/usr/lib > /dev/null
+ln -s libstdc++.so.6.0.24 libstdc++.so.6
+popd                         > /dev/null
+#tc/arm-linux-gnueabihf/lib/libstdc++.so.6.0.24
 #---------------------------- the bare compiler
 #make -j8 all-gcc
 #make -j8 install-gcc 

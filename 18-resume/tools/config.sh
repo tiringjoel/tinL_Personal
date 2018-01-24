@@ -11,8 +11,8 @@ SIGNATURE=.62052326-ceda-4944-85e9-b8353c8c1d72
 }
 #--------------------------------------- locations of the resources
 RESOURCES=${PWD}/../resources
-BINUTILS_SRC=${RESOURCES}/binutils-2.29.1/
-GCC_SRC=${RESOURCES}/gcc-7.2.0/
+BINUTILS_SRC=${HOME}/devel/gcc/dist/binutils-2.29/
+GCC_SRC=${HOME}/devel/gcc/dist/gcc-7.2.0/
 KERNEL_SRC=${RESOURCES}/beaglebone-black/linux/
 GLIBC_SRC=${RESOURCES}/glibc-2.26/
 BUSYBOX_SRC=${RESOURCES}/busybox-1.27.2

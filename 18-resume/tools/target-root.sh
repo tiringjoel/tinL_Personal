@@ -41,13 +41,13 @@ DTB=${PWD}/kernel/arch/arm/boot/dts/am335x-boneblack-wireless.dtb
 [[ ! -f ${ZIMAGE} ]] &&
 {
 echo "------------  no zImage available"
-exit 1
+#exit 1
 }
 
 [[ ! -f ${DTB} ]] &&
 {
 echo "------------  no devicetree available"
-exit 1
+#exit 1
 }
 
 cp ${ZIMAGE} ${DTB} ${TARGET_ROOT}/boot
