@@ -18,7 +18,7 @@
 
 [[ -z ${1}  ]] &&
 {
- echo "bb.org_defconfig | zImage | dtbs | headers_install"
+ echo "bb.org_defconfig | zImage | dtbs  | headers_install"
  exit 0
 }
 
@@ -33,9 +33,6 @@ ${@}
 err=${?}
 popd   > /dev/null
 
-ZIMAGE=${PWD}/kernel/arch/arm/boot/zImage
-DTB=${PWD}/kernel/arch/arm/boot/dts/am335x-boneblack-wireless.dtb
-
 
 [[ ${err} != 0 ]] &&
 {
@@ -43,16 +40,19 @@ DTB=${PWD}/kernel/arch/arm/boot/dts/am335x-boneblack-wireless.dtb
  exit 1
 }
 
-[[  ! -f ${ZIMAGE} ]] &&
+[[ ${1} = zImage ]] &&
 {
- echo "------------  no zImage available"
- exit 1
+ [[  -f ${ZIMAGE} ]] &&
+ {
+  cp ${ZIMAGE} ${TARGET_ROOT}/boot
+ }
 }
 
-[[  ! -f ${DTB} ]] &&
+[[ ${1} = dtbs ]] &&
 {
- echo "------------  no devicetree available"
- exit 1
+ [[  -f ${ZIMAGE} ]] &&
+ {
+  cp ${DTB} ${TARGET_ROOT}/boot
+ }
 }
 
-cp ${ZIMAGE} ${DTB} ${TARGET_ROOT}/boot

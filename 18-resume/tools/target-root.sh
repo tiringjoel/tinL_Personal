@@ -35,8 +35,6 @@ ssh-keygen -t rsa -f ${TARGET_ROOT}/etc/ssh_host_rsa_key
 }
 
 echo "------------------- kernel"
-ZIMAGE=${PWD}/kernel/arch/arm/boot/zImage
-DTB=${PWD}/kernel/arch/arm/boot/dts/am335x-boneblack-wireless.dtb
 
 [[ ! -f ${ZIMAGE} ]] &&
 {

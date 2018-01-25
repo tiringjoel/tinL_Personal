@@ -20,6 +20,7 @@ ZLIB_SRC=${RESOURCES}/zlib-1.2.8              #tar.gz
 OPENSSL_SRC=${RESOURCES}/openssl-1.0.2m       #tar.gz
 OPENSSH_SRC=${RESOURCES}/openssh-7.6p1
 RSYNC_SRC=${RESOURCES}/rsync-3.1.2
+
 #--------------------------------------- locations here
 BUILD_HOME=${PWD}
 TARGET=arm-linux-gnueabihf
@@ -27,6 +28,11 @@ TARGET_ROOT=${PWD}/target-root
 TC=${PWD}/tc
 CONFIG=${PWD}/config
 CROSS_COMPILE=${TC}/bin/${TARGET}-
+
+#--------------------------------------- kernel
+ZIMAGE=${PWD}/build/kernel/arch/arm/boot/zImage
+DTB=${PWD}/build/kernel/arch/arm/boot/dts/socfpga_cyclone5_de0_sockit.dtb
+
 
 
 #--------------------------------------- the make command
