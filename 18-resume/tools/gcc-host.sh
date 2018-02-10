@@ -6,16 +6,14 @@
 . $(dirname ${0})/config.sh
 
 #-------------------- we are in build
-[[ ! -d gcc ]] && mkdir gcc 
-cd gcc
+[[ ! -d gcc-host ]] && mkdir gcc-host 
+cd gcc-host
 ${GCC_SRC}/configure \
  --prefix=${TC} \
- --target=${TARGET} \
  --disable-nls \
  --disable-werror \
  --enable-threads \
  --enable-languages=c,c++\
- --with-sysroot=${TARGET_ROOT} \
  --disable-nls \
  --disable-libssp \
  --disable-lto \
@@ -24,9 +22,7 @@ ${GCC_SRC}/configure \
  --disable-host-shared \
  --disable-multilib \
  --disable-libgomp \
- --disable-libmudflap \
- --with-float=hard \
- --with-arch=armv7-a 
+ --disable-libmudflap 
 
 ${MAKE}
 ${MAKE} install

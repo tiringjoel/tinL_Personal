@@ -20,7 +20,7 @@ ZLIB_SRC=${RESOURCES}/zlib-1.2.8              #tar.gz
 OPENSSL_SRC=${RESOURCES}/openssl-1.0.2m       #tar.gz
 OPENSSH_SRC=${RESOURCES}/openssh-7.6p1
 RSYNC_SRC=${RESOURCES}/rsync-3.1.2
-
+U_BOOT_SRC=${RESOURCES}/u-boot-2017.09/
 #--------------------------------------- locations here
 BUILD_HOME=${PWD}
 TARGET=arm-linux-gnueabihf

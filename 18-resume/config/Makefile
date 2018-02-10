@@ -8,6 +8,7 @@ VPATH=../src
 
 CC=${TARGET}-gcc -O2 --sysroot=${TARGET_ROOT}
 CXX=${TARGET}-g++ -O2 --sysroot=${TARGET_ROOT}
+mem:            mem.c
 hello-world-c:  hello-world-c.c
 
 hello-world-cc: hello-world-cc.cc
