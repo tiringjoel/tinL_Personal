@@ -1,6 +1,6 @@
 /*---------------------------
  simple-device
- (c) H.Buchmann FHNW 2012
+ (c) H.Buchmann FHNW 2018
  ---------------------------*/
 #include <linux/module.h>
 #include <linux/kernel.h>
@@ -12,8 +12,8 @@
 
 static int Major;  
 
-static const char      Msg[] =DEVICE " file='" __FILE__ "' made on: '" "__DATE__" "'\n";
-static const unsigned  MsgLen=sizeof(Msg);  /* incl terminating zero */
+ static const char      Msg[] =DEVICE " file='" __FILE__ "' made on: '" "__DATE__" "'\n";
+ static const unsigned  MsgLen=sizeof(Msg);  /* incl terminating zero */
 
 /*kernelspace  -> userspace*/
 static ssize_t simple_read(struct file* src,
@@ -22,10 +22,14 @@ static ssize_t simple_read(struct file* src,
 			loff_t* ofs)
 {
  unsigned j=0;  /* index in buffer */
+ char ch='0';
+ printk("simple_read len %d= *ofs= %lld buffer*=%p\n",len,*ofs,buffer);
+ 
 #if 1
  while((j<len)&&(*ofs < MsgLen))
  {
-  buffer[j++]=Msg[(*ofs)++];  
+  
+  buffer[j++]=Msg[(*ofs)++]; 
  }
 #endif
  return j;

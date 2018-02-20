@@ -1,41 +1,28 @@
-%-------------------------
-%makefile
-%(c) H.Buchmann FHNW 2008
-%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
-%-------------------------
-\documentclass{beamer}
-\usepackage{latex/beamer}
-\input{defines.tex}
-\input{/home/buchmann/latex/dirtree/dirtree.tex}
-
-\usepackage[absolute]{textpos}
-\setlength{\TPHorizModule}{1mm}
-\setlength{\TPVertModule}{1mm}
-
-\begin{document}
-
-
-\title[Kernel Module]{Kernel Module}
-
-\frame{\titlepage}
-
-\begin{frame}{Um was geht es ?}
- \begin{itemize}
-  \item Code für dem {\em kernel}: Drivers
-  \item Den {\em kernel} nicht immer neu kompilieren 
-  \item Module laden/löschen
- \end{itemize}
+\begin{frame}{Modul für \host}
+ \begin{description}[Makefile]
+  \item[Code]     \cod{scr/*}
+  \item[Script]   \cod{tools/module.sh} für einfachen Aufruf
+  \item[Test]
+      \begin{itemize}
+	\item \cod{dmesg -w}
+        \item \cod{sudo insmod simple-module.ko} wir sind in \cod{src} 
+	\item \cod{lsmod | grep simple} ist installiert
+	\item \cod{sudo rmmod simple-module} deinstalliert
+	\item Der File \url{proc/modules}
+      \end{itemize}
+ \end{description}
 \end{frame}
 
-\begin{frame}{Informationen}
- \begin{itemize}
-  \item \url[http]{tldp.org/LDP/lkmpg/2.6/html/}
-  \item \hreff{git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/tree/Documentation/kbuild/modules.txt}
-             {Module}
-  \item \url[http]{www.kernel.org/doc/}
-  \item \url[http]{lxr.free-electrons.com}
- \end{itemize}
+\begin{frame}{Modul für \targetS}{plus Modul für \host}
+ \includegraphics[width=\textwidth]{host-target.pdf}
+ \begin{textblock}{100}(10,60)
+  \begin{itemize}
+   \item \cod{src/Makefile} anpassen
+   \item \cod{cp src/{\em module} target/home/root}
+  \end{itemize}
+ \end{textblock}
 \end{frame}
+
 
 \section{simple-module}
 \input{simple-module.tex}
@@ -62,70 +49,3 @@
 % \end{itemize}
 %\end{frame}
 %
-\section{Aufgaben}
-\begin{frame}{Aufgaben}
- \begin{itemize}
-  \item \url{scr/simple-module.c} für \targetS
-  \begin{itemize}
-   \item Machen Sie eine 'ewige Schlaufe'
-  \end{itemize}
-  \item \url{read-device.c} \url{scr/simple-device.c} für \targetS
-  \item \url{call-ioctl.c} \url{scr/simple-ioctl.c} für \targetS
-
-%  \item Das {\em userspace }Programm \url{9-accessing-hw/hw-access.c}
-%  als Modul mit \cod{ioctl} 
- \end{itemize}
-\end{frame}
-
-
-%\section{Interrupt}
-%\begin{frame}{Die Hardware ruft die Software}{call back}
-% \begin{itemize}
-%  \item \cod{9-accessing-hw/button.c} userland 
-%  \item \cod{10-module/button.c} als {\em device}
-%  \begin{itemize}
-%   \item \cod{ioremap}
-%  \end{itemize}
-% \end{itemize}
-%\end{frame}
-%
-%\begin{frame}{\cod{button.c}}{Wichtige Punkte}
-% \begin{itemize}
-%  \item \cod{typedef PIO}
-%  \item \cod{static PIO* \_\_iomem pioC}
-%  \item \cod{ioremap(BASE,SIZE)}
-% \end{itemize}
-%\end{frame}
-%
-%\begin{frame}{static PIO* \_\_iomem pioC}
-%  \fig{pio.pdf}{1}{0}
-%\end{frame}
-%
-%\begin{frame}{\cod{ioremap(BASE,SIZE)}}{Memory Managament Unit}
-% \begin{columns}
-%  \begin{column}{6cm}
-%   \fig{memory-map.pdf}{0.625}{0}
-%  \end{column}
-%  \begin{column}{6cm}
-%   \begin{description}
-%    \item[p-mem] Physikalisches Memory
-%    \item[v-mem] Virtuelles Memory
-%    \item[BASE] Page aligned
-%    \item[offset] innerhalb Page
-%    \item[size] Page Size \cod{4kiB = 0x1000}
-%   \end{description}
-%  \end{column}
-% \end{columns}
-%\end{frame}
-%
-%\begin{frame}{Aufgaben}
-% \begin{itemize}
-%  \item NFS Network File System einrichten
-%  \item Das Modul \cod{button.c}
-%  \item Die Probleme mit dem Interrupt
-%  \item Brauche \url{lxr.free-electrons.com/}
-%  \item Codedemo mit modifiziertem Code \cod{kernel/irq/manage.c}
-%  \item \cod{cat /proc/interrupts}
-% \end{itemize}
-%\end{frame}
-\end{document}

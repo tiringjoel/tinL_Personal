@@ -1,29 +1,24 @@
-\begin{frame}{simple-module}{Modul für \host}
- \begin{description}[Makefile]
-  \item[Code]     \cod{scr/simple-module.c}
-%  \item[Makefile] \cod{src/Makefile} von linux Makefile aufgerufen
-  \item[Script]   \cod{tools/module.sh} für einfachen Aufruf
-  \item[Makefile] \cod{src/Makefile} für mehr Module
-  \item[Test]
-      \begin{itemize}
-	\item \cod{dmesg -w}
-        \item \cod{sudo insmod simple-module.ko} wir sind in \cod{src} 
-	\item \cod{lsmod | grep simple} ist installiert
-	\item \cod{sudo rmmod simple-module} deinstalliert
-	\item Der File \url{proc/modules}
-      \end{itemize}
- \end{description}
+
+\begin{frame}{Ziel}{\cod{simple-module.c}}
+ \begin{itemize}
+  \item Herstellung 
+  \item install/deinstall
+  \item elementare call-backs
+ \end{itemize}
 \end{frame}
 
-\begin{frame}{simple-module}{Modul für \targetS}
- \includegraphics[width=\textwidth]{host-target.pdf}
- \begin{textblock}{100}(10,60)
-  \begin{itemize}
-   \item \cod{src/Makefile} anpassen
-   \item \cod{cp src/{\em module} target/home/root}
-   
-  \end{itemize}
- \end{textblock}
+\begin{frame}[fragile]{\src{simple-module.c}}{init/exit}
+ \begin{lstlisting}
+module_init(simple_init); /* register  :called by kernel */
+module_exit(simple_exit); /* deregister:called by kernel */
+ \end{lstlisting}
+ \begin{itemize}
+  \item call-back
+  \item register/deregister
+  \item \cod{printk} wie \cod{printf}
+  \begin{lstlisting}
+    printk(KERN_INFO "%d %x",val1,val2);
+  \end{lstlisting}
+  für debug
+ \end{itemize}
 \end{frame}
-
-
