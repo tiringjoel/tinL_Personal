@@ -7,7 +7,7 @@
 #find ${TC} -executable -type f -exec strip {} \;
 CC=${TC}/bin/${TARGET}-gcc
 ${CC} -dumpversion
-TC_NAME=gcc-${TARGET}-$(${CC} -dumpversion)-$(uname -m)-$(date '+%Y.%m.%d')
+TC_NAME=tc-tinl-gcc-$(${CC} -dumpversion)-$(date '+%Y.%m.%d')
 
 tar -czvf ${BUILD_HOME}/${TC_NAME}.tar.gz --transform="s;./;${TARGET}/;" -C ${BUILD_HOME}/tc .
 

@@ -63,8 +63,14 @@
                  & &\cod{headers\_install}\\
  \hline
  libc 		 & \cod{glibc.sh}\\
- \hline
- toolchain full  & \cod{gcc.sh}\\
+ \end{tabular}
+\end{frame}
+
+\begin{frame}{Build}{Fortsetzung}
+\begin{tabular}{rl|l}
+ 		 &	& args\\
+ \hline \hline
+ toolchain full  & \cod{gcc-target.sh}\\
  \hline
  \unix & \cod{busybox.sh} & [\cod{menuconfig}] \\
        &		  & \cod{busybox}\\
@@ -72,6 +78,8 @@
  & \cod{zlib.sh}\\
  & \cod{openssl.sh}\\
  & \cod{openssh.sh}\\
+ \hline
+ toolchain-host & \cod{gcc-host.sh}\\
  \hline
  Distro & \cod{target-root.sh}\\
  	& \cod{tc.sh}

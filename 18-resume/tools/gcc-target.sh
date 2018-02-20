@@ -1,15 +1,19 @@
 #!/bin/bash
 #-----------------------
-#gcc.sh build
+#gcc-target.sh build
 #(c) H.Buchmann FHNW 2018
 #-----------------------
 . $(dirname ${0})/config.sh
 
 #-------------------- we are in build
-[[ ! -d gcc ]] && mkdir gcc 
-cd gcc
+[[ ! -d gcc-target ]] && mkdir gcc-target
+cd gcc-target
 ${GCC_SRC}/configure \
  --prefix=${TC} \
+ --with-gmp=${TC} \
+ --with-mpfr=${TC} \
+ --with-mpc-include=${TC}/include \
+ --with-mpc-lib=${TC}/lib \
  --target=${TARGET} \
  --disable-nls \
  --disable-werror \

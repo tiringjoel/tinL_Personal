@@ -7,9 +7,13 @@
 . $(dirname ${0})/config.sh  #load common
 [[ ! -d gcc-bare ]] && mkdir gcc-bare
 cd gcc-bare
-
+export LD_LIBRARY_PATH=${TC}/lib
 ${GCC_SRC}/configure \
  --prefix=${TC} \
+ --with-gmp=${TC} \
+ --with-mpfr=${TC} \
+ --with-mpc-include=${TC}/include \
+ --with-mpc-lib=${TC}/lib \
  --target=${TARGET} \
  --disable-nls \
  --disable-werror \
