@@ -21,7 +21,7 @@
 
 \begin{frame}{Um was geht es ?}
  \begin{itemize}
-  \item Code im {\em kernel}: Drivers
+  \item Code für dem {\em kernel}: Drivers
   \item Den {\em kernel} nicht immer neu kompilieren 
   \item Module laden/löschen
  \end{itemize}
@@ -37,6 +37,7 @@
  \end{itemize}
 \end{frame}
 
+\section{Syscalls}
 \begin{frame}{{\em urserspace} vs. {\em kernelspace}}{Systemcalls}
 \begin{center}
 \includegraphics[width=10cm]{userspace-kernelspace.pdf}
@@ -57,6 +58,13 @@
  \end{lstlisting}
 \end{frame}
 
+\subsection{Aufgaben}
+\begin{frame}{Aufgaben}
+ \begin{itemize}
+  \item Systemcall für \host/\targetS mit \c und \cpp
+ \end{itemize}
+\end{frame}
+
 \part{Module}
 \title{Module}
 \frame{\partpage}
@@ -68,11 +76,6 @@
 \section{Aufgaben}
 \begin{frame}{Aufgaben}
  \begin{itemize}
-  \item Systemcall für \host/\targetS
-  \item \url{scr/simple-module.c} für \host/\targetS
-  \begin{itemize}
-   \item Machen Sie eine 'ewige Schlaufe'
-  \end{itemize}
   \item \url{read-device.c} \url{scr/simple-device.c} für \host/\targetS
   \item \url{call-ioctl.c} \url{scr/simple-ioctl.c} für \host/\targetS
 
