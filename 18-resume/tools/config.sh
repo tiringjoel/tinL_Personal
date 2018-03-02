@@ -11,6 +11,7 @@ SIGNATURE=.62052326-ceda-4944-85e9-b8353c8c1d72
 }
 #--------------------------------------- locations of the resources
 RESOURCES=${PWD}/../resources
+U_BOOT_SRC=${RESOURCES}/u-boot-2017.09
 GMP_SRC=${RESOURCES}/gmp-6.1.2
 MPFR_SRC=${RESOURCES}/mpfr-4.0.1
 MPC_SRC=${RESOURCES}/mpc-1.1.0
