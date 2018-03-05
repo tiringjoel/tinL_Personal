@@ -103,9 +103,12 @@ Herr Sondereggers Image
 6.März 2018
 -----------
  25-modules
+ Input/Output in userspace
+
  Verbindung kernelspace <-> userspace
   simple-device
    call-backs
+   das filesystem /sys
 
   simple-ioctl
    Kontrolle von devices via ioctl 
