@@ -1,3 +1,37 @@
+\begin{frame}{ioctl}{Die Kontrolle von Files}
+ \begin{itemize}
+  \item alles ist ein File
+  \begin{itemize}
+   \item besser: ein {\em stream of bits}
+  \end{itemize}
+  \item aber:
+  \begin{itemize}
+   \item der {\em stream of bits} muss kontrolliert/konfiguriert werden
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Typischer Ablauf}
+ \begin{enumerate}
+  \item öffne File: {\em stream of bits} \cod{fid} 
+  \begin{itemize}
+   \item \cod{fid=open(name,mode)}
+  \end{itemize}
+  \item konfiguriere {\em stream of bits}
+  \begin{itemize}
+   \item \cod{ioctl(fid,{\em what},{\em parameter})}
+  \end{itemize}
+  \item lese/schreibe
+  \begin{itemize}
+   \item \cod{read(fid,data,length)}/\cod{write(fid,data,length)}
+  \end{itemize}
+  \item schliesse:
+  \begin{itemize}
+   \item \cod{close(fid)}
+  \end{itemize}
+ \end{enumerate}
+\end{frame}
+
 \begin{frame}{Ziel}{\src{simple-ioctl.c|h} und \src{simple-ioctl-userspace.c}}
  \begin{itemize}
   \item Einstellungen

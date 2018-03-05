@@ -99,3 +99,13 @@ Herr Sondereggers Image
 20.Feb.2018
 -----------
  25-modules revisited
+
+6.März 2018
+-----------
+ 25-modules
+ Verbindung kernelspace <-> userspace
+  simple-device
+   call-backs
+
+  simple-ioctl
+   Kontrolle von devices via ioctl 
