@@ -12,11 +12,14 @@ cd gcc-host
 export LD_LIBRARY_PATH=${TC}/lib
 ${GCC_SRC}/configure \
  --prefix=${TC} \
+ --with-as=${TC}/bin/as \
+ --with-ld=${TC}/bin/ld \
  --with-gmp=${TC} \
  --with-mpfr=${TC} \
  --with-mpc-include=${TC}/include \
  --with-mpc-lib=${TC}/lib \
  --disable-nls \
+ --disable-bootstrap \
  --disable-werror \
  --enable-threads \
  --enable-languages=c,c++\
@@ -30,7 +33,7 @@ ${GCC_SRC}/configure \
  --disable-libgomp \
  --disable-libmudflap 
 
-${MAKE}
-${MAKE} install
+#${MAKE}
+#${MAKE} install
 
 
