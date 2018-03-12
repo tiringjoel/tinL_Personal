@@ -13,25 +13,6 @@
 static int Major = 0;
 
 /* see linux/fs.h */
-static ssize_t simple_read(struct file* src,
-                        char __user *  buffer,
-			size_t len,
-			loff_t* ofs)
-{
- unsigned j=0;  /* index in buffer */
- printk("simple_read len %d= *ofs= %lld buffer*=0x%p\n",len,*ofs,buffer);
- return j;
-}
-
-static ssize_t simple_write(struct file* dst, 
-                     const char __user* buffer, 
-		     size_t len, 
-		     loff_t* ofs)
-{
- printk("simple_write len %d= *ofs= %lld buffer*=0x%p\n",len,*ofs,buffer);
- return len;
-}
-
 static struct file_operations fops =  /* the call backs */
 {
  read :simple_read, /* register call-backs */
