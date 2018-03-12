@@ -37,11 +37,6 @@ static ssize_t simple_read(struct file* src,
  src   =  |  |  |  |  |  |  |  |  |....|  |  |  |  |  |  |  |  |eod|
 */
  printk("simple_read len %d= *ofs= %lld buffer*=0x%p\n",len,*ofs,buffer);
- unsigned rest=MsgLen-*ofs;
- unsigned l=(rest<=len)?rest:len;
- copy_to_user(buffer,Msg+*ofs,l);
- *ofs=*ofs+l;    
- return l;
 }
 
 static ssize_t simple_write(struct file* dst, 
@@ -50,15 +45,6 @@ static ssize_t simple_write(struct file* dst,
 		     loff_t* ofs)
 {
  printk("simple_write len %d= *ofs= %lld buffer*=0x%p\n",len,*ofs,buffer);
-#define TRANSFER 4
- char transfer[TRANSFER];
- unsigned rest=len-*ofs;
- unsigned l=(rest<=TRANSFER)?rest:TRANSFER;
- copy_from_user(transfer,buffer,l);
- *ofs=*ofs+l;
- print_hex_dump(KERN_INFO," ",0,16,1,transfer,l,1);
- return l;
- 
 }
 
 static struct file_operations fops =  /* the call backs */
