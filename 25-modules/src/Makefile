@@ -10,9 +10,9 @@
 #-------------------- add here your modules
 obj-m += simple-module.o 
 obj-m += simple-device.o
+obj-m += simple-device-1.o
+obj-m += simple-device-2.o
+obj-m += simple-device-3.o
+obj-m += simple-device-4.o
+obj-m += simple-device-5.o
 
-all:
-	make V=1  -C${KERNEL} M=${PWD} modules
-clean:
-	make -C${KERNEL}  M=$(PWD) clean
-	rm -f call-ioctl

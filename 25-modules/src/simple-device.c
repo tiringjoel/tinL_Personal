@@ -1,5 +1,5 @@
 /*---------------------------
- simple-device
+ simple-device-5.c
  (c) H.Buchmann FHNW 2018
  ---------------------------*/
 #include <linux/module.h>
@@ -8,68 +8,91 @@
 #include <linux/fs.h>
 #include <linux/string.h> /* not the posix string */
 
-#define DEVICE "simple_device"
+#include <linux/uaccess.h> 
+#include <linux/device.h>
 
-static int Major;  
+#define DEVICE "simple_device-5"
+MODULE_LICENSE ("GPL");
 
- static const char      Msg[] =DEVICE " file='" __FILE__ "' made on: '" "__DATE__" "'\n";
- static const unsigned  MsgLen=sizeof(Msg);  /* incl terminating zero */
+static int Major = 0;
+static struct class*  simple_class=0;
+static struct device* dev         =0;
 
-/*kernelspace  -> userspace*/
+static char Msg[]="Data from kernel-space --A\n"
+                  "Data from kernel-space --B\n"
+                  "Data from kernel-space --C\n"
+                  "Data from kernel-space --D\n"
+                  "Data from kernel-space --E\n"
+                  "End\n";
+static unsigned MsgLen=sizeof(Msg); /* incl. implicit terminating zero */
+
+/* see linux/fs.h */
 static ssize_t simple_read(struct file* src,
                         char __user *  buffer,
 			size_t len,
 			loff_t* ofs)
 {
- unsigned j=0;  /* index in buffer */
- printk("simple_read len %d= *ofs= %lld buffer*=%p\n",len,*ofs,buffer);
+/*
+           0                                                    len
+ buffer = |  |  |  |  |  |  |  |  |....|  |  |  |  |  |  |  |  |eob|
  
-#if 1
- while((j<len)&&(*ofs < MsgLen))
- {
-  
-  buffer[j++]=Msg[(*ofs)++]; 
- }
-#endif
- return j;
+ ofs        0                                                    
+ src   =  |  |  |  |  |  |  |  |  |....|  |  |  |  |  |  |  |  |eod|
+*/
+ printk("simple_read len %d= *ofs= %lld buffer*=0x%p\n",len,*ofs,buffer);
+ unsigned rest=MsgLen-*ofs;
+ unsigned l=(rest<=len)?rest:len;
+ copy_to_user(buffer,Msg+*ofs,l);
+ *ofs=*ofs+l;    
+ return l;
 }
 
-/* userspace -> kernelspace */
 static ssize_t simple_write(struct file* dst, 
                      const char __user* buffer, 
 		     size_t len, 
 		     loff_t* ofs)
 {
- print_hex_dump(KERN_INFO," ",0,16,1,buffer,len,1);
- return len;
+ printk("simple_write len %d= *ofs= %lld buffer*=0x%p\n",len,*ofs,buffer);
+#define TRANSFER 4
+ char transfer[TRANSFER];
+ unsigned rest=len-*ofs;
+ unsigned l=(rest<=TRANSFER)?rest:TRANSFER;
+ copy_from_user(transfer,buffer,l);
+ *ofs=*ofs+l;
+ print_hex_dump(KERN_INFO," ",0,16,1,transfer,l,1);
+ return l;
+ 
 }
 
-/* see linux/fs.h */
 static struct file_operations fops =  /* the call backs */
 {
-  read:simple_read,
- write:simple_write
-#if 0
- open:simple_open,
-#endif 
+ read :simple_read, /* register call-backs */
+ write:simple_write,
 };
-
-
 
 /* register/deregister of module */
 static int __init _init_(void) /* local call-back function */
                         /* the compiler wants this (void) */
 {
+ simple_class=class_create(THIS_MODULE,"simple_device");
  Major = register_chrdev(0, DEVICE, &fops);
- printk(KERN_INFO "init: " DEVICE " Major=%d\n",Major);
+ printk(KERN_INFO "init: " DEVICE " Major=%d simple_class=%p\n",Major,simple_class);
             /*   ^ concatenation */
+ dev   =device_create(simple_class,
+                      0,                 /* no parents */
+                      MKDEV(Major,0),
+                      0,                 /* no driverd-data */
+                      "simple_device%d",  /* a la printf */
+                      0);
  return 0;
 }
 
 static void __exit _exit_(void) /* local call-back function */
                         /* the compiler wants this (void) */
 {
+ device_destroy(simple_class,MKDEV(Major,0));
  unregister_chrdev(Major,DEVICE);
+ class_destroy(simple_class);
  printk(KERN_INFO "exit: " DEVICE "\n");
 }
 
