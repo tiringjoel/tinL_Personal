@@ -1,0 +1,29 @@
+\subsection{simple-device-5.c}
+\begin{frame}{\cod{simple-device-5.c}}{Verbindung mit {\em userspace}: \cod{/sys}}
+ \begin{itemize}
+  \item {\em kernel-space}
+  \begin{itemize}
+   \item init: \cod{device\_create},\cod{KDEV(Major,0)}
+   \item exit: \cod{device\_destroy}
+  \end{itemize}
+  \item {\em user-space}
+  \begin{itemize}
+   \item \cod{ls /sys/class/simple\_device}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Die Reihenfolge}
+\begin{block}{Beim \cod{init}}
+\begin{lstlisting}
+ simple_class=class_create(...);
+ Major       = register_chrdev(...);
+ dev         =device_create(...);
+\end{lstlisting}
+\end{block}
+\begin{block}{Beim \cod{exit}}
+ \begin{itemize}
+  \item Umgekehrt
+ \end{itemize}
+\end{block}
+\end{frame} 

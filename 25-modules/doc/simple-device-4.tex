@@ -1,0 +1,17 @@
+\subsection{simple-device-4.c}
+\begin{frame}{\cod{simple-device-4.c}}{Verbindung mit {\em userspace}: \cod{/sys}}
+\begin{itemize}
+ \item {\em kernel-space}
+ \begin{itemize}
+  \item \cod{MODULE\_LICENSE ("{}GPL"{})}
+  \item init: \cod{simple\_module=class\_create(THIS\_MODULE,"{}simple\_device"{})}
+  \item exit: \cod{class\_destroy(simple\_class)}
+ \end{itemize}
+ \item {\em user-space}
+ \begin{itemize}
+  \item \cod{ls /sys/class}
+ \end{itemize}
+ \item noch keine Informationen in \cod{/sys/class/simple\_device}
+\end{itemize}
+\end{frame}
+

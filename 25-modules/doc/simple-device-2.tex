@@ -1,0 +1,35 @@
+\subsection{simple-device-2.c}
+\begin{frame}{\cod{simple-device-2.c}}{empty read/write}
+ \begin{itemize}
+  \item {\em kernel-space}
+  \begin{itemize}
+  \item \cod{file\_operations}: read/write
+  \begin{itemize}
+   \item mit \cod{printk} call-back anzeigen
+  \end{itemize}
+  \item verschiedene \cod{return} Werte für read/write
+  \end{itemize}
+  \item {\em user-space}
+  \begin{itemize}
+  \item \cod{mknod device c {\em Major} 0} 
+  \item read: \cod{cat device}
+  \item write wenig Bytes \cod{echo abcd > device} 
+  \item viel Bytes \cod{cat file > device}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Code}
+ \begin{lstlisting}
+ printk("simple_read len=%d= *ofs= %lld buffer*=0x%p\n",
+                         len,      *ofs,          buffer);
+ \end{lstlisting}
+\remark{wie \cod{printf} im \usp}
+\begin{lstlisting}
+static struct file_operations fops =  /* the call backs */
+{
+ read :simple_read, /* register call-backs */
+ write:simple_write,
+};
+\end{lstlisting}
+\end{frame}

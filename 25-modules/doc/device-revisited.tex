@@ -15,6 +15,9 @@
 \begin{document}
 
 
+\newcommand{\ksp}{{\em kernel-space}}
+\newcommand{\usp}{{\em user-space}}
+
 \title[Devices revisited]{Devices revisited}
 
 \frame{\titlepage}
@@ -23,7 +26,7 @@
  \begin{itemize}
   \item Verbindung 
   \begin{itemize}
-   \item {\em kernel-space} $\leftrightarrow$ {\em user-space}
+   \item \ksp $\leftrightarrow$ \usp
   \end{itemize}
   \item call-backs
   \begin{itemize}
@@ -50,7 +53,7 @@
    \item {\em major} {\em minor}
    \item \cod{devicefile} $=$ {\em major} {\em minor}
   \end{itemize}
-  \item {\em kernel-space} $\leftrightarrow$ {\bf devicefile} $\leftrightarrow$ {\em user-space}
+  \item \ksp $\leftrightarrow$ {\bf devicefile} $\leftrightarrow$ \usp
  \end{itemize}
 \end{frame}
 
@@ -92,77 +95,41 @@ start				& \\
 \end{tabular}
 \end{frame}
 
-\begin{frame}{\cod{simple-device-1.c}}
-  \begin{itemize}
-   \item init/exit
-   \item \cod{struct file\_operations fops;}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{\cod{simple-device-2.c}}{empty read/write}
+\section{simple-device-*.c:Schritt für Schritt}
+\begin{frame}{\cod{simple-device-*.c}}{Schritt für Schritt}
  \begin{itemize}
-  \item {\em kernel-space}
+  \item \cod{simple-device-1.c}:
   \begin{itemize}
-  \item \cod{file\_operations}: read/write
-  \begin{itemize}
-   \item mit \cod{printk} call-back anzeigen
+   \item debug mit \cod{printk}
+   \item call-back: init/exit
+   \item \cod{struct file\_operations}
   \end{itemize}
-  \end{itemize}
-  \item {\em user-space}
+  \item \cod{simple-device-2.c}:
   \begin{itemize}
-  \item \cod{mknod device c {\em Major} 0} 
-  \item read: \cod{cat device}
-  \item write: \cod{echo abcd > device}
+   \item call-back: \cod{read/write} fast ohne code
+   \item device File: Verbindung 
+  \end{itemize}
+  \item \cod{simple-device-3.c}:
+  \begin{itemize}
+   \item das Zusammenspiel der Parameter: \cod{len} und \cod{ofs}
+  \end{itemize}
+  \item \cod{simple-device-3.c}
+  \begin{itemize}
+   \item Verbindung mit \usp, das Verzeichnis \cod{/sys}
   \end{itemize}
  \end{itemize}
 \end{frame}
 
-\begin{frame}{\cod{simple-device-3.c}}{read/write}
-\begin{center}
-\includegraphics[height=0.375\textheight]{user-kernel-space-copy.pdf}
-\end{center}
-\begin{itemize}
+\input{simple-device-1.tex}
 
- \item read/write:
- \begin{itemize}
-  \item \cod{copy\_to\_user}/\cod{copy\_from\_user}
-  \item das Zusammenspiel:
-  \begin{itemize}
-   \item \cod{len}m\cod{*ofs}
-  \end{itemize}
- \end{itemize}
-\end{itemize}
-\end{frame}
+\input{simple-device-2.tex}
 
-\begin{frame}{\cod{simple-device-4.c}}{Verbindung mit {\em userspace}: \cod{/sys}}
-\begin{itemize}
- \item {\em kernel-space}
- \begin{itemize}
-  \item \cod{MODULE\_LICENSE ("{}GPL"{})}
-  \item init: \cod{simple\_module=class\_create(THIS\_MODULE,"{}simple\_device"{})}
-  \item exit: \cod{class\_destroy(simple\_class)}
- \end{itemize}
- \item {\em user-space}
- \begin{itemize}
-  \item \cod{ls /sys/class}
- \end{itemize}
- \item noch keine Informationen in \cod{/sys/class/simple\_device}
-\end{itemize}
-\end{frame}
+\input{simple-device-3.tex}
 
-\begin{frame}{\cod{simple-device-5.c}}{Verbindung mit {\em userspace}: \cod{/sys}}
- \begin{itemize}
-  \item {\em kernel-space}
-  \begin{itemize}
-   \item init: \cod{device\_create},\cod{KDEV(Major,0)}
-   \item exit: \cod{device\_destroy}
-  \end{itemize}
-  \item {\em user-space}
-  \begin{itemize}
-   \item \cod{ls /sys/class/simple\_device}
-  \end{itemize}
- \end{itemize}
-\end{frame}
+\input{simple-device-4.tex}
+
+\input{simple-device-5.tex}
+
 
 \begin{frame}{hotplug}
 \end{frame}

@@ -1,0 +1,43 @@
+\subsection{simple-device-1.c}
+\begin{frame}{\cod{simple-device-1.c}}
+  \begin{itemize}
+   \item init/exit
+   \item \cod{struct file\_operations fops;}
+   \item include file: \cod{linux/fs.h} im kernel code
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}[fragile]{Code}{\cod{linux/fs.h}}
+\begin{lstlisting}
+struct file_operations {
+/* ... */
+ ssize_t (*read) (struct file *, 
+                  char __user *, 
+                  size_t, 
+                  loff_t *);
+ ssize_t (*write) (struct file *, 
+                   const char __user *, 
+                   size_t, 
+                   loff_t *);
+ /*... */
+} __randomize_layout;
+\end{lstlisting}
+\remark{Was ist \cod{\_\_randomize\_layout} ?}
+\end{frame}
+
+\begin{frame}[fragile]{Code}
+\begin{lstlisting}
+/* the call backs defined and **initialized** */
+static struct file_operations fops =  
+{
+ /* do nothing for the moment*/
+};
+
+/* init */
+ Major = register_chrdev(0, DEVICE, &fops);
+/* exit */
+ unregister_chrdev(Major,DEVICE);
+
+  \end{lstlisting}
+\end{frame}
