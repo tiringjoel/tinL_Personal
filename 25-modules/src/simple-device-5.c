@@ -1,6 +1,7 @@
 /*---------------------------
  simple-device-5.c
  (c) H.Buchmann FHNW 2018
+  solution
  ---------------------------*/
 #include <linux/module.h>
 #include <linux/kernel.h>
