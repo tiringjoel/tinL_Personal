@@ -1,0 +1,35 @@
+\subsection{Socket}
+\begin{frame}{Socket}{Endpunkt: Buchse einer Verbindung}
+ \begin{itemize}
+  \item empfängt/sendet Bytes
+  \item verschiedene Typen
+  \begin{itemize}
+   \item Internet 
+   \item Verbindung vom {\em kernel}
+   \item \cod{netstat}
+  \end{itemize}
+  \item Alles ist ein File
+  \item Alles ist ein Socket
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Socket}
+ \begin{itemize}
+  \item Kernel: \ksp entdeckt ein neues Gerät
+  \item sendet Daten an einen Socket: 
+  \item User:\usp liest die Daten
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Beispiel}{\cod{uevent-userspace.c}}
+ \begin{itemize}
+  \item \c 
+  \item funktioniert auch auf dem \host
+  \item Schöne Ausgabe
+  \begin{itemize}
+   \item \cod{./uevent-userspace | ./split}
+  \end{itemize}
+ \end{itemize}
+\end{frame}

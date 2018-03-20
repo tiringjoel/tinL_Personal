@@ -15,8 +15,8 @@
 \begin{document}
 
 
-\newcommand{\ksp}{{\em kernel-space}}
-\newcommand{\usp}{{\em user-space}}
+\newcommand{\ksp}{{\em kernel-space}\xspace}
+\newcommand{\usp}{{\em user-space}\xspace}
 
 \title[Devices revisited]{Devices revisited}
 
@@ -113,9 +113,13 @@ start				& \\
   \begin{itemize}
    \item das Zusammenspiel der Parameter: \cod{len} und \cod{ofs}
   \end{itemize}
-  \item \cod{simple-device-3.c}
+  \item \cod{simple-device-4.c}
   \begin{itemize}
-   \item Verbindung mit \usp, das Verzeichnis \cod{/sys}
+   \item Verbindung mit \usp, das Verzeichnis \cod{/sys/class}
+  \end{itemize}
+  \item \cod{simple-device-5.c}
+  \begin{itemize}
+   \item Verbindung mit \usp, das Verzeichnis \cod{/sys/class/simple-device/*}
   \end{itemize}
  \end{itemize}
 \end{frame}
@@ -130,7 +134,8 @@ start				& \\
 
 \input{simple-device-5.tex}
 
+\section{Notification}
 
-\begin{frame}{hotplug}
-\end{frame}
+\input{notification.tex}
+
 \end{document}

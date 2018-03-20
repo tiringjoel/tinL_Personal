@@ -1,0 +1,40 @@
+\begin{frame}{Notification}{call-back:\ksp $\to$ \usp}
+ \begin{itemize}
+  \item Kernel: \ksp entdeckt ein neues Gerät
+  \item Informiert (notify) User \usp: neues Gerät 
+  \item User: \usp zieht die Konsequenzen 
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Beispiel}{\cod{udevadm monitor}}
+\begin{itemize}
+ \item \cod{udevadm monitor -k}
+
+{\tiny
+\begin{verbatim}
+KERNEL[4377.896571] add  /devices/pci0000:00/0000:00:14.0/usb3/3-4 (usb)
+KERNEL[4377.896887] add  /devices/pci0000:00/0000:00:14.0/usb3/3-4/3-4:1.0 (usb)
+KERNEL[4377.899345] add  /devices/pci0000:00/0000:00:14.0/usb3/3-4/3-4:1.0/ttyUSB0 (usb-serial)
+KERNEL[4377.899434] add  /devices/pci0000:00/0000:00:14.0/usb3/3-4/3-4:1.0/ttyUSB0/tty/ttyUSB0 (tty)
+KERNEL[4377.899470] bind /devices/pci0000:00/0000:00:14.0/usb3/3-4/3-4:1.0/ttyUSB0 (usb-serial)
+KERNEL[4377.899513] bind /devices/pci0000:00/0000:00:14.0/usb3/3-4/3-4:1.0 (usb)
+KERNEL[4377.899584] bind /devices/pci0000:00/0000:00:14.0/usb3/3-4 (usb)
+\end{verbatim}
+}
+\item \cod{udevadm monitor -kp}
+\begin{itemize}
+ \item mehr Informationen
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Unser Ziel}{die Basismechanismen}
+ \begin{itemize}
+  \item hotplug
+  \item socket \cod{NETLINK\_KOBJECT\_UEVENT}
+ \end{itemize}
+\end{frame}
+
+\input{hotplug.tex}
+
+\input{netlink-socket.tex}

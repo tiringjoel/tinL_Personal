@@ -3,7 +3,7 @@
  \begin{itemize}
   \item {\em kernel-space}
   \begin{itemize}
-   \item init: \cod{device\_create},\cod{KDEV(Major,0)}
+   \item init: \cod{device\_create}, \cod{MKDEV(Major,0)}
    \item exit: \cod{device\_destroy}
   \end{itemize}
   \item {\em user-space}
@@ -11,6 +11,28 @@
    \item \cod{ls /sys/class/simple\_device}
   \end{itemize}
  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Code}
+\begin{lstlisting}
+struct device *device_create(struct class *cls, 
+                             struct device *parent,
+			     dev_t devt, 
+                             void *drvdata,
+			     const char *fmt, ...);
+
+void device_destroy(struct class *cls, 
+                    dev_t devt);
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Die Files}{\cod{/sys/class/simple\_device/simple\_device0/}}
+\begin{itemize}
+ \item der File
+ \begin{itemize}
+  \item \cod{uevent}
+ \end{itemize}
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Die Reihenfolge}

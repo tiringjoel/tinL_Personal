@@ -1,0 +1,47 @@
+\subsection{Hotplug}
+\begin{frame}{Hotplug}{/proc/sys/kernel/hotplug}
+ \begin{itemize}
+  \item Kernel: \ksp entdeckt ein neues Gerät
+  \item Informiert (notify) User \usp: neues Gerät 
+  \begin{itemize}
+   \item call-back: \cod{/proc/sys/kernel/hotplug}
+   \begin{itemize}
+    \item enthält \usp executable
+   \end{itemize}
+  \end{itemize}
+ \end{itemize}
+ \remark{Kernel muss für {\em hotplug} konfiguriert sein}
+\end{frame}
+
+{
+\begin{frame}[fragile]{Beispiel}{ein Skript im \usp}
+\begin{lstlisting}[language=bash]
+#!/bin/ash 
+#---------------------
+#my-hotplug.sh
+#(c) H.Buchmann FHNW 2018
+#---------------------
+echo "{----- my-hotplug ---- ${@}" >> /home/root/my-hotplug.log
+env >> /home/root/my-hotplug.log
+echo "----- my-hotplug ---- }" >> /home/root/my-hotplug.log
+\end{lstlisting}
+\begin{itemize}
+ \item \cod{chmod a+x my-hotplug.sh} :executable
+ \item \cod{echo /home/root/my-hotplug.sh > /proc/sys/kernel/hotplug}
+\end{itemize}
+\end{frame}
+}
+
+\begin{frame}{Test}
+ \begin{itemize}
+  \item shell1: 
+  \begin{itemize}
+   \item \cod{tail -f //home/root/my-hotplug.log}
+  \end{itemize}
+  \item shell2:
+   \begin{itemize}
+    \item \cod{insmod simple-device-5.ko}
+    \item \cod{rmmod simple-device-5.ko}
+   \end{itemize}
+ \end{itemize}
+\end{frame}
