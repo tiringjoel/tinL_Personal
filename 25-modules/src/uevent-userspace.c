@@ -16,6 +16,7 @@ static struct sockaddr_nl nls;
 
 int main(int argc,char** args)
 {
+/*---------------------------------  initialize */
  int fd = socket(PF_NETLINK, SOCK_RAW, NETLINK_KOBJECT_UEVENT);
  perror("socket");
  
@@ -26,10 +27,11 @@ int main(int argc,char** args)
 
  int res = bind(fd, (struct sockaddr *)&nls, sizeof(nls));
  perror("bind");
- 
+
+/*---------------------------------  listen */ 
  while(1)
  {
-  int len=recv(fd, buf, sizeof(buf), 0);
+  int len=recv(fd, buf, sizeof(buf), 0); //listen the read of sockets
   if (len>0)
      {
       write(STDOUT_FILENO,buf,len);

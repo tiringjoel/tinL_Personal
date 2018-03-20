@@ -1,7 +1,7 @@
 /*---------------------------
  simple-device-4.c
  (c) H.Buchmann FHNW 2018
- solution
+ your work
  ---------------------------*/
 #include <linux/module.h>
 #include <linux/kernel.h>
@@ -74,7 +74,6 @@ static struct file_operations fops =  /* the call backs */
 static int __init _init_(void) /* local call-back function */
                         /* the compiler wants this (void) */
 {
- Major = register_chrdev(0, DEVICE, &fops);
  printk(KERN_INFO "init: " DEVICE " Major=%d\n",Major);
             /*   ^ concatenation */
  return 0;
@@ -83,7 +82,6 @@ static int __init _init_(void) /* local call-back function */
 static void __exit _exit_(void) /* local call-back function */
                         /* the compiler wants this (void) */
 {
- class_destroy(simple_class);
  printk(KERN_INFO "exit: " DEVICE "\n");
 }
 

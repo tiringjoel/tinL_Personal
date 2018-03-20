@@ -1,7 +1,7 @@
 /*---------------------------
- simple-device-1.c
+ simple-device-2.c
  (c) H.Buchmann FHNW 2018
- solution
+ your work
  ---------------------------*/
 #include <linux/module.h>
 #include <linux/kernel.h>
@@ -19,9 +19,6 @@ static ssize_t simple_read(struct file* src,
 			size_t len,
 			loff_t* ofs)
 {
- unsigned j=0;  /* index in buffer */
- printk("simple_read len %d= *ofs= %lld buffer*=0x%p\n",len,*ofs,buffer);
- return j;
 }
 
 static ssize_t simple_write(struct file* dst, 
@@ -29,14 +26,12 @@ static ssize_t simple_write(struct file* dst,
 		     size_t len, 
 		     loff_t* ofs)
 {
- printk("simple_write len %d= *ofs= %lld buffer*=0x%p\n",len,*ofs,buffer);
- return len;
 }
 
 static struct file_operations fops =  /* the call backs */
 {
- read :simple_read, /* register call-backs */
- write:simple_write,
+/* register call-backs */
+
 };
 
 /* register/deregister of module */

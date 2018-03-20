@@ -1,7 +1,7 @@
 /*---------------------------
  simple-device-5.c
  (c) H.Buchmann FHNW 2018
-  solution
+  your work
  ---------------------------*/
 #include <linux/module.h>
 #include <linux/kernel.h>
@@ -76,24 +76,14 @@ static int __init _init_(void) /* local call-back function */
                         /* the compiler wants this (void) */
 {
  simple_class=class_create(THIS_MODULE,"simple_device");
- Major = register_chrdev(0, DEVICE, &fops);
  printk(KERN_INFO "init: " DEVICE " Major=%d simple_class=%p\n",Major,simple_class);
             /*   ^ concatenation */
- dev   =device_create(simple_class,
-                      0,                 /* no parents */
-                      MKDEV(Major,0),
-                      0,                 /* no driverd-data */
-                      "simple_device%d",  /* a la printf */
-                      0);
  return 0;
 }
 
 static void __exit _exit_(void) /* local call-back function */
                         /* the compiler wants this (void) */
 {
- device_destroy(simple_class,MKDEV(Major,0));
- unregister_chrdev(Major,DEVICE);
- class_destroy(simple_class);
  printk(KERN_INFO "exit: " DEVICE "\n");
 }
 
