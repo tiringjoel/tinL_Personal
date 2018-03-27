@@ -13,9 +13,10 @@
 
 #---------------------- for target system
 PREFIX=arm-linux-gnueabihf
-export KERNEL=${PWD}/../18-resume/build/kernel
+#export KERNEL=${PWD}/kernel-devel
+export KERNEL=${PWD}/../18-resume/kernel-devel/
 make  -j $(getconf _NPROCESSORS_ONLN) -C ${KERNEL} \
      ARCH=arm \
-     V=1 \
+     V=0 \
      CROSS_COMPILE=${PWD}/tc/bin/${PREFIX}- \
      M=${PWD}/src $@

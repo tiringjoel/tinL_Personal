@@ -3,8 +3,18 @@
  \begin{itemize}
   \item {\em kernel-space}
   \begin{itemize}
-   \item init: \cod{device\_create}, \cod{MKDEV(Major,0)}
-   \item exit: \cod{device\_destroy}
+   \item init: 
+   \begin{itemize}
+    \item \href{https://elixir.bootlin.com/linux/latest/source/include/linux/device.h\#L1201}
+               {\cod{device\_create}}
+    \item \href{https://elixir.bootlin.com/linux/latest/source/include/linux/kdev_t.h\#L12}
+               {\cod{MKDEV(Major,0)}}        
+   \end{itemize}
+   \item exit: 
+   \begin{itemize}
+   \item  \href{https://elixir.bootlin.com/linux/latest/source/include/linux/device.h\#L1209}
+               {\cod{device\_destroy}}
+   \end{itemize}
   \end{itemize}
   \item {\em user-space}
   \begin{itemize}

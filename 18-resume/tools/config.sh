@@ -27,6 +27,9 @@ RSYNC_SRC=${RESOURCES}/rsync-3.1.2
 U_BOOT_SRC=${RESOURCES}/u-boot-2017.09/
 #--------------------------------------- locations here
 BUILD_HOME=${PWD}
+KERNEL_BUILD=${PWD}/build/kernel
+KERNEL_DEVEL=${PWD}/kernel-devel
+
 TARGET=arm-linux-gnueabihf
 TARGET_ROOT=${PWD}/target-root
 TC=${PWD}/tc

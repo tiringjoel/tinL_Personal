@@ -5,3 +5,4 @@ modules/*.cmd
 *.tar.gz
 *.img
 target-devel
+kernel-devel/

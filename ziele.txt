@@ -124,3 +124,12 @@ Herr Sondereggers Image
 ------------
 25-modules
   simple-device-*
+
+27.März 2018
+------------
+ 25-modules
+  
+  simple-device-3.c auch auf dem Target
+   kernel-devel auf https://drive.switch.ch/index.php/s/A6H382zEGDrgfAL
+  simple-device-4/5
+  userspace notification
