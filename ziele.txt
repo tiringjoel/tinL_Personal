@@ -133,3 +133,19 @@ Herr Sondereggers Image
    kernel-devel auf https://drive.switch.ch/index.php/s/A6H382zEGDrgfAL
   simple-device-4/5
   userspace notification
+
+3.April 2018
+------------
+ Osterferien
+
+10.April 2018
+-------------
+  -kernel-devel auf https://drive.switch.ch/index.php/s/A6H382zEGDrgfAL
+  Folien device-revisited.pdf
+   p15 ff
+  -simple-device-4/5
+  -userspace notification
+   2 Arten
+   .Hotplug
+   .Socket
+
