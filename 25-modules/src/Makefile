@@ -15,4 +15,8 @@ obj-m += simple-device-2.o
 obj-m += simple-device-3.o
 obj-m += simple-device-4.o
 obj-m += simple-device-5.o
+obj-m += sysfs.o
+obj-m += sysfs-device.o
+
+
 

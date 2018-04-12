@@ -15,11 +15,12 @@
 
 #---------------------- for target system
 PREFIX=arm-linux-gnueabihf
-#export KERNEL=${PWD}/kernel-devel
-DOCKER=${HOME}/devel/docker/
-export KERNEL=${DOCKER}/kernel-devel
+export KERNEL=${PWD}/../18-resume/build/kernel/
+#DOCKER=${HOME}/devel/docker/
+#export KERNEL=${DOCKER}/kernel-devel
+
 make  -j $(getconf _NPROCESSORS_ONLN) -C ${KERNEL} \
      ARCH=arm \
      V=0 \
-     CROSS_COMPILE=${DOCKER}/tc/bin/${PREFIX}- \
+     CROSS_COMPILE=${PWD}/tc/bin/${PREFIX}- \
      M=${PWD}/src $@
