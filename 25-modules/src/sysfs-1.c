@@ -13,34 +13,14 @@
 static struct kobject* kobj=0;
 
 
-static ssize_t m_show(struct kobject *kobj, 
-               struct kobj_attribute *attr,
-               char *buf)
+static struct attribute attr=
 {
- printk("m_show\n");
- return 0;
-}
-
-static ssize_t m_store(struct kobject *kobj, 
-                struct kobj_attribute *attr,
-	        const char *buf, size_t count)
-{
- printk("m_store\n");
- print_hex_dump(""," ",0,16,1,buf,count,1);
- return count;
-}
-
-struct kobj_attribute kobj_attr=__ATTR(file,0644,m_show,m_store);
+};
 
 static int __init _init_(void) 
 {
  printk("init: >>>sysfs-1<<<\n");
- kobj=kobject_create_and_add("my-kobj",
-                              0); /* in /sys */
-
- int res=sysfs_create_file(kobj,
-                          &kobj_attr.attr
-                          );
+ int res=0;
  printk("sysfs_create_file res=%d\n",res);
  return 0;
 }
