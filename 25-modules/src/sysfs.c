@@ -13,7 +13,7 @@ static struct kobject* kobj=0;
 
 static ssize_t m_show(struct kobject* kobj,
                      struct kobj_attribute* attr,
-                     char* buff) /* capacity PAGE_SIZE
+                     char* buff) /* capacity PAGE_SIZE */
 {
  printk("m_show buff=0x%p\n",buff);
  buff[0]='1';
