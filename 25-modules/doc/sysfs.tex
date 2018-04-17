@@ -1,0 +1,126 @@
+%-------------------------
+%device-revisited.tex
+%(c) H.Buchmann FHNW 2018
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\input{/home/buchmann/latex/dirtree/dirtree.tex}
+\usepackage{svg}
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+
+\newcommand{\ksp}{{\em kernel-space}\xspace}
+\newcommand{\usp}{{\em user-space}\xspace}
+
+\title[sysfs]{Das Filesystem \\\cod{sysfs}}
+
+\frame{\titlepage}
+
+\begin{frame}{Um was geht es ?}{\cod{/sys}: die Verbindung \usp $\leftrightarrow$ \ksp}
+\dirtree{%
+.1 / \DTcomment{root}.
+.2 sys.
+.3 {...} \DTcomment{ziemlich tiefe Verzeichnisstruktur}.
+}
+ \begin{itemize}
+  \item \ksp
+  \begin{itemize}
+    \item erzeut Verzeichnisse und Files
+    \item notifiziert: call-back
+  \end{itemize} 
+  \item \usp
+  \begin{itemize}
+   \item reagiert 
+   \item liest/schreibt auf Files
+  \end{itemize} 
+ \end{itemize} 
+ \begin{block}{Info}
+ \begin{itemize}
+  \item \cod{Documentation/filesystems/sysfs.txt}
+  \item \url{lxr.free-electrons.com}
+ \end{itemize}
+ \end{block}
+\end{frame}
+
+
+\begin{frame}{Beispiele}
+ \begin{itemize}
+  \item \cod{/sys/class/hwmon}
+  \item \cod{/sys/class/leds}
+  \item \cod{/sys/class/backlight}
+  \item \cod{/sys/class/rtc}
+ \end{itemize}
+ \remark{Vorsicht}
+\end{frame}
+
+\begin{frame}{Unsere Module}
+ \begin{itemize}
+  \item \cod{sysfs-0.c} erzeugt Directory in \cod{/sys}
+  \item \cod{sysfs-1.c} erzeugt File
+  \item \cod{sysfs-2.c} read/write
+  \begin{itemize}
+   \item call-backs
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\cod{sysfs-0.c}}{erzeugt Directory in \cod{/sys}}
+ \begin{itemize}
+  \item \href{https://elixir.bootlin.com/linux/latest/source/include/linux/kobject.h\#L98}
+             {\cod{kobject\_create\_and\_add}}
+  \item \href{https://elixir.bootlin.com/linux/latest/source/include/linux/kobject.h\#L114}
+             {\cod{kobject\_put}}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\cod{sysfs-1.c}}{erzeugt File}
+\begin{itemize}
+ \item \href{https://elixir.bootlin.com/linux/latest/source/include/linux/sysfs.h\#L496}
+            {\cod{sysfs\_create\_file}}
+ \item \href{https://elixir.bootlin.com/linux/latest/source/include/linux/sysfs.h\#L30}
+            {\cod{attribute}}
+ \end{itemize}
+ \begin{block}{Initialisierung von \cod{structs}}
+\begin{lstlisting}
+static struct attribute attr=
+{
+ name: ...., /* some reasonable value */
+ mode: ....  /* some reasonable value */
+};
+\end{lstlisting}
+ \end{block}
+ \begin{block}{Read/Write}
+  \begin{itemize}
+   \item \cod{cat cat /sys/my-kobj/file}
+   \item \cod{echo abc >  /sys/my-kobj/file}
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{\cod{sysfs-2.c}}{read/write}
+\begin{itemize}
+ \item \href{https://elixir.bootlin.com/linux/latest/source/include/linux/kobject.h\#L142}
+            {kobj\_attribute}
+ \item call-back           
+\end{itemize}
+\begin{lstlisting}
+struct kobj_attribute {
+       struct attribute attr;
+       ssize_t (*show)(struct kobject *kobj, 
+                       struct kobj_attribute *attr,
+		       char *buf);
+       ssize_t (*store)(struct kobject *kobj, 
+                        struct kobj_attribute *attr,
+			const char *buf, size_t count);
+};
+\end{lstlisting} 
+
+\end{frame}
+
+\end{document}
