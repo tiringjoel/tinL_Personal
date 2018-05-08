@@ -149,3 +149,12 @@ Herr Sondereggers Image
    .Hotplug
    .Socket
 
+17.April 2018
+-------------
+-das Filesystem sysfs
+ die Verbindung zum kernel
+
+8.Mai 2018
+----------
+ 26-hw
+ 
