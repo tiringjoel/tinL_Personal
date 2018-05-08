@@ -8,6 +8,6 @@
 #KERNEL=/lib/modules/4.14.9-1-ARCH/build/
 #KERNEL=${PWD}/../../5-kernel/build
 #-------------------- add here your modules
-obj-m += gpio-0.o 
+obj-m += gpio-0.o gpio-1.o   
 
 
