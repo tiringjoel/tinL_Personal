@@ -69,6 +69,7 @@
 \end{frame}
 
 \section{LKM}
+\subsection{linux/gpio.h}
 \begin{frame}{Loadable Kernel Module (LKM)}{\cod{gpio-0.c}}
  \begin{itemize}
   \item eigenes Verzeichnis in  \cod{sys}: \cod{my-hw}
@@ -103,4 +104,15 @@
 \end{itemize}     
 \end{frame}
 
+\subsection{Direkt GPIO}
+\begin{frame}{Loadable Kernel Module (LKM)}{\cod{gpio-1.c}}
+\begin{itemize}
+ \item Manual \cod{spruh73l.pdf} Abschnitt 25
+ \item \cod{gpio.h} die einzelnen Register
+ \item \href{https://elixir.bootlin.com/linux/latest/source/arch/alpha/include/asm/io.h\#L286}
+            {\cod{ioremap}}
+ \item \href{https://elixir.bootlin.com/linux/latest/source/arch/alpha/include/asm/io.h\#L306}
+            {\cod{iounmap}}        
+\end{itemize}
+\end{frame}
 \end{document}
