@@ -42,34 +42,12 @@
 {\tiny \copyright \url[http]{derekmolloy.ie/kernel-gpio-programming-buttons-and-leds}}
 \end{frame}
 
-\section{\usp}
-\begin{frame}{Vom \usp aus}{In Verzeichnis \cod{/sys/class/gpio}}
-\begin{itemize}
- \item Output \cod{gpio49}
- \begin{itemize}
- \item \cod{cd gpio49}
- \item \cod{echo out > direction}
- \item \cod{echo 1 > value} \cod{echo 0 > value}
- \end{itemize}
- \item Input \cod{gpio115}
- \begin{itemize}
-  \item entsprechend
- \end{itemize} 
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Aufgabe}{Skript}
- \begin{itemize}
-  \item blink
-  \item Polling
-  \begin{itemize}
-   \item read switch set led
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
-\section{LKM}
-\subsection{linux/gpio.h}
+\part{\usp}
+\frame{\partpage}
+\input{user-space.tex}
+\part{LKM}
+\frame{\partpage}
+\section{linux/gpio.h}
 \begin{frame}{Loadable Kernel Module (LKM)}{\cod{gpio-0.c}}
  \begin{itemize}
   \item eigenes Verzeichnis in  \cod{sys}: \cod{my-hw}
@@ -104,15 +82,6 @@
 \end{itemize}     
 \end{frame}
 
-\subsection{Direkt GPIO}
-\begin{frame}{Loadable Kernel Module (LKM)}{\cod{gpio-1.c}}
-\begin{itemize}
- \item Manual \cod{spruh73l.pdf} Abschnitt 25
- \item \cod{gpio.h} die einzelnen Register
- \item \href{https://elixir.bootlin.com/linux/latest/source/arch/alpha/include/asm/io.h\#L286}
-            {\cod{ioremap}}
- \item \href{https://elixir.bootlin.com/linux/latest/source/arch/alpha/include/asm/io.h\#L306}
-            {\cod{iounmap}}        
-\end{itemize}
-\end{frame}
+\input{direct-gpio.tex}
+\input{interrupt.tex}
 \end{document}

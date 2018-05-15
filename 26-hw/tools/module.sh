@@ -18,6 +18,6 @@ export KERNEL=${PWD}/../18-resume/build/kernel/
 
 make  -j $(getconf _NPROCESSORS_ONLN) -C ${KERNEL} \
      ARCH=arm \
-     V=0 \
+     V=1 \
      CROSS_COMPILE=${PWD}/tc/bin/${PREFIX}- \
      M=${PWD}/src $@
