@@ -164,3 +164,10 @@ Herr Sondereggers Image
  26-hw
   direct-gpio
   interrupts
+
+22.Mai 2018
+-----------
+ 26-hw
+  interrupts
+  interrupts->kernelspace->userspace
+
