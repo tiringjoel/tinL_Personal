@@ -29,11 +29,14 @@ ${GCC_SRC}/configure \
  --disable-multilib \
  --disable-libgomp \
  --disable-libmudflap \
- --with-float=hard \
- --with-arch=armv7-a 
+
+
+# --with-float=hard \
+# --with-arch=armv7-a 
 
 ${MAKE}
 ${MAKE} install
+
 
 #---------------------------- copy libraries
 cp ${TC}/${TARGET}/lib/{libstdc++.so.6.0.24,libgcc_s.so.1} ${TARGET_ROOT}/usr/lib

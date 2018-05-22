@@ -27,9 +27,11 @@ ${GCC_SRC}/configure \
  --disable-libgomp \
  --disable-libmudflap \
  --without-headers \
- --with-arch=armv7-a \
- --with-fpu=vfpv3-d16 \
- --with-float=hard
+
+
+# --with-arch=armv7-a \
+# --with-fpu=vfpv3-d16 \
+# --with-float=hard
 
 #---------------------------- the bare compiler
 ${MAKE} all-gcc
