@@ -6,6 +6,5 @@
 int main(int argc,char** args)
 {
  std::ofstream led("/sys/my-hw/led"); //open 
- led<<'1';
- return 0;                           //destructor called close 
+ return 0;                            //destructor called close 
 }

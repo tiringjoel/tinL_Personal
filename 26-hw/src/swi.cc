@@ -6,13 +6,11 @@
 #include <fstream>
 int main(int argc,char** args)
 {
+ std::ifstream swi("/sys/my-hw/swi"); //open 
  while(true)
  {
   char ch;
-  {
-   std::ifstream swi("/sys/my-hw/swi"); //open 
-   swi>>ch;
-  }                  //destructor called close 
+  swi>>ch;
   std::cout<<ch<<"\n";
  }
  return 0;                           
