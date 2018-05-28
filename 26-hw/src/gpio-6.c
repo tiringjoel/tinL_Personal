@@ -40,43 +40,16 @@ typedef struct
 
 static void init_Switch(Switch* swi)
 {
- sema_init(&swi->sema,0);
- swi->first=0;
- swi->last=0;
 };
 
 static void put_Switch(Switch* swi,unsigned data)
 {
- Entry* e=kmalloc(sizeof(Entry),GFP_KERNEL);
- e->data=data;
- e->next=0;
- if (swi->first) /* not empty */
-    {
-     swi->last->next=e;
-    }
-    else        /* empty */
-    {
-     swi->first=e;
-    }
- swi->last=e;
- up(&swi->sema);
 }
 
 static unsigned get_Switch(Switch* swi)
 {
- down_interruptible(&swi->sema);
- Entry* e=swi->first; /* *not* empty */
- unsigned data=e->data;
- swi->first=e->next;
- if (swi->first==0)
-    {
-     swi->last=0;
-    }
- kfree(e);   
- return data;
 }
 
-Switch         switch_;
 
 static ssize_t get_led(struct kobject *kobj, 
                struct kobj_attribute *attr,
@@ -108,7 +81,6 @@ static ssize_t get_swi(struct kobject *kobj,
                struct kobj_attribute *attr,
                char *buf)
 {
- unsigned data=get_Switch(&switch_);
  buf[0]=(data)?'1':'0';
  return 1;
 }
@@ -144,7 +116,6 @@ static  irqreturn_t onSWI(int id,void* d)
 static void onSWITasklet(unsigned long data)     /* *not* called in interrupt */
 {
  printk("onSWITasklet\n");
- put_Switch(&switch_,data);
 }
 
 static int __init _init_(void) 
@@ -157,7 +128,6 @@ static int __init _init_(void)
  gpio_direction_input(pin115);
  irq=gpio_to_irq(pin115);
  tasklet_init(&tasklet,onSWITasklet,0);
- init_Switch(&switch_);
  printk("gpio_request pin=%d res=%d irq=%d\n",pin115,res,irq);
  res=request_irq(irq,onSWI,IRQF_TRIGGER_FALLING|IRQF_TRIGGER_RISING,"swi",0);
  kobj=kobject_create_and_add("my-hw",0);
