@@ -47,4 +47,111 @@
  \end{itemize}
 \end{frame}
 
+\section{Wait-Queue}
+
+\begin{frame}{Wait queue}{Task/processe warten}
+\includegraphics{queue.pdf}
+
+\vspace{5mm}
+\includegraphics[width=0.25\textwidth]{queue-legend.pdf}
+\end{frame}
+
+\subsection{gpio-5.c}
+\begin{frame}{gpio-5.c}{schrittweise}
+ \begin{itemize}
+  \item Definition global
+  \begin{itemize}
+   \item \href{https://elixir.bootlin.com/linux/latest/source/include/linux/wait.h\#L34}
+              {\cod{wait\_queue\_head}}
+   \item \cod{swiN} die Anzahl Schaltungen von \cod{swi}
+  \end{itemize}
+  \item go to wait
+  \begin{itemize}
+   \item  \href{https://elixir.bootlin.com/linux/latest/source/include/linux/wait.h\#L442}
+               {\cod{wait\_event\_interruptible}}
+  \end{itemize}
+  \item wakeup
+  \begin{itemize}
+    \item \href{https://elixir.bootlin.com/linux/latest/source/include/linux/wait.h\#L201}
+               {\cod{wake\_up\_interruptible}}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\section{Semaphore-Queue}
+
+\begin{frame}{Mit eigener {\em Semaphhore-queue}}
+\includegraphics{semaphore-queue.pdf}
+\vspace{-5mm}
+\begin{itemize}
+ \item put
+  \begin{itemize}
+   \item füge hinten an \cod{put}: data: Zustand des Schalters: \cod{on$|$off}
+   \item öffne Semaphore
+  \end{itemize}
+ \item get
+ \begin{itemize}
+  \item warte am Semaphore
+  \item hole \cod{get} 
+ \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\subsection{Simply Linked List}
+\begin{frame}{Die {\em Queue}}{einfach verlinkte Liste}
+\includegraphics{queue-generic.pdf}
+\end{frame}
+
+
+\begin{frame}{Die {\em Queue}}{put}
+\begin{block}{before}
+\includegraphics{put-before.pdf}
+\end{block}
+\begin{block}{after}
+\includegraphics{put-after.pdf}
+\end{block}
+\end{frame}
+
+\begin{frame}{Die {\em Queue}}{get}
+\begin{block}{before}
+\includegraphics{get-before.pdf}
+\end{block}
+\begin{block}{after}
+\includegraphics{get-after.pdf}
+\end{block}
+\end{frame}
+
+\subsection{queue.c}
+
+\begin{frame}{Verlinkte Listen}{Kommen immer wieder vor}
+\begin{itemize}
+ \item im userspace
+ \item \cod{struct}
+ \item \cod{init\_} 
+ \item \cod{put\_}
+ \item \cod{get\_}
+  \item Dynamisches Memory
+  \begin{itemize}
+   \item  \cod{malloc}
+   \item \cod{free}
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{gpio-6.c}
+
+\begin{frame}{Die Semaphore-Queue}
+ \begin{itemize}
+  \item \cod{struct} für Semaphore-Queue
+  \item \cod{init\_} 
+  \item \cod{put\_}
+  \item \cod{get\_}
+  \item Dynamisches Memory
+  \begin{itemize}
+   \item  \cod{kmalloc}
+   \item \cod{kfree}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
 

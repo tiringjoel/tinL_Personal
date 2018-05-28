@@ -171,3 +171,9 @@ Herr Sondereggers Image
   interrupts
   interrupts->kernelspace->userspace
 
+29.Mai 2018
+-----------
+ 26-hw
+  wait queue
+  semaphore queue
+  simply linked list
