@@ -1,5 +1,5 @@
 /*------------------------------
- gpio-5.c semaphore
+ gpio-5.c wait queue
  using linux/gpio.h
  (c) H.Buchmann FHNW 2018
  -------------------------------*/
