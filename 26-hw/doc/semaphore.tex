@@ -155,3 +155,18 @@
  \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]{TODO's}{Im Zusammenhang mit den Interrups}
+ \begin{itemize}
+  \item mehr Informationen in \cod{buf} von \cod{get\_swi} zurückgeben: 
+  \begin{lstlisting}
+  struct SWIInfo
+  {
+   time_t   when;
+   unsigned nbr;  //the number of switching
+   unsigned state; //on|off
+  };
+  \end{lstlisting}
+ \item Queue als {\em ringbuffer}
+ \end{itemize}
+\end{frame}
+
