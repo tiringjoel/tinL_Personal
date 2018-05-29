@@ -61,6 +61,14 @@ static void put_ringbuffer(RingBuffer* rb,unsigned data)
      up(&rb->sema);
      ++rb->size;
     }
+    else  /* buffer full remove oldest item */
+    {
+     ++rb->getI;
+     if (rb->getI>=RINGBUFFER)
+     {
+      rb->getI=0; /* wrap */
+     }
+    }
 }
 
 
