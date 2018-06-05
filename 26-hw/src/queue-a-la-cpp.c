@@ -4,7 +4,7 @@
   ---------------------------*/
 #include <stdio.h>
 #include <stdlib.h>
-
+#define offsetof(type, member)  __builtin_offsetof (type, member)
 /* generic queue */
 typedef struct QItem /* without any data */
 {
@@ -66,6 +66,19 @@ static void show(Queue* q)
  }   
 }
 
+/*                  offset
+     +-----------+
+ --->|    data   |  0
+     +-----------+
+     |     qi    |  offsetof(struct Entry,qi)
+     +-----------+  
+*/
+struct Entry
+{
+ unsigned data;
+ QItem    qi;  /* for the queue */
+};
+
 int main(int argc,char** args)
 {
  Queue queue;
@@ -88,16 +101,21 @@ int main(int argc,char** args)
    
    case '1':
    {
-    QItem* qi=malloc(sizeof(QItem));
-    put(&queue,qi);
+    struct Entry* e=malloc(sizeof(struct Entry));
+    scanf("%u",&e->data);
+    put(&queue,&e->qi);
    }
    break;
    
    case '2':
    {
+    unsigned ofs=offsetof(struct Entry,qi);
     QItem* qi=get(&queue);
-    printf("get 0x%p\n",qi);
-    free(qi);
+    struct Entry* e=(struct Entry*)((unsigned char*)qi-ofs);
+
+    printf("offsetof QItem qi=%d\n",ofs);
+    printf("get qi=0x%p e=0x%p e->data=%d\n",qi,e,e->data);
+    free(e);
    }
    break;
 
