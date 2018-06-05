@@ -109,13 +109,9 @@ int main(int argc,char** args)
    
    case '2':
    {
-    unsigned ofs=offsetof(struct Entry,qi);
     QItem* qi=get(&queue);
-    struct Entry* e=(struct Entry*)((unsigned char*)qi-ofs);
-
-    printf("offsetof QItem qi=%d\n",ofs);
-    printf("get qi=0x%p e=0x%p e->data=%d\n",qi,e,e->data);
-    free(e);
+    printf("get qi=0x%p\n",qi);
+    free(qi); 
    }
    break;
 
