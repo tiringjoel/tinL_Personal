@@ -170,6 +170,49 @@
  \end{itemize}
 \end{frame}
 
+\subsection{TODO Mehr Info:gpio-8.c}
+
+\begin{frame}{\cpp gemacht mit \c}
+ \begin{itemize}
+  \item \cod{src/queue-a-la-cpp.c}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{SWIInfo}
+\begin{lstlisting}
+typedef struct SWIInfo
+{
+ time_t       when;
+ unsigned     nbr;
+ unsigned     state;
+} SWIInfo;
+\end{lstlisting}
+\begin{itemize}
+ \item Die Zeit
+ \begin{itemize}
+  \item Globale Variable: \cod{jiffies}
+ \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{gpio-8.c}{Vorgehen}
+ \begin{itemize}
+  \item \cod{currentE} 
+  \begin{itemize}
+   \item der aktuelle Eintrag: gesetzt von \cod{onSWI}
+  \end{itemize}
+  \item tasklet \cod{call-back}
+  \begin{itemize}
+   \item {\bf kopiert} \cod{currentE} in den Ringbuffer: \cod{put}
+  \end{itemize}
+  \item \cod{get\_swi}
+  \begin{itemize}
+   \item {\bf kopiert} vom Ringbuffer in den \cod{buf}:\cod{get}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+
 \section{Semaphore-Ringbuffer}
 
 \begin{frame}{Ringbuffer}

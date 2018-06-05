@@ -177,3 +177,11 @@ Herr Sondereggers Image
   wait queue
   semaphore queue
   simply linked list
+
+5.Juni 2018
+-----------
+ 26-hw
+  c simuliert c++ offsetof
+  Mehr Info SWIInfo
+   .pointer 
+  ring-buffer
