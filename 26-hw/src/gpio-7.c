@@ -24,64 +24,18 @@ static       int       irq     =   0;
 static struct tasklet_struct tasklet; /* definition */
 
 
-typedef struct Entry
-{
- unsigned        data;
- struct Entry*   next;
-} Entry;
-
-#define RINGBUFFER 16 
-typedef struct
-{
- struct semaphore sema;
- unsigned putI;
- unsigned getI;
- unsigned size; 
- unsigned data[RINGBUFFER];
-} RingBuffer;
-
 
 static void init_ringbuffer(RingBuffer* rb)
 {
- sema_init(&rb->sema,0);
- rb->putI=0;
- rb->getI=0;
- rb->size=0;
 };
 
 static void put_ringbuffer(RingBuffer* rb,unsigned data)
 {
- rb->data[rb->putI++]=data;
- if (rb->putI>=RINGBUFFER)
-    { 
-     rb->putI=0; /*wrap */
-    }
- if (rb->size<RINGBUFFER)
-    {
-     up(&rb->sema);
-     ++rb->size;
-    }
-    else  /* buffer full remove oldest item do not up the semaphore*/
-    {
-     ++rb->getI;
-     if (rb->getI>=RINGBUFFER)
-     {
-      rb->getI=0; /* wrap */
-     }
-    }
 }
 
 
 static unsigned get_ringbuffer(RingBuffer* rb)
 {
- down(&rb->sema);
- unsigned d=rb->data[rb->getI++];
- if (rb->getI>=RINGBUFFER)
-    { 
-     rb->getI=0; /*wrap */
-    }
- --rb->size;
- return d; 
 }
 
 RingBuffer         switch_;
