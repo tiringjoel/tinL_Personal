@@ -10,8 +10,7 @@
 
 void blink() //the threads code
 {
- //create delta time interval
- std::chrono::milliseconds delta(500);
+ //create delta time interval using std::chrono
  while(true)
  {
   //toggle led
