@@ -185,3 +185,8 @@ Herr Sondereggers Image
   Mehr Info SWIInfo
    .pointer 
   ring-buffer
+
+12.Juni 2018
+------------
+ 26-hw
+  userspace C++ Zugriff
