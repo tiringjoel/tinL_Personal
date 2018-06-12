@@ -15,7 +15,6 @@ struct SWIInfo //see gpio-8.c
 int main(int argc,char** args)
 {
  //instance of SWIInfo
- SWIInfo info;
  while(true)
  {
   //read info from /sys/my-hw/swi
