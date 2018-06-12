@@ -6,10 +6,18 @@
 #include <fstream>
 struct SWIInfo
 {
- time_t          when;
+ unsigned        when;
  unsigned        nbr;
  unsigned        state;
+ friend std::ostream& operator<<(std::ostream& out,const SWIInfo& info);
 };
+
+std::ostream& operator<<(std::ostream& out,const SWIInfo& info)
+{
+ out<<"when: "<<info.when<<" nbr: "<<info.nbr<<" state: "<<info.state;
+ return out;
+}
+
 
 int main(int argc,char** args)
 {
@@ -18,9 +26,7 @@ int main(int argc,char** args)
  {
   std::ifstream swi("/sys/my-hw/swi"); //open
   swi.read((char*)&info,sizeof(info));
-  std::cout<<"when:  "<<info.when<<"\n"
-           <<"nbr:   "<<info.nbr<<"\n"
-           <<"state: "<<info.state<<"\n";  
+  std::cout<<info<<"\n";  
  }
  return 0;                           
 }
