@@ -4,29 +4,22 @@
 //-------------------
 #include <iostream>
 #include <fstream>
-struct SWIInfo
+struct SWIInfo //see gpio-8.c
 {
  unsigned        when;
  unsigned        nbr;
  unsigned        state;
- friend std::ostream& operator<<(std::ostream& out,const SWIInfo& info);
 };
-
-std::ostream& operator<<(std::ostream& out,const SWIInfo& info)
-{
- out<<"when: "<<info.when<<" nbr: "<<info.nbr<<" state: "<<info.state;
- return out;
-}
 
 
 int main(int argc,char** args)
 {
+ //instance of SWIInfo
  SWIInfo info;
  while(true)
  {
-  std::ifstream swi("/sys/my-hw/swi"); //open
-  swi.read((char*)&info,sizeof(info));
-  std::cout<<info<<"\n";  
+  //read info from /sys/my-hw/swi
+  //show info
  }
  return 0;                           
 }
