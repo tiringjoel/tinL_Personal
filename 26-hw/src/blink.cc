@@ -8,26 +8,20 @@
 #include <chrono>
 
 
-void blink()
+void blink() //the threads code
 {
- unsigned state=0;
+ //create delta time interval
  std::chrono::milliseconds delta(500);
- std::ofstream led("/sys/my-hw/led");
  while(true)
  {
-  state^=1;
-  char l=(state)?'1':'0';
-  std::cout<<l<<"\n";
-  {
-   led<<l<<std::flush;
-  }
-  std::this_thread::sleep_for(delta);
+  //toggle led
+  //sleep delta
  }
 }
 
 int main(int argc,char** args)
 {
  std::thread blnk(blink);
- blnk.join(); //<------------ wait untile thread blnk terminates
+ //<------------ wait until thread blnk terminates
  return 0;
 }
