@@ -14,11 +14,15 @@ static struct kobject* kobj=0;
 static int __init _init_(void) 
 {
  printk("init: >>>sysfs-0<<<\n");
+ kobj=kobject_create_and_add("my-kobj",
+                             0); /* in /sys */
+ printk("my-kobj: 0x%p\n",kobj);
  return 0;
 }
 
 static void __exit _exit_(void) 
 {
+ printk(KERN_INFO "exit: >>>sysfs-0<<<\n");
  kobject_put(kobj);
 }
 

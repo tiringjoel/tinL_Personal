@@ -15,6 +15,57 @@ typedef struct RingBuffer
  unsigned data[RINGBUFFER];
 }  RingBuffer;
 
+static void init(RingBuffer* rb)
+{
+ rb->putI=0;
+ rb->getI=0;
+ rb->size=0;
+}
+
+static void put(RingBuffer* rb,unsigned d)
+{
+ rb->data[rb->putI++]=d;
+ if (rb->putI==RINGBUFFER) rb->putI=0;
+ if (rb->size<RINGBUFFER)
+    {
+     ++rb->size;
+    }
+    else /* buffer full */
+    {
+     ++rb->getI;
+     if (rb->getI==RINGBUFFER) rb->getI=0;
+    }
+}
+
+
+static unsigned get(RingBuffer* rb)
+{
+ if (rb->size==0)
+    {
+     printf("------------------------ exception empty buffer ------------------------\n");
+     exit(1); 
+    }
+ char d=rb->data[rb->getI++];
+ if (rb->getI==RINGBUFFER) rb->getI=0;
+ --rb->size;
+ return d;   
+}
+
+static void show(RingBuffer* rb)
+{
+ unsigned i=rb->getI;
+ unsigned size=rb->size;
+ while(size>0)
+ {
+  printf("%u\n",rb->data[i++]);
+  if (i==RINGBUFFER) 
+     {
+      i=0;
+     }
+  --size;
+ }
+ 
+}
 
 int main(int argc,char** args)
 {

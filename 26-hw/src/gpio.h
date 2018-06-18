@@ -3,7 +3,7 @@
  gpio
  (c) H.Buchmann FHNW 2018
  25.4
- GPIO 1@0x4804c000
+ GPIO 1 @ 0x4804c000
   -------------------------------*/
   
 #define GAP(n,from,to) unsigned GAP##n[(to-from)/sizeof(unsigned)]

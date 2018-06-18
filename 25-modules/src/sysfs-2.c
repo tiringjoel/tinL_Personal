@@ -13,21 +13,29 @@
 static struct kobject* kobj=0;
 
 
-/* the call backs */
 static ssize_t m_show(struct kobject *kobj, 
                struct kobj_attribute *attr,
                char *buf)
 {
+ printk("m_show\n");
+ return 0;
 }
 
 static ssize_t m_store(struct kobject *kobj, 
                 struct kobj_attribute *attr,
 	        const char *buf, size_t count)
 {
+ printk("m_store\n");
+ print_hex_dump(""," ",0,16,1,buf,count,1);
+ return count;
 }
 
 struct kobj_attribute kobj_attr=
 {
+ attr: {name:"file",
+        mode:0644},
+ show :&m_show,
+ store:&m_store
 };
 
 static int __init _init_(void) 

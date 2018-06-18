@@ -1,5 +1,5 @@
 /*------------------------------
- gpio-5.c wait queue
+ gpio-5.c semaphore
  using linux/gpio.h
  (c) H.Buchmann FHNW 2018
  -------------------------------*/
@@ -20,7 +20,11 @@ static struct kobject* kobj    =   0;
 static const int       pin49   =  49;
 static const int       pin115  = 115;
 static       int       irq     =   0;
+static       unsigned  swiN    =   0; /* the number of switchings */  
+
 static struct tasklet_struct tasklet; /* definition */
+static wait_queue_head_t      queue;
+/* static struct wait_queue_head queue;  works too */
 
 static ssize_t get_led(struct kobject *kobj, 
                struct kobj_attribute *attr,
@@ -52,6 +56,8 @@ static ssize_t get_swi(struct kobject *kobj,
                struct kobj_attribute *attr,
                char *buf)
 {
+ wait_event_interruptible(queue,swiN>0);
+ --swiN;
  unsigned val=gpio_get_value(pin115);
  buf[0]=(val)?'1':'0';
  return 1;
@@ -87,6 +93,8 @@ static  irqreturn_t onSWI(int id,void* d)
 static void onSWITasklet(unsigned long data)     /* *not* called in interrupt */
 {
  printk("onSWITasklet\n");
+ ++swiN;
+ wake_up_interruptible(&queue);
 }
 
 static int __init _init_(void) 
@@ -104,7 +112,8 @@ static int __init _init_(void)
  res=request_irq(irq,onSWI,IRQF_TRIGGER_FALLING|IRQF_TRIGGER_RISING,"swi",0);
  kobj=kobject_create_and_add("my-hw",0);
 
- 
+ init_waitqueue_head(&queue);
+
  res=sysfs_create_file(kobj,&led.attr);
  res=sysfs_create_file(kobj,&swi.attr);
  return 0;

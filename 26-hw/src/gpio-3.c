@@ -18,6 +18,7 @@ static const int pin49 = 49;
 static const int pin115=115;
 static int    irq      =0;
 
+static struct tasklet_struct tasklet; /* definition */
 
 static ssize_t get_led(struct kobject *kobj, 
                struct kobj_attribute *attr,
@@ -74,6 +75,7 @@ static  irqreturn_t onSWI(int id,void* d)
 {
  printk("onSWI\n");
  gpio_set_value(pin49,gpio_get_value(pin115));
+ tasklet_schedule(&tasklet);
  return IRQ_HANDLED;
 }
 
@@ -94,6 +96,7 @@ static int __init _init_(void)
  res=gpio_request(pin115,"");
  gpio_direction_input(pin115);
  irq=gpio_to_irq(pin115);
+ tasklet_init(&tasklet,onSWITasklet,0);
 
  printk("gpio_request pin=%d res=%d irq=%d\n",pin115,res,irq);
  res=request_irq(irq,onSWI,IRQF_TRIGGER_FALLING|IRQF_TRIGGER_RISING,"swi",0);

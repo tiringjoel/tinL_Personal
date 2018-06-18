@@ -4,21 +4,16 @@
 //-------------------
 #include <iostream>
 #include <fstream>
-struct SWIInfo //see gpio-8.c
-{
- unsigned        when;
- unsigned        nbr;
- unsigned        state;
-};
-
-
 int main(int argc,char** args)
 {
- //instance of SWIInfo
  while(true)
  {
-  //read info from /sys/my-hw/swi
-  //show info
+  char ch;
+  {
+   std::ifstream swi("/sys/my-hw/swi"); //open 
+   swi>>ch;
+  }                  //destructor called close 
+  std::cout<<ch<<"\n";
  }
  return 0;                           
 }

@@ -46,12 +46,20 @@ struct kobj_attribute kobj_attr=
 static int __init _init_(void) 
 {
  printk("init: >>>gpio-1<<<\n");
+ gpio1=ioremap(GPIO_1,GPIO_SIZE);
+ printk("gpio1=0x%p\n",gpio1);
+ if (gpio1==0) return 0; 
+ printk("REVSION 0x%x\n",gpio1->REVISION);
+ gpio1->OE&=(~(1<<pin49)); /* output */
+ gpio1->SETDATAOUT=(1<<pin49);
  return 0;
 }
 
 static void __exit _exit_(void) 
 {
  printk("exit: >>>gpio-1<<<\n");
+ gpio1->CLEARDATAOUT=(1<<pin49);
+ iounmap(gpio1);
 }
 
 MODULE_LICENSE("GPL");

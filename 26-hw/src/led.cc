@@ -5,8 +5,7 @@
 #include <fstream>
 int main(int argc,char** args)
 {
- //instance
- // check if file exists
- return 0;
- //destructor calls close 
+ std::ofstream led("/sys/my-hw/led"); //open 
+ led<<'1';
+ return 0;                           //destructor called close 
 }
