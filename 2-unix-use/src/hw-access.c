@@ -1,6 +1,6 @@
 /*-------------------------------
   hw-access
-  (c) H.Buchmann FHNW 2013
+  (c) H.Buchmann FHNW 2018
   mem read  addr [len]
       write addr data+ 
 ---------------------------------*/

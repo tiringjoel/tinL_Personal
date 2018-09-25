@@ -1,21 +1,20 @@
 #-----------------------
 #Makefile
-#(c) H.Buchmann FHNW 2014
+#(c) H.Buchmann FHNW 2018
 #we are in work
 #-----------------------
-TARGET=../target-root/
+TARGET=${PWD}/../target-root/
 PREFIX=../tc/bin/arm-linux-gnueabihf-
 CFLAGS=-std=c99
 #CPPFLAGS=-I${TARGET}/usr/include/arm-linux-gnueabihf/
 #LDFLAGS=${TARGET}/usr/lib/arm-linux-gnueabihf/crti.o
+
 CC=${PREFIX}gcc  -O2 
 LD=${PREFIX}ld 
 CXX=${PREFIX}g++ 
 CXXFLAGS=-std=c++11
-#LDFLAGS=-static
+LDFLAGS=-static
 VPATH=../src 
-minimal-1:		minimal-1.o
-minimal-1.o:		minimal-1.c
 hello-world-c:		hello-world-c.o
 hello-world-c.o:	hello-world-c.c
 

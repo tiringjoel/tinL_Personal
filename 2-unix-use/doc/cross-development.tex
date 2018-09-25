@@ -1,5 +1,10 @@
 \begin{frame}{Crossdevelopment}
  \begin{itemize}
+  \item zwei Rechner
+  \begin{description}
+   \item[Host] der Entwicklungsrechner
+   \item[Target] \targetS der Zielrechner
+  \end{description}
   \item Development
   \begin{itemize}
    \item Wo sind die Files
@@ -12,6 +17,7 @@
 \end{frame}
 
 \subsection{Development}
+
 \begin{frame}{Development}{noch nicht Cross}
  \begin{itemize}
   \item Source file \cod{src/hello-world-c.c}
@@ -103,19 +109,19 @@
  }
 \end{frame}
 
-\begin{frame}{CrossDevelopment}{Target \host:}
- \begin{itemize}
-  \item Makefile
-  \begin{itemize}
-   \item \cod{PREFFIX=}
-  \end{itemize}
-  \item \cod{target-root}
-  \begin{itemize}
-   \item \cod{ln -s / target-root}
-  \end{itemize}
- \end{itemize}
- \remark{unüblich !}
-\end{frame}
+%\begin{frame}{CrossDevelopment}{Target \host:}
+% \begin{itemize}
+%  \item Makefile
+%  \begin{itemize}
+%   \item \cod{PREFFIX=}
+%  \end{itemize}
+%  \item \cod{target-root}
+%  \begin{itemize}
+%   \item \cod{ln -s / target-root}
+%  \end{itemize}
+% \end{itemize}
+% \remark{unüblich !}
+%\end{frame}
 
 \begin{frame}{CrossDevelopment}{Target \target}
  \begin{itemize}
@@ -139,30 +145,7 @@
  }
 \end{frame}
 
-\subsection{Aufgaben}
-\begin{frame}{The big Picture}
- \begin{itemize}
-  \item Source File: \cod{hello-world-c.c}
-  \item falls es nicht klapt ?
-  \begin{itemize}
-   \item wo ist der File ?
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{Development}{\cod{hello-world-c.c}}
-\hspace*{-8mm}
-{
-\begin{tabular}{llllll}
- Host & Target & OS & Toolchain & Verbindung & Bemerkungen\\
- \hline
- \targetS & \targetS & Debian & mitgeliefert&&\\
- \host   & \targetS & Debian & \cod{\tiny gcc-7.2.0-arm-64bit.tar.bz2} & sshfs\\
- \host   & \targetS & minimal & \cod{\tiny gcc-7.2.0-arm-64bit.tar.gz} & SD-Card  &später\\
- \host   & \targetS & minimal & \cod{\tiny gcc-7.2.0-arm-64bit.tar.gz} & curlftpfs&später\\
-\end{tabular}
-}
-\end{frame}
+\input{exercises.tex}
 
 %\begin{frame}{Crossdevelopment}{\cod{hello-world-c.c}}
 %\begin{itemize}

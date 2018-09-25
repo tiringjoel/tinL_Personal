@@ -1,6 +1,6 @@
 //-------------------------
 //primes as benchmark
-//(c) H.Buchmann FHNW 2014
+//(c) H.Buchmann FHNW 2018
 //-------------------------
 #include <iostream>
 #include <vector>

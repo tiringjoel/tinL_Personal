@@ -1,4 +1,4 @@
-18.Sept. 2018
+19.Sept. 2018
 -------------
  - Umgebung aufsetzen
  - BeagleBone verbunden mit Host
@@ -6,3 +6,11 @@
   - usb/ethernet
   - ssh
 
+26.Sept. 2018
+-------------
+ 2-unix-use
+  alles ist ein File
+  Verzeichnisse
+  mount
+  ssh
+  sshfs
