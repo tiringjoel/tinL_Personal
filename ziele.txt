@@ -14,3 +14,11 @@
   mount
   ssh
   sshfs
+
+3.Okt. 2018
+-----------
+ RS232-USB
+  
+ 3-network
+  via Host
+  wifi

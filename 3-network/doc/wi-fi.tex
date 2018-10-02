@@ -33,7 +33,7 @@
 \end{frame}
 
 
-\begin{frame}{Das Wireless Netz}{Connect}
+\begin{frame}[fragile]{Das Wireless Netz}{Connect}
 \begin{block}{fhnw-public}
 \begin{itemize}
  \item \cod{iwconfig wlan0 essid fhnw-public}
@@ -42,6 +42,10 @@
 \begin{block}{eduroam}
  \begin{itemize}
   \item \cod{wpa\_supplicant  -D wext -i wlan0 -c {\em config-file}}
+  \item Erzeuge \cod{{\em config-file}} auf dem \host:
+  \begin{lstlisting}[language=bash]
+./tools/wpa_eduroam.sh
+  \end{lstlisting}
   \end{itemize}
 \end{block}
 \end{frame}

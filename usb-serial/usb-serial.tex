@@ -1,0 +1,37 @@
+%-------------------------
+%usb-serial.tex
+%(c) H.Buchmann FHNW 2018
+%$Id$
+%export TEXINPUTS=${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+\title[USB-Serial]{USB-Serial}
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{USB-Serial}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\includegraphics[height=0.825\textheight]{pin.pdf}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{block}{Cable}
+\vspace{5mm}
+\begin{tabular}{c|c}
+Color & Signal\\
+\hline
+BLACK & GND\\
+GREEN & TX\\
+WHITE & RX
+\end{tabular}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\end{document}
+
