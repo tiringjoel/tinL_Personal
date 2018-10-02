@@ -1,6 +1,6 @@
 #----------------------
 #forwarding.sh
-#(c) H.Buchmann FHNW 2015
+#(c) H.Buchmann FHNW 2018
 #----------------------
 #INTER_NET=enp0s20u2
 INTER_NET=vpn0

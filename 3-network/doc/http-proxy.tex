@@ -4,11 +4,12 @@
   \begin{center}
  \includegraphics[width=0.875\textwidth]{proxy.pdf}
  \end{center}
+ \vspace{-1.5cm}
  \begin{itemize}
   \item Server auf \host
   \item reicht die \cod{http} {\em requests/responses} weiter
  \end{itemize}
-
+ \remark{funltioniert nur für \cod{http}}
 \end{frame}
 
 \begin{frame}{Test mit \cod{curl}}{\url{curl.haxx.se/}}
@@ -16,6 +17,7 @@
    \item \cod{curl address}
    \begin{itemize}
     \item \cod{curl fhnw.ch}
+    \item \cod{curl -v address} \cod{-v}: verbose
    \end{itemize}
   \end{itemize}
 \end{frame}
@@ -73,6 +75,11 @@
    \begin{itemize}
     \item \cod{Acquire::http::proxy "{}http://192.168.7.1:8888"{};}
    \end{itemize}
+    \item Wie editieren:
+    \begin{itemize}
+     \item Auf dem \targetS mit \cod{vi}
+     \item per \cod{sshfs} vom \host aus
+    \end{itemize}
   \end{itemize}
   \item Test
   \begin{itemize}

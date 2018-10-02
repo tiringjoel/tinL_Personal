@@ -86,19 +86,37 @@
  \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Konfiguration}
- \begin{description}[\target]
-  \item[\host] \cod{tools/forwarding.sh}
-  \item[\target] Setze gateway
-  \begin{lstlisting}[language=bash]
-  route add default gw host-ip usb0
-  \end{lstlisting}
-  \item Setze DNS Server
+\subsection{Konfiguration}
+\begin{frame}[fragile]{Konfiguration}{\host}
   \begin{itemize}
-   \item \cod{cp config/resolv.conf /etc/resolv.conf}
+  \item \cod{tools/forwarding.sh}
   \end{itemize}
-  einfach aber nicht universell
- \end{description}
+\end{frame}
+
+\begin{frame}[fragile]{Konfiguration}{\target}
+  \begin{itemize}
+  \item Setze gateway:
+  \begin{lstlisting}[language=bash]
+route add default gw host-ip usb0
+  \end{lstlisting}
+  \begin{itemize}
+  \item Test 
+  \begin{lstlisting}[language=bash]
+ping ip-of-google.ch  
+  \end{lstlisting}
+  \end{itemize}
+  \item Setze DNS Server
+  \begin{lstlisting}[language=bash]
+cp config/resolv.conf /etc/resolv.conf}
+
+  \end{lstlisting}
+  \begin{itemize}
+   \item Test 
+   \begin{lstlisting}[language=bash]
+ping www.google.ch 
+   \end{lstlisting}
+  \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \section{Wi-Fi}

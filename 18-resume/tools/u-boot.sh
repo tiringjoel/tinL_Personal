@@ -14,6 +14,6 @@
 }
 BUILD=$(pwd)/u-boot
 pushd ${U_BOOT_SRC}
-make CROSS_COMPILE=${CROSS_COMPILE} O=${BUILD} V=1 ${@}
+${MAKE} CROSS_COMPILE=${CROSS_COMPILE} O=${BUILD} V=1 ${@}
 popd
 

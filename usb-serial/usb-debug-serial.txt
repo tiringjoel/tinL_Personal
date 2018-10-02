@@ -1,0 +1,15 @@
+usb-debug-serial
+----------------
+
+Adafruit Kabel:
+ Red: 	power
+ Black:	gnd
+ white:	RX
+ green:	TX
+ 
+Verbindung:
+  BBB	Kabel
+GND 1	BLACK GND
+RX  4	GREEN TX
+TX  5   WHITE RX
+
