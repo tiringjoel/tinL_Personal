@@ -54,10 +54,10 @@
 \section{SD Karte}
 \begin{frame}{Initiale SD-Karte}{Herstellung}
  \begin{itemize}
-  \item Daten \url{drive.switch.ch/index.php/s/wG3tEAik8mNwReA}
+  \item Daten \url{drive.switch.ch/index.php/s/EIf0cYNFvnCvksL}
   \item auf SD-Karte
   \begin{itemize}
-   \item \cod{sudo dd if=sd-2018-10-09.img.gz of=/dev/mmcblk0}
+   \item \cod{gzip -d -c sd-2018-10-09.img.gz | sudo dd of=/dev/mmcblk0}
    \remark{{\Huge Vorsicht} bei \cod{/dev/mmcblk0}}
   \end{itemize}
  \end{itemize}
