@@ -22,3 +22,10 @@
  3-network
   via Host
   wifi
+
+10.Okt.2018
+-----------
+ 3-network
+  wifi
+ 1.5-boot
+ 5-kernel 

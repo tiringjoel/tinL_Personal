@@ -16,10 +16,11 @@
 
 \newcommand{\md}{\cod{md-bbb-{\em version}.img}}
 \newcommand{\mdev}{\cod{md-bbb-devel-{\em version}.tar.gz}}
-\title[Boot]{Boot\\die verschiedenen Möglichkeiten}
+\title[Boot]{Boot \& SD-Karten\\die verschiedenen Möglichkeiten}
 
 \frame{\titlepage}
 
+\section{Boot}
 \begin{frame}{\target} {Die Boot Devices}
   \begin{description}
    \item[SPI0] {\bf S}erial {\bf P}eripheral {\bf I}nterface
@@ -48,6 +49,35 @@
  \includegraphics[width=0.75\textwidth]{bbb-boot.pdf}
 \end{column}
 \end{columns} 
+\end{frame}
+
+\section{SD Karte}
+\begin{frame}{Initiale SD-Karte}{Herstellung}
+ \begin{itemize}
+  \item Daten \url{drive.switch.ch/index.php/s/wG3tEAik8mNwReA}
+  \item auf SD-Karte
+  \begin{itemize}
+   \item \cod{sudo dd if=sd-2018-10-09.img.gz of=/dev/mmcblk0}
+   \remark{{\Huge Vorsicht} bei \cod{/dev/mmcblk0}}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{2 Partitionen}
+
+{
+\footnotesize
+
+\begin{verbatim}
+ Device         Boot Start    End Sectors  Size Id Type
+/dev/mmcblk0p1 *     2048  34815   32768   16M  b W95 FAT32
+/dev/mmcblk0p2      34816 559103  524288  256M 83 Linux
+\end{verbatim}
+}
+\begin{description}
+ \item[p1] Boot Partition
+ \item[p2] Root Filesystem das Linux
+\end{description}
 \end{frame}
 
 \end{document}

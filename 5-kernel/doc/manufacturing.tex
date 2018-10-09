@@ -11,14 +11,14 @@
 \end{frame}
 
 \subsection{Setup}
-\begin{frame}{Tools}{Siehe \cod{4-devel}}
+\begin{frame}{Tools}%{Siehe \cod{4-devel}}
  \begin{description}[toolchain]
  
   \item[toolchain] {\small \url{sourceforge.net/projects/fhnw-tinl/files}}
    \begin{itemize}
-    \item \cod{gcc-7.2.0-arm-64bit-2017-10-04.tar.gz}
+    \item \cod{tc-tinl-gcc-8.1.0-2018.05.21.tar.gz}
     \begin{itemize}
-     \item auf \url{drive.switch.ch/index.php/s/SR9s26Wppx1Zvzq}
+     \item auf \url{drive.switch.ch/index.php/s/A6H382zEGDrgfAL}
     \end{itemize}
     \item Prefix: \cod{arm-linux-gnueabihf-}
     \begin{itemize}
@@ -96,11 +96,19 @@
   \item Kopiere
   \begin{description}[Devicetree]
    \item[Image] \cod{build/arch/arm/boot/zImage}
-   \item[Devicetree] \cod{build/arch/arm/boot/dts/am335x-boneblack.dtb}
+   \item[Devicetree] \cod{build/arch/arm/boot/dts/am335x-boneblack-wireless.dtb}
   \end{description}
   auf
   \begin{itemize}
-   \item SD-Card {\em boot-partition}
+   \item SD-Card Partition 2:Root File System
+   \begin{minipage}{8cm}
+   \dirtree{%
+    .1 / \DTcomment{Partition 2}.
+    .2 boot.
+    .3 zImage.
+    .3 am335x-boneblack-wireless.dtb.
+   }
+   \end{minipage}
   \end{itemize}
  \end{itemize}
 \end{frame}

@@ -9,7 +9,7 @@ TC=${PWD}/tc/bin/
 CROSS_COMPILE=${TC}/${PREFIX}
 
 #----------------------- adapt for your needs
-LINUX_SRC=${PWD}/../resources/linux
+LINUX_SRC=${PWD}/../resources/beaglebone-black/linux
 BUILD=$(pwd)/build
 MODULES=$(pwd)/modules
 

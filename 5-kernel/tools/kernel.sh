@@ -13,6 +13,10 @@
 #---------------------
 #we are in 5-kernel
 . config/config.sh
+[[ ! -d ${BUILD} ]] &&
+{
+ mkdir ${BUILD}
+}
 cd ${LINUX_SRC}
 ${MAKE} V=1 O=${BUILD} \
 ARCH=arm \
