@@ -29,3 +29,8 @@
   wifi
  1.5-boot
  5-kernel 
+
+17.Okt.2018
+-----------
+ 5-kernel 
+  configuration
