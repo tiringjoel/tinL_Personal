@@ -38,3 +38,5 @@ raspi pacman.conf
 
 
 http://elinux.org/Beagleboard:BeagleBone_Black_Serial
+
+minicom ohne sudo

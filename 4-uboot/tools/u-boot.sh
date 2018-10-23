@@ -7,9 +7,9 @@
 #      3: all
 # we are in 4-uboot
 #------------------
-#we are in 17-build
+#we are in 4-uboot
 #------------------------ adapt to your needs
-U_BOOT_SRC=${PWD}/../resources/u-boot-2017.09/
+U_BOOT_SRC=${PWD}/../resources/u-boot
 TC=${PWD}/tc/bin/
 MAKE="make -j8"
 #------------------------ done
@@ -18,7 +18,10 @@ PREFIX=arm-linux-gnueabihf-
 CROSS_COMPILE=${TC}/${PREFIX}
 BUILD=$(pwd)/build
 
+[[ ! -d ${BUILD} ]] && { mkdir ${BUILD}; }
+
 pushd ${U_BOOT_SRC}
 ${MAKE} CROSS_COMPILE=${CROSS_COMPILE} O=${BUILD} V=1 ${@}
 popd
 
+echo "copy build/MLO and build/u-boot.img to Partition 1 of SD Card"

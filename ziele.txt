@@ -34,3 +34,12 @@
 -----------
  5-kernel 
   configuration
+
+24.Okt.2018
+-----------
+ 5-kernel
+  version 4.19
+  configuration Gadget
+
+ 4-uboot
+   
