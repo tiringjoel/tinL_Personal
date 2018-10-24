@@ -21,10 +21,13 @@ GLIBC_SRC=${RESOURCES}/glibc-2.28/
 BUSYBOX_SRC=${RESOURCES}/busybox-1.29.3
 ZLIB_SRC=${RESOURCES}/zlib-1.2.8              #tar.gz
 #OPENSSL_SRC=${RESOURCES}/openssl-1.1.1       #tar.gz
+IW_SRC=${RESOURCES}/iw-4.14                   #tar.gz
+LIBNL_SRC=${RESOURCES}/libnl-3.4.0
 OPENSSL_SRC=${RESOURCES}/openssl-1.0.2m
 OPENSSH_SRC=${RESOURCES}/openssh-7.8p1
 RSYNC_SRC=${RESOURCES}/rsync-3.1.2
 U_BOOT_SRC=${RESOURCES}/u-boot/
+WPA_SUPPLICANT_SRC=${RESOURCES}/wpa_supplicant-2.6
 #--------------------------------------- locations here
 BUILD_HOME=${PWD}
 KERNEL_BUILD=${PWD}/build/kernel

@@ -40,6 +40,6 @@
  5-kernel
   version 4.19
   configuration Gadget
+  Wi-Fi
 
- 4-uboot
    
