@@ -37,9 +37,15 @@
 
 24.Okt.2018
 -----------
- 5-kernel
+ 5-kernel Routine bekommen
   version 4.19
   configuration Gadget
   Wi-Fi
 
-   
+25.Okt. 2018
+------------
+ 5.5-networkmanager
+   21-udev
+ 5-kernel
+  Wi-Wi
+ 4-uboot  

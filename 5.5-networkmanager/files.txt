@@ -1,0 +1,43 @@
+Files:
+
+sudo udevadm control -R
+
+/etc/udev/rules.d/90-usb-ether.rules
+
+---------8<---------8<---------8<---------8<---------8<---------8<---------8<
+#-----------------------
+# (c) H.Buchmann FHNW 2017
+#copy to /etc/udev/rules.d
+#----------------------- 
+ACTION=="move", SUBSYSTEM=="net", \
+RUN+="/home/buchmann/usb-eth.sh enable $env{INTERFACE} $env{ID_VENDOR_ID}"
+
+ACTION=="remove", SUBSYSTEM=="net", \
+RUN+="/home/buchmann/usb-eth.sh disable $env{INTERFACE} $env{ID_VENDOR_ID}"
+---------8<---------8<---------8<---------8<---------8<---------8<---------8<
+
+
+
+
+etc/NetworkManager/NetworkManager.conf
+---------8<---------8<---------8<---------8<---------8<---------8<---------8<
+[main]
+plugins=keyfile
+dhcp=dhclient
+dns=default
+
+## Set static hostname
+#[keyfile]
+#hostname=foobar
+
+[keyfile]
+unmanaged-devices=interface-name:enp0s20u3;interface-name:enp0s20u4c2;interface-name:ap0;interface-name:ap1;interface-name:ap2
+## HTTP-based connectivity check
+#[connectivity]
+#uri=http://nmcheck.gnome.org/check_network_status.txt
+#interval=100
+---------8<---------8<---------8<---------8<---------8<---------8<---------8<
+
+
+
+

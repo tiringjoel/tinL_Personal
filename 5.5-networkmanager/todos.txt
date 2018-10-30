@@ -1,0 +1,10 @@
+Network Manager
+---------------
+- BBB:
+  ifconfig usb0 192.168.7.2 
+  ifconfig usb0 down
+   hw addresss
+
+- Host:
+  Beobachten was passiert
+   hw address
