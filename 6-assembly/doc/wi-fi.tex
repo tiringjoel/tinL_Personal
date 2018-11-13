@@ -1,77 +1,48 @@
 \subsection{Kernel}
 
-\begin{frame}{Kernel}{Konfiguration}
-{\footnotesize
- \dirtree{%
- .1 Kernel Configuration.
- .2 Networking support.
- .3 Wireless.
- .4 <*> cfg80211 - wireless configuration API.
- .4 <*> Generic IEEE 802.11 Networking Stack (mac80211).
- .2 Device Drivers.
- .3 Network device support.
- .4 Wireless LAN.
- .5 <*> TI wl18xx support.
- .5 <*> TI wlcore SPI support.
- .5 <*> TI wlcore SDIO support.
- }
-}
-\vspace{-5mm}
-\begin{block}{Resultate}
- \begin{itemize}
-  \item \cod{dmesg | grep wl}
- \end{itemize}
-\end{block}
+\begin{frame}{Konfiguration}{}
+\begin{center}
+\includegraphics[height=0.75\textheight]{wl18xx.png}
+\end{center}
+\vspace{-2mm}
+\begin{itemize}
+ \item Test: \cod{dmesg | grep wl}
+\end{itemize}
 \end{frame}
 
-\begin{frame}{Firmware}{Weitere Konfiguration}
- {\footnotesize
- \dirtree{%
- .1 Kernel Configuration.
- .2 Device Drivers.
- .3 Generic Driver Options.
- .4 [*] Include in-kernel firmware blobs in kernel binary.
- }
-}
-\vspace{-5mm}
+\begin{frame}{Abhängigkeiten}
+\begin{center}
+\includegraphics[height=0.75\textheight]{wl18xx-dependencies.png}
+\end{center}
+\end{frame}
 
-\begin{block}{Resultate}
+\begin{frame}{Firmware}
+\begin{center}
+\includegraphics[height=0.75\textheight]{firmware.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Test}{wlan0}
  \begin{itemize}
   \item \cod{dmesg | grep wl}
   \item \cod{ip link set wlan0 up}
   \item \cod{iw wlan0 scan}
-  \item Weitere Konfiguration
  \end{itemize}
-\end{block}
 \end{frame}
 
 \subsection{Connect}
-\begin{frame}[fragile]{wpa}{Konfiguration}
- \begin{itemize}
-  \item \cod{wpa\_passphrase}
-  \item eduroam Versuch
-{\footnotesize
-\begin{verbatim}
-network={
-  ssid="eduroam"
-  key_mgmt=WPA-EAP
-  identity="hans.buchmann@fhnw.ch"
-  domain_suffix_match="welcome.fhnw.ch"
-  phase2="auth=MSCHAPV2"
-  password="----"
-}
-\end{verbatim}
-}
- \end{itemize}
-\end{frame}
 
-\begin{frame}[fragile]{wpa}{\cod{wpa\_supplicant}, \cod{wpa}}
+\begin{frame}[fragile]{WPA}{\cod{wpa\_supplicant}, \cod{wpa}}
  \begin{itemize}
+  \item Konfiguration: 
+  \begin{itemize}
+   \item Siehe {\em 3-network}
+  \end{itemize}
   \item Process:
   \begin{itemize}
    \item \cod{wpa\_supplicant -D wext -i wlan0 -c {\em path\_to\_config}}
   \end{itemize}
-  \item Bedienung
+  \item Bedienung (funktioniert nocch nicht)
   \begin{itemize}
    \item \cod{wpa\_cli -s {\em  wpa\_client\_socket\_file\_path}}
   \end{itemize}
@@ -95,20 +66,22 @@ network={
 #!/bin/sh
 #---------------------
 #on-udhcpc.sh
-#(c) H.Buchmann FHNW 2017
+#(c) H.Buchmann FHNW 2018
 #---------------------
+echo "-------------- on-udhcpc.sh ${1}" 
 case ${1} in
  defconfig)
   echo defconfig------- ${interface} ${ip};;
   bound)
    ifconfig ${interface} ${ip};;
+#set route here
 esac
 \end{verbatim}
 }
 \end{block}
 \end{frame}
 
-\begin{frame}{route/dns}
+\begin{frame}[fragile]{route/dns}
 \begin{itemize}
  \item route
  \begin{itemize}
@@ -116,8 +89,15 @@ esac
  \end{itemize}
  \item DNS
  \begin{itemize}
-   \item \cod{/etc/resolv.conf}
+   \item \cod{/etc/resolv.conf:}
+{\tiny
+\begin{verbatim}
+nameserver 147.86.4.21
+#try nameserver 8.8.8.8
+\end{verbatim}
+ }
  \end{itemize}
+ 
 \end{itemize}
 \end{frame}
 

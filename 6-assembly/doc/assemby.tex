@@ -15,7 +15,7 @@
 \begin{document}
 
 \newcommand{\uboot}{{U-Boot \xspace}}
-
+\newcommand{\tar}{\cod{target-root-{\em VERSION}.tar.gz}}
 \title[Assembly]{Zusammenbau\\Assembly}
 
 \frame{\titlepage}
@@ -43,6 +43,7 @@
    \begin{itemize}
     \item konfiguriert {\em ethernet über USB}
     \item startet \cod{ssh} Server 
+    \item verbindet sich per Wi-Fi
    \end{itemize}
  \end{enumerate}
  \end{block}
@@ -51,7 +52,7 @@
 \begin{frame}{Was wir schon haben}
  \begin{description}[root Filesystem:]
   \item[Toolchain:] download
-  \item[\uboot:] selber gemacht
+  \item[\uboot:] selber gemacht (siehe 4-uboot) 
   \item [\kernel:] selber gemacht
   \item[root Filesystem:] download
   \begin{itemize}
@@ -68,17 +69,17 @@
     \begin{itemize}
      \item \cod{MLO}  
      \item \cod{u-boot.img}
-     \item \cod{uEnv.txt} Konfiguration
-    \end{itemize}
-    \item \kernel
-    \begin{itemize}
-      \item \cod{zImage}
-	  \item \cod{am335x-boneblack-wireless.dtb}
+%     \item \cod{uEnv.txt} Konfiguration
     \end{itemize}
    \end{itemize}
   \item[p2] rootfs:ext4 $\approx 200MiB$
   \begin{itemize}
    \item \cod{etc/init.d/rcS} init-script
+    \item \kernel
+    \begin{itemize}
+      \item \cod{/boot/zImage}
+	  \item \cod{boot/am335x-boneblack-wireless.dtb}
+    \end{itemize}
   \end{itemize}
  \end{description}
 \end{frame}
@@ -97,7 +98,7 @@
 \begin{frame}{Ziele}{Wi-Fi}
  \begin{itemize}
   \item Konfiguration: \kernel
-  \item Neues root-fs: download
+%  \item Neues root-fs: download
   \item Konfiguration: wi-fi Zugang
   \item schrittweises Vorgehen
  \end{itemize}
@@ -107,20 +108,28 @@
 
 \section{Aufgaben}
 \begin{frame}{Aufgabe}
- \begin{description}
-%  \item[\uboot] Automatisches booten: \cod{uEnv.txt}
-  \item[\kernel] Ethernet über USB
-  \item[\unix] Automatisches starten: \cod{/etc/init.d/tcS}
-  \begin{itemize}
-   \item Internet:\cod{ifconfig}
-   \item ssh Server: \cod{sshd}
-  \end{itemize}
-  \item[wi-fi]
-   \begin{itemize}
-    \item \kernel firmware
-    \item \unix wpa
-   \end{itemize}
- \end{description}
+\begin{block}{\kernel}
+ \begin{itemize}
+  \item Ethernet über USB
+  \item Wi-Fi
+ \end{itemize}
+\end{block}
+\begin{block}{\unix}
+\begin{itemize}
+ \item \cod{usb0}
+ \item \cod{sshd}
+ \item \cod{wlan0}
+ \item WPA
+ \item DHCP
+ \item DNS
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Aufgabe}{Init \cod{//etc/init.d/rcS}}
+\begin{itemize}
+ \item ergänzen
+\end{itemize}
 \end{frame}
 
 \subsection{sshd}

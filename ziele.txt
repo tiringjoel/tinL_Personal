@@ -42,10 +42,28 @@
   configuration Gadget
   Wi-Fi
 
-25.Okt. 2018
+31.Okt. 2018
 ------------
  5.5-networkmanager
    21-udev
  5-kernel
   Wi-Wi
  4-uboot  
+
+7.Nov. 2018
+-----------
+ 5.5-networkmanager
+  Host(Windows) -> VM -> Ubuntu
+  Ubutu -> USB/Gadget ->BBB 
+ 5-kernel
+ 4-uboot  
+
+
+14.Nov. 2018
+------------
+ 6-assembly
+  Wi-Fi eduroam
+   Netzwerk 
+ init process 
+
+

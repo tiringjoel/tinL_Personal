@@ -1,17 +1,17 @@
 \begin{frame}{Workflow}{Notationen}
- \begin{description}[\cod{target-root-{\em V}.tar.gz}]
+ \begin{description}[\tar]
   \item[\cod{\em sd-card}] die Partition vom rootfs auf der SD Karte
-  \item[\cod{target-root-{\em V}.tar.gz}] das heruntergeladene rootfs
+  \item[\tar] das heruntergeladene rootfs
   \item[\cod{\em target-root}] das rootfs von \targetS auf dem \host
  \end{description}
 \end{frame}
 
 \begin{frame}{Workflow}{schrittweise Verbesserung}
  \begin{enumerate}
-  \item Initialer Download \cod{target-root-{\em V}.tar.gz}
+  \item Initialer Download \tar
   \item \cod{target-root}
   \begin{itemize}
-   \item \cod{tar -xf target-root-{\em V}.tar.gz -C {\em target-root}}
+   \item \cod{tar -xf \tar\ -C {\em target-root}}
   \end{itemize} 
   \item Transfer auf \cod{\em sd-card}
   \begin{itemize}
@@ -32,16 +32,16 @@
   \begin{itemize}
    \item \cod{MLO}
    \item \cod{u-boot.img}
-   \item \cod{zImage}
-   \item \cod{am335x-boneblack-wireless.dtb}
   \end{itemize}
  \end{block}
 % \vspace{-4mm}
- \begin{block}{Partition 1: ext4}
+ \begin{block}{Partition 2: ext4}
   \begin{itemize}
    \item rootfs auf dem \host
    \item \cod{rsync -av target-root/ {\em sd-card/}}
    \item \cod{sync}
+   \item \cod{/boot/zImage}
+   \item \cod{/boot/am335x-boneblack-wireless.dtb}
   \end{itemize}
  \end{block}
  
