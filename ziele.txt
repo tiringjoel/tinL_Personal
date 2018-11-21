@@ -68,6 +68,8 @@
 
 21.Nov. 2018
 ------------
- der init process
+ - 17-build Einführung
 
+ - der init process
+   das Skript rcS
 
