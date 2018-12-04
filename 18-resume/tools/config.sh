@@ -10,14 +10,15 @@ SIGNATURE=.62052326-ceda-4944-85e9-b8353c8c1d72
  exit 1
 }
 #--------------------------------------- locations of the resources
-RESOURCES=${PWD}/../resources
+RESOURCES=${HOME}/resources
+BINUTILS_SRC=${RESOURCES}/binutils-2.31/
+GCC_SRC=${RESOURCES}/gcc-8.2.0/
+KERNEL_SRC=${RESOURCES}/beaglebone/linux/
+GLIBC_SRC=${RESOURCES}/glibc-2.28/
+
 GMP_SRC=${RESOURCES}/gmp-6.1.2
 MPFR_SRC=${RESOURCES}/mpfr-4.0.1
 MPC_SRC=${RESOURCES}/mpc-1.1.0
-BINUTILS_SRC=${HOME}/devel/gcc/dist/binutils-2.31/
-GCC_SRC=${HOME}/devel/gcc/dist/gcc-8.2.0/
-KERNEL_SRC=${RESOURCES}/beaglebone-black/linux/
-GLIBC_SRC=${RESOURCES}/glibc-2.28/
 BUSYBOX_SRC=${RESOURCES}/busybox-1.29.3
 ZLIB_SRC=${RESOURCES}/zlib-1.2.8              #tar.gz
 #OPENSSL_SRC=${RESOURCES}/openssl-1.1.1       #tar.gz

@@ -73,3 +73,11 @@
  - der init process
    das Skript rcS
 
+28.Nov. 2018
+------------
+ Projektwoche
+
+5.Dez. 2018
+-----------
+ - 17-build
+
