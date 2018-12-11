@@ -16,34 +16,32 @@ CONFIG=${PWD}/config
 
 TARGET=arm-linux-gnueabihf
 #TARGET=arm-linux-musl does not work already in gcc-bare
+
 TARGET_ROOT=${BUILD_HOME}/target-root
 TC_PREFIX=${BUILD_HOME}/tc
 
 CROSS_COMPILE=${TC_PREFIX}/bin/${TARGET}-
 SYSROOT=${TARGET_ROOT}
 
-RESOURCES=${BUILD_HOME}/../resources/
+RESOURCES=${HOME}/resources/
 
 #----------------- toolchain
-BINUTILS_SRC=${RESOURCES}/binutils-2.29.1/
-GCC_SRC=${RESOURCES}/gcc-7.2.0/
+BINUTILS_SRC=${RESOURCES}/binutils-2.31/
+GCC_SRC=${RESOURCES}/gcc-8.2.0/
+GMP_SRC=${RESOURCES}/gmp-6.1.2/
+MPFR_SRC=${RESOURCES}/mpfr-4.0.1/
+MPC_SRC=${RESOURCES}/mpc-1.1.0/
 
-#----------------- the source code
-PYTHON_SRC=${RESOURCES}/Python-3.5.2
-U_BOOT_SRC=${RESOURCES}/u-boot-2017.09
-KERNEL_SRC=${RESOURCES}/beaglebone-black/linux/
+#----------------- kernel
+LINUX_SRC=${RESOURCES}/beaglebone/linux
+GLIBC_SRC=${RESOURCES}/glibc-2.28/
 
-
-EGLIBC_SRC=${RESOURCES}/eglibc/
-GLIBC_SRC=${RESOURCES}/glibc-2.26/
-MUSL_SRC=${RESOURCES}/musl-1.1.18/
-
-NEWLIB_SRC=${RESOURCES}/newlib-2.2.0-1/
-
+#----------------- unix
+BUSYBOX_SRC=${RESOURCES}/busybox-1.29.3/
+ZLIB_SRC=${RESOURCES}/zlib-1.2.11
 #newest version openssl-1.1.0c dont works for openssl
-OPENSSL_SRC=${RESOURCES}/openssl-1.0.2m
+OPENSSL_SRC=${RESOURCES}/openssl-1.0.2q
 
-BUSYBOX_SRC=${RESOURCES}/busybox-1.27.2/
 TOYBOX_SRC=${RESOURCES}/toybox-0.7.5
 
 CPUFREQUTILS_SRC=${RESOURCES}/cpufrequtils-008
@@ -51,7 +49,6 @@ NET_TOOLS_SRC=${RESOURCES}/net-tools
 
 OPENSSH_SRC=${RESOURCES}/openssh-7.6p1
 #OPENSSH_SRC=${RESOURCES}/openssh-7.1p1
-ZLIB_SRC=${RESOURCES}/zlib-1.2.8
 RSYNC_SRC=${RESOURCES}/rsync-3.1.2
 MINICOM_SRC=${RESOURCES}/minicom-2.7
 FUSE_SRC=${RESOURCES}/fuse-2.9.3
@@ -68,7 +65,5 @@ LIBEVENT_SRC=${RESOURCES}/libevent-2.1.8-stable/
 #the make command
 
 #-jn the number of the cpu on the host 
-MAKE="make -j8"
-
-cd build
-
+MAKE="make -j$(getconf _NPROCESSORS_ONLN)"
+echo "MAKE=${MAKE}"

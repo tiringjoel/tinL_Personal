@@ -1,0 +1,150 @@
+%-------------------------
+%build-supplement.tex
+%(c) H.Buchmann FHNW 2018
+%export TEXINPUTS=.:${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{beamer}
+\input{defines.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+
+\title[Build Again]{Ein ganzes \linux}
+
+\begin{frame}{Komponente}{ein Softwarepaket}
+ \begin{itemize}
+  \item Sammlung von Source Files
+  \item Konfiguration für verschiedene Architekturen
+  \item kann heruntergalden werden
+  \item kann auch selber geschrieben werden
+  \item können von anderen Komponenten abhängen
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Komponente}{Beispiele}
+ \begin{itemize}
+  \item linux, kernel
+  \item gcc, Compiler 
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Komponente}
+ \begin{itemize}
+  \item hat einen Namen
+  \item existiert als einzelner Archivfile 
+  \begin{itemize}
+   \item *.tar.gz, *.tar.xy 
+  \end{itemize}
+  \item existiert als Repository
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Unser einfaches Buildsystem}
+ \begin{itemize}
+  \item halbautomatisch
+  \item Skripts
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Prinzipien}
+ \begin{itemize}
+  \item zu jeder Komponente gehört:
+  \begin{itemize}
+   \item ein Sourceverzeichnis
+   \item ein Skript
+   \item ein Buildverzeichnis
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+{\newcommand{\comp}{{\em comp}}
+\begin{frame}{Verzeichnisstruktur}{am Beispiel der Komponente \comp}
+ \dirtree{%
+ .1 17-build \DTcomment{the home}.
+ .2 tools    \DTcomment{the home scripts}.
+ .3 {..}.
+ .3 \comp.
+ .3 {..}.
+ .2 {..}.
+ .2 \comp \DTcomment{das Buildverzeichnis}.
+ .3 {..} \DTcomment{erzeugt beim build}.
+ .2 {..}.
+ }
+\end{frame}
+}
+
+\begin{frame}{Ein typisches Beispiel}{\cod{binutils}}
+ \begin{itemize}
+  \item Source \cod{repositories/binutils-2.31}
+  \item Skript \cod{tools/binutils.sh} mit \cod{tools/common.sh}
+  \item Buildverzeichnis: \cod{binutils.sh}
+ \end{itemize}
+\end{frame}
+
+\section{Build}
+
+\begin{frame}{Toolchain 1}
+\begin{tabular}{l|l|l}
+ Comp & args & Verzeichnis\\
+ \hline\hline
+ binutils & & \cod{tc}\\
+ \hline
+ gmp      & & \cod{tc}\\
+ \hline
+ mpfr     & & \cod{tc}\\ 
+ \hline
+ mpc      & & \cod{tc}\\ 
+ \hline 
+ gcc-bare & & \cod{tc}\\
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Kernel/glibc}
+\begin{tabular}{l|l|l} 
+ Comp & args \\
+ \hline\hline
+ kernel	  & defconfig &\\
+          & menuconfig &\\
+ 	  & zImage  & \cod{target-root/boot}\\
+	  & dtbs    & \cod{target-root/boot}\\
+	  & headers\_install & \cod{target-root/usr/include}\\
+ \hline
+ glibc.sh & & \cod{usr/lib}, \cod{target-root/usr/include}
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Toolchain 2}
+\begin{tabular}{l|l|l}
+Comp & args \\
+ \hline\hline
+gcc & &  \cod{tc}
+\end{tabular}
+\begin{block}{Download}
+\begin{itemize}
+ \item \href{https://drive.switch.ch/index.php/s/PrfwR3SUYQkc29B}
+            {tc-tinl-gcc-8.2.0-2018.12.11.tar.gz}
+            
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Rootfilesystem}{minimal}
+\begin{tabular}{l|l|l}
+Comp & args \\
+\hline\hline
+busybox & menuconfig &\\
+	& busybox    &\\
+	& install    &\cod{target-root}\\
+\end{tabular}
+\begin{block}{Download}
+\begin{itemize}
+ \item \href{https://drive.switch.ch/index.php/s/9kENTq9RacaCzZs}
+            {target-root-2018.12.11.tar.gz}
+\end{itemize}
+\end{block}
+\end{frame}
+\end{document}

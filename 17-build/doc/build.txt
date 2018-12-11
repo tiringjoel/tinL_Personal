@@ -1,0 +1,44 @@
+Build
+-----
+Cloud:
+tc-tinl-gcc-8.2.0-2018.12.11.tar.gz 	https://drive.switch.ch/index.php/s/PrfwR3SUYQkc29B
+target-root-2018.12.11.tar.gz 		https://drive.switch.ch/index.php/s/9kENTq9RacaCzZs
+
+Prinzip:
+ Komponente -> tools/Komponente.sh
+
+Directories:
+ resources: source code 
+  Komponente
+
+ Komponente 
+  made by build
+  
+
+binutils   host
+gmp        host
+mpfr       host  
+mpc        host
+gcc-bare   host
+
+kernel     target
+ bb.org_defconfig
+ zImage
+ headers_install
+
+cp arch/arm/boot/zImage target-root/boot
+cp arch/arm/boot/dts/am335x-boneblack-wireless.dtb target-root/boot
+
+glibc     target
+
+gcc       host
+
+busybox	  target
+  menuconfig
+  busybox
+  install
+
+zlib      target
+
+target-root
+ sync nicht vergessen

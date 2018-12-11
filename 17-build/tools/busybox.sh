@@ -12,16 +12,12 @@
 #--------------------
 #we are in build
 . $(dirname ${0})/common.sh
-BUSYBOX=${PWD}/busybox
-[[ ! -d busybox ]] && 
+BUILD=${PWD}/busybox
+[[ ! -d ${BUILD} ]] && 
 { 
- mkdir busybox; 
- [[ -e ${CONFIG}/busybox.config ]] &&
- {
-  cp ${CONFIG}/busybox.config ${BUSYBOX}/.config
- }
+ mkdir ${BUILD}; 
 }
 cd ${BUSYBOX_SRC}
 #MAKE=make
-${MAKE} CONFIG_SYSROOT=${SYSROOT} CONFIG_PREFIX=${SYSROOT} CROSS_COMPILE=${CROSS_COMPILE} V=1 O=${BUSYBOX} ${@}
+${MAKE} CONFIG_SYSROOT=${SYSROOT} CONFIG_PREFIX=${SYSROOT} CROSS_COMPILE=${CROSS_COMPILE} V=1 O=${BUILD} ${@}
 

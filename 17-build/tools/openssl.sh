@@ -4,12 +4,14 @@
 # depends on zlib
 #------------------------
 . $(dirname ${0})/common.sh
-BUILD_HOME=$(basename ${OPENSSL_SRC})
-[[ ! -d ${BUILD_HOME} ]] &&
+BUILD=${PWD}/openssl
+[[ ! -d ${BUILD} ]] &&
 {
- tar -xzf ${OPENSSL_SRC}.tar.gz -C .
+ mkdir ${BUILD}
+ tar -xzf ${OPENSSL_SRC}.tar.gz --strip-components=1 -C ${BUILD}
 }
-cd ${BUILD_HOME}
+
+cd ${BUILD}
 export CC="${CROSS_COMPILE}gcc --sysroot=${SYSROOT}"
 export AS=${CROSS_COMPILE}as
 ./Configure linux-elf no-asm shared --prefix=${SYSROOT}/usr

@@ -1,14 +1,18 @@
 #---------------------------
 #zlib
-#(c) H.Buchmann FHNW 2015
+#(c) H.Buchmann FHNW 2018
 #---------------------------
 . $(dirname ${0})/common.sh
-[[ ! -d zlib-1.2.8 ]] && 
+BUILD=${PWD}/zlib
+[[ ! -d ${BUILD} ]] && 
 {
- tar -xzf ${ZLIB_SRC}.tar.gz -C .
+ mkdir ${BUILD}
+ tar -xzf ${ZLIB_SRC}.tar.gz --strip-components=1 -C ${BUILD}
 }
 
-cd zlib-1.2.8
+
+
+cd ${BUILD}
 export CC="${CROSS_COMPILE}gcc --sysroot=${SYSROOT}"
 #./configure --help
 ./configure \

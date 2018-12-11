@@ -1,16 +1,19 @@
 #!/bin/bash
 #-------------------------
 #binutils.sh
-#(c) H.Buchmann FHNW 2015
+#(c) H.Buchmann FHNW 2018
 #-------------------------
 . $(dirname ${0})/common.sh  #load common
-#-------------------- we are in build
-[[ ! -d binutils ]] && mkdir binutils 
-cd binutils
+
+#------------------------------------------ create build directory
+BUILD=${PWD}/binutils
+[[ ! -d ${BUILD} ]] && mkdir ${BUILD}
+cd ${BUILD}
 
 #uncomment for configure help
 #${BINUTILS_SRC}/configure --help 
 
+#------------------------------------------ configure
 ${BINUTILS_SRC}/configure \
  --prefix=${TC_PREFIX} \
  --target=${TARGET} \
@@ -19,6 +22,6 @@ ${BINUTILS_SRC}/configure \
  --disable-libiberfty \
  --disable-nls \
  --disable-werror
-
+#------------------------------------------ make
 ${MAKE} 
 ${MAKE} install

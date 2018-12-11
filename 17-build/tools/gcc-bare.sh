@@ -5,13 +5,19 @@
 #gcc for kernel
 #-----------------------
 . $(dirname ${0})/common.sh  #load common
-[[ ! -d gcc-bare ]] && mkdir gcc-bare
-cd gcc-bare
+BUILD=${PWD}/gcc-bare
+[[ ! -d gcc-bare ]] && mkdir ${BUILD}
+cd ${BUILD}
 
 #${GCC_SRC}/configure --help
+export LD_LIBRARY_PATH=${TC_PREFIX}/lib
 
 ${GCC_SRC}/configure \
  --prefix=${TC_PREFIX} \
+ --with-gmp=${TC_PREFIX} \
+ --with-mpfr=${TC_PREFIX} \
+ --with-mpc-include=${TC_PREFIX}/include \
+ --with-mpc-lib=${TC_PREFIX}/lib \
  --target=${TARGET} \
  --disable-nls \
  --disable-werror \
@@ -44,12 +50,12 @@ ${GCC_SRC}/configure \
 
 
 #---------------------------- the bare compiler
-make -j8 all-gcc
-make -j8 install-gcc 
+${MAKE} all-gcc
+${MAKE} install-gcc 
 
 #---------------------------- the bare compiler libgcc
-make -j8 all-target-libgcc
-make -j8 install-target-libgcc
+${MAKE} all-target-libgcc
+${MAKE} install-target-libgcc
 
 #---------------------------- the c++ libs
 #make -j8 all-target-libstdc++-v3
