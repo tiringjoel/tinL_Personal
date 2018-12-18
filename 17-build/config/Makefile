@@ -18,7 +18,6 @@ LD=${CROSS_COMPILE}ld
 #LD=ld
 #LDFLAGS=-static
 VPATH=../src:../src/3rdparty:../modules:../../resources/dterm-0.3
-
 CPPFLAGS=-I../src -I../src/3rdparty -I../modules
 
 #hello-world:    LDFLAGS=-static

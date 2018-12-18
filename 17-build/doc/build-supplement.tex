@@ -147,4 +147,32 @@ busybox & menuconfig &\\
 \end{itemize}
 \end{block}
 \end{frame}
+
+\begin{frame}{Rootfilesystem}{ssh}
+\begin{tabular}{l|l|l}
+Comp & args \\
+\hline\hline
+zlib    &  &\\
+\hline
+openssl	& &\\
+\hline
+openssh
+\end{tabular}
+\remark{Jetzt funktioniert \cod{ssh}/\cod{sshfs}}
+\end{frame}
+
+\begin{frame}{Rootfilesystem}{wi-fi}
+\begin{tabular}{l|l|l}
+Comp & args \\
+\hline\hline
+libnl    &  &\url{github.com/thom311/libnl/releases/}\\
+wpa\_supplicant & &
+\end{tabular}
+\begin{remarks}
+\item Kernel anpassen
+\item \href{https://drive.switch.ch/index.php/s/ysiZvdI9chgWcqN}{ti-connectivity}
+\item Setup wlan0 Siehe \cod{setup-wlan0.txt}
+\end{remarks}
+\end{frame}
+
 \end{document}

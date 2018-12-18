@@ -8,11 +8,11 @@
 #------------------
 #we are in 17-build
 . $(dirname ${0})/common.sh  #load common
-[[ ! -d u-boot ]] &&
+BUILD=${PWD}/u-boot
+[[ ! -d ${BUILD} ]] &&
 {
- mkdir u-boot
+ mkdir ${BUILD}
 }
-BUILD=$(pwd)/u-boot
 pushd ${U_BOOT_SRC}
 ${MAKE} CROSS_COMPILE=${CROSS_COMPILE} O=${BUILD} V=1 ${@}
 popd

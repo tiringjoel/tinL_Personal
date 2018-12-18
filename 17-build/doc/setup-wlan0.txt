@@ -1,0 +1,19 @@
+Setup wlan0:
+-----------
+ip link show wlan0
+wpa supplicant -D wext -i wlan0 -c wpa.conf  see 3-network ./tools/wpa_eduroam.sh
+udhcpc -i wlan0 -s absolute-path-to-udhcp.sh
+
+Script:
+!/bin/sh
+#--------------------
+#udhcp.sh call back
+#(c) H.Buchmann FHNW 2018
+#--------------------
+echo "---------------- ${@}"
+case ${1} in
+ bound)
+  ifconfig ${interface} ${ip} up
+  route add default gw ${router} ${interface}
+ ;;
+esac

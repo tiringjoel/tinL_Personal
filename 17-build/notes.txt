@@ -48,7 +48,7 @@ debian@beaglebone:~$ dmesg | grep wl
 [   52.200444] wlcore: loaded
 
 
-Beaglebone Black deian: modules
+Beaglebone Black debian: modules
 wl18xx                101036  0 
 wlcore                228113  1 wl18xx
 mac80211              626271  2 wl18xx,wlcore

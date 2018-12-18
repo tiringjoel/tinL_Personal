@@ -82,6 +82,13 @@
  - 17-build
 
 12.Dez.2018
+-----------
 - 17-build continued
+
+19.Dez.2018
+-----------
+- 17-build continued
+   ssh
+   wi-fi
  
 

@@ -4,9 +4,10 @@
 # depends on zlib
 #------------------------
 . $(dirname ${0})/common.sh
-[[ ! -d openssh ]] && mkdir openssh
+BUILD=${PWD}/openssh
+[[ ! -d ${BUILD} ]] && mkdir ${BUILD}
 
-cd openssh
+cd ${BUILD}
 
 #${OPENSSH_SRC}/configure --help
 

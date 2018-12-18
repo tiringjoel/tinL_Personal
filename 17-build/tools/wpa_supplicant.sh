@@ -2,12 +2,19 @@
 #---------------------------
 #wpa_supplicant.sh
 #(c) H.Buchmann FHNW 2017
-# use install tarhet too
+# use install target too
 #---------------------------
 . $(dirname ${0})/common.sh
-WPA_SUPPLICANT=$(basename ${WPA_SUPPLICANT_SRC})
-[[ ! -d ${WPA_SUPPLICANT} ]] && { tar -xf ${WPA_SUPPLICANT_SRC}.tar.gz -C . ; }
-cd ${WPA_SUPPLICANT}/wpa_supplicant
+BUILD=${PWD}/wpa_supplicant
+
+[[ ! -d ${BUILD} ]] && 
+{
+ mkdir ${BUILD}
+ tar -xzf ${WPA_SUPPLICANT_SRC}.tar.gz --strip-components=1 -C ${BUILD}
+}
+
+
+cd ${BUILD}/wpa_supplicant
 [[ ! -f .config ]] && 
  {
   WPA_CONFIG=defconfig
