@@ -90,5 +90,11 @@
 - 17-build continued
    ssh
    wi-fi
- 
+   
+9.Jan.2019
+----------
+Fehler von Herrn Ermel
+16-build
+ TODO build Verzeichnis
+19-minimal
 

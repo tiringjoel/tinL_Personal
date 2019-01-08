@@ -1,7 +1,7 @@
 Setup wlan0:
 -----------
 ip link show wlan0
-wpa supplicant -D wext -i wlan0 -c wpa.conf  see 3-network ./tools/wpa_eduroam.sh
+wpa_supplicant -D wext -i wlan0 -c wpa.conf  see 3-network ./tools/wpa_eduroam.sh
 udhcpc -i wlan0 -s absolute-path-to-udhcp.sh
 
 Script:

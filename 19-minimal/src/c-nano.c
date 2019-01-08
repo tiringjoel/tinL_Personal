@@ -12,10 +12,12 @@ static const char Msg[]="Hello: "__FILE__"\n";
 
 void _start()
 {
+#if 0
  while(1)
  {
  }
-#if 0
+#endif
+#if 1
  while(1)
  {
   syscall(__NR_write,

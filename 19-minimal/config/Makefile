@@ -28,7 +28,7 @@ s-nano.o:	s-nano.S
 		${AS} -o${@} ${^}
 
 c-nano:		c-nano.o
-		${LD} -o${@} ${^} --dynamic-linker="/usr/lib/libc.so" -L${TARGET_ROOT}/usr/lib/ -lc
+		${LD} -o${@} ${^} -static -L${TARGET_ROOT}/usr/lib/ -lc
 c-nano.o:	c-nano.c
 
 
