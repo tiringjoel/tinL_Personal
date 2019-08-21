@@ -12,14 +12,10 @@
 #--------------------
 #we are in build
 . $(dirname ${0})/config.sh
-BUSYBOX=${PWD}/busybox
-[[ ! -d busybox ]] && 
-{ 
- mkdir busybox; 
- [[ -e ${CONFIG}/busybox.config ]] &&
- {
-  cp ${CONFIG}/busybox.config ${BUSYBOX}/.config
- }
+BUSYBOX=${PWD}
+[[ -e ${CONFIG}/busybox.config ]] &&
+{
+ cp ${CONFIG}/busybox.config ${BUSYBOX}/.config
 }
 cd ${BUSYBOX_SRC}
 #MAKE=make

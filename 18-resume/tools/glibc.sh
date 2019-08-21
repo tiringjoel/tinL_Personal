@@ -4,12 +4,10 @@
 #(c) H.Buchmann FHNW 2018
 #-----------------------
 . $(dirname ${0})/config.sh
-[[ ! -d glibc ]] && { mkdir glibc; }
 
 export CFLAGS="--sysroot=${TARGET_ROOT} -O2"
 export CC=${TC}/bin/${TARGET}-gcc
 
-cd glibc
 DESTDIR=${TARGET_ROOT} \
 ${GLIBC_SRC}/configure \
     --prefix=/usr \

@@ -5,8 +5,6 @@
 #-------------------------
 . $(dirname ${0})/config.sh  #load common
 #-------------------- we are in build
-[[ ! -d gmp ]] && mkdir gmp 
-cd gmp
 #${GMP_SRC}/configure --help
 ${GMP_SRC}/configure \
  --prefix=${TC} \

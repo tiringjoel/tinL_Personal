@@ -8,13 +8,9 @@
 # bb.org_defconfig
 # zImage :kernel
 # dtbs   :devicetree
+# headers_install: for glibc
 #---------------------
-
 . $(dirname ${0})/config.sh
-[[ ! -d kernel ]] &&
-{
- mkdir kernel
-}
 
 [[ -z ${1}  ]] &&
 {
@@ -22,7 +18,7 @@
  exit 0
 }
 
-BUILD=${PWD}/kernel
+BUILD=${PWD}
 pushd ${KERNEL_SRC} > /dev/null
 ${MAKE} V=1 O=${BUILD} \
 LOADADDR=0x8000 \

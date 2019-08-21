@@ -5,10 +5,6 @@
 # depends on zlib
 #------------------------
 . $(dirname ${0})/config.sh
-[[ ! -d openssh ]] && mkdir openssh
-
-cd openssh
-
 
 export CC="${CROSS_COMPILE}gcc --sysroot=${TARGET_ROOT}"
 ${OPENSSH_SRC}/configure \

@@ -5,9 +5,6 @@
 #-----------------------
 . $(dirname ${0})/config.sh
 
-#-------------------- we are in build
-[[ ! -d gcc-target ]] && mkdir gcc-target
-cd gcc-target
 ${GCC_SRC}/configure \
  --prefix=${TC} \
  --with-gmp=${TC} \
@@ -39,7 +36,7 @@ ${MAKE} install
 
 
 #---------------------------- copy libraries
-cp ${TC}/${TARGET}/lib/{libstdc++.so.6.0.24,libgcc_s.so.1} ${TARGET_ROOT}/usr/lib
+cp ${TC}/${TARGET}/lib/{libstdc++.so.6.0.27,libgcc_s.so.1} ${TARGET_ROOT}/usr/lib
 pushd ${TARGET_ROOT}/usr/lib > /dev/null
 ln -sf libstdc++.so.6.0.24 libstdc++.so.6
 popd                         > /dev/null
