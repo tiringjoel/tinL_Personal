@@ -9,7 +9,7 @@
 #------------------
 #we are in 4-uboot
 #------------------------ adapt to your needs
-U_BOOT_SRC=${PWD}/../resources/u-boot
+U_BOOT_SRC=${HOME}/resources/u-boot-2018.09
 TC=${PWD}/tc/bin/
 MAKE="make -j8"
 #------------------------ done
