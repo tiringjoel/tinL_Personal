@@ -1,4 +1,4 @@
-\begin{frame}{Image}{F¸r \target}
+\begin{frame}{Image}{F√ºr \target}
 
 \begin{itemize}
  \item Bootcode
@@ -88,7 +88,7 @@ ArchLinuxARM-2014.06-rpi.img5      188416 3667967 3479552  1.7G 83 Linux
    \item mit $bs\times count = 1GiB$  
   \end{itemize}
  \end{itemize}
- \item formatiere \cod{\em sd-card} wie wenn es eine 'richtige' SD-Card w‰re:
+ \item formatiere \cod{\em sd-card} wie wenn es eine 'richtige' SD-Card w√§re:
  \begin{itemize}
   \item \cod{fdisk sd-card}
  \end{itemize}
@@ -110,7 +110,7 @@ sd-card2        133120 2097151 1964032  959M 83 Linux
  \begin{itemize}
   \item \cod{mkfs.{\em fs} /dev/loop{\bf i}}
   \begin{itemize}
-   \item mit {\em fs=\cod{vfat}} f¸r \cod{sd-card1} und {\em fs=\cod{ext4}} f¸r
+   \item mit {\em fs=\cod{vfat}} f√ºr \cod{sd-card1} und {\em fs=\cod{ext4}} f√ºr
         \cod{sd-card2} 
   \end{itemize}
  \end{itemize}
@@ -132,7 +132,7 @@ sd-card2        133120 2097151 1964032  959M 83 Linux
    \item mit \cod{{\em part}=boot\textbar target-root}
   \end{itemize}
  \end{itemize}
- \item autfr‰umen
+ \item autfr√§umen
  \begin{itemize}
   \item \cod{umount /dev/loop{\bf i}}
   \item \cod{losetup -D}
@@ -148,8 +148,8 @@ sd-card2        133120 2097151 1964032  959M 83 Linux
  \begin{enumerate}
   \item formatiere SD-Card 2 Partitionen:
   \begin{description}
-   \item[Partition 1] Kleine $64MiB$ f¸r Boot/Kernel
-   \item[Partition 2] Grosse $>1GiB$ f¸r \unix
+   \item[Partition 1] Kleine $64MiB$ f√ºr Boot/Kernel
+   \item[Partition 2] Grosse $>1GiB$ f√ºr \unix
   \end{description}
   \item erzeuge Filesystem 
   \begin{description}

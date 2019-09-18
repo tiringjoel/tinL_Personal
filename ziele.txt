@@ -6,3 +6,7 @@
   - usb/ethernet
   - ssh
 
+25.Sept. 2019
+-------------
+ - BeagleBone verbunden mit Host
+  via eduroam

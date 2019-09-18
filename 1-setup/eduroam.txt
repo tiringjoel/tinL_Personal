@@ -1,0 +1,33 @@
+1. minicom -D /dev/ttyACM0
+2. sudo connmanctl enable wifi
+3. sudo connmanctl scan wifi
+4. sudo connmanctl services
+   ergibt wlan access point
+5. sudo connmanctl agent on
+
+in File: name siehe sudo connmanctl services wifi_**.config
+im Ordner:
+ /var/lib/connman/
+ 
+File Inhalt:
+
+[service_****]   //**** wifi_**
+type=wifi
+ssid="eduroam"   //mit "
+key_mgmt=WPA-EAP  // eventuell
+eap=PEAP
+identity=name@students.fhnw.ch
+phase2=MSCHAPV2
+Passphrase=volltext   // warum 
+CACertFile=absoluterPfadOfFile
+
+python
+eduroam-linux-Fachhochschule_Nordwestschweiz.py
+ergibt File
+.cat_installer/ca.pem <----- das ist der File
+
+6. sudo systemctl restart connman
+
+Im syslog nachschauen 
+grep connman 
+syslog 
