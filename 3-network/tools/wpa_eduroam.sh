@@ -12,7 +12,7 @@ function usage()
 
 [[ -z ${1} ]] && usage
 
-echo -n "Password= " >&2q
+echo -n "Password= " >&2
 read -s PW
 cat<< EOF
 ctrl_interface=/run/wpa_supplicant

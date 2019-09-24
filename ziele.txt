@@ -8,5 +8,12 @@
 
 25.Sept. 2019
 -------------
- - BeagleBone verbunden mit Host
-  via eduroam
+ 2-unix-use
+  - alles ist ein File
+  - Filesysteme
+  - Filesysteme montieren
+  
+ 3-network
+  - BeagleBone verbunden mit Host
+    - via USB/IP
+  - via eduroam

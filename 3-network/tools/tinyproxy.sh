@@ -6,6 +6,7 @@
 #we are in 3-network
 TINYPROXY=tinyproxy
 [[ ! -d ${TINYPROXY} ]] && mkdir ${TINYPROXY}
+touch ${TINYPROXY}/log.log
 tail -f ${TINYPROXY}/log.log &
 TAIL_PID=${?}
 trap 'kill ${TAIL_PID}' INT

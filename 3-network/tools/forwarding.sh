@@ -3,8 +3,9 @@
 #(c) H.Buchmann FHNW 2018
 #----------------------
 #INTER_NET=enp0s20u2
-INTER_NET=vpn0
-LOCAL_NET=enp0s20u4
+#INTER_NET=vpn0
+INTER_NET=enp0s20f0u3u2
+LOCAL_NET=eth0
 
 sudo sysctl net.ipv4.ip_forward=1
 
