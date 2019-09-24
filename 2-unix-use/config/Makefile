@@ -46,7 +46,7 @@ CXXFLAGS=-std=c++11 -march=armv7-a -mfloat-abi=hard -mfpu=vfpv3-d16
 
 
 %:      %.o 
-	@${LD} \
+	${LD} \
 	--sysroot=${SYSROOT} \
 	--build-id \
 	--eh-frame-hdr \
