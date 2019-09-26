@@ -5,7 +5,6 @@
 #see EGLIBC.cross
 #-----------------------
 . $(dirname ${0})/config.sh
-[[ ! -d libnl ]] && { mkdir libnl; }
 export CFLAGS="--sysroot=${TARGET_ROOT} -O2"
 export CPPFLAGS="--sysroot=${TARGET_ROOT}"
 export CC=${CROSS_COMPILE}gcc

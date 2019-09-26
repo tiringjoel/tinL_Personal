@@ -25,11 +25,11 @@ MPFR_SRC=${RESOURCES}/mpfr-4.0.1
 MPC_SRC=${RESOURCES}/mpc-1.1.0
 BUSYBOX_SRC=${RESOURCES}/busybox-1.31.0
 #OPENSSL_SRC=${RESOURCES}/openssl-1.1.1       #tar.gz
-IW_SRC=${RESOURCES}/iw-4.14                   #tar.gz
+IW_SRC=${RESOURCES}/iw-5.3                 #tar.xz
 LIBNL_SRC=${RESOURCES}/libnl-3.4.0
 RSYNC_SRC=${RESOURCES}/rsync-3.1.2
 U_BOOT_SRC=${RESOURCES}/u-boot/
-WPA_SUPPLICANT_SRC=${RESOURCES}/wpa_supplicant-2.6
+WPA_SUPPLICANT_SRC=${RESOURCES}/wpa_supplicant-2.9
 #--------------------------------------- locations here
 BUILD_HOME=${PWD}
 KERNEL_BUILD=${PWD}/build/kernel

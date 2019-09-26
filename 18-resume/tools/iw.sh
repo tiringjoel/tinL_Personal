@@ -4,12 +4,7 @@
 #(c) H.Buchmann FHNW 2017
 #---------------------------
 . $(dirname ${0})/config.sh
-
-BUILD=${PWD}/$(basename ${IW_SRC})
-[[ ! -d ${BUILD} ]] && 
-{
- tar -xf ${IW_SRC}.tar.gz -C .
-}
+tar -xvf ${IW_SRC}.tar.xz --strip-components=1 -C .
 cd $(basename ${IW_SRC})
 export CC="${CROSS_COMPILE}gcc --sysroot=${TARGET_ROOT}"
 ${MAKE}
