@@ -1,0 +1,45 @@
+%-------------------------
+%big-picture
+%(c) H.Buchmann FHNW 2008
+%$Id$
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+
+\title{Image auf SD Karte}
+\begin{document}
+
+\newcommand{\distro}{sd-2016-09-28.img.gz}
+
+\frame{\titlepage}
+
+\begin{frame}{Ziel}{Image auf SD-Karte}
+ \begin{itemize}
+  \item Wie startet ein Rechner
+  \begin{itemize}
+   \item booten
+  \end{itemize}
+  \item Partitionen
+  \begin{itemize}
+   \item alles ist ein File
+  \end{itemize}
+  \item die serielle Schnittstelle via USB
+  \begin{itemize}
+   \item der erste Kontakt mit dem \target
+  \end{itemize}
+  \item Image
+  \begin{itemize}
+   \item per USB am lokalen Netz \host - \targetS
+   \item per Wi-Fi am Internet
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\input{boot.tex}
+\input{partitions.tex}
+\input{serial.tex}
+\input{sd-image.tex}
+\end{document}
+

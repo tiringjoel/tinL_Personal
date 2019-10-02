@@ -17,3 +17,8 @@
   - BeagleBone verbunden mit Host
     - via USB/IP
   - via eduroam
+
+2.Okt. 2019
+-----------
+ 3.5-image
+  - kleines Linux auf SD-Karte

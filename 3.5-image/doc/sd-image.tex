@@ -1,0 +1,58 @@
+\section{SD Karte}
+\begin{frame}{Initiale SD-Karte}{Herstellung}
+ \begin{itemize}
+  \item das Image:
+  \begin{itemize}
+   \item \href{https://drive.switch.ch/index.php/s/VDDlivnHq2QQ8m9}{sd-2019-09-26.img.xz}
+  \end{itemize}
+  \item auf SD-Karte
+  \begin{itemize}
+   \item \cod{xz -d -c sd-2019-09-26.img.xz | sudo dd of=/dev/sdX}
+   \remark{{\Huge Vorsicht} bei \cod{/dev/sdX}}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{2 Partitionen}{gemacht mit \cod{fdisk -l /dev/sdX}}
+{
+\footnotesize
+\begin{verbatim}
+Disk /dev/sda: 14.5 GiB, 15552479232 bytes, 30375936 sectors
+Disk model: STORAGE DEVICE  
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x00000000
+
+Device     Boot Start    End Sectors  Size Id Type
+/dev/sda1  *     2048  34815   32768   16M  b W95 FAT32
+/dev/sda2       34816 559103  524288  256M 83 Linux
+\end{verbatim}
+}
+\begin{description}
+ \item[p1] Boot Partition
+ \item[p2] Root Filesystem das Linux
+\end{description}
+\end{frame}
+
+%\subsection{Distribution}
+%\begin{frame}[fragile]{Alles ist ein File}{und umgekehrt}
+%\begin{itemize}
+% \item Der File \cod{\distro}
+% ist das Bild einer ganzen SD-Karte
+% \item Mache SD-Karte
+% \begin{itemize}
+%  \item Kopiere {\tiny\url{sourceforge.net/projects/fhnw-tinl/files/{\distro}/download}} 
+%  \item entzippe
+%  \item kopiere
+%  \begin{lstlisting}
+%dd if=distro.img of=/dev/sd-card
+%  \end{lstlisting}
+%  \cod{sd-card} typ \cod{mmcblk\em{N}} $N=0|1 ..$
+% \end{itemize}
+% \remark{Alles mit {\em pipes}}
+% 
+%\end{itemize}
+%
+%\end{frame}
