@@ -1,0 +1,8 @@
+Init-Script
+-----------
+/etc/init.d/rcS
+
+usb-network.sh
+ - ifconfig
+ 
+wifi-network.sh

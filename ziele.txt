@@ -22,3 +22,10 @@
 -----------
  3.5-image
   - kleines Linux auf SD-Karte
+
+9.Okt. 2019
+-----------
+ 3,5-image
+  startup initscript
+ 5-kernel
+ 

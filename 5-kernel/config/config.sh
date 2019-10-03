@@ -9,12 +9,12 @@ TC=${PWD}/tc/bin/
 CROSS_COMPILE=${TC}/${PREFIX}
 
 #----------------------- adapt for your needs
-LINUX_SRC=${PWD}/../resources/beaglebone-black/linux
+LINUX_SRC=${HOME}/resources/beaglebone/linux
 BUILD=$(pwd)/build
 MODULES=$(pwd)/modules
 
-#-jn  n:the number of cpus on your host+1 
-MAKE="make -j8"
+MAKE="make -j $(getconf _NPROCESSORS_ONLN)"
+
 #MAKE="make"
 
 
