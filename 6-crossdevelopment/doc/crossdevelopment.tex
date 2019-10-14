@@ -1,0 +1,102 @@
+%-------------------------
+%big-picture
+%(c) H.Buchmann FHNW 2019
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+
+\title[Crossdevelopment]{Crossdevelopment}
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Entwicklung von Programmen auf dem \target}
+ \begin{block}{Nicht aus den Augen verlieren:}
+ \begin{itemize}
+  \item alles ist ein File 
+  \begin{itemize}
+   \item $0-te$ Näherung
+   \item File: {\em stream of bits}
+   \item wo sind die Files ?
+  \end{itemize}
+  \item Filesysteme
+  \begin{itemize}
+   \item \cod{mount}
+   \item \cod{sshfs}
+  \end{itemize}
+  \item Cross development
+  \begin{itemize}
+   \item \host $\leftrightarrow$ \target
+   \remark{Keine Toolchain auf dem \target}
+  \end{itemize}
+ \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}{Wichtig}
+ \begin{itemize}
+  \item wo ist was ?
+  \begin{itemize}
+  \item {\Large Verzeichnisstruktur}
+  \end{itemize}
+  \item wo sind wir ?
+  \begin{itemize}
+   \item \host
+   \item[] oder
+   \item \target
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Ein paar Befehle}
+ \begin{itemize}
+  \item \cod{cat {\em name}} 
+  \begin{itemize}
+   \item {\em concatenate files and print on the standard output}
+  \end{itemize}
+  \item \cod{hexdump -C {\em name}}
+  \begin{itemize}
+   \item {\em display  file  contents  in hexadecimal, decimal, octal, or ascii}
+  \end{itemize}
+  \item \cod{dd if=... of=... count=...}
+  \begin{itemize}
+   \item {\em convert and copy a file}
+  \end{itemize}
+  \item \cod{cp}
+  \begin{itemize}
+   \item {\em copy files and directories}
+  \end{itemize}
+   \item \cod{rsync}
+  \begin{itemize}
+   \item {\em a fast, versatile, remote (and local) file-copying tool}
+  \end{itemize}
+  \item \cod{tar}
+  \begin{itemize}
+   \item {\em archiving utility}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Devices sind auch Files}
+ \begin{itemize}
+  \item SD-Karten \cod{/dev/sd{\bf X}}
+  \item serielle Schnittstellen \cod{/dev/tty{\bf X}}
+  \begin{itemize}
+   \item \cod{/dev/ttyUSB0} \cod{/dev/ttyACM0}
+  \end{itemize}
+  \item $\dots$
+ \end{itemize}
+ 
+\end{frame}
+
+%\section{Cross development}
+\input{development.tex}
+
+\input{exercises.tex}
+
+
+
+\end{document}
+

@@ -1,0 +1,118 @@
+\section{CrossDevelopment}
+\begin{frame}{Crossdevelopment}
+ \begin{itemize}
+  \item zwei Rechner
+  \begin{description}
+   \item[Host] der Entwicklungsrechner
+   \item[Target] \targetS der Zielrechner
+  \end{description}
+  \item Development
+  \begin{itemize}
+   \item Wo sind die Files
+  \end{itemize}
+  \item CrossDevelopment
+  \begin{itemize}
+   \item Wo sind die Files
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\subsection{Outline}
+\begin{frame}{Outline}
+ \begin{itemize}
+  \item Development
+  \begin{itemize}
+   \item Programme auf dem \host für den \host
+  \end{itemize}
+  \item CrossDevelopment
+  \begin{itemize}
+   \item Programme auf dem \host für für den \target
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Verzeichnisstruktur}
+ \dirtree{%
+ .1 6-crossdevelopment.
+ .2 src \DTcomment{the source files}.
+ .2 tc \DTcomment{target toolchain normally link}.
+ .2 target-work \DTcomment{files for \targetS}.
+ .2 host-work \DTcomment{files for \host}.
+ .2 target-root \DTcomment{copy from SD-card $|$ link $|$ mounted}.
+ }
+\end{frame}
+
+\input{host.tex}
+\input{target.tex}
+
+%\subsection{Development}
+%
+%\begin{frame}{Development}{noch nicht Cross}
+% \begin{itemize}
+%  \item Source file \cod{src/hello-world-c.c}
+%  \begin{itemize}
+%   \item C
+%   \item POSIX
+%  \end{itemize}
+%  unabhängig von Platform
+%  \item Object file (Maschinencode) \cod{hello-world-c.o}
+%  \begin{itemize}
+%   \item erzeugt mit: \cod{gcc -c ../src/hello-world-c.c -o hello-world-c.o}
+%   \item Maschinencode: 
+%   \begin{itemize}
+%    \item \cod{file hello-world-c.o} 
+%    \item \cod{objdump -d hello-world-c.o}
+%   \end{itemize}
+%  \end{itemize}
+%  \item Executable file \cod{hello-world-c}
+%  \begin{itemize}
+%   \item \cod{gcc  hello-world-c.o -o hello-world-c}
+%   \item Maschinencode:
+%   \begin{itemize}
+%    \item \cod{file hello-world-c} 
+%    \item \cod{objdump -d hello-world-c}
+%   \end{itemize}
+%  \end{itemize}
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Was es braucht ?}{Files}
+% \begin{itemize}
+%  \item Source file
+%  \begin{itemize}
+%   \item wo ist der {\em include file} \cod{stdio.h}
+%  \end{itemize}
+%  \item Object File
+%  \begin{itemize}
+%   \item \cod{nm hello-world-c.o}
+%   \item wo ist \cod{puts}
+%  \end{itemize}
+%  \item Executable
+%  \begin{itemize}
+%  \item \cod{nm hello-world-c}
+%  \item \cod{ldd hello-world-c}
+%  \item wo sind die Bibliotheken
+%  \end{itemize}
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Wo sind die Files ?}{irgendwo in einem Unterverzeichnis von {\Huge\tt /}}
+% \begin{itemize}
+%  \item Include Files \cod{gcc -c -v ../src/hello-world-c.c -o hello-world-c.o}
+%  \begin{itemize}
+%   \item \cod{stdio.h} ?
+%   \item \cod{stddef.h} ? 
+%  \end{itemize}
+%  \item Bibliotheken
+%  \begin{itemize}
+%   \item z.B. \cod{libc.so}
+%  \end{itemize}
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Development}{der Normalfall}
+% \begin{itemize}
+%  \item Host==Target
+%  \item root Host==root Target
+% \end{itemize}
+%\end{frame}

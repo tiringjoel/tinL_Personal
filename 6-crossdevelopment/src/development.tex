@@ -1,0 +1,46 @@
+\section{CrossDevelopment}
+\begin{frame}{Crossdevelopment}
+ \begin{itemize}
+  \item zwei Rechner
+  \begin{description}
+   \item[Host] der Entwicklungsrechner
+   \item[Target] \targetS der Zielrechner
+  \end{description}
+  \item Development
+  \begin{itemize}
+   \item Wo sind die Files
+  \end{itemize}
+  \item CrossDevelopment
+  \begin{itemize}
+   \item Wo sind die Files
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\subsection{Outline}
+\begin{frame}{Outline}
+ \begin{itemize}
+  \item Development
+  \begin{itemize}
+   \item Programme auf dem \host für den \host
+  \end{itemize}
+  \item CrossDevelopment
+  \begin{itemize}
+   \item Programme auf dem \host für für den \target
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Verzeichnisstruktur}
+ \dirtree{%
+ .1 6-crossdevelopment.
+ .2 src \DTcomment{the source files}.
+ .2 tc \DTcomment{target toolchain normally link}.
+ .2 target-work \DTcomment{files for \targetS}.
+ .2 host-work \DTcomment{files for \host}.
+ .2 target-root \DTcomment{copy from SD-card $|$ link $|$ mounted}.
+ }
+\end{frame}
+
+\input{host.tex}
+\input{target.tex}

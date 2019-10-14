@@ -1,0 +1,59 @@
+\subsection{CrossDevelopment}
+
+\begin{frame}{CrossDevelopment}
+ \begin{itemize}
+  \item Host!=Target
+  \item root Host != root Target
+ \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{CrossDevelopment}{Target \target}
+ \begin{itemize}
+  \item toolchain
+  \begin{itemize}
+   \item \cod{tc/bin/arm-linux-gnueabihf-*}
+   \item \cod{*}: \cod{g++},\cod{nm},\cod{objdump} $\dots$
+  \end{itemize}
+  \item \cod{target-root} Mehrere Möglichkeiten:
+  \begin{itemize}
+   \item Kopie von SD-Karte 
+   \item \cod{sshfs debian@192.168.7.2:/ target-root}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{CrossDevelopment: im Verzeichnis \cod{target-work}}{die einzelnen Schritte}
+ \begin{itemize}
+  \item Source file \cod{src/hello-world.cc}
+  \begin{itemize}
+   \item C++/POSIX
+  \end{itemize}
+  unabhängig von Platform
+  \item Object file (Maschinencode) \cod{hello-world.o}
+  \begin{itemize}
+   \item erzeugt mit: \cod{../tc/bin/arm-linux-gnueabihf-g++ --sysroot=../target-root -c ../src/hello-world.cc -o hello-world.o}
+   \item Maschinencode: 
+   \begin{itemize}
+    \item \cod{file hello-world.o} 
+    \item \cod{../tc/bin/arm-linux-gnueabihf-objdump -d hello-world.o}
+   \end{itemize}
+  \end{itemize}
+  \item Executable file \cod{hello-world}
+  \begin{itemize}
+   \item \cod{../tc/bin/arm-linux-gnueabihf-g++ --sysroot=../target-root hello-world.o -o hello-world}
+   \item Maschinencode:
+   \begin{itemize}
+    \item \cod{file hello-world-c} 
+    \item \cod{../tc/bin/arm-linux-gnueabihf-objdump -d hello-world-c}
+   \end{itemize}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{In einem Schritt}{für kleine Projekte}
+ \begin{itemize}
+  \item \cod{../tc/bin/arm-linux-gnueabihf-g++ --sysroot=../target-root ../src/hello-world.cc -o hello-world}
+ \end{itemize}
+\end{frame}

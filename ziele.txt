@@ -28,4 +28,9 @@
  3.5-image
   startup initscript
  5-kernel
- 
+
+16.Okt. 2019
+------------
+ wifi MAC Adressen
+ ntp 
+ 6-crossdevelopment

@@ -1,0 +1,131 @@
+\section{CrossDevelopment}
+\begin{frame}{Crossdevelopment}
+ \begin{itemize}
+  \item zwei Rechner
+  \begin{description}
+   \item[Host] der Entwicklungsrechner
+   \item[Target] \targetS der Zielrechner
+  \end{description}
+  \item Development
+  \begin{itemize}
+   \item Wo sind die Files
+  \end{itemize}
+  \item CrossDevelopment
+  \begin{itemize}
+   \item Wo sind die Files
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\subsection{Outline}
+\begin{frame}{Outline}
+ \begin{itemize}
+  \item Development
+  \begin{itemize}
+   \item Programme auf dem \host für den \host
+  \end{itemize}
+  \item CrossDevelopment
+  \begin{itemize}
+   \item Programme auf dem \host für für den \target
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Verzeichnisstruktur}
+ \dirtree{%
+ .1 6-crossdevelopment.
+ .2 src \DTcomment{the source files}.
+ .2 tc \DTcomment{target toolchain normally link}.
+ .2 target-work \DTcomment{files for \targetS}.
+ .2 host-work \DTcomment{files for \host}.
+ .2 target-root \DTcomment{copy from SD-card $|$ link $|$ mounted}.
+ }
+\end{frame}
+
+
+
+\input{exercises.tex}
+
+%\begin{frame}{Crossdevelopment}{\cod{hello-world-c.c}}
+%\begin{itemize}
+% \item Target \target Debian
+% \item Host \host:
+% \begin{itemize}
+%  \item \cod{target-root}
+%  \item \cod{sshfs}
+% \end{itemize} 
+% \end{itemize} 
+%\end{frame}
+%
+%\begin{frame}{Crossdevelopment}{\cod{hello-world-c.c}}
+% \begin{itemize}
+% \item Target \target minimal \cod{mmc0} 
+% \item Host \host\ \cod{target-root}:
+% \begin{itemize}
+%  \item toolchain:
+%  \begin{itemize}
+%   \item \cod{gcc-6.2.0-arm-64bit.tar.gz} in 
+%   \url{sourceforge.net/projects/fhnw-tinl/files}
+%  \end{itemize}
+%  \item SD-Karte ein-\& ausstecken
+%  \item Kopie 
+%  \item \cod{curlftpfs}
+%  \begin{itemize}
+%   \item basiert auf \cod{ftp} 
+%  \end{itemize}
+% \end{itemize} 
+% \end{itemize} 
+%\end{frame}
+%
+%\begin{frame}{Vorbereitung}
+% \begin{itemize}
+%  \item Verbindung mit \target via \cod{ssh}
+%%  \item upgrade \cod{pacman -Suy}
+%%  \item {\em user} auf \target \cod{useradd}
+%  \item Installation {\em toolchain} auf \host
+%  
+%  {\tiny\url{sourceforge.net/projects/fhnw-tinl/files/}}
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Verbindung}{mit \target Debian}
+% \begin{itemize}
+%  \item \cod{ssh} für die Ausführung der Programme
+%  \item {\em mount} Varianten
+%  \begin{itemize}
+%   \item \host auf \target 
+%  \end{itemize}
+%  \item Kopiere  {\em executable} auf \target 
+%   \begin{itemize}
+%    \item \cod{scp} secure copy
+%    \item \cod{scp {\em executable} user@target:}
+%   \end{itemize}
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Programme}{auf \target}
+% \begin{itemize}
+%  \item \c Programme:, \cod{hello-world-c.c} 
+%  \item \cpp Programme \cod{hello-world-cpp.cc}, \cod{primes.cc} 
+%  \remark{Toolchain funktioniert für \cpp noch nicht}
+% \end{itemize}
+%\end{frame}
+
+%\begin{frame}{Verzeichnisstruktur}{\host$\leftrightarrow$ \target}
+% \begin{block}{Host} 
+% \dirtree{%
+%  .1 2-unix-use \DTcomment{somewhere on the host}.
+%  .2 config.
+%  .3 Makefile \DTcomment{for making \target executables}.
+%  .2 src  \DTcomment{c,c++}.
+%  .2 tc   \DTcomment{normally toolchain}.
+%  .2 {\bf work} \DTcomment{connected with \target {\em current dir}}.
+% }
+% \end{block}
+% \begin{block}{\target} 
+% \dirtree{%
+%  .1 user \DTcomment{somewhere on the \target}.
+%  .2 {\bf work} \DTcomment{connected with \host {\em current dir}}.
+% }
+% \end{block}
+%\end{frame}
