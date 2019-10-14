@@ -8,6 +8,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <sys/mman.h>
+#include <iostream>
+#include <iomanip>
 
 #define MEM_TEST
 /*
@@ -24,7 +26,7 @@ Bytes::Bytes(unsigned at,unsigned size)
 ,page((unsigned char*)mmap(0,len,PROT_READ|PROT_WRITE,MAP_SHARED,id,at-offset))
 ,mem(page+offset)
 {
- std::printf("len=%x at=%x offset=%x\n",len,at,offset);
+// std::printf("len=%x at=%x offset=%x\n",len,at,offset);
 }
 
 Bytes::~Bytes()
@@ -42,7 +44,8 @@ int main(int argc,char** args)
  v[85]=0x37;
  for(unsigned p=84;p<84+5;++p)
  {
-  std::printf("v[%d]=%x  \n",p,v[p]);
+  std::cout<<std::hex<<"v[0x"<<p<<"]=0x"<<v[p]<<"\n";
+//  std::printf("v[%d]=%x  \n",p,v[p]);
  }
  return 0;
 }
