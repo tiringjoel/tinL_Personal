@@ -10,14 +10,6 @@ mount -tdevpts none /dev/pts
 mount  -t debugfs debugfs /sys/kernel/debug/
 mdev  -s
 
-#--------------------------
-#uncomment to enable network
-#while [ true ]
-#do
-# sleep 0.125
-# ifconfig eth0 up
-# [ ${?} == "0" ] && break
-#done
+sh /etc/init.d/usb-network.sh
 
-#ifconfig eth0 192.168.1.4
-#/sbin/sshd 
+sh /etc/init.d/wifi-network.sh
