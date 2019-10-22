@@ -15,8 +15,10 @@ PIN=53
 
 while [ 1 ]
 do
- # your work
- # use sleep
+ echo 1 > /sys/class/gpio/gpio${PIN}/value
+ sleep 0.5
+ echo 0 > /sys/class/gpio/gpio${PIN}/value
+ sleep 0.5
 done
 
 

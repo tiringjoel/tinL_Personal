@@ -13,7 +13,6 @@
 
 PIN=53
 
-cd /sys/class/gpio
-echo $PIN > export
-echo out > gpio${PIN}/direction
+#write PIN number into /sys/class/gpio/export
+#set direction of gpio53 to out 
 

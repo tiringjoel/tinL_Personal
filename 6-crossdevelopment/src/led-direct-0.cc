@@ -1,6 +1,7 @@
 //-------------------------
-//led-direct.cc
+//led-direct-0.cc
 //(c) H.Buchmann FHNW 2019
+// [1] doc/beaglebone-black/spruh73l.pdf section 25
 //-------------------------
 #include <iostream>
 #include <iomanip>
@@ -16,15 +17,15 @@ static const auto dur=std::chrono::milliseconds(500);
 int main(int argc,char** args)
 {
 //reading GPIO-Revision
- Mem<unsigned> gpio1(GPIO1);
- std::cout<<"Revision="<<std::hex<<gpio1()[0]<<"\n";
+ Mem<unsigned[0x200]> gpio1(GPIO1); //unsigned array of length 0x200
+ std::cout<<"Revision="<<gpio1()[0]<<"\n";
 
- gpio1()[0x134/4]&=~(1<<PIN); //as output
+//set PIN as output: register OE
  while(true)
  {
-  gpio1()[0x190/4]=(1<<PIN); //clear
+//clear PIN register GPIO_CLEARDATAOUT
   std::this_thread::sleep_for(dur);
-  gpio1()[0x194/4]=(1<<PIN); //set
+//set PIN register GPIO_SETDATAOUT
   std::this_thread::sleep_for(dur);
  } 
  

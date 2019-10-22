@@ -1,0 +1,48 @@
+\section{Zugriff auf die Hardware}
+
+\begin{frame}{Unsere einfache Hardware}{User LEDs}
+\begin{itemize}
+ \item Doku \cod{tinL/doc/BBB\_SRM.pdf} Abschnitt 6.6
+ \item Zwei Arten 
+ \begin{itemize}
+  \item mit \targetS \cod{/sys/class/gpio/}
+  \item direkt mit \cod{src/mem.h$|$cc} \& Co
+ \end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{\cod{/sys/class/gpio/}}
+\begin{frame}{cod{/sys/class/gpio/}}
+ \begin{itemize}
+  \item Kernel Sourcetree: \cod{Documentation/gpio}
+  \item Script
+  \begin{itemize}
+   \item enable 
+   \item blink
+  \end{itemize}
+  \item C++ 
+  \begin{itemize}
+   \item open/close
+   \item flush
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\subsection{Direkter Zugriff}
+\begin{frame}{Direkter Zugriff}
+ \begin{itemize}
+  \item Hardware Dokumentation 
+  \begin{itemize}
+   \item \cod{doc/beaglebone-black/spruh73l.pdf} Abschnitt 25
+  \end{itemize}
+  \item Die Register:
+  \begin{itemize}
+    \item \cod{doc/beaglebone-black/spruh73l.pdf} 24.4.1
+  \end{itemize}
+  \item der Code:
+  \begin{itemize}
+   \item \cod{led-direct-0.cc} als array
+   \item \cod{led-direct-1.cc} als struct
+  \end{itemize}
+ \end{itemize}
+\end{frame}

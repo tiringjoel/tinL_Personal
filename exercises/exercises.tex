@@ -77,4 +77,25 @@
   \end{itemize}
  \end{itemize}
 \end{frame}
+
+\begin{frame}{23.Okt. 2019}
+ \begin{itemize}
+  \item 6-crossdevelopment Zugriff auf die Hardware
+  \begin{itemize}
+   \item via Skript \cod{/sys/class/gpio}
+   \begin{itemize}
+    \item \cod{led-enable.sh}, \cod{led-blink.sh}
+   \end{itemize}
+   \item via C++ \cod{/sys/class/gpio}
+   \begin{itemize}
+    \item \cod{led-enable.cc}, \cod{led-blink.cc}
+   \end{itemize}
+   \item direkt \cod{src/mem.h$|$cc}
+   \begin{itemize}
+    \item \cod{led-direct-0.cc}, \cod{led-direct-1.cc}
+   \end{itemize}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
 \end{document}

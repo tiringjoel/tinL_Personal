@@ -1,6 +1,6 @@
 #!/bin/sh
 #---------------------
-#led-blink.sh
+#led-enable.sh
 #(c) H.Buchmann FHNW 2019
 #[1] doc/BBB_SRM.pdf
 #disable LEDS_GPIO in kernel
@@ -13,10 +13,7 @@
 
 PIN=53
 
-while [ 1 ]
-do
- # your work
- # use sleep
-done
-
+cd /sys/class/gpio
+echo $PIN > export
+echo out > gpio${PIN}/direction
 

@@ -7,18 +7,15 @@
 #include <iostream>
 static const std::string GPIO="/sys/class/gpio/";
 static const auto PIN="53";
+//open export 
+//write pin number into export
+//close export
+//open direction
+//write 'out' number into direction
+//closedirection
+
 int main(int argc,char** args)
 {
- {
-  std::ofstream export_(GPIO+"export");
-  export_<<PIN<<"\n";
-  //close file 
- }
- {
-  std::ofstream direction(GPIO+"gpio"+PIN+"/direction");
-  std::cout<<GPIO+"gpio"+PIN+"/direction\n";
-  direction<<"out\n";
- //close file
- }
+ //your work
  return 0;
 }

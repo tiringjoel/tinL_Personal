@@ -26,7 +26,8 @@ class Mem
    :mem(at,n*sizeof(T)){}
   ~Mem(){}
    
-   T*const operator()()const{return (T*const)(mem.mem);}	
+//   T*const operator()()const{return (T*const)(mem.mem);}
+   T& operator()()const{return *(T*const)(mem.mem);}
  private:
   Bytes mem;
 };

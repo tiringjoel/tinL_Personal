@@ -1,5 +1,6 @@
 \section{Aufgaben}
 
+\subsection{hello-world.cc}
 \begin{frame}{Ziel}
  \begin{itemize}
   \item \cod{hello-world} auf dem \host und auf dem \targetS
@@ -18,6 +19,27 @@
  \end{itemize}
 \end{frame}
 
+\subsection{Zugriff auf die Hardware}
+\begin{frame}{Scripts}
+ \begin{itemize}
+  \item \cod{led-enable.sh}
+  \item \cod{led-blink.sh}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{C++}{mit \cod{/sys/class/gpio}}
+ \begin{itemize}
+  \item \cod{led-enable.cc}
+  \item \cod{led-blink.cc}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{C++}{direkt mit \cod{mem.h$|$cc}}
+ \begin{itemize}
+  \item \cod{led-direct-0.cc}
+  \item \cod{led-direct-1.cc}
+ \end{itemize}
+\end{frame}
 
 %\subsection{Die Programme}
 %\begin{frame}{Development}{\cod{hello-world-c.c}}

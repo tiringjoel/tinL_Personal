@@ -35,3 +35,10 @@
  ntp 
  udev on host 
  6-crossdevelopment
+
+23.Okt. 2019
+------------
+ wifi  MAC Adressen wpa.conf
+ udev on host 
+ 6-crossdevelopment
+  Zugriff auf die Hardware
