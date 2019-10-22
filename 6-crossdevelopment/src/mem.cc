@@ -11,7 +11,7 @@
 #include <iostream>
 #include <iomanip>
 
-#define MEM_TEST
+//#define MEM_TEST
 /*
  ----------------------------------------------
            |            |                     |
