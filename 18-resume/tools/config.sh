@@ -33,6 +33,8 @@ WPA_SUPPLICANT_SRC=${RESOURCES}/wpa_supplicant-2.9
 LIGHTTPD_SRC=${RESOURCES}/lighttpd-1.4.54
 NTP_SRC=${RESOURCES}/ntp-4.2.8p13
 LIBEVENT_SRC=${RESOURCES}/libevent-2.1.11-stable
+NANO_SRC=${RESOURCES}/nano-4.5
+NCURSES_SRC=${RESOURCES}/ncurses-6.1
 #--------------------------------------- locations here
 BUILD_HOME=${PWD}
 KERNEL_BUILD=${PWD}/build/kernel

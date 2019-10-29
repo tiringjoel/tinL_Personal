@@ -42,3 +42,13 @@
  udev on host 
  6-crossdevelopment
   Zugriff auf die Hardware
+
+30.Okt. 2019
+------------
+ 6-crossdevelopment
+  Makefile
+  Hardware
+   Input 
+   Output
+ 4-uboot 
+  wie bootet ein Rechner

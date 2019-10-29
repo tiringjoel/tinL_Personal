@@ -56,7 +56,7 @@ struct GPIO
 
 
 static const unsigned GPIO1=0x4804'C000;
-static const unsigned PIN=21; //USR0
+static const unsigned PIN=17;//21; //USR0
 static const auto dur=std::chrono::milliseconds(500);
 
 int main(int argc,char** args)

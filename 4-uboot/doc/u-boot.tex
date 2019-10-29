@@ -1,5 +1,5 @@
 \section{U-Boot}
-\begin{frame}{\url{www.denx.de/wiki/U-Boot/WebHome}}{ein typischer Bootloader für eingebettete Systeme}
+\begin{frame}{\url{www.denx.de/wiki/U-Boot/WebHome}}{ein typischer Bootloader fÃ¼r eingebettete Systeme}
  \begin{itemize}
   \item Kommandozeilen
   \item Verbindung zum \host via RS232/USB
@@ -23,8 +23,11 @@
   \item \cod{help}
   \item \cod{printenv} Zeigt die Umgebung
   \item \cod{md addr} Memory display
-  \item \cod{fatls mmc p}  vfat sd-card partition p
-  \item \cod{fatload mmc p memAddr file}
+  \item Filesysteme 
+  \begin{description}
+   \item[ext4] \cod{fatls mmc p}\\\cod{fatload mmc p memAddr file}
+   \item[fat] \cod{fatls mmc p}\\\cod{ext4load mmc p memAddr file}
+  \end{description}
   \item \cod{tftpboot [loadAddress] [[hostIPaddr:]bootfilename]} 
   \item \cod{bootz kernelAddr - fdt}
  \end{itemize}
@@ -34,7 +37,7 @@
 \begin{frame}{U-Boot Bedienung}{Siehe \cod{tools/u-boot-copy-paste.cmd}}
  \begin{itemize}
   \item copy paste
-  \remark{kann sich ändern}
+  \remark{kann sich Ã¤ndern}
  \end{itemize}
 \end{frame}
 
@@ -56,6 +59,7 @@
 \begin{frame}{Herstellung}
  \begin{itemize}
   \item Repository \url[http]{git.denx.de/u-boot.git}
+  \item Version \url{ftp.denx.de/pub/u-boot}
   \item Script \cod{tools/u-boot.sh {\em what}}
   \begin{itemize}
    \item {\em what}:\cod{am335x\_boneblack\_defconfig}, \cod{all}, \cod{help}, \cod{distclean}
@@ -77,7 +81,7 @@ Device         Boot Start    End Sectors  Size Id Type
 }
  \item Filesysteme
  \begin{itemize}
-  \item Partition 1: vfat: \cod{mkfs.vfat} für U-Boot
+  \item Partition 1: vfat: \cod{mkfs.vfat} fÃ¼r U-Boot
   \item Partition 2: ext4: \cod{mkfs.ext4}
  \end{itemize}
  \end{itemize}
@@ -92,7 +96,7 @@ Device         Boot Start    End Sectors  Size Id Type
 [end{verbatim}
 }
 \end{block}
-\begin{block}{Partition 2:Für \linux \cod{/boot}}
+\begin{block}{Partition 2:FÃ¼r \linux \cod{/boot}}
 {\footnotesize
 \begin{verbatim}
    61957 Sep 27 16:15 am335x-boneblack-wireless.dtb

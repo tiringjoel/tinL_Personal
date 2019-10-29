@@ -3,13 +3,13 @@
 #u-boot.sh wrapper  to u-boot make
 #(c) H.Buchmann FHNW 2014
 # step 1: distclean
-#      2: am335x_boneblack_defconfig
+#      2: am335x_boneblack_vboot_defconfig
 #      3: all
 # we are in 4-uboot
 #------------------
 #we are in 4-uboot
 #------------------------ adapt to your needs
-U_BOOT_SRC=${HOME}/resources/u-boot-2018.09
+U_BOOT_SRC=${HOME}/resources/u-boot-2019.10
 TC=${PWD}/tc/bin/
 MAKE="make -j8"
 #------------------------ done
