@@ -3,6 +3,7 @@
 //mem.h using templates
 //(c) H.Buchmann FHNW 2015
 //--------------------------
+#include <iostream>
 
 class Bytes
 {
@@ -21,7 +22,7 @@ class Mem
 {
  public:
    Mem(unsigned at)
-   :mem(at,sizeof(T)){}
+   :mem(at,sizeof(T)){std::cout<<"Mem\n";}
    Mem(unsigned at,unsigned n)  //for an array of T
    :mem(at,n*sizeof(T)){}
   ~Mem(){}

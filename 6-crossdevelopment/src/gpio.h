@@ -1,13 +1,9 @@
-//-------------------------
-//led-direct-1.cc
+#pragma once
+//----------------------
+//gpio.h
 //(c) H.Buchmann FHNW 2019
-//-------------------------
-#include <iostream>
-#include <iomanip>
-#include <chrono>
-#include <thread>
-
-#include "mem.h" 
+//----------------------
+#include "mem.h"
 
 template<typename T,unsigned FROM,unsigned TO>
 struct GAP
@@ -51,26 +47,6 @@ struct GPIO
  GAPW<0x158,0x190> gap4;
  unsigned CLEARDATAOUT;            // 190h Section 25.4.1.25
  unsigned SETDATAOUT;              // 194h Section 25.4.1.26
+ static Mem<GPIO> gpio1;
 };
 
-
-
-static const unsigned GPIO1=0x4804'C000;
-static const unsigned PIN=17; //21; //USR0
-static const auto dur=std::chrono::milliseconds(500);
-
-int main(int argc,char** args)
-{
-//reading GPIO-Revision
- Mem<GPIO> gpio1(GPIO1);
- std::cout<<"Revision="<<std::hex<<gpio1().REVISION<<"\n";
- gpio1().OE&=~(1<<PIN);
- while(true)
- {
-  gpio1().CLEARDATAOUT=(1<<PIN); //clear
-  std::this_thread::sleep_for(dur);
-  gpio1().SETDATAOUT=(1<<PIN); //set
-  std::this_thread::sleep_for(dur);
- }
- return 0;
-}
