@@ -63,19 +63,42 @@
  \end{itemize}
 \end{frame}
 
-%\subsection{Die Programme}
-%\begin{frame}{Development}{\cod{hello-world-c.c}}
-%\hspace*{-8mm}
-%{
-%\begin{tabular}{llllll}
-% Host & Target & OS & Toolchain & Verbindung & Bemerkungen\\
-% \hline
-% \targetS & \targetS & Debian & mitgeliefert&&\\
-% \host   & \targetS & Debian & \cod{\tiny tc-tinl-gcc-8.1.0-2018.05.21.tar.gz} & sshfs\\
-% \host   & \targetS & minimal & \cod{\tiny tc-tinl-gcc-8.1.0-2018.05.21.tar.gz} & SD-Card  &später\\
-% \host   & \targetS & minimal & \cod{\tiny tc-tinl-gcc-8.1.0-2018.05.21.tar.gz} & curlftpfs&später\\
-%\end{tabular}
-%}
-%\remark{Toolchain auf der Cloud: \href{https://drive.switch.ch/index.php/s/A6H382zEGDrgfAL}
-%       {\Huge tinL}}
-%\end{frame}
+\subsection{LED via Internet}
+
+\begin{frame}{LED via Internet}{Was Sie brauchen}
+\begin{itemize}
+ \item die LED Hardware
+ \item einen HTTP Server 
+ \begin{itemize}
+  \item \href{https://www.lighttpd.net/}{$\to$lighttpd}
+  \item den Code finden Sie auf \href{https://drive.switch.ch/index.php/s/0MfVmFD4WAeJXvS}{$\to$lighthttpd.tar.xz}
+ \end{itemize}
+ \item Common Gateway Interface (CGI)
+ \begin{itemize}
+  \item \cod{src/cgi0.cc} für den ersten Test
+  \item \cod{src/cgi.h/cc} das {\em framework}
+  \item \cod{src/cgi-test.cc} gfür den Test von \cod{src/cgi.h/cc}
+ \end{itemize}
+ \item Die Verbindung zur Hardware
+ \begin{itemize}
+  \item \cod{src/gpio.h/cc}
+ \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Die Herstellung}
+ \begin{itemize}
+  \item \cod{lighttpd}
+  \begin{itemize}
+   \item Installation: \cod{lighthttpd.tar.xz}
+   \item Konfiguration: \cod{config/lighttpd.conf}
+  \end{itemize}
+  \item CGI/GPIO (Makefile)
+  \begin{itemize}
+   \item \cod{src/cgi0.cc} für den ersten Test
+   \item \cod{src/cgi.h/cc} das {\em framework}
+   \item \cod{src/cgi-test.cc} gfür den Test von \cod{src/cgi.h/cc}
+   \item \cod{src/gpio.h/cc}
+  \end{itemize}
+ \end{itemize}
+\end{frame}

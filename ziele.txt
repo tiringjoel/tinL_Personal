@@ -52,3 +52,8 @@
    Output
  4-uboot 
   wie bootet ein Rechner
+
+6.Nov. 2019
+-----------
+ 6-crossdevelopment
+  Zugriff auf die Hardware via Internet
