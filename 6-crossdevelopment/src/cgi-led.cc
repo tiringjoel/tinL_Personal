@@ -11,20 +11,6 @@ CGI cgi;
 
 int main(int argc,char** args)
 {
- std::cout<<"Content-type: text/plain\n\n";
- 
- auto led=cgi.query["led"];
- std::cout<<"LED="<<cgi.query["led"]<<"\n";
- GPIO::gpio1().OE&=~(1<<PIN);
- if (led=="on")
-   {
-    std::cout<<"on\n";
-    GPIO::gpio1().SETDATAOUT=1<<PIN;
-   } 
-   else
-   {
-    std::cout<<"off\n";
-    GPIO::gpio1().CLEARDATAOUT=1<<PIN;
-   }
+//your work
  return 0;
 }
