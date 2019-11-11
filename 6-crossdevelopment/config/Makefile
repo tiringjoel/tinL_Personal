@@ -22,8 +22,11 @@ VPATH=../src/
 
 #toolchain
 CXX=${PWD}/../tc/bin/arm-linux-gnueabihf-g++ --sysroot=${SYSROOT}
+
 CC=${CXX}
 CPPFLAGS=-I../src/
+%.bin:	%
+	cp ${<} ../mount/srv/http/${@}
 
 #------------------ compile rules
 led-direct-1.o:	led-direct-1.cc mem.h

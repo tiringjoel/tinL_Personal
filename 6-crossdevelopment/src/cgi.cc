@@ -9,7 +9,7 @@ extern "C" char** environ;
 
 CGI::Query::Query(CGI& cgi)
 {
- std::cout<<"Query::Query\n";
+// std::cout<<"Query::Query\n";
  const auto& q=cgi.env.find("QUERY_STRING");
  if (q==cgi.env.end()) 
  {

@@ -35,6 +35,7 @@ NTP_SRC=${RESOURCES}/ntp-4.2.8p13
 LIBEVENT_SRC=${RESOURCES}/libevent-2.1.11-stable
 NANO_SRC=${RESOURCES}/nano-4.5
 NCURSES_SRC=${RESOURCES}/ncurses-6.1
+PCRE_SRC=${RESOURCES}/pcre-8.43
 #--------------------------------------- locations here
 BUILD_HOME=${PWD}
 KERNEL_BUILD=${PWD}/build/kernel

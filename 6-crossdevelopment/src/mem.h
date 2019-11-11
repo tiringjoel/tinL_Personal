@@ -22,7 +22,7 @@ class Mem
 {
  public:
    Mem(unsigned at)
-   :mem(at,sizeof(T)){std::cout<<"Mem\n";}
+   :mem(at,sizeof(T)){} 
    Mem(unsigned at,unsigned n)  //for an array of T
    :mem(at,n*sizeof(T)){}
   ~Mem(){}

@@ -14,7 +14,8 @@ export CC="${CROSS_COMPILE}gcc --sysroot=${TARGET_ROOT}"
 ${LIGHTTPD_SRC}/configure \
  --host=${TARGET} \
  --without-bzip2 \
- --without-pcre 
+
+# --without-pcre 
 
 ${MAKE}
 
