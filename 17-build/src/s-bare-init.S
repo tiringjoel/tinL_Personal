@@ -1,6 +1,6 @@
 /*------------------------
   s-bare-init
-  (c) H.Buchmann FHNW 2015
+  (c) H.Buchmann FHNW 2019
   see man page syscall
    Architecture calling convention for arm/EABI
 
@@ -11,9 +11,10 @@
 	    |     |           r1
 	    |     r0            
            r7 see syscall.h
-		  
+ 
+  copy executable to target-root/linuxrc	  
   kernel parameter   
-    console=ttyAMA0,115200 root=/dev/mmcblk0p3 rootfstype=ext4 rootwait init=/s-bare-init
+    console=ttyAMA0,115200 root=/dev/mmcblk0p3 rootfstype=ext4 rootwait init=/linuxrc
   ------------------------*/
 	.global _start
 //        .thumb

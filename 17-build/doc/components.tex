@@ -2,25 +2,25 @@
 \begin{frame}{Komponenten}{\target und \host}
  \begin{block}{\target}
   \begin{description}
-   \item[Kernel] ein File
-   \item[root] ein Filesystem
+   \item[Kernel] wenige Files (zwei)
+   \item[root] ein Filesystem viele Files
   \end{description}
  \end{block}
  \begin{block}{\host}
   \begin{description}
-   \item[Toolchain] binutils, gcc
+   \item[Toolchain] binutils, gcc, Bibliotheken fÃ¼r den Compiler
   \end{description}
  \end{block}
 \end{frame}
 \subsection{Target \target}
 
-\begin{frame}{Übersicht}
+\begin{frame}{Ãœbersicht}
  \begin{center}
   \includegraphics[width=8cm]{layers.pdf}
  \end{center}
 \end{frame}
 
-\begin{frame}{Die Komponenten}{für \target}
+\begin{frame}{Die Komponenten}{fÃ¼r \target}
  \begin{description}
   \item[Hardware] \target
   \item[Kernel] zugeschnitten auf \target
@@ -51,15 +51,15 @@
   \item[binutils] linker \& Co.
   \item[gcc] compiler
   \begin{itemize}
-   \item \cod{libgcc} die Bibliothek für den Compiler
+   \item \cod{libgcc} die Bibliothek fÃ¼r den Compiler
   \end{itemize}
  \end{description}
  
  \begin{remarks}
  \item die Toolchain muss zweimal gebaut werden
  \begin{itemize}
-  \item für den \kernel und \cod{libc} 
-  \item für \unix/\posix
+  \item fÃ¼r den \kernel und \cod{libc} 
+  \item fÃ¼r \unix/\posix
  \end{itemize}
  \item das target
  \begin{itemize} 
@@ -73,10 +73,13 @@
 \dirtree{%
  .1 {\em somewhere\_on\_the\_host}.
  .2 tools.
- .3 common.h \DTcomment{used in (all) scripts}.
- .2 config \DTcomment{of the components}.
+ .3 config.sh \DTcomment{used in (all) scripts}.
+ .3 {\em component}.sh \DTcomment{how to build}.
  .2 build \DTcomment{home of the build files}.
+ .3 {\em component} \DTcomment{directory}.
  .2 target-root \DTcomment{top of targer root}.
  .2 tc \DTcomment{the new toolchain}.
+ .2 config \DTcomment{of some components}.
+ .2 mount \DTcomment{for mounting the \targetS (sshfs)}.
 }
 \end{frame}

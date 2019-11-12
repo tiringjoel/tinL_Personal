@@ -1,23 +1,17 @@
+#!/bin/bash
 #---------------------------
 #zlib
 #(c) H.Buchmann FHNW 2018
 #---------------------------
-. $(dirname ${0})/common.sh
-BUILD=${PWD}/zlib
-[[ ! -d ${BUILD} ]] && 
-{
- mkdir ${BUILD}
- tar -xzf ${ZLIB_SRC}.tar.gz --strip-components=1 -C ${BUILD}
-}
+. $(dirname ${0})/config.sh
 
 
+tar -xvf ${ZLIB_SRC}.tar.gz --strip-components=1 -C .
 
-cd ${BUILD}
-export CC="${CROSS_COMPILE}gcc --sysroot=${SYSROOT}"
-#./configure --help
+export CC="${CROSS_COMPILE}gcc --sysroot=${TARGET_ROOT}"
 ./configure \
---prefix=${SYSROOT} \
---includedir=${SYSROOT}/usr/include 
+--prefix=${TARGET_ROOT} \
+--includedir=${TARGET_ROOT}/usr/include 
 
 ${MAKE}
 ${MAKE} install

@@ -1,0 +1,41 @@
+\begin{frame}{Build}
+ \begin{tabular}{rl|l}
+ 		 &	& args\\
+ \hline\hline
+  toolchain basics & \cod{binutils.sh} \\
+  		   & \cod{gmp}\\
+		   & \cod{mpfr}\\
+		   & \cod{mpc}\\
+ \hline
+ toolchain-bare  & \cod{gcc-bare.sh}\\ 
+ \hline
+   kernel 	 & \cod{kernel.sh} & [\cod{bb.org\_defconfig}]\\
+ 		 & &\cod{zImage}\\
+                 & &\cod{dtbs}\\
+                 & &\cod{headers\_install}\\
+		 & minimal\\
+ \hline
+ libc 		 & \cod{glibc.sh}\\
+ \end{tabular}
+\end{frame}
+
+\begin{frame}{Build}{Fortsetzung}
+\begin{tabular}{rl|l}
+ 		 &	& args\\
+ \hline \hline
+ toolchain full  & \cod{gcc.sh}\\
+ test	& cpp-hello-world.cc\\
+ \hline
+ \unix & \cod{busybox.sh} & [\cod{menuconfig}] \\
+       &		  & \cod{busybox}\\
+       &	          & \cod{install}\\
+ & \cod{zlib.sh}\\
+ & \cod{openssl.sh}\\
+ & \cod{openssh.sh}\\
+ \hline
+ toolchain-host & \cod{gcc-host.sh}\\
+ \hline
+ Distro & \cod{target-root.sh}\\
+ 	& \cod{tc.sh}
+ \end{tabular}
+\end{frame}

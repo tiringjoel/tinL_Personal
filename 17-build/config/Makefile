@@ -21,8 +21,8 @@ VPATH=../src:../src/3rdparty:../modules:../../resources/dterm-0.3
 CPPFLAGS=-I../src -I../src/3rdparty -I../modules
 
 #hello-world:    LDFLAGS=-static
-hello-world:	hello-world.c
-
+hello-world:		hello-world.c
+cpp-hello-world:	cpp-hello-world.cc
 #------------------------- made with S
 s-bare-init:	s-bare-init.o;${LD} -o${@} ${^}
 s-bare-init.o:	s-bare-init.S

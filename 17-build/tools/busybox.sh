@@ -1,7 +1,7 @@
 #!/bin/bash
 #--------------------
 #busybox.sh
-#(c) H.Buchmann FHNW 2015
+#(c) H.Buchmann FHNW 2018
 # busybox.sh args
 #args 
 # help
@@ -11,13 +11,15 @@
 # see kernel.sh
 #--------------------
 #we are in build
-. $(dirname ${0})/common.sh
-BUILD=${PWD}/busybox
-[[ ! -d ${BUILD} ]] && 
-{ 
- mkdir ${BUILD}; 
+. $(dirname ${0})/config.sh
+BUSYBOX=${PWD}
+[[ -e ${CONFIG}/busybox.config ]] &&
+{
+ cp ${CONFIG}/busybox.config ${BUSYBOX}/.config
 }
 cd ${BUSYBOX_SRC}
 #MAKE=make
-${MAKE} CONFIG_SYSROOT=${SYSROOT} CONFIG_PREFIX=${SYSROOT} CROSS_COMPILE=${CROSS_COMPILE} V=1 O=${BUILD} ${@}
+${MAKE} CONFIG_SYSROOT=${TARGET_ROOT} \
+CONFIG_PREFIX=${TARGET_ROOT} \
+CROSS_COMPILE=${CROSS_COMPILE} V=1 O=${BUSYBOX} ${@}
 

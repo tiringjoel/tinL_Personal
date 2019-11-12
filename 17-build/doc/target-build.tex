@@ -23,7 +23,7 @@
   \item \cod{binutils.sh}
   \item \cod{gcc-bare.sh} 
   \begin{itemize}
-   \item nur f¸r den {\em kernel}
+   \item nur f√ºr den {\em kernel}
    \item das bare minimum
    \item nur {\Large C}
   \end{itemize}
@@ -75,7 +75,7 @@
 
 \begin{frame}{Skripts und Argumente}{initiales System}
  \begin{tabular}{l|l|l}
-  Skript & target & gebraucht f¸r\\
+  Skript & target & gebraucht f√ºr\\
   \hline\hline
   \cod{binutils.sh}& &alles\\
   \hline
@@ -89,10 +89,11 @@
   \hline
   \cod{gcc.sh}     & &C/C++, POSIX\\
   \hline
-  \cod{busybox.sh} & \cod{busybox}\\
+  \cod{busybox.sh} &\cod{menuconfig}\\
+  		   &\cod{busybox}\\
   		   &\cod{install}\\
   \hline
-  \cod{target-root.sh}&&Transfer auf SD-Card
+  \cod{target-root.sh}&&vervollst√§ndigt \cod{target-root}\\
  \end{tabular}
  \remark{Alle Skripte sind {\Large\tt bash} Skripte}
 \end{frame}
@@ -110,7 +111,7 @@
  \cod{openssl.sh}&&die kryptographischen Algorithmen\\
  \cod{openssh.sh}
 \end{tabular}
-\remark{\cod{openssh.sh} h‰ngt von \cod{zlib.sh} und \cod{openssl.sh}
+\remark{\cod{openssh.sh} h√§ngt von \cod{zlib.sh} und \cod{openssl.sh}
   ab}
 \end{frame}
 
@@ -132,7 +133,7 @@
 \begin{description}[target-root]
  \item[target-root] Verzeichnis auf dem \host
  \begin{itemize}
-  \item enth‰lt das \target Rootfilesystem
+  \item enth√§lt das \target Rootfilesystem
   \item soll aktuell sein
  \end{itemize}
  \item[SD-Card] Speicherkarte mit dem \target Rootfilesystem

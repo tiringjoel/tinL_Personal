@@ -1,17 +1,13 @@
 #!/bin/bash
 #-------------------------
-#binutils.sh
+#mpfr.sh
 #(c) H.Buchmann FHNW 2018
 #-------------------------
-. $(dirname ${0})/common.sh  #load common
-BUILD=${PWD}/mpfr 
-
-[[ ! -d ${BUILD} ]] && mkdir ${BUILD} 
-cd ${BUILD}
+. $(dirname ${0})/config.sh  #load common
 #${MPFR_SRC}/configure --help
 ${MPFR_SRC}/configure \
- --prefix=${TC_PREFIX} \
- --with-gmp=${TC_PREFIX}
+ --prefix=${TC} \
+ --with-gmp=${TC}
 # 
 ${MAKE} 
 ${MAKE} install

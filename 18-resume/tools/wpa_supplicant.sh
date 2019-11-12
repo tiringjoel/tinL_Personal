@@ -5,7 +5,7 @@
 # use install tarhet too
 #---------------------------
 . $(dirname ${0})/config.sh
-#tar -xvf ${WPA_SUPPLICANT_SRC}.tar.gz --strip-components=1 -C .
+tar -xvf ${WPA_SUPPLICANT_SRC}.tar.gz --strip-components=1 -C .
 cd wpa_supplicant
 
 #[[ ! -f .config ]] && 

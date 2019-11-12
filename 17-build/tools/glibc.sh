@@ -1,30 +1,25 @@
 #!/bin/bash
 #-----------------------
 #glibc
-#(c) H.Buchmann FHNW 2015
-#see EGLIBC.cross
+#(c) H.Buchmann FHNW 2018
 #-----------------------
-. $(dirname ${0})/common.sh
-BUILD=${PWD}/glibc
-[[ ! -d ${BUILD} ]] && { mkdir ${BUILD}; }
-export CFLAGS="--sysroot=${SYSROOT} -O2"
-export CC=${TC_PREFIX}/bin/${TARGET}-gcc
+. $(dirname ${0})/config.sh
 
-cd ${BUILD}
-#cp ${CONFIG}/option-groups.config .
-#${GLIBC_SRC}/libc/configure --help
-DESTDIR=${SYSROOT} \
+export CFLAGS="--sysroot=${TARGET_ROOT} -O2"
+export CC=${TC}/bin/${TARGET}-gcc
+
+DESTDIR=${TARGET_ROOT} \
 ${GLIBC_SRC}/configure \
     --prefix=/usr \
     --host=${TARGET} \
     --build=x86_64-unknown-linux-gnu \
-    --with-headers=${SYSROOT}/usr/include \
+    --with-headers=${TARGET_ROOT}/usr/include \
     --disable-profile --without-gd --without-cvs --enable-add-ons\
     --enable-hacker-mode\
     --with-elf \
     --enable-kernel=2.6.20 \
     --disable-sanity-checks \
     --disable-werror
-#    --enable-rpc\
+
 ${MAKE} 
-${MAKE} install install_root=${SYSROOT}
+${MAKE} install install_root=${TARGET_ROOT}

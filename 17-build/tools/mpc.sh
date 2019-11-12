@@ -1,17 +1,15 @@
 #!/bin/bash
 #-------------------------
-#binutils.sh
+#mpc.sh
 #(c) H.Buchmann FHNW 2018
 #-------------------------
-. $(dirname ${0})/common.sh   #load common
-BUILD=${PWD}/mpc
-[[ ! -d ${BUILD} ]] && mkdir ${BUILD} 
-cd ${BUILD}
+. $(dirname ${0})/config.sh  #load common
+
 #${MPC_SRC}/configure --help
 ${MPC_SRC}/configure \
- --prefix=${TC_PREFIX} \
- --with-gmp=${TC_PREFIX} \
- --with-mpfr=${TC_PREFIX}
+ --prefix=${TC} \
+ --with-gmp=${TC} \
+ --with-mpfr=${TC}
 # 
 ${MAKE} 
 ${MAKE} install
