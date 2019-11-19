@@ -11,5 +11,5 @@ mount  -t debugfs debugfs /sys/kernel/debug/
 mdev  -s
 
 sh /etc/init.d/usb-network.sh
-
-sh /etc/init.d/wifi-network.sh
+###
+###sh /etc/init.d/wifi-network.sh

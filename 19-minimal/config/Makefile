@@ -31,7 +31,9 @@ c-nano:		c-nano.o
 		${LD} -o${@} ${^} -static -L${TARGET_ROOT}/usr/lib/ -lc
 c-nano.o:	c-nano.c
 
-
+cc-nano:	cc-nano.o
+		${LD} -o${@} ${^} -static -L${TARGET_ROOT}/usr/lib/ -lc
+cc-nano.o:	cc-nano.cc
 
 c-mini:	        c-mini.o
 c-mini.o:       c-mini.c
@@ -46,6 +48,6 @@ cc-threads:     cc-threads.cc
 
 .PHONY: clean
 clean:
-	rm -f *.o s-nano c-nano c-mini cc-mini cc-threads
+	rm -f *.o s-nano c-nano cc-nano c-mini cc-mini cc-threads
 
 

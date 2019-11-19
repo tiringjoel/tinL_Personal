@@ -4,15 +4,13 @@
 #(c) H.Buchmann FHNW 2018
 #-----------------------
 . $(dirname ${0})/config.sh
-
 ${GCC_SRC}/configure \
  --prefix=${TC} \
+ --target=${TARGET} \
  --with-gmp=${TC} \
  --with-mpfr=${TC} \
  --with-mpc-include=${TC}/include \
  --with-mpc-lib=${TC}/lib \
- --target=${TARGET} \
- --disable-nls \
  --disable-werror \
  --enable-threads \
  --enable-languages=c,c++\
@@ -35,12 +33,12 @@ ${MAKE}
 ${MAKE} install
 
 
-#---------------------------- copy libraries
-cp ${TC}/${TARGET}/lib/{libstdc++.so.6.0.27,libgcc_s.so.1} ${TARGET_ROOT}/usr/lib
-pushd ${TARGET_ROOT}/usr/lib > /dev/null
-ln -sf libstdc++.so.6.0.24 libstdc++.so.6
-popd                         > /dev/null
-#tc/arm-linux-gnueabihf/lib/libstdc++.so.6.0.24
+##---------------------------- copy libraries
+#cp ${TC}/${TARGET}/lib/{libstdc++.so.6.0.27,libgcc_s.so.1} ${TARGET_ROOT}/usr/lib
+#pushd ${TARGET_ROOT}/usr/lib > /dev/null
+#ln -sf libstdc++.so.6.0.24 libstdc++.so.6
+#popd                         > /dev/null
+##tc/arm-linux-gnueabihf/lib/libstdc++.so.6.0.24
 #---------------------------- the bare compiler
 #make -j8 all-gcc
 #make -j8 install-gcc 

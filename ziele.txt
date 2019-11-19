@@ -62,4 +62,10 @@
 ------------
  17-build
  
- 
+20.Nov. 2019
+------------
+ 19-minimal 
+   . static vs. dynamic libraries
+   . workflow
+     host: target-root
+     target: root

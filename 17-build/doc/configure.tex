@@ -13,49 +13,49 @@
  \end{itemize}
 \end{frame}
 
-\begin{frame}{\url{rsync.samba.org}}{als Beispiel}
- \begin{itemize}
-  \item auf dem \host
-  \item auf dem \targetS
- \end{itemize}
-\end{frame}
-
-
-\subsection{Auf dem \host}
-
-\begin{frame}{Verzeichnisstruktur}
- \begin{itemize}
-  \item Source:\cod{rsync-3.1.2}
-  \item Build:   für die (vielen) Zwischenfiles
-  \item Install: prefix
-  \item rsync.sh: das Skript
- \end{itemize}
-\end{frame}
-
-\begin{frame}{Skript: \cod{rsync.sh}}{schrittweise für den \host}
- \begin{itemize}
-  \item \cod{configure --help}
-  \item \cod{configure --prefix}
-  \begin{itemize}
-   \item prefix: wohin kommt das Resultat
-   \item Files in \cod{rsync-build}
-  \end{itemize}
-  \item \cod{make}
-  \begin{itemize}
-   \item Files in \cod{rsync-build}
-  \end{itemize}
-  \item \cod{make install}
-  \begin{itemize}
-   \item Files in \cod{prefix}
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{Aufgabe Skript: \cod{rsync.sh}}{für \targetS}
- \begin{itemize}
-  \item Crosscompile \cod{--sysroot}
-  \item \cod{--prefix}
-  \item \cod{DESTDIR}
- \end{itemize}
- \remark{tools/rsync.sh}
-\end{frame}
+%\begin{frame}{\url{rsync.samba.org}}{als Beispiel}
+% \begin{itemize}
+%  \item auf dem \host
+%  \item auf dem \targetS
+% \end{itemize}
+%\end{frame}
+%
+%
+%\subsection{Auf dem \host}
+%
+%\begin{frame}{Verzeichnisstruktur}
+% \begin{itemize}
+%  \item Source:\cod{rsync-3.1.2}
+%  \item Build:   für die (vielen) Zwischenfiles
+%  \item Install: prefix
+%  \item rsync.sh: das Skript
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Skript: \cod{rsync.sh}}{schrittweise für den \host}
+% \begin{itemize}
+%  \item \cod{configure --help}
+%  \item \cod{configure --prefix}
+%  \begin{itemize}
+%   \item prefix: wohin kommt das Resultat
+%   \item Files in \cod{rsync-build}
+%  \end{itemize}
+%  \item \cod{make}
+%  \begin{itemize}
+%   \item Files in \cod{rsync-build}
+%  \end{itemize}
+%  \item \cod{make install}
+%  \begin{itemize}
+%   \item Files in \cod{prefix}
+%  \end{itemize}
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Aufgabe Skript: \cod{rsync.sh}}{für \targetS}
+% \begin{itemize}
+%  \item Crosscompile \cod{--sysroot}
+%  \item \cod{--prefix}
+%  \item \cod{DESTDIR}
+% \end{itemize}
+% \remark{tools/rsync.sh}
+%\end{frame}
