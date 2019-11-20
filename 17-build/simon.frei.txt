@@ -1,0 +1,136 @@
+[    8.645350] omap_i2c 4819c000.i2c: timeout waiting for bus ready
+[    9.657348] omap_i2c 4819c000.i2c: timeout waiting for bus ready
+[    9.668286] libphy: Fixed MDIO Bus: probed
+[    9.675344] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    9.682038] ehci-platform: EHCI generic platform driver
+[    9.687543] ehci-omap: OMAP-EHCI Host Controller driver
+[    9.693445] usbcore: registered new interface driver usb-storage
+[    9.702305] am335x-phy-driver 47401300.usb-phy: 47401300.usb-phy supply vcc r
+[    9.712435] am335x-phy-driver 47401300.usb-phy: Linked as a consumer to regu0
+[    9.723052] am335x-phy-driver 47401b00.usb-phy: 47401b00.usb-phy supply vcc r
+[    9.733225] am335x-phy-driver 47401b00.usb-phy: Linked as a consumer to regu0
+[    9.744263] musb-hdrc musb-hdrc.1: MUSB HDRC host driver
+[    9.749752] musb-hdrc musb-hdrc.1: new USB bus registered, assigned bus numb1
+[    9.757590] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, b9
+[    9.765932] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber1
+[    9.773211] usb usb1: Product: MUSB HDRC host driver
+[    9.778220] usb usb1: Manufacturer: Linux 4.19.73 musb-hcd
+[    9.783752] usb usb1: SerialNumber: musb-hdrc.1
+[    9.789192] hub 1-0:1.0: USB hub found
+[    9.793152] hub 1-0:1.0: 1 port detected
+[    9.805109] udc-core: couldn't find an available UDC - added [g_ether] to lis
+[    9.817841] omap_rtc 44e3e000.rtc: registered as rtc0
+[    9.824285] i2c /dev entries driver
+[    9.828552] Driver for 1-wire Dallas network protocol.
+[    9.836167] omap_wdt: OMAP Watchdog Timer Rev 0x01: initial timeout 60 sec
+[    9.843661] softdog: initialized. soft_noboot=0 soft_margin=60 sec soft_pani)
+[    9.853747] cpuidle: enable-method property 'ti,am3352' found operations
+[    9.861138] sdhci: Secure Digital Host Controller Interface driver
+[    9.867408] sdhci: Copyright(c) Pierre Ossman
+[    9.872308] omap_gpio 44e07000.gpio: Could not set line 6 debounce to 200000)
+[    9.881115] omap_hsmmc 48060000.mmc: Got CD GPIO
+[    9.886414] omap_hsmmc 48060000.mmc: Linked as a consumer to regulator.1
+[    9.920071] omap_hsmmc 481d8000.mmc: Linked as a consumer to regulator.1
+[    9.950830] omap_hsmmc 47810000.mmc: Linked as a consumer to regulator.2
+[    9.963477] mmc0: host does not support reading read-only switch, assuming we
+[    9.973568] mmc0: new high speed SDHC card at address 1234
+[    9.984631] mmcblk0: mmc0:1234 SA16G 14.5 GiB
+[    9.995367]  mmcblk0: p1 p2
+[   10.025349] mmc1: new high speed MMC card at address 0001
+[   10.036199] mmcblk1: mmc1:0001 S10004 3.56 GiB
+[   10.041611] mmcblk1boot0: mmc1:0001 S10004 partition 1 4.00 MiB
+[   10.048206] mmcblk1boot1: mmc1:0001 S10004 partition 2 4.00 MiB
+[   10.054840] mmcblk1rpmb: mmc1:0001 S10004 partition 3 4.00 MiB, chardev (242)
+[   10.063649]  mmcblk1: p1
+[   10.066719] sdhci-pltfm: SDHCI platform and OF driver helper
+[   10.078341] ledtrig-cpu: registered to indicate activity on CPUs
+[   10.085080] omap-aes 53500000.aes: OMAP AES hw accel rev: 3.2
+[   10.091289] omap-aes 53500000.aes: will run requests pump with realtime prioy
+[   10.099522] omap_hsmmc 47810000.mmc: card claims to support voltages below de
+[   10.109626] omap-sham 53100000.sham: hw accel on OMAP rev 4.3
+[   10.119261] hidraw: raw HID events driver (C) Jiri Kosina
+[   10.126368] usbcore: registered new interface driver usbhid
+[   10.132166] usbhid: USB HID core driver
+[   10.137091] remoteproc remoteproc0: wkup_m3 is available
+[   10.145838] gnss: GNSS driver registered with major 239
+[   10.155646] mmc2: new high speed SDIO card at address 0001
+[   10.166442] wireguard: WireGuard 0.0.20190913 loaded. See www.wireguard.com .
+[   10.175489] wireguard: Copyright (C) 2015-2019 Jason A. Donenfeld <Jason@zx2.
+[   10.186799] NET: Registered protocol family 10
+[   10.199576] Segment Routing with IPv6
+[   10.203673] mip6: Mobile IPv6
+[   10.206813] NET: Registered protocol family 17
+[   10.211634] Key type dns_resolver registered
+[   10.216087] mpls_gso: MPLS GSO support
+[   10.220138] ThumbEE CPU extension supported.
+[   10.224487] Registering SWP/SWPB emulation handler
+[   10.229340] omap_voltage_late_init: Voltage driver support not added
+[   10.236093] PM: Cannot get wkup_m3_ipc handle
+[   10.241858] registered taskstats version 1
+[   10.246037] Loading compiled-in X.509 certificates
+[   10.251007] zswap: loaded using pool lzo/zbud
+[   10.258525] Btrfs loaded, crc32c=crc32c-generic
+[   10.263255] AppArmor: AppArmor sha1 policy hashing enabled
+[   10.323367] tps6521x_pwrbutton tps65217-pwrbutton: DMA mask not set
+[   10.330755] input: tps65217_pwr_but as /devices/platform/ocp/44e0b000.i2c/i20
+[   10.342280] tps65217 0-0024: TPS65217 ID 0xe version 1.2
+[   10.348693] at24 0-0050: 32768 byte 24c256 EEPROM, writable, 1 bytes/write
+[   10.476244] tda998x 0-0070: found TDA19988
+[   10.484361] tilcdc 4830e000.lcdc: bound 0-0070 (ops tda998x_ops)
+[   10.490565] [drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+[   10.497282] [drm] No driver support for vblank timestamp query.
+[   10.503933] [drm] Cannot find any crtc or sizes
+[   10.509570] [drm] Initialized tilcdc 1.0.0 20121205 for 4830e000.lcdc on min0
+[   10.517260] omap_i2c 44e0b000.i2c: bus 0 rev0.11 at 400 kHz
+[   10.524910] remoteproc remoteproc0: powering up wkup_m3
+[   10.532812] using random self ethernet address
+[   10.537439] remoteproc remoteproc0: Booting fw image am335x-pm-firmware.elf,8
+[   10.545610] using random host ethernet address
+[   10.550366] remoteproc remoteproc0: remote processor wkup_m3 is now up
+[   10.556937] wkup_m3_ipc 44e11324.wkup_m3_ipc: CM3 Firmware Version = 0x193
+[   10.564883] usb0: HOST MAC 9e:f3:f1:2c:25:60
+[   10.569389] usb0: MAC 4a:7c:1a:37:ce:9c
+[   10.573296] using random self ethernet address
+[   10.577976] using random host ethernet address
+[   10.582643] g_ether gadget: Ethernet Gadget, version: Memorial Day 2008
+[   10.589392] g_ether gadget: g_ether ready
+[   10.594542] cpu cpu0: Linked as a consumer to regulator.4
+[   10.600212] cpu cpu0: Dropping the link to regulator.4
+[   10.605986] cpu cpu0: Linked as a consumer to regulator.4
+[   10.612249] cpufreq: cpufreq_online: CPU0: Running at unlisted freq: 1000000z
+[   10.619857] cpu cpu0: dev_pm_opp_set_rate: failed to find current OPP for fr)
+[   10.630954] cpufreq: cpufreq_online: CPU0: Unlisted initial frequency changez
+[   10.641994] asoc-simple-card sound: i2s-hifi <-> 48038000.mcasp mapping ok
+[   10.650922] PM: bootloader does not support rtc-only!
+[   10.657282] omap_rtc 44e3e000.rtc: setting system clock to 2000-01-01 00:00:)
+[   10.666679] cfg80211: Loading compiled-in X.509 certificates for regulatory e
+[   10.678523] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[   10.685636] platform regulatory.0: Direct firmware load for regulatory.db fa2
+[   10.694865] ALSA device list:
+[   10.698025]   #0: TI BeagleBone Black
+[   10.701818] cfg80211: failed to load regulatory.db
+[   10.712972] wlcore: wl18xx HW: 183x or 180x, PG 2.2 (ROM 0x11)
+[   10.727824] wlcore: loaded
+[   10.749114] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. )
+[   10.757480] VFS: Mounted root (ext4 filesystem) on device 179:2.
+[   10.765177] devtmpfs: error mounting -2
+[   10.777034] Freeing unused kernel memory: 1024K
+[   10.782650] Run /sbin/init as init process
+[   10.793939] Run /etc/init as init process
+[   10.799224] Run /bin/init as init process
+[   10.803474] Run /bin/sh as init process
+[   10.807456] Kernel panic - not syncing: No working init found. Try passing .
+[   10.821704] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.19.73 #4
+[   10.827739] Hardware name: Generic AM33XX (Flattened Device Tree)
+[   10.833913] [<c011479c>] (unwind_backtrace) from [<c010e58c>] (show_stack+0x)
+[   10.841707] [<c010e58c>] (show_stack) from [<c0e860e0>] (dump_stack+0x80/0x9)
+[   10.848976] [<c0e860e0>] (dump_stack) from [<c013d2a0>] (panic+0x100/0x284)
+[   10.855987] [<c013d2a0>] (panic) from [<c0e9b39c>] (kernel_init+0x120/0x128)
+[   10.863078] [<c0e9b39c>] (kernel_init) from [<c01010e8>] (ret_from_fork+0x14)
+[   10.870683] Exception stack(0xdc155fb0 to 0xdc155ff8)
+[   10.875763] 5fa0:                                     00000000 00000000 00000
+[   10.883982] 5fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000
+[   10.892200] 5fe0: 00000000 00000000 00000000 00000000 00000013 00000000
+[   10.898878] ---[ end Kernel panic - not syncing: No working init found.  Try-
+[   11.176525] g_ether gadget: high-speed config #1: CDC Ethernet (EEM)
+[   11.525854] [drm] Cannot find any crtc or sizes
