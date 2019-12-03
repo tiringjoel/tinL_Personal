@@ -1,0 +1,107 @@
+%-------------------------
+%minimal-unix
+%(c) H.Buchmann FHNW 2017
+%export TEXINPUTS=.:${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\begin{document}
+\title{Minimaler target-root}
+\frame{\titlepage}
+
+\begin{frame}{Ziel}
+ \begin{itemize}
+  \item Zwei \cod{target-root}'s
+  \begin{itemize}
+   \item für {\em development} auf dem \host für \targetS
+   \item für {\em runtime} auf dem \targetS
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Zwei \cod{target-root}'s}{identisch}
+\begin{minipage}{0.375\textwidth}
+{
+\dirtree{%
+.0 \host.
+.1 lib.
+.1 usr.
+.2 include.
+.2 lib.
+}
+}
+\end{minipage}
+\begin{minipage}{0.375\textwidth}
+{
+\dirtree{%
+.0 \targetS
+.1 lib.
+.1 usr.
+.2 include.
+.2 lib.
+}
+}
+\end{minipage}
+\end{frame}
+
+
+\begin{frame}{Typische Beispiele}
+ \begin{itemize}
+  \item C
+  \begin{itemize}
+   \item \cod{c-hello.c} einfaches Programm
+  \end{itemize}
+  \item C++
+  \begin{itemize}
+   \item \cod{cc-hello.cc} einfaches Programm
+   \item \cod{cc-threads.cc} komplexes Programm
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\subsection{\cod{c-hello.c}}
+\begin{frame}{Development}{\target}
+ \begin{itemize}
+  \item compile
+  \begin{itemize}
+   \item source files
+   \item include files
+  \end{itemize}
+  \item link
+  \begin{itemize}
+   \item object Files \cod{*.o}
+   \item static libraries \cod{*.a}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Execution}
+ \begin{itemize}
+  \item dynamic libraries \cod{*.so}
+  \item executables
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Aufteilung}
+ \begin{itemize}
+  \item source/include Files $to$ \host
+  \item \cod{*.o} \cod{*.a} $to$ \host
+  \item dynamic libraries \cod{*.so} $to$ \targetS
+  \item executables $to$ \targetS 
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Aufgaben}
+ \begin{itemize}
+  \item Aufteilung für \cod{c-hello}
+  \item Aufteilung für \cod{cc-hello}
+  \item Aufteilung für \cod{cc-threads}
+ \end{itemize}
+\end{frame}
+\end{document}

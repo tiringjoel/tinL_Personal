@@ -10,7 +10,7 @@ SIGNATURE=.c64f747e-8bd8-4992-80a5-3e4bfa8fd500
  exit 1
 }
 #--------------------------------------- locations of the resources
-RESOURCES=${HOME}/resources
+RESOURCES=/opt/resources
 BINUTILS_SRC=${RESOURCES}/binutils-2.33.1/
 GCC_SRC=${RESOURCES}/gcc-9.2.0/
 MUSL_SRC=${RESOURCES}/musl-1.1.24/

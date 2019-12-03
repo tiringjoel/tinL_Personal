@@ -44,6 +44,8 @@ cc-mini.o:      cc-mini.cc
 cc-mini:        cc-mini.o
 cc-mini.o:      cc-mini.cc
 
+cc-hello:	cc-hello.cc
+c-hello:	c-hello.c
 cc-threads:     cc-threads.cc
 
 .PHONY: clean

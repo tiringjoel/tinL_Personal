@@ -3,6 +3,9 @@
 #gcc-bare.sh 
 #(c) H.Buchmann FHNW 2018
 #gcc for kernel
+# depends gmp
+#         mpfr
+#         mpc
 #-----------------------
 . $(dirname ${0})/config.sh  #load common
 
@@ -15,6 +18,9 @@ ${GCC_SRC}/configure \
  --with-mpc-lib=${TC}/lib \
  --target=${TARGET} \
  --disable-nls \
+ --disable-newlib \
+ --without-headers \
+ --with-local-prefix=${TC} \
  --disable-werror \
  --enable-languages=c\
  --disable-threads \

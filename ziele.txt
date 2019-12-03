@@ -69,3 +69,16 @@
    . workflow
      host: target-root
      target: root
+
+27.Nov.2019
+-----------
+ Projektwoche
+
+4.Dez.2019
+----------
+ 17-build
+  toolchain bauen
+ 19-minimal 
+  minimal-target-root.pdf
+    .host für Entwicklung
+    .target für Ausführung
