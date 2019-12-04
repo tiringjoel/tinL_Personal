@@ -80,5 +80,6 @@
   toolchain bauen
  19-minimal 
   minimal-target-root.pdf
-    .host fÃ¼r Entwicklung
-    .target fÃ¼r AusfÃ¼hrung
+    .host für Entwicklung
+    .target für Ausführung
+    
