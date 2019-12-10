@@ -83,3 +83,17 @@
     .host für Entwicklung
     .target für Ausführung
     
+11.Dez.2019
+-----------
+ Konsolidierung
+  . aktuelle Toolchain
+  . aktueller Kernel
+    . wifi
+  . aktuelles rootfs
+    . ssh
+    . wifi
+      kann wpa_supplicant auch udhcp ?
+    
+ 20-kernel-user
+  Verbindung
+   kernel - userspace
