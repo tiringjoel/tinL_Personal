@@ -97,3 +97,10 @@
  20-kernel-user
   Verbindung
    kernel - userspace
+   
+18.Dez.2019
+-----------
+20-kernel-user
+  Verbindung
+   kernel - userspace
+Konsolidierung
