@@ -104,3 +104,14 @@
   Verbindung
    kernel - userspace
 Konsolidierung
+
+rsync
+
+8.Jan.2020
+----------
+Eigene 'packages'
+ am Beispiel
+  iw
+  nano
+18-resume
+ 

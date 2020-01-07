@@ -6,7 +6,6 @@
 \documentclass{beamer}
 \usepackage{beamer}
 \input{defines.tex}
-\input{/home/buchmann/latex/dirtree/dirtree.tex}
 
 \usepackage[absolute]{textpos}
 \setlength{\TPHorizModule}{1mm}
@@ -18,7 +17,7 @@
 
 \frame{\titlepage}
 
-\begin{frame}{Um was geht es ?}{\linux}
+\begin{frame}{Um was geht es ?}{\linux Teil 1}
  \begin{itemize}
   \item Toolchain bare 
   \item \cod{kernel}
@@ -33,12 +32,32 @@
    \item Client/Server
   \end{itemize}
  \end{itemize}
+ 
  \remark{basierend auf 17-build}
+\end{frame}
+
+\begin{frame}{Um was geht es ?}{\linux Teil 2}
+ \begin{itemize}
+  \item Network
+  \begin{itemize}
+   \item per USB
+   \item per WiFi
+  \end{itemize}
+  \item CrossDevelopment
+  \begin{itemize}
+   \item Entwicklung auf dem \host
+   \item Executables ouf dem \targetS
+  \end{itemize}
+  \item Weitere {\em packages}
+  \begin{itemize}
+   \item lighttpd
+  \end{itemize}
+ \end{itemize}
 \end{frame}
 
 \begin{frame}{Host}{Verzeichnisstruktur}
  \dirtree{%
-  .1 18-resume.
+  .1 17-build.
   .2 SIGNATURE \DTcomment{invisible uniqe number}.
   .2 config.
   .2 tools \DTcomment{scripts}.
@@ -46,12 +65,13 @@
   .2 build \DTcomment{data during build}.
   .3 {\em component}.
   .2 tc \DTcomment{toolchain}.
-  .2 target-root.
+  .2 target-root \DTcomment{on the \host}.
+  .2 mount \DTcomment{root on \targetS per sshfs}.
  }
 \end{frame}
 
 \begin{frame}{Build}
- \begin{tabular}{rl|l}
+ \begin{tabular}{rl|l} 
  		 &	& args\\
  \hline\hline
   toolchain bare & \cod{binutils.sh} \\
@@ -102,14 +122,39 @@
 
 \begin{frame}{Development}
  \dirtree{%
- .1 18-resume.
+ .1 17-build.
  .2 config.
  .3 Makefile.
  .2 src \DTcomment{source files}.
  .2 work.
  .3 $\to$ Makefile \DTcomment{link}.
- .2 target-devel \DTcomment{mounted e.g. via sshfs}.
+ .2 mount \DTcomment{mounted e.g. via sshfs}.
  }
 \end{frame}
+
+\begin{frame}{Was ist noch zu tun ?}
+ \begin{itemize}
+  \item Wo befinden sich die {\em Source Files} 
+  \begin{itemize}
+   \item nicht immer suchen
+  \end{itemize}
+  \item user-root Separation
+  \begin{itemize}
+   \item \host\ {\bf user} (fast immer)
+   \item \targetS\ {\bf root}: für den Moment mindestens
+  \end{itemize}
+  \item Workflow für schrittweise Entwicklung
+  \begin{itemize}
+   \item Saubere Anwendung von \cod{rsync}
+   \item Ev. anderes Tool: (wie steht es mit \cod{git}) ?
+  \end{itemize}
+  \item Kernel Konfiguration
+  \begin{itemize}
+   \item \cod{omap\_i2c 4819c000.i2c: timeout waiting for bus ready}  
+  \end{itemize}
+  \item Device Tree
+ \end{itemize}
+\end{frame}
+
 
 \end{document}

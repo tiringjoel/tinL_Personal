@@ -2,3 +2,13 @@
 libfl.so.2 geht bei ubuntu nicht
 
 u-boot env am richtigen Platz
+
+8.Jan.2020
+----------
+
+Wo sind die Sourcefiles 
+saubere user-root separation
+ host:   user
+ target: root
+ 
+sauberes rsync

@@ -4,17 +4,12 @@
 # depends on zlib
 #------------------------
 . $(dirname ${0})/config.sh  #load common
-[[ ! -d rsync ]] && mkdir rsync
+export CC="${CROSS_COMPILE}gcc --sysroot=${TARGET_ROOT}"
+${NCURSES_SRC}/configure --help
 
-cd rsync
-
-#${RSYNC_SRC}/configure --help
-
-export CC=${CROSS_COMPILE}gcc --sysroot=${TARGET_ROOT}
-${RSYNC_SRC}/configure \
+${NCURSES_SRC}/configure \
 --host=${TARGET} \
---prefix=/ \
---build=x86_64-unknown-linux-gnu 
-
+--enable-widec
+#
 ${MAKE} 
 ${MAKE} install DESTDIR=${TARGET_ROOT}
