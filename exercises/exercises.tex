@@ -8,7 +8,7 @@
 \input{defines.tex}
 \begin{document}
 
-\begin{frame}{18.Sept.2019}
+\begin{frame}{20.Feb.2020}
 \begin{itemize}
  \item Umgebung aufsetzen
  \begin{itemize}
@@ -28,185 +28,185 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{25.Sept.2019}
- \begin{itemize}
-  \item Alles ist ein File
-  \begin{itemize}
-   \item \cod{sshfs} mount
-   \item \cod{mount} SD-Karte
-  \end{itemize}
-  \item Netzwerk
-  \begin{itemize}
-   \item Host als Proxy
-   \item Host als Gateway/Router
-   \item \targetS via WiFi
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{2.Okt. 2019}
- \begin{itemize}
-  \item \targetS kleines Image auf SD-Karte
-  \item Zugriff via serielle Schnittstelle
-  \item via USB am lokalen Netz
-  \begin{itemize}
-    \item ssh \& sshfs
-  \end{itemize}
-  \item via Wi-Fi am Internet
- \end{itemize}
-\end{frame}
-
-\begin{frame}{9.Okt. 2019}
- \begin{itemize}
-  \item init script für \targetS
-  \item 5-kernel
-  \begin{itemize}
-   \item basic config
-   \item USB Gadget
-   \item WiFi \& firmware
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{16.Okt. 2019}
- \begin{itemize}
-  \item 6-crossdevelopment
-  \begin{itemize}
-   \item Programme in \cod{src} auf \host \& \targetS
-   \item Vergleich Zeit von \cod{primes} auf \host \& \targetS
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{23.Okt. 2019}
- \begin{itemize}
-  \item 6-crossdevelopment Zugriff auf die Hardware
-  \begin{itemize}
-   \item via Skript \cod{/sys/class/gpio}
-   \begin{itemize}
-    \item \cod{led-enable.sh}, \cod{led-blink.sh}
-   \end{itemize}
-   \item via C++ \cod{/sys/class/gpio}
-   \begin{itemize}
-    \item \cod{led-enable.cc}, \cod{led-blink.cc}
-   \end{itemize}
-   \item direkt \cod{src/mem.h$|$cc}
-   \begin{itemize}
-    \item \cod{led-direct-0.cc}, \cod{led-direct-1.cc}
-   \end{itemize}
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{30.Okt.2019}
- \begin{itemize}
-  \item 6-crossdevelopment Zugriff auf die andere Hardware
-  \begin{itemize}
-   \item SWITCH $\to$ LED
-  \end{itemize}
-  \item 4-u-boot
-  \begin{itemize}
-   \item Herstellung
-   \item Installation
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{6.Nov.2019}{Zugriff auf die Hardware via Internet}
- \begin{itemize}
-  \item HTTP Server \cod{lighttpd}
-  \item CGI Common Gateway Interface
- \end{itemize}
-\end{frame}
-
-
-\begin{frame}{13.Nov 2019}{Build von Grund auf}
- \begin{itemize}
-  \item bestehendes {\em rootfs} nicht verlieren
-  \item einfache toolchain *)
-  \item kernel             *)
-  \item test mit \cod{src/s-bare-init.s}
-  \item glibc {\em POSIX}
-  \item volle toolchain    *)
-  \item test mit \cod{src/cpp-hello-world.cc}
-  \item busybox
-  \item ssh
-  \item wpa
- \end{itemize}
- *) fakultativ
-\end{frame}
-
-\begin{frame}{20.Nov.2019}{Build,rootfs flavours}
- \begin{itemize}
-  \item build
-  \begin{itemize}
-   \item ssh
-   \item wifi
-  \end{itemize}
-  \item roofs flavours
-  \begin{itemize}
-   \item nano
-   \item mini
-   \item full
-  \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{4.Dez.2019}{Auteilung \cod{target-root}}
- \begin{itemize}
- \item einen Teile auf dem \host bzw. \target 
- \begin{itemize}
-  \item einfaches C-Programm
-  \item einfaches C++-Programm
-  \item komplexes C++-Programm
- \end{itemize}
- \end{itemize}
-\end{frame}
-
-\begin{frame}{11.Dez.2019}{Konsolidierung/Kernel-Userspace}
- \begin{itemize}
-  \item Konsolidierung
-  \begin{itemize}
-   \item aktuelle Toolchain
-   \item aktueller Kern
-   \begin{itemize}
-    \item mit WiFi
-   \end{itemize}
-   \item aktueller rootfs
-   \begin{itemize}
-    \item ssh
-    \item WiFi
-   \end{itemize} 
-  \end{itemize}
-  \item  Kernel-Userspace
-  \begin{itemize}
-   \item hotplug
-   \item socket NETLINK KOBJECT UEVENT
-  \end{itemize}
-  
- \end{itemize}
- 
-\end{frame}
-
-\begin{frame}{18.Dez.2019}{Kernel-Userspace}
- \begin{itemize}
-  \item hotplug
-  \item socket NETLINK KOBJECT UEVENT
- \end{itemize}
-\end{frame}
-
-\begin{frame}{8.Jan.2020}{Resume}
- \begin{itemize}
-  \item zusätzliche {\em packages} \cod{iw}, \cod{nano}
-  \item Separation
-  \begin{itemize}
-   \item Host {\bf user}
-   \item Target {\bf root}
-  \end{itemize}
-  \item Kernel Konfiguration
-  \begin{itemize}
-   \item \cod{omap\_i2c 4819c000.i2c: timeout waiting for bus ready}
-  \end{itemize}
- \end{itemize}
-\end{frame}
+%\begin{frame}{25.Sept.2019}
+% \begin{itemize}
+%  \item Alles ist ein File
+%  \begin{itemize}
+%   \item \cod{sshfs} mount
+%   \item \cod{mount} SD-Karte
+%  \end{itemize}
+%  \item Netzwerk
+%  \begin{itemize}
+%   \item Host als Proxy
+%   \item Host als Gateway/Router
+%   \item \targetS via WiFi
+%  \end{itemize}
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{2.Okt. 2019}
+% \begin{itemize}
+%  \item \targetS kleines Image auf SD-Karte
+%  \item Zugriff via serielle Schnittstelle
+%  \item via USB am lokalen Netz
+%  \begin{itemize}
+%    \item ssh \& sshfs
+%  \end{itemize}
+%  \item via Wi-Fi am Internet
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{9.Okt. 2019}
+% \begin{itemize}
+%  \item init script für \targetS
+%  \item 5-kernel
+%  \begin{itemize}
+%   \item basic config
+%   \item USB Gadget
+%   \item WiFi \& firmware
+%  \end{itemize}
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{16.Okt. 2019}
+% \begin{itemize}
+%  \item 6-crossdevelopment
+%  \begin{itemize}
+%   \item Programme in \cod{src} auf \host \& \targetS
+%   \item Vergleich Zeit von \cod{primes} auf \host \& \targetS
+%  \end{itemize}
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{23.Okt. 2019}
+% \begin{itemize}
+%  \item 6-crossdevelopment Zugriff auf die Hardware
+%  \begin{itemize}
+%   \item via Skript \cod{/sys/class/gpio}
+%   \begin{itemize}
+%    \item \cod{led-enable.sh}, \cod{led-blink.sh}
+%   \end{itemize}
+%   \item via C++ \cod{/sys/class/gpio}
+%   \begin{itemize}
+%    \item \cod{led-enable.cc}, \cod{led-blink.cc}
+%   \end{itemize}
+%   \item direkt \cod{src/mem.h$|$cc}
+%   \begin{itemize}
+%    \item \cod{led-direct-0.cc}, \cod{led-direct-1.cc}
+%   \end{itemize}
+%  \end{itemize}
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{30.Okt.2019}
+% \begin{itemize}
+%  \item 6-crossdevelopment Zugriff auf die andere Hardware
+%  \begin{itemize}
+%   \item SWITCH $\to$ LED
+%  \end{itemize}
+%  \item 4-u-boot
+%  \begin{itemize}
+%   \item Herstellung
+%   \item Installation
+%  \end{itemize}
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{6.Nov.2019}{Zugriff auf die Hardware via Internet}
+% \begin{itemize}
+%  \item HTTP Server \cod{lighttpd}
+%  \item CGI Common Gateway Interface
+% \end{itemize}
+%\end{frame}
+%
+%
+%\begin{frame}{13.Nov 2019}{Build von Grund auf}
+% \begin{itemize}
+%  \item bestehendes {\em rootfs} nicht verlieren
+%  \item einfache toolchain *)
+%  \item kernel             *)
+%  \item test mit \cod{src/s-bare-init.s}
+%  \item glibc {\em POSIX}
+%  \item volle toolchain    *)
+%  \item test mit \cod{src/cpp-hello-world.cc}
+%  \item busybox
+%  \item ssh
+%  \item wpa
+% \end{itemize}
+% *) fakultativ
+%\end{frame}
+%
+%\begin{frame}{20.Nov.2019}{Build,rootfs flavours}
+% \begin{itemize}
+%  \item build
+%  \begin{itemize}
+%   \item ssh
+%   \item wifi
+%  \end{itemize}
+%  \item roofs flavours
+%  \begin{itemize}
+%   \item nano
+%   \item mini
+%   \item full
+%  \end{itemize}
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{4.Dez.2019}{Auteilung \cod{target-root}}
+% \begin{itemize}
+% \item einen Teile auf dem \host bzw. \target 
+% \begin{itemize}
+%  \item einfaches C-Programm
+%  \item einfaches C++-Programm
+%  \item komplexes C++-Programm
+% \end{itemize}
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{11.Dez.2019}{Konsolidierung/Kernel-Userspace}
+% \begin{itemize}
+%  \item Konsolidierung
+%  \begin{itemize}
+%   \item aktuelle Toolchain
+%   \item aktueller Kern
+%   \begin{itemize}
+%    \item mit WiFi
+%   \end{itemize}
+%   \item aktueller rootfs
+%   \begin{itemize}
+%    \item ssh
+%    \item WiFi
+%   \end{itemize} 
+%  \end{itemize}
+%  \item  Kernel-Userspace
+%  \begin{itemize}
+%   \item hotplug
+%   \item socket NETLINK KOBJECT UEVENT
+%  \end{itemize}
+%  
+% \end{itemize}
+% 
+%\end{frame}
+%
+%\begin{frame}{18.Dez.2019}{Kernel-Userspace}
+% \begin{itemize}
+%  \item hotplug
+%  \item socket NETLINK KOBJECT UEVENT
+% \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{8.Jan.2020}{Resume}
+% \begin{itemize}
+%  \item zusätzliche {\em packages} \cod{iw}, \cod{nano}
+%  \item Separation
+%  \begin{itemize}
+%   \item Host {\bf user}
+%   \item Target {\bf root}
+%  \end{itemize}
+%  \item Kernel Konfiguration
+%  \begin{itemize}
+%   \item \cod{omap\_i2c 4819c000.i2c: timeout waiting for bus ready}
+%  \end{itemize}
+% \end{itemize}
+%\end{frame}
 \end{document}
