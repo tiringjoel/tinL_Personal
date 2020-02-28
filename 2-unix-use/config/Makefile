@@ -6,7 +6,7 @@
 VPATH=../src 
 
 TARGET=${PWD}/../target-root/
-PREFIX=../tc/bin/arm-linux-gnueabihf-
+PREFIX=../tc/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
 SYSROOT=${TARGET}
 CFLAGS=-std=c99  -march=armv7-a -mfloat-abi=hard -mfpu=vfpv3-d16
 
