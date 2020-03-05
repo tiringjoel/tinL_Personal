@@ -9,7 +9,7 @@ if ping -c 1 ${host} > /dev/null; then
 	read -p 'Host avaliable, username: ' username
 	printf 'Mounting Host\n'
 	sshfs ${username}@${host}:/ ${mountpoint}/target-root
-	sshfs ${username}@${host}:/home/debian/Desktop/work ${mountpoint}/work
+	sshfs ${username}@${host}:/home/debian/work ${mountpoint}/work
 	printf 'Mounted succesfully, login (yes/no)? ' 
 	read input
 	if [ ${input} = "yes" ] || [ ${input} = "y" ]; then
