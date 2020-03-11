@@ -17,3 +17,10 @@
  3.5-image
  WiFi
  
+12.März 2020
+------------
+ 3.5-image
+  Probleme mit der SD-Karte
+ 
+ 5-kernel
+ 
