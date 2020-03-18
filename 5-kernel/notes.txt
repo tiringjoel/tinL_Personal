@@ -1,0 +1,11 @@
+Dowload per zip funktioniert nicht: Warum 
+
+Benutzen Sie:
+ git clone -b4.19 --depth=4 
+ git clone -b5.4  --depth=4 
+ 
+sync nicht vergessen
+
+
+Letzte Meldung 5.4 funktioniert bei 4.19
+wkup_m3_ipc
