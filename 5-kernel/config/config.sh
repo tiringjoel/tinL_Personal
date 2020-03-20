@@ -5,11 +5,11 @@
 #---------------------
 #we are in 5-kernel
 PREFIX=arm-linux-gnueabihf-
-TC=${PWD}/tc/bin/
+TC=${PWD}/tc/arm-linux-gnueabihf/bin/
 CROSS_COMPILE=${TC}/${PREFIX}
 
 #----------------------- adapt for your needs
-LINUX_SRC=${HOME}/resources/beaglebone/linux
+LINUX_SRC=${HOME}/Desktop/tinL1/tinL_own/resources/linux
 BUILD=$(pwd)/build
 MODULES=$(pwd)/modules
 
