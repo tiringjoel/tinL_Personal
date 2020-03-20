@@ -18,7 +18,7 @@
  mkdir ${BUILD}
 }
 cd ${LINUX_SRC}
-${MAKE} V=0 O=${BUILD} \
+${MAKE} V=1 O=${BUILD} \
 ARCH=arm \
 CROSS_COMPILE=${CROSS_COMPILE} \
 INSTALL_MOD_PATH=${MODULES} \
