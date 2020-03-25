@@ -1,0 +1,64 @@
+%-------------------------
+%big-picture
+%(c) H.Buchmann FHNW 2020
+%export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
+%https://drive.switch.ch/index.php/s/xwpXAvMX91n5CtE
+%-------------------------
+\documentclass{beamer}
+\usepackage{latex/beamer}
+\input{defines.tex}
+
+\title{HTTP}
+\begin{document}
+\frame{\titlepage}
+\begin{frame}{Outline}{HTTP Server auf \targetS}
+ \begin{itemize}
+  \item \cod{lighttpd} als HTTP Server
+  \item Konfiguration
+  \item Zugriff
+  \item CGI Common Gateway Interface
+  \item Zugriff auf Hardware 
+  \begin{itemize}
+   \item einfach eine LED
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{\cod{lighttpd} als HTTP Server}
+ \begin{itemize}
+  \item \cod{/usr/local/sbin/lighttpd}
+  \item Konfiguration \cod{/etc/lighttpd.conf}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Zugriff}{Wo sind die Files}
+ \begin{itemize}
+  \item Siehe \cod{/etc/lighttpd.conf}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{CGI}{Common Gateway Interface}
+ \begin{itemize}
+  \item führt Programme aus
+  \item \cod{stdout} $\to$ Browser
+  \item \cod{easy-cgi.bin}
+  \item \cod{env-cgi.bin}
+  \begin{itemize}
+   \item mit Parametern \cod{http://192.168.7.2/env-cgi.bin?x=8\&y=7}
+  \end{itemize}  
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Zugriff auf die Hardware}{einfache LED}
+ \begin{itemize}
+  \item GPIO General Purpose Input Output
+  \item Dokumentation \cod{BBB\_SRM.pdf} Abschnitt 6.6
+  \item Skript \cod{gpio.sh}
+  \item Starte Skript via cgi
+  \begin{itemize}
+   \item \cod{led.html}
+   \item \cod{cgi-led-demo.bin}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+\end{document}

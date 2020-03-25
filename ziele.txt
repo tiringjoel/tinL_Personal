@@ -24,3 +24,9 @@
  
  5-kernel
  
+26.März 2020
+------------
+ 5-kernel 
+   usb-gadget
+   wifi
+ 
