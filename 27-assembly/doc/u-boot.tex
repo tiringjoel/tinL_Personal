@@ -1,0 +1,48 @@
+\subsection{\uboot}
+\begin{frame}{\uboot}{Wichtige Befehle}
+ \begin{itemize}
+  \item \cod{boot} startet \cod{bootcmd}
+  \item \cod{ext4load mmc 0:2 {\em addr} {\em file}}
+  \item \cod{setenv {\em key} {\em value}}
+  \item \cod{run {\em script}}
+  \item \cod{saveenv}
+  
+  \remark{Siehe \url[http]{www.denx.de/wiki/view/DULG/UBootCmdGroupEnvironment}}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\uboot}{Wichtige Variablen}
+\begin{itemize}
+ \item \cod{bootcmd} für \uboot \cod{boot}
+ {\tiny
+ \begin{verbatim}
+ run kernel;bootz 0x82000000 -  0x88000000
+  \end{verbatim}
+ }
+
+ \item \cod{bootargs} für den \kernel
+ {\tiny
+ \begin{verbatim}
+ root=/dev/mmcblk0p2 rw rootdelay=1 init=linuxrc console=ttyO0,115200n8
+ \end{verbatim}
+ }
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\uboot}{Wichtige Files}{Auf der Partition p2}
+ \begin{itemize}
+  \item \cod{/boot/zImage}
+  \item \cod{/boot/am335x-boneblack-wireless.dtb}
+ \end{itemize}
+\end{frame}
+
+%\begin{frame}{\uboot}{Wichtiger File}
+% \begin{itemize}
+%  \item \cod{uEnv.txt} setzt:
+%  \begin{itemize}
+%   \item \cod{bootcmd}
+%   \item load-script für den\kernel
+%   \item \cod{bootargs}
+%  \end{itemize}
+% \end{itemize}
+%\end{frame}

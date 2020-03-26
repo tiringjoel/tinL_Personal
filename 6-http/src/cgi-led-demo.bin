@@ -1,0 +1,16 @@
+#!/bin/sh
+#-----------------------
+#env-cgi.bin
+#(c) H.Buchmann FHNW 2020
+#-----------------------
+#QUERY_STRING=$1
+echo $QUERY_STRING
+case $QUERY_STRING
+in
+ *off )
+ echo "LED OFF"
+ ;;
+ *on )
+ echo "LED ON"
+ ;;
+esac

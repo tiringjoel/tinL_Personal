@@ -15,7 +15,7 @@ work
 target-mount
 target-root
 tc
-build
+build*
 modules
 17-build/image
 images

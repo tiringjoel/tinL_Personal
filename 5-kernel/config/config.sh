@@ -9,9 +9,13 @@ TC=${PWD}/tc/bin/
 CROSS_COMPILE=${TC}/${PREFIX}
 
 #----------------------- adapt for your needs
-LINUX_SRC=${HOME}/resources/beaglebone/linux
-BUILD=$(pwd)/build
-MODULES=$(pwd)/modules
+VERSION=4.19
+#LINUX_SRC=/opt/resources/beaglebone/linux
+#LINUX_SRC=/opt/resources/beaglebone/linux-${VERSION}
+#                                  2020-03-13 not yet working
+LINUX_SRC=/opt/resources/beaglebone/linux-${VERSION}
+BUILD=$(pwd)/build-${VERSION}
+MODULES=$(pwd)/modules-${VERSION}
 
 MAKE="make -j $(getconf _NPROCESSORS_ONLN)"
 

@@ -1,0 +1,58 @@
+Labor 19.März 2020
+-------------------
+
+5-kernel
+--------
+- Die erste Version haben Sie schon vor einer Woche hergstellt. Nun 
+  geht es darum noch
+    USB-Gadget und
+    WiFi 
+  zu konfigurieren
+
+Bemerkungen:
+-----------
+Das download via zip von 
+  https://github.com/beagleboard/linux/tree/4.19
+funktioniert nicht.
+
+Benutzen Sie:
+ git clone -b4.19 --depth=4 https://github.com/beagleboard/linux.git
+
+Die Version 5.4 funktioniert nicht:
+ https://github.com/beagleboard/linux/blob/5.4/README.md
+
+Konfiguration USB-Gadget:
+ Slide Seite 15
+
+Konfiguration WiFi:
+ Slide Seiten 17 ff
+
+Beachten Sie:
+ Die Firmware finden Sie auf:
+  https://drive.switch.ch/index.php/s/A6H382zEGDrgfAL
+ Kopieren Sie die Files im Verzeichnis ti-connectivity 
+  in das Verzeichnis 
+   firmware
+  Ihrer Kernel Sourcen
+  
+  the-kernel-source
+    firmware
+     ti-connectivity 
+       the files from https://drive.switch.ch/index.php/s/A6H382zEGDrgfAL
+         
+Wenn alle Stricke reissen:
+ Kopieren Sie 5-kernel/kernel.config in build/.config
+ 
+Schreiben Sie im target
+in den File /etc/wpa.conf:
+
+ctrl_interface=/run/wpa_supplicant
+update_config=1
+mac_addr=0
+network={
+  ssid="your-wifi-ssid"
+  key_mgmt=WPA-PSK
+  psk="your-wifi-password"
+}
+
+

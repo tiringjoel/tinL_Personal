@@ -1,8 +1,0 @@
-initial group/user
-addgroup -g 0 -S root
-adduser -u 0 -h /root -G root -S -D root
-
-
-python
-PYTHONHOME=/lib/python3.5/
-PYTHONPATH=/lib/python3.5/
