@@ -5,17 +5,13 @@
 #---------------------
 #we are in 5-kernel
 PREFIX=arm-linux-gnueabihf-
-TC=${PWD}/tc/bin/
+TC=${PWD}/tc/arm-linux-gnueabihf/bin/
 CROSS_COMPILE=${TC}/${PREFIX}
 
 #----------------------- adapt for your needs
-VERSION=4.19
-#LINUX_SRC=/opt/resources/beaglebone/linux
-#LINUX_SRC=/opt/resources/beaglebone/linux-${VERSION}
-#                                  2020-03-13 not yet working
-LINUX_SRC=/opt/resources/beaglebone/linux-${VERSION}
-BUILD=$(pwd)/build-${VERSION}
-MODULES=$(pwd)/modules-${VERSION}
+LINUX_SRC=${HOME}/Desktop/tinL1/tinL_own/resources/linux
+BUILD=$(pwd)/build
+MODULES=$(pwd)/modules
 
 MAKE="make -j $(getconf _NPROCESSORS_ONLN)"
 

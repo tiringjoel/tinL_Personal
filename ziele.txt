@@ -12,12 +12,12 @@
   . Filesysteme
   . Crossdevelopment
   
- 5.März 2020
+ 5.Mï¿½rz 2020
  -----------
  3.5-image
  WiFi
  
-12.März 2020
+12.Mï¿½rz 2020
 ------------
  3.5-image
   Probleme mit der SD-Karte
