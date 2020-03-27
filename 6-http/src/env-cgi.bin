@@ -3,4 +3,5 @@
 #env-cgi.bin
 #(c) H.Buchmann FHNW 2020
 #-----------------------
+echo -e "Content-type: text/plain\n"
 printenv

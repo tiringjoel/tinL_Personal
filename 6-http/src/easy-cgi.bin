@@ -3,4 +3,7 @@
 #easy-cgi.bin
 #(c) H.Buchmann FHNW 2020
 #-----------------------
+
+echo -e "Content-type: text/plain\n" #Bash für korrekter MIME-Type bei stdout Ausgabe via lighttpd/cgi, Verhindert Download anstatt Anzeige bei Firefox
 echo "Hello"
+
