@@ -118,7 +118,23 @@ dynamically linked, interpreter /lib/ld-linux.so.3, for GNU/Linux 3.2.0, with de
  \end{itemize}
 \end{frame}
 
-\begin{frame}{Kernel}{LED}
+\begin{frame}[fragile]{CGI Skripts}
+ \begin{itemize}
+  \item Bemerkung von Herr J.Wirz
+{\tiny
+\begin{verbatim}
+# This is a minimal example config
+# See /usr/share/doc/lighttpd
+# and http://redmine.lighttpd.net/projects/lighttpd/wiki/Docs:ConfigurationOptions
+server.modules = ( "mod_alias", "mod_cgi", "mod_accesslog")
+
+cgi.assign = (".bin" => "") #  => "sh" ???
+\end{verbatim}
+}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Kernel}{LED}
 \begin{itemize}
  \item Kernel von J.Wirz
  {\tiny
