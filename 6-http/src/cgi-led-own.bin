@@ -1,0 +1,33 @@
+#!/bin/sh
+#-----------------------
+#easy-cgi.bin
+#(c) H.Buchmann FHNW 2020
+#-----------------------
+#QUERY_STRING=$1
+echo -e "Content-type: text/plain\n"
+
+#LedInit=false
+PIN=53 			#32+21 LED USR0
+#cd /sys/class/gpio
+#echo $PIN > export
+#echo out > gpio$PIN/direction
+#echo 1 > gpio$PIN/value
+#echo 0 > gpio$PIN/value
+
+#path=~/sys/class
+#echo ${path}
+
+cd /sys/class/gpio
+#echo $QUERY_STRING
+case $QUERY_STRING
+in
+ *off )
+ echo "LED OFF"
+ echo 0 > gpio$PIN/value
+;;
+ *on )
+ echo "LED ON"
+ echo 1 > gpio$PIN/value
+ ;;
+esac
+
