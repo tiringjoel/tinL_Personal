@@ -1,6 +1,6 @@
 #!/bin/sh
 #-----------------------
-#env-cgi.bin
+#cgi-led-demo.bin led=on | led=off
 #(c) H.Buchmann FHNW 2020
 #-----------------------
 #QUERY_STRING=$1

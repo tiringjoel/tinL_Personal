@@ -30,3 +30,10 @@
    usb-gadget
    wifi
  6-http
+ 
+ 2.April 2020
+ ------------
+ 6-http
+  Hardware über http ansteuern
+17-build
+ 

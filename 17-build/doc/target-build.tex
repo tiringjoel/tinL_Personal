@@ -73,21 +73,21 @@
 \end{frame}
 
 
-\begin{frame}{Skripts und Argumente}{initiales System *) fakultativ}
+\begin{frame}{Skripts und Argumente}{initiales System}
  \begin{tabular}{l|l|l}
-  Skript & target & gebraucht für\\
+  Skript & \cod{script.sh what} & gebraucht für\\
   \hline\hline
-  \cod{binutils.sh}*)& &alles\\
+  \cod{binutils.sh}& &alles\\
   \hline
-  \cod{gcc-bare.sh}*)& &kernel, libc\\
+  \cod{gcc-bare.sh}& &kernel, libc\\
   \hline
-  \cod{kernel.sh}*)  & \cod{defconfig}\\
+  \cod{kernel.sh}  & \cod{defconfig}\\
                    & \cod{zImage}\\
                    & \cod{headers\_install}\\
   \hline
   \cod{glibc.sh}  & &POSIX\\
   \hline
-  \cod{gcc.sh}*)     & &C/C++, POSIX\\
+  \cod{gcc.sh}     & &C/C++, POSIX\\
   \hline
   \cod{busybox.sh} &\cod{menuconfig}\\
   		   &\cod{busybox}\\
