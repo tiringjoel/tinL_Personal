@@ -11,6 +11,7 @@ SIGNATURE=.c64f747e-8bd8-4992-80a5-3e4bfa8fd500
 }
 #--------------------------------------- locations of the resources
 RESOURCES=/opt/resources
+
 BINUTILS_SRC=${RESOURCES}/binutils-2.33.1/
 GCC_SRC=${RESOURCES}/gcc-9.2.0/
 MUSL_SRC=${RESOURCES}/musl-1.1.24/
@@ -60,6 +61,7 @@ DTB=${PWD}/build/kernel/arch/arm/boot/dts/am335x-boneblack-wireless.dtb
 MAKE="make -j $(getconf _NPROCESSORS_ONLN)"
 SCRIPT=$(basename ${0})
 BUILD_DIR=${SCRIPT%.sh}
+[[ ! -d build ]] && mkdir build
 cd build
 [[ ! -d ${BUILD_DIR} ]] && mkdir ${BUILD_DIR}
 cd ${BUILD_DIR} 
