@@ -10,9 +10,9 @@ SIGNATURE=.c64f747e-8bd8-4992-80a5-3e4bfa8fd500
  exit 1
 }
 #--------------------------------------- locations of the resources
-RESOURCES=/opt/resources
-BINUTILS_SRC=${RESOURCES}/binutils-2.33.1/
-GCC_SRC=${RESOURCES}/gcc-9.2.0/
+RESOURCES=/home/joel/Desktop/tinL1/tinL_own/resources/
+BINUTILS_SRC=${RESOURCES}/binutils-2.34/
+GCC_SRC=${RESOURCES}/gcc-9.3.0/
 MUSL_SRC=${RESOURCES}/musl-1.1.24/
 KERNEL_SRC=${RESOURCES}/beaglebone/linux/
 GLIBC_SRC=${RESOURCES}/glibc-2.30/
@@ -21,8 +21,8 @@ OPENSSL_SRC=${RESOURCES}/openssl-1.0.2t
 OPENSSH_SRC=${RESOURCES}/openssh-8.1p1
 
 BAREBOX_SRC=${RESOURCES}/barebox-2019.11.0
-GMP_SRC=${RESOURCES}/gmp-6.1.2
-MPFR_SRC=${RESOURCES}/mpfr-4.0.1
+GMP_SRC=${RESOURCES}/gmp-6.2.0
+MPFR_SRC=${RESOURCES}/mpfr-4.0.2
 MPC_SRC=${RESOURCES}/mpc-1.1.0
 BUSYBOX_SRC=${RESOURCES}/busybox-1.31.1
 
