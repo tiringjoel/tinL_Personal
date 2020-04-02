@@ -5,12 +5,16 @@
 #-----------------------
 #QUERY_STRING=$1
 echo $QUERY_STRING
+PIN=53
+VALUE=/sys/class/gpio/gpio$PIN/value
 case $QUERY_STRING
 in
  *off )
  echo "LED OFF"
+ echo 0 > $VALUE
  ;;
  *on )
  echo "LED ON"
+ echo 1 > $VALUE
  ;;
 esac

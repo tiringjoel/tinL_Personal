@@ -61,4 +61,89 @@
   \end{itemize}
  \end{itemize}
 \end{frame}
+
+\section{Ergänzungen}
+\begin{frame}{Start}
+ \begin{itemize}
+  \item Start \cod{/usr/local/sbin/lighttpd -f /etc/lighttpd.conf}
+  \begin{itemize}
+    \item funktioniert nicht:\\
+    \cod{/var/log/lighttpd/error.log}:\\
+      \cod{dev/null failed: Permission denied}
+    \item Abhilfe:\\
+      \cod{chmod a+rw chmod a+rw /dev/null}\\
+      Neustart
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{CGI Skripts}
+ \begin{itemize}
+  \item funktioniert mit {\em Firefox} aber nicht mit {\em Chrome}
+  \item Abhilfe: P.Streit
+  \begin{itemize}
+   \item
+{\tiny
+\begin{verbatim}
+!/bin/sh
+#-----------------------
+#easy-cgi.bin
+#(c) p.Streit/H.Buchmann FHNW 2020
+#-----------------------
+echo -e "Content-type: text/plain\n"
+echo "Hello"
+\end{verbatim}
+}
+  \end{itemize}
+ \item könnte mit korrektem \cod{/dev/null} funktionieren
+ \item Bemerkung von D.Herren
+ \begin{itemize}
+  \item
+  {
+  \tiny
+\begin{verbatim}
+file easy-cgi.bin 
+easy-cgi.bin: POSIX shell script, ASCII text executable   
+\end{verbatim}
+  }
+ \item
+ {\tiny
+\begin{verbatim}
+file mount/srv/http/cgi-led.bin 
+mount/srv/http/cgi-led.bin: setuid, setgid ELF 32-bit LSB executable, ARM, EABI5 version 1 (GNU/Linux), 
+dynamically linked, interpreter /lib/ld-linux.so.3, for GNU/Linux 3.2.0, with debug_info, not stripped
+\end{verbatim}
+}
+ \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{CGI Skripts}
+ \begin{itemize}
+  \item Bemerkung von Herr J.Wirz
+{\tiny
+\begin{verbatim}
+# This is a minimal example config
+# See /usr/share/doc/lighttpd
+# and http://redmine.lighttpd.net/projects/lighttpd/wiki/Docs:ConfigurationOptions
+server.modules = ( "mod_alias", "mod_cgi", "mod_accesslog")
+
+cgi.assign = (".bin" => "") #  => "sh" ???
+\end{verbatim}
+}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Kernel}{LED}
+\begin{itemize}
+ \item Kernel von J.Wirz
+ {\tiny
+  \begin{verbatim}
+[    3.035108] usb 1-1: new high-speed USB device number 2 using musb-hdrc
+[    3.045938] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    3.052892] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+  \end{verbatim}
+ }
+\end{itemize}
+\end{frame}
 \end{document}
