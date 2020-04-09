@@ -53,7 +53,8 @@
  17-build
   kernel 5.4 funktioniert ziemlich 
                      https://drive.switch.ch/index.php/s/A6H382zEGDrgfAL zImage-5.4
-  - toolchain
+  - toolchain 1
   - glibc
+  - toolchain 2
   - busybox 
   
