@@ -36,4 +36,18 @@
  6-http
   Hardware über http ansteuern
 17-build
- 
+
+ 9.April 2020
+ ------------
+ 3-network/
+  bridge
+  
+ 6-http
+  Hardware über http ansteuern
+
+ 17-build
+  kernel 5.4 funktioniert ziemlich
+  - toolchain
+  - glibc
+  - busybox 
+  

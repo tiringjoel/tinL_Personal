@@ -9,7 +9,7 @@ TC=${PWD}/tc/bin/
 CROSS_COMPILE=${TC}/${PREFIX}
 
 #----------------------- adapt for your needs
-VERSION=4.19
+VERSION=5.4
 #LINUX_SRC=/opt/resources/beaglebone/linux
 #LINUX_SRC=/opt/resources/beaglebone/linux-${VERSION}
 #                                  2020-03-13 not yet working
