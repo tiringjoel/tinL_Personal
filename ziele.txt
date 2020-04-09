@@ -43,7 +43,7 @@
   neues Terminalprogramm
   
  3-network/
-  bridge
+  bridge p 13
   
  6-http
   Hardware über http ansteuern
