@@ -39,6 +39,9 @@
 
  9.April 2020
  ------------
+ picocom.sh
+  neues Terminalprogramm
+  
  3-network/
   bridge
   
