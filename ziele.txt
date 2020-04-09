@@ -36,4 +36,25 @@
  6-http
   Hardware über http ansteuern
 17-build
- 
+
+ 9.April 2020
+ ------------
+ picocom.sh
+  neues Terminalprogramm
+  
+ 3-network/
+  bridge p 13
+  
+ 6-http
+  Hardware über http ansteuern
+  wget
+  chmod
+  
+ 17-build
+  kernel 5.4 funktioniert ziemlich 
+                     https://drive.switch.ch/index.php/s/A6H382zEGDrgfAL zImage-5.4
+  - toolchain 1
+  - glibc
+  - toolchain 2
+  - busybox 
+  

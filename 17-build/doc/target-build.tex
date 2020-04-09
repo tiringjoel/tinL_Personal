@@ -73,14 +73,27 @@
 \end{frame}
 
 
-\begin{frame}{Skripts und Argumente}{initiales System}
+\begin{frame}{Skripts und Argumente}{initiales System A}
  \begin{tabular}{l|l|l}
   Skript & \cod{script.sh what} & gebraucht für\\
   \hline\hline
-  \cod{binutils.sh}& &alles\\
+  \cod{binutils.sh}& &alle toolchains\\
+  \hline\\
+  \cod{gmp.sh} & & alle toolchains\\
+  \hline\\
+  \cod{mpfr.sh} & & alle toolchains\\
+  \hline
+  \cod{mpc.sh} & & alle toolchains\\
   \hline
   \cod{gcc-bare.sh}& &kernel, libc\\
-  \hline
+ \end{tabular}
+ \remark{Alle Skripte sind {\Large\tt bash} Skripte}
+\end{frame}
+
+\begin{frame}{Skripts und Argumente}{initiales System B}  
+ \begin{tabular}{l|l|l}
+  Skript & \cod{script.sh what} & gebraucht für\\
+  \hline\hline
   \cod{kernel.sh}  & \cod{defconfig}\\
                    & \cod{zImage}\\
                    & \cod{headers\_install}\\
