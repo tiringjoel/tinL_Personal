@@ -47,9 +47,12 @@
   
  6-http
   Hardware über http ansteuern
-
+  wget
+  chmod
+  
  17-build
-  kernel 5.4 funktioniert ziemlich
+  kernel 5.4 funktioniert ziemlich 
+                     https://drive.switch.ch/index.php/s/A6H382zEGDrgfAL zImage-5.4
   - toolchain
   - glibc
   - busybox 

@@ -3,4 +3,6 @@
 #easy-cgi.bin
 #(c) H.Buchmann FHNW 2020
 #-----------------------
+echo "Content-type: text/plain"
+echo ""
 echo "Hello"
