@@ -40,6 +40,15 @@ popd   > /dev/null
 {
  [[  -f ${ZIMAGE} ]] &&
  {
+  [[ ! -d ${TARGET_ROOT} ]] &&
+  {
+   mkdir ${TARGET_ROOT}
+  }
+  [[ ! -d ${TARGET_ROOT}/boot ]] &&
+  {
+   mkdir ${TARGET_ROOT}/boot
+  }
+  
   cp ${ZIMAGE} ${TARGET_ROOT}/boot
  }
 }
