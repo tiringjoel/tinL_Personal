@@ -11,7 +11,7 @@ CC=${CROSS_COMPILE}gcc --sysroot=${SYSROOT}
 ASFLAGS=-mthumb -march=armv7-a
 CFLAGS=-O2 ${ASFLAGS}
 CXX=${CROSS_COMPILE}g++ --sysroot=${SYSROOT} 
-CXXFLAGS=${CFLAGS} -std=c++11 
+CXXFLAGS=${CFLAGS} -std=c++2a 
 #CC=${CXX}
 LD=${CROSS_COMPILE}ld
 #CC=gcc
