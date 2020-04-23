@@ -1,8 +1,14 @@
 #!/bin/sh
 #-----------------------
 #cgi-led-demo.bin led=on | led=off
+# ip/cgi-led-demo.bin?led=on
+# ip/cgi-led-demo.bin?led=off
+# right for /sys/class/gpio/gpio$PIN/value
+#     w for all because lighttpd is not root (http)
 #(c) H.Buchmann FHNW 2020
 #-----------------------
+echo "Content-type: text/plain"
+echo ""
 #QUERY_STRING=$1
 echo $QUERY_STRING
 PIN=53

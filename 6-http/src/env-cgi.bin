@@ -2,6 +2,9 @@
 #-----------------------
 #env-cgi.bin
 #(c) H.Buchmann FHNW 2020
+# Content-type: text/plain
+#
+# data
 #-----------------------
 echo -e "Content-type: text/plain\n"
 printenv

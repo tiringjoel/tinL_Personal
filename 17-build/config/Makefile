@@ -11,7 +11,7 @@ CC=${CROSS_COMPILE}gcc --sysroot=${SYSROOT}
 ASFLAGS=-mthumb -march=armv7-a
 CFLAGS=-O2 ${ASFLAGS}
 CXX=${CROSS_COMPILE}g++ --sysroot=${SYSROOT} 
-CXXFLAGS=${CFLAGS} -std=c++11 
+CXXFLAGS=${CFLAGS} -std=c++2a 
 #CC=${CXX}
 LD=${CROSS_COMPILE}ld
 #CC=gcc
@@ -21,6 +21,8 @@ VPATH=../src:../src/3rdparty:../modules:../../resources/dterm-0.3
 CPPFLAGS=-I../src -I../src/3rdparty -I../modules
 
 #hello-world:    LDFLAGS=-static
+
+serial: 		serial.cc
 hello-world:		hello-world.c
 cpp-hello-world:	cpp-hello-world.cc
 #------------------------- made with S
