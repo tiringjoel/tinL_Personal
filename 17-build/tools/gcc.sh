@@ -17,7 +17,7 @@ ${GCC_SRC}/configure \
  --with-sysroot=${TARGET_ROOT} \
  --disable-nls \
  --disable-libssp \
- --disable-lto \
+ --enable-lto \
  --enable-clocale=generic \
  --enable-shared \
  --disable-host-shared \

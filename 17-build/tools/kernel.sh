@@ -20,6 +20,7 @@
 
 BUILD=${PWD}
 pushd ${KERNEL_SRC} > /dev/null
+
 ${MAKE} V=1 O=${BUILD} \
 LOADADDR=0x8000 \
 ARCH=arm \

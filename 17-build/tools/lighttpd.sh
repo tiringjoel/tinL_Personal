@@ -1,7 +1,7 @@
 #!/bin/bash
 #-------------------------------
 #lighttpd.sh
-#(c) H.Buchmann FHNW 2019
+#(c) H.Buchmann FHNW 2020
 #create pem
 # openssl req -x509 -newkey rsa:4096 -keyout key.pem -nodes -out cert.pem -days 365
 #-------------------------------

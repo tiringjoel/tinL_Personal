@@ -21,13 +21,13 @@ GLIBC_SRC=${RESOURCES}/glibc-2.31/
 ZLIB_SRC=${RESOURCES}/zlib-1.2.11              #tar.gz
 OPENSSL_SRC=${RESOURCES}/openssl-1.1.1f
 OPENSSH_SRC=${RESOURCES}/openssh-8.2p1
-
+READLINE_SRC=${RESOURCES}/readline-8.0
 BAREBOX_SRC=${RESOURCES}/barebox-2019.11.0
 GMP_SRC=${RESOURCES}/gmp-6.2.0
 MPFR_SRC=${RESOURCES}/mpfr-4.0.2
 MPC_SRC=${RESOURCES}/mpc-1.1.0
 BUSYBOX_SRC=${RESOURCES}/busybox-1.31.1
-
+BLUEZ_SRC=${RESOURCES}/bluez-5.54
 #OPENSSL_SRC=${RESOURCES}/openssl-1.1.1       #tar.gz
 IW_SRC=${RESOURCES}/iw-5.3                 #tar.xz
 LIBNL_SRC=${RESOURCES}/libnl-3.5.0

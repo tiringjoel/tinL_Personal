@@ -58,3 +58,16 @@
   - toolchain 2
   - busybox 
   
+ 23.April 2020
+ -------------
+  17-build
+   tools/copy-newer.sh
+   - busybox
+      patch einspielen
+   - ssh 
+      und Abhängikeiten
+   - lighttpd 
+      mit https
+      config: 6-http/lighttpd.conf
+      
+  

@@ -10,7 +10,7 @@ export CPPFLAGS="--sysroot=${TARGET_ROOT}"
 export CC=${CROSS_COMPILE}gcc
 
 cd libnl
-{LIBNL_SRC}/configure --help
+${LIBNL_SRC}/configure --help
 ${LIBNL_SRC}/configure \
     --prefix=${TARGET_ROOT}/usr \
     --host=${TARGET}
