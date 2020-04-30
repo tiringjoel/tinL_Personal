@@ -55,7 +55,7 @@ rsync -av ${CONFIG}/target-root/ ${TARGET_ROOT}/
 rm -f ${TARGET_ROOT}/made*
 DATE=$(date '+%Y.%m.%d')
 touch ${TARGET_ROOT}/made-${DATE}
-#fakeroot tar -cvzf ${BUILD_HOME}/target-root-${DATE}.tar.gz -C ${TARGET_ROOT} .
+fakeroot tar -cvzf ${BUILD_HOME}/target-root-${DATE}.tar.gz -C ${TARGET_ROOT} .
 
 #copy to sd-card
 #   home-of-sd-card  .
