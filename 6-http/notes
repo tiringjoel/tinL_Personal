@@ -1,0 +1,10 @@
+sudo ifconfig ens35u2i1 192.168.7.1 netmask 255.255.255.0 up
+
+
+run lighttpd:
+./usr/local/sbin/lighttpd -D -f /etc/lighttpd.conf 
+
+scripts:
+/srv/http
+
+chmod 
