@@ -10,6 +10,7 @@ ${NCURSES_SRC}/configure --help
 ${NCURSES_SRC}/configure \
 --host=${TARGET} \
 --enable-widec
+
 #
 ${MAKE} 
 ${MAKE} install DESTDIR=${TARGET_ROOT}

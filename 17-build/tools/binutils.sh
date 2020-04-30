@@ -8,6 +8,7 @@
 ${BINUTILS_SRC}/configure \
  --prefix=${TC} \
  --target=${TARGET} \
+ --enable-lto \
  --without-libiberty \
  --with-sysroot=${TARGET_ROOT} \
  --disable-libiberfty \

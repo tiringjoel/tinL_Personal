@@ -5,4 +5,4 @@
 #-------------------
 CON=/dev/ttyUSB0
 [[ ! -z ${1} ]] && CON=${1}
-picocom --baud 115200 --flow n --parity n $CON
+picocom --baud 115200 --flow n --parity n --send-cmd='sx -vv' $CON

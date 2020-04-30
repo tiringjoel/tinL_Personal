@@ -1,0 +1,75 @@
+\subsection{Development}
+
+\begin{frame}{Development (noch nicht Cross):Verzeichnis: \cod{host-work}}{die einzelnen Schritte}
+ \begin{itemize}
+  \item Source file \cod{src/hello-world.cc}
+  \begin{itemize}
+   \item C++/POSIX
+  \end{itemize}
+  unabhängig von Platform
+  \item Object file (Maschinencode) \cod{hello-world.o}
+  \begin{itemize}
+   \item erzeugt mit: \cod{g++ -c ../src/hello-world.cc -o hello-world.o}
+   \item Maschinencode: 
+   \begin{itemize}
+    \item \cod{file hello-world.o} 
+    \item \cod{objdump -d hello-world.o}
+   \end{itemize}
+  \end{itemize}
+  \item Executable file \cod{hello-world}
+  \begin{itemize}
+   \item \cod{g++  hello-world.o -o hello-world}
+   \item Maschinencode:
+   \begin{itemize}
+    \item \cod{file hello-world-c} 
+    \item \cod{objdump -d hello-world-c}
+   \end{itemize}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{In einem Schritt}{für kleine Projekte}
+ \begin{itemize}
+  \item \cod{g++ ../src/hello-world.cc -o hello-world}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Was es braucht ?}{Files}
+ \begin{itemize}
+  \item Source file
+  \begin{itemize}
+   \item wo ist der {\em include file} \cod{iostream}
+  \end{itemize}
+  \item Object File
+  \begin{itemize}
+   \item \cod{nm hello-world.o}
+   \item wo ist z.B. \cod{\_ZSt4cout}
+  \end{itemize}
+  \item Executable
+  \begin{itemize}
+  \item \cod{nm hello-world}
+  \item \cod{ldd hello-world}
+  \item wo sind die Bibliotheken
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Wo sind die Files ?}{irgendwo in einem Unterverzeichnis von {\Huge\tt /}}
+ \begin{itemize}
+  \item Include Files \cod{g++  -v ../src/hello-world.cc -o hello-world}
+  \begin{itemize}
+   \item \cod{iostream} ?
+  \end{itemize}
+  \item Bibliotheken
+  \begin{itemize}
+   \item z.B. \cod{libc.so}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Development}
+ \begin{itemize}
+  \item Host==Target
+  \item root Host==root Target
+ \end{itemize}
+\end{frame}

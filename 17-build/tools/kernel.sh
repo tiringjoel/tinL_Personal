@@ -20,6 +20,7 @@
 
 BUILD=${PWD}
 pushd ${KERNEL_SRC} > /dev/null
+
 ${MAKE} V=1 O=${BUILD} \
 LOADADDR=0x8000 \
 ARCH=arm \
@@ -40,7 +41,16 @@ popd   > /dev/null
 {
  [[  -f ${ZIMAGE} ]] &&
  {
-  cp ${ZIMAGE} ${TARGET_ROOT}/boot
+  [[ ! -d ${TARGET_ROOT} ]] &&
+  {
+   mkdir ${TARGET_ROOT}
+  }
+  [[ ! -d ${TARGET_ROOT}/boot ]] &&
+  {
+   mkdir ${TARGET_ROOT}/boot
+  }
+  
+  cp ${ZIMAGE} ${TARGET_ROOT}/boot/
  }
 }
 

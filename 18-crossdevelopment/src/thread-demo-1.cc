@@ -1,8 +1,6 @@
 //---------------------------
 //thread-demo-1 
-//(c) H.Buchmann FHNW 2015
-// make it with
-//    g++ -std=c++11 -lpthread ../src/thread-demo-1.cc -o thread-demo-1
+//(c) H.Buchmann FHNW 2020
 //---------------------------
 #include <iostream>
 #include <thread>
