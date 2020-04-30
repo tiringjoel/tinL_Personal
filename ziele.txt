@@ -69,5 +69,13 @@
    - lighttpd 
       mit https
       config: 6-http/lighttpd.conf
-      
+ 
+ 30.April 2020
+ -------------  
+  17-build
+   - lighttpd 
+     mit https
+     config: 6-http/lighttpd.conf 
+  
+  18-crossdevelopment
   
