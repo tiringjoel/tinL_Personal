@@ -1,0 +1,104 @@
+\begin{frame}{Crossdevelopment}
+ \begin{itemize}
+  \item zwei Rechner
+  \begin{description}
+   \item[Host] der Entwicklungsrechner
+   \item[Target] \targetS der Zielrechner
+  \end{description}
+  \item Development
+  \begin{itemize}
+   \item Wo sind die Files
+  \end{itemize}
+  \item CrossDevelopment
+  \begin{itemize}
+   \item Wo sind die Files
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Outline}
+ \begin{itemize}
+  \item Development
+  \begin{itemize}
+   \item Programme auf dem \host für den \host
+  \end{itemize}
+  \item CrossDevelopment
+  \begin{itemize}
+   \item Programme auf dem \host für für den \target
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Ziel}
+ \begin{itemize}
+  \item CrossDevelopment (fast) gleich wie Development
+  \item wegen {\bf POSIX}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Verzeichnisstruktur}
+ \dirtree{%
+ .1 18-crossdevelopment.
+ .2 src \DTcomment{the source files}.
+ .2 config.
+ .3 Makefile.
+ .2 tc  \DTcomment{target toolchain normally link}.
+ .2 work.
+ .3 Makefile $\to$ {../config/Makefile}.
+ .2 mount \DTcomment{per sshfs on \targetS}.
+ }
+\end{frame}
+
+\begin{frame}{Die Komponenten}
+ \begin{itemize}
+  \item der \cod{Makefile}
+  \begin{itemize}
+   \item steuert die Herstellung
+   \item das Programm \cod{make}
+  \end{itemize}
+  
+  \item Die Sourcefiles
+  \begin{itemize}
+   \item fast alle {\bf POSIX}
+   \item der Compiler/Assembler/Linker
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\section{Aufgaben}
+
+\begin{frame}{POSIX Programme}{Siehe \cod{Makefile}}
+\begin{itemize}
+ \item \cod{hello-world.c} \cod{cpp-hello-world.cc} 
+ \begin{itemize}
+  \item {\em dynamische} vs. {\em statische} Libraries
+  \item Grösse der {\em executables}
+ \end{itemize}
+ \item \cod{thread-demo-1.cc}
+ \begin{itemize}
+  \item viel \cpp
+ \end{itemize}
+ \item \cod{primes.cc}
+ \begin{itemize}
+  \item auf dem \host und auf dem \targetS
+  \item Ausführungszeiten
+ \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Elementare Programme}{Siehe \cod{Makefile}}
+ \begin{itemize}
+  \item \cod{s-without-posix.S}
+  \begin{itemize}
+   \item ein sehr einfaches \linux Assembler-Programm im {\em userspace}
+  \end{itemize}
+  \item \cod{c-without-posix.c}
+  \begin{itemize}
+   \item ein sehr einfaches \linux C-Programm im {\em userspace}
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%\input{host.tex}
+%\input{target.tex}
+

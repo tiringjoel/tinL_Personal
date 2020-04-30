@@ -50,7 +50,7 @@ popd   > /dev/null
    mkdir ${TARGET_ROOT}/boot
   }
   
-  cp ${ZIMAGE} ${TARGET_ROOT}/boot
+  cp ${ZIMAGE} ${TARGET_ROOT}/boot/
  }
 }
 
