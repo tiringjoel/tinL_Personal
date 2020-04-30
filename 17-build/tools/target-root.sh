@@ -58,8 +58,7 @@ touch ${TARGET_ROOT}/made-${DATE}
 fakeroot tar -cvzf ${BUILD_HOME}/target-root-${DATE}.tar.gz -C ${TARGET_ROOT} .
 
 #copy to sd-card
-# sudo tar -xf target-root-${DATE}.tar.gz -C path-to-sd-card-partition-2 . 
-#   home-of-sd-card  .
-#sync
+sudo tar -xf ${BUILD_HOME}/target-root-${DATE}.tar.gz -C /media/joel/365601be-3229-497c-a664-6406301bd03a .
+sync
 #sudo rsync -av target-root/ path-to-sd-card-partition-2/
 #                user:group  user:group 
