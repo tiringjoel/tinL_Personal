@@ -11,8 +11,8 @@ SRC_ROOT=${PWD}/target-root
 DST_ROOT=${PWD}/mount
 
 #-a = -rlptgoD
-rsync -rlptDv --owner=root --group=root   ${SRC_ROOT}/ ${DST_ROOT}
-#rsync -rlptDv --owner=root --group=root   ${SRC_ROOT}/etc/wpa.conf  ${DST_ROOT}/etc/wpa.conf
+rsync -rlptDv --chown=root:root   ${SRC_ROOT}/ ${DST_ROOT}
+#rsync -rlptDv --chown=root:root ${SRC_ROOT}/etc/wpa.conf  ${DST_ROOT}/etc/wpa.conf
 #cp -av ${SRC_ROOT}/ ${DST_ROOT}
 # preserves ownership 
 # chown -R root:root  ${DST_ROOT}
