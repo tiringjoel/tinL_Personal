@@ -23,8 +23,9 @@ CC=${CROSS_COMPILE}gcc \
 EXTRA_CFLAGS="--sysroot=${TARGET_ROOT}" \
 LDFLAGS="--sysroot=${TARGET_ROOT}"  \
 DESTDIR=${TARGET_ROOT} \
-LIBDIR=/lin \
+LIBDIR=/lib \
 BINDIR=/sbin \
 INCDIR=/usr/include \
 ${@}
 
+${MAKE} DESTDIR=${TARGET_ROOT} install
