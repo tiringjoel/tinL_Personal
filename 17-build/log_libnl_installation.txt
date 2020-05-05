@@ -1,0 +1,520 @@
+./tools/libnl.sh: line 12: cd: libnl: No such file or directory
+`configure' configures libnl 3.5.0 to adapt to many kinds of systems.
+
+Usage: /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/configure [OPTION]... [VAR=VALUE]...
+
+To assign environment variables (e.g., CC, CFLAGS...), specify them as
+VAR=VALUE.  See below for descriptions of some of the useful variables.
+
+Defaults for the options are specified in brackets.
+
+Configuration:
+  -h, --help              display this help and exit
+      --help=short        display options specific to this package
+      --help=recursive    display the short help of all the included packages
+  -V, --version           display version information and exit
+  -q, --quiet, --silent   do not print `checking ...' messages
+      --cache-file=FILE   cache test results in FILE [disabled]
+  -C, --config-cache      alias for `--cache-file=config.cache'
+  -n, --no-create         do not create output files
+      --srcdir=DIR        find the sources in DIR [configure dir or `..']
+
+Installation directories:
+  --prefix=PREFIX         install architecture-independent files in PREFIX
+                          [/usr/local]
+  --exec-prefix=EPREFIX   install architecture-dependent files in EPREFIX
+                          [PREFIX]
+
+By default, `make install' will install all the files in
+`/usr/local/bin', `/usr/local/lib' etc.  You can specify
+an installation prefix other than `/usr/local' using `--prefix',
+for instance `--prefix=$HOME'.
+
+For better control, use the options below.
+
+Fine tuning of the installation directories:
+  --bindir=DIR            user executables [EPREFIX/bin]
+  --sbindir=DIR           system admin executables [EPREFIX/sbin]
+  --libexecdir=DIR        program executables [EPREFIX/libexec]
+  --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
+  --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
+  --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
+  --libdir=DIR            object code libraries [EPREFIX/lib]
+  --includedir=DIR        C header files [PREFIX/include]
+  --oldincludedir=DIR     C header files for non-gcc [/usr/include]
+  --datarootdir=DIR       read-only arch.-independent data root [PREFIX/share]
+  --datadir=DIR           read-only architecture-independent data [DATAROOTDIR]
+  --infodir=DIR           info documentation [DATAROOTDIR/info]
+  --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
+  --mandir=DIR            man documentation [DATAROOTDIR/man]
+  --docdir=DIR            documentation root [DATAROOTDIR/doc/libnl]
+  --htmldir=DIR           html documentation [DOCDIR]
+  --dvidir=DIR            dvi documentation [DOCDIR]
+  --pdfdir=DIR            pdf documentation [DOCDIR]
+  --psdir=DIR             ps documentation [DOCDIR]
+
+Program names:
+  --program-prefix=PREFIX            prepend PREFIX to installed program names
+  --program-suffix=SUFFIX            append SUFFIX to installed program names
+  --program-transform-name=PROGRAM   run sed PROGRAM on installed program names
+
+System types:
+  --build=BUILD     configure for building on BUILD [guessed]
+  --host=HOST       cross-compile to build programs to run on HOST [BUILD]
+
+Optional Features:
+  --disable-option-checking  ignore unrecognized --enable/--with options
+  --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
+  --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
+  --enable-silent-rules   less verbose build output (undo: "make V=1")
+  --disable-silent-rules  verbose build output (undo: "make V=0")
+  --enable-dependency-tracking
+                          do not reject slow dependency extractors
+  --disable-dependency-tracking
+                          speeds up one-time build
+  --enable-shared[=PKGS]  build shared libraries [default=yes]
+  --enable-static[=PKGS]  build static libraries [default=yes]
+  --enable-fast-install[=PKGS]
+                          optimize for fast installation [default=yes]
+  --disable-libtool-lock  avoid locking (might break parallel builds)
+  --enable-cli=yes|no|no-inst|bin|sbin
+                          Whether to build command line interface utils.
+                          Defaults to 'yes' which is a synonym for 'bin'.
+                          'no-inst' means only build, not installing.
+                          'bin'/'sbin' means installing to bin/sbin directory
+  --disable-pthreads      Disable pthreads support
+  --disable-debug         Do not include debugging statements
+
+Optional Packages:
+  --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
+  --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
+  --with-pic[=PKGS]       try to use only PIC/non-PIC objects [default=use
+                          both]
+  --with-aix-soname=aix|svr4|both
+                          shared library versioning (aka "SONAME") variant to
+                          provide on AIX, [default=aix].
+  --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
+  --with-sysroot[=DIR]    Search for dependent libraries within DIR (or the
+                          compiler's sysroot if not specified).
+  --with-pkgconfigdir=PATH
+                          Path to the pkgconfig directory [[LIBDIR/pkgconfig]]
+
+Some influential environment variables:
+  CC          C compiler command
+  CFLAGS      C compiler flags
+  LDFLAGS     linker flags, e.g. -L<lib dir> if you have libraries in a
+              nonstandard directory <lib dir>
+  LIBS        libraries to pass to the linker, e.g. -l<library>
+  CPPFLAGS    (Objective) C/C++ preprocessor flags, e.g. -I<include dir> if
+              you have headers in a nonstandard directory <include dir>
+  LT_SYS_LIBRARY_PATH
+              User-defined run-time library search path.
+  CPP         C preprocessor
+  PKG_CONFIG  path to pkg-config utility
+  PKG_CONFIG_PATH
+              directories to add to pkg-config's search path
+  PKG_CONFIG_LIBDIR
+              path overriding pkg-config's built-in search path
+  CHECK_CFLAGS
+              C compiler flags for CHECK, overriding pkg-config
+  CHECK_LIBS  linker flags for CHECK, overriding pkg-config
+
+Use these variables to override the choices made by `configure' or to help
+it to find libraries and programs with nonstandard names/locations.
+
+Report bugs to the package provider.
+libnl home page: <http://www.infradead.org/~tgr/libnl/>.
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking whether make supports the include directive... yes (GNU style)
+checking for arm-linux-gnueabihf-gcc... /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc accepts -g... yes
+checking for /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking dependency style of /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc... gcc3
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking the archiver (arm-linux-gnueabihf-ar) interface... ar
+checking for arm-linux-gnueabihf-gcc... (cached) /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc accepts -g... (cached) yes
+checking for /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc option to accept ISO C89... (cached) none needed
+checking whether /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc understands -c and -o together... (cached) yes
+checking dependency style of /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc... (cached) gcc3
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc... /home/joel/Desktop/tinL1/tinL_own/17-build/tc/arm-linux-gnueabihf/bin/ld
+checking if the linker (/home/joel/Desktop/tinL1/tinL_own/17-build/tc/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/arm-linux-gnueabihf-nm -B
+checking the name lister (/usr/bin/arm-linux-gnueabihf-nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /home/joel/Desktop/tinL1/tinL_own/17-build/tc/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for arm-linux-gnueabihf-objdump... arm-linux-gnueabihf-objdump
+checking how to recognize dependent libraries... pass_all
+checking for arm-linux-gnueabihf-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for arm-linux-gnueabihf-ar... (cached) arm-linux-gnueabihf-ar
+checking for archiver @FILE support... @
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for arm-linux-gnueabihf-mt... no
+checking for mt... mt
+configure: WARNING: using cross tools not prefixed with host triplet
+checking if mt is a manifest tool... no
+checking how to run the C preprocessor... /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc option to produce PIC... -fPIC -DPIC
+checking if /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works... yes
+checking if /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking if /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking whether the /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc linker (/home/joel/Desktop/tinL1/tinL_own/17-build/tc/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for flex... flex
+checking for bison... bison -y
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for arm-linux-gnueabihf-pkg-config... /usr/bin/arm-linux-gnueabihf-pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for CHECK... no
+configure: WARNING: *** Disabling building of unit tests
+checking for dlfcn.h... (cached) yes
+checking for pthread_mutex_lock in -lpthread... yes
+checking for strerror_l... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libnl-3.0.pc
+config.status: creating libnl-route-3.0.pc
+config.status: creating libnl-genl-3.0.pc
+config.status: creating libnl-nf-3.0.pc
+config.status: creating libnl-cli-3.0.pc
+config.status: creating libnl-xfrm-3.0.pc
+config.status: creating libnl-idiag-3.0.pc
+config.status: creating python/setup.py
+config.status: creating include/netlink/version.h
+config.status: creating lib/defs.h
+config.status: lib/defs.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+-------------------------------------------------------------------------------
+                                  NOTE
+
+ There have been some changes starting with 3.2 regarding where and how libnl
+ is being installed on the system in order to allow multiple libnl versions
+ to be installed in parallel:
+
+    - Headers will be installed in ${prefix}/include/libnl3, therefore
+      you will need to add "-I/usr/include/libnl3" to CFLAGS
+
+    - The library basename was renamed to libnl-3, i.e. the SO names become
+      libnl-3.so., libnl-route-3.so, etc.
+
+    - libtool versioning was assumed, to ease detection of compatible library
+      versions.
+
+ If you are using pkg-config for detecting and linking against the library 
+ things will continue magically as if nothing every happened. If you are 
+ linking manually you need to adapt your Makefiles or switch to using 
+ pkg-config files.
+
+-------------------------------------------------------------------------------
+make[1]: Entering directory '/home/joel/Desktop/tinL1/tinL_own/17-build/build/libnl'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/cli'
+ /usr/bin/install -c -m 644 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/addr.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/attr.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/cache-api.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/cache.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/data.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/errno.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/handlers.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/hash.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/hashtable.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/list.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/msg.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/netlink-compat.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/netlink-kernel.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/netlink.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/object-api.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/object.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/socket.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/types.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/utils.h include/netlink/version.h '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink'
+ /usr/bin/install -c -m 644 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/cli/addr.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/cli/class.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/cli/cls.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/cli/ct.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/cli/exp.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/cli/link.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/cli/neigh.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/cli/qdisc.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/cli/route.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/cli/rule.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/cli/tc.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/cli/utils.h '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/cli'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/fib_lookup'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/genl'
+ /usr/bin/install -c -m 644 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/fib_lookup/lookup.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/fib_lookup/request.h '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/fib_lookup'
+ /usr/bin/install -c -m 644 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/genl/ctrl.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/genl/family.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/genl/genl.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/genl/mngt.h '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/genl'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/idiag'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/netfilter'
+ /usr/bin/install -c -m 644 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/idiag/idiagnl.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/idiag/meminfo.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/idiag/msg.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/idiag/req.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/idiag/vegasinfo.h '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/idiag'
+ /usr/bin/install -c -m 644 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/netfilter/ct.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/netfilter/exp.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/netfilter/log.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/netfilter/log_msg.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/netfilter/netfilter.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/netfilter/nfnl.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/netfilter/queue.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/netfilter/queue_msg.h '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/netfilter'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/route'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/route/act'
+ /usr/bin/install -c -m 644 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/act/gact.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/act/mirred.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/act/skbedit.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/act/vlan.h '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/route/act'
+ /usr/bin/install -c -m 644 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/action.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/addr.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/class.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/classifier.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/neighbour.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/neightbl.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/netconf.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/nexthop.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/pktloc.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/qdisc.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/route.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/rtnl.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/rule.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/tc-api.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/tc.h '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/route'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/route/cls'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/route/cls/ematch'
+ /usr/bin/install -c -m 644 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/cls/basic.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/cls/cgroup.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/cls/ematch.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/cls/fw.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/cls/matchall.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/cls/police.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/cls/u32.h '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/route/cls'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/route/link'
+ /usr/bin/install -c -m 644 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/cls/ematch/cmp.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/cls/ematch/meta.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/cls/ematch/nbyte.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/cls/ematch/text.h '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/route/cls/ematch'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/route/qdisc'
+ /usr/bin/install -c -m 644 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/api.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/bonding.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/bridge.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/can.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/geneve.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/inet.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/inet6.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/info-api.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/ip6tnl.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/ipgre.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/ipip.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/ipvlan.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/ipvti.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/macsec.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/macvlan.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/macvtap.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/ppp.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/sit.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/sriov.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/veth.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/vlan.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/vrf.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/vxlan.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/link/xfrmi.h '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/route/link'
+ /usr/bin/install -c -m 644 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/qdisc/cbq.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/qdisc/dsmark.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/qdisc/fifo.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/qdisc/fq_codel.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/qdisc/hfsc.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/qdisc/htb.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/qdisc/mqprio.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/qdisc/netem.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/qdisc/plug.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/qdisc/prio.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/qdisc/red.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/qdisc/sfq.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/route/qdisc/tbf.h '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/route/qdisc'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/xfrm'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/share/man/man8'
+ /usr/bin/install -c -m 644 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/xfrm/ae.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/xfrm/lifetime.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/xfrm/sa.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/xfrm/selector.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/xfrm/sp.h /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/include/netlink/xfrm/template.h '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/include/libnl3/netlink/xfrm'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/man/genl-ctrl-list.8 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/man/nl-classid-lookup.8 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/man/nl-pktloc-lookup.8 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/man/nl-qdisc-add.8 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/man/nl-qdisc-delete.8 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/man/nl-qdisc-list.8 '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/share/man/man8'
+ /usr/bin/install -c -m 644 libnl-3.0.pc libnl-genl-3.0.pc libnl-idiag-3.0.pc libnl-nf-3.0.pc libnl-route-3.0.pc libnl-xfrm-3.0.pc libnl-cli-3.0.pc '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/pkgconfig'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/cls'
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   lib/cli/cls/basic.la lib/cli/cls/cgroup.la '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/cls'
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc'
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   lib/cli/qdisc/bfifo.la lib/cli/qdisc/blackhole.la lib/cli/qdisc/fq_codel.la lib/cli/qdisc/hfsc.la lib/cli/qdisc/htb.la lib/cli/qdisc/ingress.la lib/cli/qdisc/pfifo.la lib/cli/qdisc/plug.la '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc'
+libtool: install: /usr/bin/install -c lib/cli/cls/.libs/basic.so /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/cls/basic.so
+libtool: install: /usr/bin/install -c lib/cli/cls/.libs/basic.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/cls/basic.la
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/bfifo.so /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/bfifo.so
+libtool: install: /usr/bin/install -c lib/cli/cls/.libs/cgroup.so /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/cls/cgroup.so
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/bfifo.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/bfifo.la
+libtool: install: /usr/bin/install -c lib/cli/cls/.libs/cgroup.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/cls/cgroup.la
+libtool: install: /usr/bin/install -c lib/cli/cls/.libs/basic.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/cls/basic.a
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/blackhole.so /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/blackhole.so
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/cls/basic.a
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/blackhole.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/blackhole.la
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/cls/basic.a
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/fq_codel.so /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/fq_codel.so
+libtool: install: /usr/bin/install -c lib/cli/cls/.libs/cgroup.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/cls/cgroup.a
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/fq_codel.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/fq_codel.la
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/cls/cgroup.a
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/hfsc.so /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/hfsc.so
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/cls/cgroup.a
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/hfsc.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/hfsc.la
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/htb.so /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/htb.so
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/htb.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/htb.la
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/ingress.so /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/ingress.so
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/ingress.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/ingress.la
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/pfifo.so /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/pfifo.so
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/pfifo.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/pfifo.la
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/plug.so /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/plug.so
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/plug.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/plug.la
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/bfifo.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/bfifo.a
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/bfifo.a
+libtool: finish: PATH="/home/joel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/sbin" ldconfig -n /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/cls
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/bfifo.a
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/cls
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/blackhole.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/blackhole.a
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/etc/libnl'
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/blackhole.a
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/blackhole.a
+ /usr/bin/install -c -m 644 /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/etc/pktloc /home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/etc/classid '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/etc/libnl'
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/fq_codel.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/fq_codel.a
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/fq_codel.a
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/fq_codel.a
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib'
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/hfsc.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/hfsc.a
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   lib/libnl-3.la lib/libnl-route-3.la lib/libnl-idiag-3.la lib/libnl-genl-3.la lib/libnl-nf-3.la lib/libnl-xfrm-3.la src/lib/libnl-cli-3.la '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib'
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/hfsc.a
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/hfsc.a
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/htb.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/htb.a
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/htb.a
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/htb.a
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/ingress.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/ingress.a
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/ingress.a
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/ingress.a
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/pfifo.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/pfifo.a
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/pfifo.a
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/pfifo.a
+libtool: install: /usr/bin/install -c lib/cli/qdisc/.libs/plug.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/plug.a
+libtool: install: /usr/bin/install -c lib/.libs/libnl-3.so.200.26.0 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-3.so.200.26.0
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/plug.a
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib && { ln -s -f libnl-3.so.200.26.0 libnl-3.so.200 || { rm -f libnl-3.so.200 && ln -s libnl-3.so.200.26.0 libnl-3.so.200; }; })
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc/plug.a
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib && { ln -s -f libnl-3.so.200.26.0 libnl-3.so || { rm -f libnl-3.so && ln -s libnl-3.so.200.26.0 libnl-3.so; }; })
+libtool: install: /usr/bin/install -c lib/.libs/libnl-3.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-3.la
+libtool: warning: relinking 'lib/libnl-route-3.la'
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/build/libnl; /bin/bash "/home/joel/Desktop/tinL1/tinL_own/17-build/build/libnl/libtool"  --silent --tag CC --mode=relink /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc --sysroot=/home/joel/Desktop/tinL1/tinL_own/17-build/target-root -O2 -version-info 226:0:26 -Wl,--version-script=/home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/libnl-route-3.sym -o lib/libnl-route-3.la -rpath /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib lib/fib_lookup/libnl_route_3_la-lookup.lo lib/fib_lookup/libnl_route_3_la-request.lo lib/route/libnl_route_3_la-act.lo lib/route/act/libnl_route_3_la-gact.lo lib/route/act/libnl_route_3_la-mirred.lo lib/route/act/libnl_route_3_la-skbedit.lo lib/route/act/libnl_route_3_la-vlan.lo lib/route/libnl_route_3_la-addr.lo lib/route/libnl_route_3_la-class.lo lib/route/libnl_route_3_la-classid.lo lib/route/libnl_route_3_la-cls.lo lib/route/cls/libnl_route_3_la-basic.lo lib/route/cls/libnl_route_3_la-cgroup.lo lib/route/cls/libnl_route_3_la-ematch.lo lib/route/cls/ematch/libnl_route_3_la-cmp.lo lib/route/cls/ematch/libnl_route_3_la-container.lo lib/route/cls/ematch/libnl_route_3_la-meta.lo lib/route/cls/ematch/libnl_route_3_la-nbyte.lo lib/route/cls/ematch/libnl_route_3_la-text.lo lib/route/cls/libnl_route_3_la-fw.lo lib/route/cls/libnl_route_3_la-mall.lo lib/route/cls/libnl_route_3_la-police.lo lib/route/cls/libnl_route_3_la-u32.lo lib/route/libnl_route_3_la-link.lo lib/route/link/libnl_route_3_la-api.lo lib/route/link/libnl_route_3_la-bonding.lo lib/route/link/libnl_route_3_la-bridge.lo lib/route/link/libnl_route_3_la-can.lo lib/route/link/libnl_route_3_la-dummy.lo lib/route/link/libnl_route_3_la-geneve.lo lib/route/link/libnl_route_3_la-ifb.lo lib/route/link/libnl_route_3_la-inet.lo lib/route/link/libnl_route_3_la-inet6.lo lib/route/link/libnl_route_3_la-ip6tnl.lo lib/route/link/libnl_route_3_la-ipgre.lo lib/route/link/libnl_route_3_la-ipip.lo lib/route/link/libnl_route_3_la-ipvlan.lo lib/route/link/libnl_route_3_la-ipvti.lo lib/route/link/libnl_route_3_la-macsec.lo lib/route/link/libnl_route_3_la-macvlan.lo lib/route/link/libnl_route_3_la-ppp.lo lib/route/link/libnl_route_3_la-sit.lo lib/route/link/libnl_route_3_la-sriov.lo lib/route/link/libnl_route_3_la-veth.lo lib/route/link/libnl_route_3_la-vlan.lo lib/route/link/libnl_route_3_la-vrf.lo lib/route/link/libnl_route_3_la-vxlan.lo lib/route/link/libnl_route_3_la-xfrmi.lo lib/route/libnl_route_3_la-neigh.lo lib/route/libnl_route_3_la-neightbl.lo lib/route/libnl_route_3_la-netconf.lo lib/route/libnl_route_3_la-nexthop.lo lib/route/libnl_route_3_la-nexthop_encap.lo lib/route/libnl_route_3_la-nh_encap_mpls.lo lib/route/libnl_route_3_la-pktloc.lo lib/route/libnl_route_3_la-qdisc.lo lib/route/qdisc/libnl_route_3_la-blackhole.lo lib/route/qdisc/libnl_route_3_la-cbq.lo lib/route/qdisc/libnl_route_3_la-dsmark.lo lib/route/qdisc/libnl_route_3_la-fifo.lo lib/route/qdisc/libnl_route_3_la-fq_codel.lo lib/route/qdisc/libnl_route_3_la-hfsc.lo lib/route/qdisc/libnl_route_3_la-htb.lo lib/route/qdisc/libnl_route_3_la-ingress.lo lib/route/qdisc/libnl_route_3_la-mqprio.lo lib/route/qdisc/libnl_route_3_la-netem.lo lib/route/qdisc/libnl_route_3_la-plug.lo lib/route/qdisc/libnl_route_3_la-prio.lo lib/route/qdisc/libnl_route_3_la-red.lo lib/route/qdisc/libnl_route_3_la-sfq.lo lib/route/qdisc/libnl_route_3_la-tbf.lo lib/route/libnl_route_3_la-route.lo lib/route/libnl_route_3_la-route_obj.lo lib/route/libnl_route_3_la-route_utils.lo lib/route/libnl_route_3_la-rtnl.lo lib/route/libnl_route_3_la-rule.lo lib/route/libnl_route_3_la-tc.lo lib/route/cls/libnl_route_3_la-ematch_grammar.lo lib/route/cls/libnl_route_3_la-ematch_syntax.lo lib/route/libnl_route_3_la-pktloc_grammar.lo lib/route/libnl_route_3_la-pktloc_syntax.lo lib/libnl-3.la -lpthread )
+libtool: finish: PATH="/home/joel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/sbin" ldconfig -n /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl/cli/qdisc
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+libtool: install: /usr/bin/install -c lib/.libs/libnl-route-3.so.200.26.0T /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-route-3.so.200.26.0
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib && { ln -s -f libnl-route-3.so.200.26.0 libnl-route-3.so.200 || { rm -f libnl-route-3.so.200 && ln -s libnl-route-3.so.200.26.0 libnl-route-3.so.200; }; })
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib && { ln -s -f libnl-route-3.so.200.26.0 libnl-route-3.so || { rm -f libnl-route-3.so && ln -s libnl-route-3.so.200.26.0 libnl-route-3.so; }; })
+libtool: install: /usr/bin/install -c lib/.libs/libnl-route-3.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-route-3.la
+libtool: warning: relinking 'lib/libnl-idiag-3.la'
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/build/libnl; /bin/bash "/home/joel/Desktop/tinL1/tinL_own/17-build/build/libnl/libtool"  --silent --tag CC --mode=relink /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc --sysroot=/home/joel/Desktop/tinL1/tinL_own/17-build/target-root -O2 -version-info 226:0:26 -Wl,--version-script=/home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/libnl-idiag-3.sym -o lib/libnl-idiag-3.la -rpath /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib lib/idiag/libnl_idiag_3_la-idiag.lo lib/idiag/libnl_idiag_3_la-idiag_meminfo_obj.lo lib/idiag/libnl_idiag_3_la-idiag_msg_obj.lo lib/idiag/libnl_idiag_3_la-idiag_req_obj.lo lib/idiag/libnl_idiag_3_la-idiag_vegasinfo_obj.lo lib/libnl-3.la -lpthread )
+libtool: install: /usr/bin/install -c lib/.libs/libnl-idiag-3.so.200.26.0T /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-idiag-3.so.200.26.0
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib && { ln -s -f libnl-idiag-3.so.200.26.0 libnl-idiag-3.so.200 || { rm -f libnl-idiag-3.so.200 && ln -s libnl-idiag-3.so.200.26.0 libnl-idiag-3.so.200; }; })
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib && { ln -s -f libnl-idiag-3.so.200.26.0 libnl-idiag-3.so || { rm -f libnl-idiag-3.so && ln -s libnl-idiag-3.so.200.26.0 libnl-idiag-3.so; }; })
+libtool: install: /usr/bin/install -c lib/.libs/libnl-idiag-3.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-idiag-3.la
+libtool: warning: relinking 'lib/libnl-genl-3.la'
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/build/libnl; /bin/bash "/home/joel/Desktop/tinL1/tinL_own/17-build/build/libnl/libtool"  --silent --tag CC --mode=relink /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc --sysroot=/home/joel/Desktop/tinL1/tinL_own/17-build/target-root -O2 -version-info 226:0:26 -Wl,--version-script=/home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/libnl-genl-3.sym -o lib/libnl-genl-3.la -rpath /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib lib/genl/libnl_genl_3_la-ctrl.lo lib/genl/libnl_genl_3_la-family.lo lib/genl/libnl_genl_3_la-genl.lo lib/genl/libnl_genl_3_la-mngt.lo lib/libnl-3.la -lpthread )
+libtool: install: /usr/bin/install -c lib/.libs/libnl-genl-3.so.200.26.0T /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-genl-3.so.200.26.0
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib && { ln -s -f libnl-genl-3.so.200.26.0 libnl-genl-3.so.200 || { rm -f libnl-genl-3.so.200 && ln -s libnl-genl-3.so.200.26.0 libnl-genl-3.so.200; }; })
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib && { ln -s -f libnl-genl-3.so.200.26.0 libnl-genl-3.so || { rm -f libnl-genl-3.so && ln -s libnl-genl-3.so.200.26.0 libnl-genl-3.so; }; })
+libtool: install: /usr/bin/install -c lib/.libs/libnl-genl-3.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-genl-3.la
+libtool: warning: relinking 'lib/libnl-nf-3.la'
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/build/libnl; /bin/bash "/home/joel/Desktop/tinL1/tinL_own/17-build/build/libnl/libtool"  --silent --tag CC --mode=relink /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc --sysroot=/home/joel/Desktop/tinL1/tinL_own/17-build/target-root -O2 -version-info 226:0:26 -Wl,--version-script=/home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/libnl-nf-3.sym -o lib/libnl-nf-3.la -rpath /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib lib/netfilter/libnl_nf_3_la-ct.lo lib/netfilter/libnl_nf_3_la-ct_obj.lo lib/netfilter/libnl_nf_3_la-exp.lo lib/netfilter/libnl_nf_3_la-exp_obj.lo lib/netfilter/libnl_nf_3_la-log.lo lib/netfilter/libnl_nf_3_la-log_msg.lo lib/netfilter/libnl_nf_3_la-log_msg_obj.lo lib/netfilter/libnl_nf_3_la-log_obj.lo lib/netfilter/libnl_nf_3_la-netfilter.lo lib/netfilter/libnl_nf_3_la-nfnl.lo lib/netfilter/libnl_nf_3_la-queue.lo lib/netfilter/libnl_nf_3_la-queue_msg.lo lib/netfilter/libnl_nf_3_la-queue_msg_obj.lo lib/netfilter/libnl_nf_3_la-queue_obj.lo lib/libnl-3.la lib/libnl-route-3.la -lpthread )
+libtool: install: /usr/bin/install -c lib/.libs/libnl-nf-3.so.200.26.0T /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-nf-3.so.200.26.0
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib && { ln -s -f libnl-nf-3.so.200.26.0 libnl-nf-3.so.200 || { rm -f libnl-nf-3.so.200 && ln -s libnl-nf-3.so.200.26.0 libnl-nf-3.so.200; }; })
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib && { ln -s -f libnl-nf-3.so.200.26.0 libnl-nf-3.so || { rm -f libnl-nf-3.so && ln -s libnl-nf-3.so.200.26.0 libnl-nf-3.so; }; })
+libtool: install: /usr/bin/install -c lib/.libs/libnl-nf-3.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-nf-3.la
+libtool: warning: relinking 'lib/libnl-xfrm-3.la'
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/build/libnl; /bin/bash "/home/joel/Desktop/tinL1/tinL_own/17-build/build/libnl/libtool"  --silent --tag CC --mode=relink /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc --sysroot=/home/joel/Desktop/tinL1/tinL_own/17-build/target-root -O2 -version-info 226:0:26 -Wl,--version-script=/home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/libnl-xfrm-3.sym -o lib/libnl-xfrm-3.la -rpath /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib lib/xfrm/libnl_xfrm_3_la-ae.lo lib/xfrm/libnl_xfrm_3_la-lifetime.lo lib/xfrm/libnl_xfrm_3_la-sa.lo lib/xfrm/libnl_xfrm_3_la-selector.lo lib/xfrm/libnl_xfrm_3_la-sp.lo lib/xfrm/libnl_xfrm_3_la-template.lo lib/libnl-3.la -lpthread )
+libtool: install: /usr/bin/install -c lib/.libs/libnl-xfrm-3.so.200.26.0T /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-xfrm-3.so.200.26.0
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib && { ln -s -f libnl-xfrm-3.so.200.26.0 libnl-xfrm-3.so.200 || { rm -f libnl-xfrm-3.so.200 && ln -s libnl-xfrm-3.so.200.26.0 libnl-xfrm-3.so.200; }; })
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib && { ln -s -f libnl-xfrm-3.so.200.26.0 libnl-xfrm-3.so || { rm -f libnl-xfrm-3.so && ln -s libnl-xfrm-3.so.200.26.0 libnl-xfrm-3.so; }; })
+libtool: install: /usr/bin/install -c lib/.libs/libnl-xfrm-3.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-xfrm-3.la
+libtool: warning: relinking 'src/lib/libnl-cli-3.la'
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/build/libnl; /bin/bash "/home/joel/Desktop/tinL1/tinL_own/17-build/build/libnl/libtool"  --silent --tag CC --mode=relink /home/joel/Desktop/tinL1/tinL_own/17-build/tc/bin/arm-linux-gnueabihf-gcc --sysroot=/home/joel/Desktop/tinL1/tinL_own/17-build/target-root -O2 -version-info 226:0:26 -Wl,--version-script=/home/joel/Desktop/tinL1/tinL_own/resources//libnl-3.5.0/libnl-cli-3.sym -o src/lib/libnl-cli-3.la -rpath /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib src/lib/libnl_cli_3_la-addr.lo src/lib/libnl_cli_3_la-class.lo src/lib/libnl_cli_3_la-cls.lo src/lib/libnl_cli_3_la-ct.lo src/lib/libnl_cli_3_la-exp.lo src/lib/libnl_cli_3_la-link.lo src/lib/libnl_cli_3_la-neigh.lo src/lib/libnl_cli_3_la-qdisc.lo src/lib/libnl_cli_3_la-route.lo src/lib/libnl_cli_3_la-rule.lo src/lib/libnl_cli_3_la-tc.lo src/lib/libnl_cli_3_la-utils.lo lib/libnl-3.la lib/libnl-route-3.la lib/libnl-nf-3.la lib/libnl-genl-3.la -ldl -lpthread )
+libtool: install: /usr/bin/install -c src/lib/.libs/libnl-cli-3.so.200.26.0T /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-cli-3.so.200.26.0
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib && { ln -s -f libnl-cli-3.so.200.26.0 libnl-cli-3.so.200 || { rm -f libnl-cli-3.so.200 && ln -s libnl-cli-3.so.200.26.0 libnl-cli-3.so.200; }; })
+libtool: install: (cd /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib && { ln -s -f libnl-cli-3.so.200.26.0 libnl-cli-3.so || { rm -f libnl-cli-3.so && ln -s libnl-cli-3.so.200.26.0 libnl-cli-3.so; }; })
+libtool: install: /usr/bin/install -c src/lib/.libs/libnl-cli-3.lai /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-cli-3.la
+libtool: install: /usr/bin/install -c lib/.libs/libnl-3.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-3.a
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-3.a
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-3.a
+libtool: install: /usr/bin/install -c lib/.libs/libnl-route-3.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-route-3.a
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-route-3.a
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-route-3.a
+libtool: install: /usr/bin/install -c lib/.libs/libnl-idiag-3.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-idiag-3.a
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-idiag-3.a
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-idiag-3.a
+libtool: install: /usr/bin/install -c lib/.libs/libnl-genl-3.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-genl-3.a
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-genl-3.a
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-genl-3.a
+libtool: install: /usr/bin/install -c lib/.libs/libnl-nf-3.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-nf-3.a
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-nf-3.a
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-nf-3.a
+libtool: install: /usr/bin/install -c lib/.libs/libnl-xfrm-3.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-xfrm-3.a
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-xfrm-3.a
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-xfrm-3.a
+libtool: install: /usr/bin/install -c src/lib/.libs/libnl-cli-3.a /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-cli-3.a
+libtool: install: chmod 644 /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-cli-3.a
+libtool: install: arm-linux-gnueabihf-ranlib /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib/libnl-cli-3.a
+libtool: finish: PATH="/home/joel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/sbin" ldconfig -n /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /bin/mkdir -p '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin'
+  /bin/bash ./libtool   --mode=install /usr/bin/install -c src/genl-ctrl-list src/idiag-socket-details src/nf-ct-add src/nf-ct-events src/nf-ct-list src/nf-exp-add src/nf-exp-delete src/nf-exp-list src/nf-log src/nf-monitor src/nf-queue src/nl-addr-add src/nl-addr-delete src/nl-addr-list src/nl-class-add src/nl-class-delete src/nl-class-list src/nl-classid-lookup src/nl-cls-add src/nl-cls-delete src/nl-cls-list src/nl-fib-lookup src/nl-link-enslave src/nl-link-ifindex2name src/nl-link-list src/nl-link-name2ifindex src/nl-link-release src/nl-link-set src/nl-link-stats src/nl-list-caches src/nl-list-sockets src/nl-monitor src/nl-neigh-add src/nl-neigh-delete src/nl-neigh-list src/nl-neightbl-list src/nl-pktloc-lookup src/nl-qdisc-add src/nl-qdisc-delete src/nl-qdisc-list src/nl-route-add src/nl-route-delete src/nl-route-get src/nl-route-list src/nl-rule-list src/nl-tctree-list src/nl-util-addr '/home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin'
+libtool: install: /usr/bin/install -c src/.libs/genl-ctrl-list /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/genl-ctrl-list
+libtool: install: /usr/bin/install -c src/.libs/idiag-socket-details /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/idiag-socket-details
+libtool: install: /usr/bin/install -c src/.libs/nf-ct-add /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nf-ct-add
+libtool: install: /usr/bin/install -c src/.libs/nf-ct-events /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nf-ct-events
+libtool: install: /usr/bin/install -c src/.libs/nf-ct-list /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nf-ct-list
+libtool: install: /usr/bin/install -c src/.libs/nf-exp-add /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nf-exp-add
+libtool: install: /usr/bin/install -c src/.libs/nf-exp-delete /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nf-exp-delete
+libtool: install: /usr/bin/install -c src/.libs/nf-exp-list /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nf-exp-list
+libtool: install: /usr/bin/install -c src/.libs/nf-log /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nf-log
+libtool: install: /usr/bin/install -c src/.libs/nf-monitor /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nf-monitor
+libtool: install: /usr/bin/install -c src/.libs/nf-queue /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nf-queue
+libtool: install: /usr/bin/install -c src/.libs/nl-addr-add /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-addr-add
+libtool: install: /usr/bin/install -c src/.libs/nl-addr-delete /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-addr-delete
+libtool: install: /usr/bin/install -c src/.libs/nl-addr-list /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-addr-list
+libtool: install: /usr/bin/install -c src/.libs/nl-class-add /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-class-add
+libtool: install: /usr/bin/install -c src/.libs/nl-class-delete /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-class-delete
+libtool: install: /usr/bin/install -c src/.libs/nl-class-list /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-class-list
+libtool: install: /usr/bin/install -c src/.libs/nl-classid-lookup /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-classid-lookup
+libtool: install: /usr/bin/install -c src/.libs/nl-cls-add /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-cls-add
+libtool: install: /usr/bin/install -c src/.libs/nl-cls-delete /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-cls-delete
+libtool: install: /usr/bin/install -c src/.libs/nl-cls-list /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-cls-list
+libtool: install: /usr/bin/install -c src/.libs/nl-fib-lookup /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-fib-lookup
+libtool: install: /usr/bin/install -c src/.libs/nl-link-enslave /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-link-enslave
+libtool: install: /usr/bin/install -c src/.libs/nl-link-ifindex2name /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-link-ifindex2name
+libtool: install: /usr/bin/install -c src/.libs/nl-link-list /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-link-list
+libtool: install: /usr/bin/install -c src/.libs/nl-link-name2ifindex /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-link-name2ifindex
+libtool: install: /usr/bin/install -c src/.libs/nl-link-release /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-link-release
+libtool: install: /usr/bin/install -c src/.libs/nl-link-set /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-link-set
+libtool: install: /usr/bin/install -c src/.libs/nl-link-stats /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-link-stats
+libtool: install: /usr/bin/install -c src/.libs/nl-list-caches /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-list-caches
+libtool: install: /usr/bin/install -c src/.libs/nl-list-sockets /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-list-sockets
+libtool: install: /usr/bin/install -c src/.libs/nl-monitor /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-monitor
+libtool: install: /usr/bin/install -c src/.libs/nl-neigh-add /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-neigh-add
+libtool: install: /usr/bin/install -c src/.libs/nl-neigh-delete /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-neigh-delete
+libtool: install: /usr/bin/install -c src/.libs/nl-neigh-list /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-neigh-list
+libtool: install: /usr/bin/install -c src/.libs/nl-neightbl-list /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-neightbl-list
+libtool: install: /usr/bin/install -c src/.libs/nl-pktloc-lookup /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-pktloc-lookup
+libtool: install: /usr/bin/install -c src/.libs/nl-qdisc-add /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-qdisc-add
+libtool: install: /usr/bin/install -c src/.libs/nl-qdisc-delete /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-qdisc-delete
+libtool: install: /usr/bin/install -c src/.libs/nl-qdisc-list /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-qdisc-list
+libtool: install: /usr/bin/install -c src/.libs/nl-route-add /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-route-add
+libtool: install: /usr/bin/install -c src/.libs/nl-route-delete /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-route-delete
+libtool: install: /usr/bin/install -c src/.libs/nl-route-get /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-route-get
+libtool: install: /usr/bin/install -c src/.libs/nl-route-list /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-route-list
+libtool: install: /usr/bin/install -c src/.libs/nl-rule-list /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-rule-list
+libtool: install: /usr/bin/install -c src/.libs/nl-tctree-list /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-tctree-list
+libtool: install: /usr/bin/install -c src/.libs/nl-util-addr /home/joel/Desktop/tinL1/tinL_own/17-build/target-root/usr/bin/nl-util-addr
+make[1]: Leaving directory '/home/joel/Desktop/tinL1/tinL_own/17-build/build/libnl'
