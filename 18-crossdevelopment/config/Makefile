@@ -17,21 +17,25 @@ CXXFLAGS=${CFLAGS}
 VPATH=../src
 
 #------------------------------- first simple programs
-#hello-world:    	LDFLAGS=-static
+hello-world:    	LDFLAGS=-static
 hello-world:		hello-world.c
 
-#cpp-hello-world:	LDFLAGS=-static
+cpp-hello-world:	LDFLAGS=-static
 cpp-hello-world: 	cpp-hello-world.cc
 
 #------------------------------- using  C++
-#thread-demo-1:		LDFLAGS=-lpthread
+thread-demo-1:		LDFLAGS=-lpthread
 thread-demo-1:		thread-demo-1.cc
 
 #------------------------------- shows the difference of speed
 #execute 
 # (a) BBG 
 # (b) Host
+primes:			LDFLAGS=-static
 primes: 		primes.cc
+
+primes-with-timer:	LDFLAGS=-static
+primes-with-timer:	primes-with-timer.cc
 
 #-------------------------------  direct call without any posix
 #made with assembler
