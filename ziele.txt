@@ -79,3 +79,17 @@
   
   18-crossdevelopment
   
+ 7.Mai 2020
+ ----------
+  Konsolidierung:
+   17-build
+    .ssh
+    .wifi
+    .lighttpd https
+
+   18-crossdevelopment
+    .c/c++ Programme 
+  
+ ADC:
+  17-build
+   adc.txt
