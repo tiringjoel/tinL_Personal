@@ -1,0 +1,29 @@
+ADC mit BBG
+-----------
+ - Driver schon eingebaut
+ - device tree
+   kernel-source
+      arch/arm/boot/dts/am33xx-l4.dtsi:
+
+tscadc: tscadc@0 {
+	compatible = "ti,am3359-tscadc";
+	reg = <0x0 0x1000>;
+	interrupts = <16>;
+	status = "okay";   
+	dmas = <&edma 53 0>, <&edma 57 0>;
+	dma-names = "fifo0", "fifo1";
+
+	tsc {
+		compatible = "ti,am3359-tsc";
+	};
+	am335x_adc: adc {
+		#io-channel-cells = <1>;
+		ti,adc-channels = <1>;
+		compatible = "ti,am3359-adc";
+	};
+};
+
+./tools/kernel.sh dtbs
+
+Der File:
+ build/kernel/arch/arm/boot/dts/am335x-bonegreen-wireless.dtb
