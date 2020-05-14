@@ -11,4 +11,4 @@
 #TODO check if mount really mounted
 cd target-root
 find . -not -type d -newer update \
--exec install --owner=root --group=root {} ../mount/{} \;
+-exec install -v -D --owner=root --group=root {} ../mount/{} \;
