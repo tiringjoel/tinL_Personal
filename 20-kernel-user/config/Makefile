@@ -8,12 +8,13 @@ PREFIX=arm-linux-gnueabihf
 SYSROOT=../target-root
 CROSS_COMPILE=${TC}/bin/${PREFIX}-
 CC=${CROSS_COMPILE}gcc --sysroot=${SYSROOT}
-ASFLAGS=-mthumb -march=armv7-a
+#ASFLAGS=-mthumb -march=armv7-a
 CFLAGS=-O2 ${ASFLAGS}
 CXX=${CROSS_COMPILE}g++ --sysroot=${SYSROOT} 
 CXXFLAGS=${CFLAGS} -std=c++2a
 CC=${CXX}
 LD=${CXX}
+#uncomment for using on host
 #CC=gcc
 #LD=ld
 #LDFLAGS=-static

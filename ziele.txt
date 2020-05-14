@@ -93,3 +93,14 @@
  ADC:
   17-build
    adc.txt
+
+14.Mai 2020
+-----------
+  17-build
+   ADC:
+   Devicetree anpassen
+   adc.txt 
+ 
+  20-kernel-user
+   
+   
