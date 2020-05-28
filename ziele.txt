@@ -102,5 +102,12 @@
    adc.txt 
  
   20-kernel-user
-   
+
+28.Mai 2020
+-----------
+ 17-build
+  nano
+ 21-udev
+  
+
    
