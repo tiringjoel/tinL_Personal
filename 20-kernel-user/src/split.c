@@ -1,6 +1,6 @@
 /*---------------------------
   split.c
-  (c) H.Buchmann FHNW 2018
+  (c) H.Buchmann FHNW 2020
   ---------------------------*/
 #include <stdio.h>
 

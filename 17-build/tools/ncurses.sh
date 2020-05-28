@@ -9,7 +9,8 @@ ${NCURSES_SRC}/configure --help
 
 ${NCURSES_SRC}/configure \
 --host=${TARGET} \
---enable-widec
+--enable-widec \
+--without-progs
 
 #
 ${MAKE} 

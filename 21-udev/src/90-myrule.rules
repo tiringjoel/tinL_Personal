@@ -4,7 +4,8 @@
 #copy to /etc/udev/rules.d
 #TODO figure out your own ID_FS_UUID
 # udevadm monitor -p
+#         control -R 
 #----------------------- 
-ACTION=="add", SUBSYSTEM=="block", ENV{ID_FS_UUID}=="1bf96135-8b38-4975-9773-a558f9c10ca8", \
-RUN+="/home/buchmann/fhnw/edu/tinL/21-udev/src/mount.sh $env{DEVNAME} $env{ID_FS_UUID}"
+ACTION=="add", SUBSYSTEM=="block", ENV{ID_FS_UUID}=="11be5f32-4769-473a-a746-355aa0132f0f", \
+RUN+="/home/buchmann/fhnw/edu/tinL/21-udev/src/callback.sh $env{DEVNAME} $env{ID_FS_UUID}"
 

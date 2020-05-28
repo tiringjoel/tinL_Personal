@@ -25,7 +25,7 @@ int main(int argc,char** args)
  nls.nl_pid = getpid();
  nls.nl_groups = 1;
 
- int res = bind(fd, (struct sockaddr *)&nls, sizeof(nls));
+ int res = bind(fd, (struct sockaddr*)&nls, sizeof(nls));
  perror("bind");
 
 /*---------------------------------  listen */ 

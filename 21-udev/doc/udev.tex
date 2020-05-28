@@ -6,7 +6,7 @@
 \documentclass{beamer}
 \usepackage{latex/beamer}
 \input{defines.tex}
-\input{/home/buchmann/latex/dirtree/dirtree.tex}
+%\input{/home/buchmann/latex/dirtree/dirtree.tex}
 
 \usepackage[absolute]{textpos}
 \setlength{\TPHorizModule}{1mm}
@@ -21,16 +21,18 @@
 
 \begin{frame}{The Big Picture}{Hardware calls Software}
  \begin{itemize}
-  \item {\em Devices} können zu einer beliebigen Zeit 
+  \item {\em Devices} kÃ¶nnen zu einer beliebigen Zeit 
   \begin{itemize}
    \item angeschlossen
    \item entfernt
   \end{itemize}
   werden
-  \item zu einem {\em Device} gehört ein {\em Driver}
+  \item zu einem {\em Device} gehÃ¶rt ein {\em Driver}
  \end{itemize}
 \end{frame}
 
+
+\section{\host}
 \begin{frame}[fragile]{Typisches Beispiel}{USB {\em Device}}
  \begin{enumerate}
   \item USB {\em Device} einstecken
@@ -40,7 +42,7 @@
    \item konfigurieren
   \end{itemize}
  \end{enumerate}
- \begin{block}{Die tools}
+ \begin{block}{Die tools:}
  \begin{itemize}
   \item \cod{udevadm monitor}
   \item \cod{dmesg}
@@ -56,7 +58,7 @@
 
 \begin{frame}{Hardware calls Software}{call back}
  \begin{enumerate}
-  \item {\em Hardware} registriert Änderung: {\em Interrupt}
+  \item {\em Hardware} registriert Ã„nderung: {\em Interrupt}
   \begin{itemize}
    \item USB {\em Device} eingesteckt
   \end{itemize}
@@ -73,7 +75,7 @@
 \begin{frame}{udev:Dynamic device management}{userspace}
  \begin{block}{Rule}
   \begin{itemize}
-   \item beschreibt was für ein oder mehrere Geräte zu tun ist
+   \item beschreibt was fÃ¼r ein oder mehrere GerÃ¤te zu tun ist
    \item Siehe \cod{man udev}, \cod{man udevadm}
   \end{itemize}
  \end{block}
@@ -92,7 +94,7 @@
   \begin{itemize}
    \item liefert die Informationen
   \end{itemize}
-  \item \cod{udevadm test}
+  \item \cod{udevadm test {\em path}}
   \item \cod{udevadm control -R} reload
   \item eigene {\em rule} \cod{src/90-myrule.rules} in \cod{/etc/udev/rules.d}
   \begin{itemize}
@@ -100,13 +102,13 @@
   \end{itemize}
   \item Debug
   \begin{itemize}
-   \item Siehe \cod{src/mount.sh}
+   \item Siehe \cod{src/callback.sh}
   \end{itemize}
  \end{itemize}
 \end{frame}
 
-\section{Das Netzwerk über USB}
-\begin{frame}{Das Netzwerk über USB}
+\section{Das Netzwerk Ã¼ber USB}
+\begin{frame}{Das Netzwerk Ã¼ber USB}
  \begin{itemize}
   \item Welches Device: \targetS reset
   \begin{itemize}
@@ -117,6 +119,12 @@
   \item das {\em script}: \cod{src/90-usb-eth.sh}
   \item der {\em NetworkManager}: \cod{src/NetworkManager.conf}
  \end{itemize}
+\end{frame}
+
+\section{\target}
+
+\begin{frame}{Der Basismechanismus}
+
 \end{frame}
 
 \end{document}
