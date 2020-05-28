@@ -29,3 +29,4 @@ INCDIR=/usr/include \
 ${@}
 
 ${MAKE} DESTDIR=${TARGET_ROOT} install
+
