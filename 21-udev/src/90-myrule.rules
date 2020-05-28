@@ -6,6 +6,6 @@
 # udevadm monitor -p
 #         control -R 
 #----------------------- 
-ACTION=="add", SUBSYSTEM=="block", ENV{ID_FS_UUID}=="11be5f32-4769-473a-a746-355aa0132f0f", \
-RUN+="/home/buchmann/fhnw/edu/tinL/21-udev/src/callback.sh $env{DEVNAME} $env{ID_FS_UUID}"
+ACTION=="add", SUBSYSTEM=="block", ENV{ID_FS_UUID}=="365601be-3229-497c-a664-6406301bd03a", \
+RUN+="/home/joel/Desktop/tinL1/tinL_own/21-udev/src/callback.sh $env{DEVNAME} $env{ID_FS_UUID}"
 
