@@ -8,3 +8,14 @@ RUN+="/home/buchmann/usb-eth.sh enable $env{INTERFACE} $env{ID_VENDOR_ID}"
 
 ACTION=="remove", SUBSYSTEM=="net", ENV{ID_VENDOR_ID}=="0525" \
 RUN+="/home/buchmann/usb-eth.sh disable $env{INTERFACE} $env{ID_VENDOR_ID}"
+=======
+RUN+="/home/joel/Desktop/tinL1/tinL_own/21-udev/src/usb-eth.sh disable $env{INTERFACE} $env{ID_VENDOR_ID}"
+=======
+
+ACTION=="move", SUBSYSTEM=="net", ENV{ID_VENDOR_ID}=="0525" \
+RUN+="/home/buchmann/usb-eth.sh enable $env{INTERFACE} $env{ID_VENDOR_ID}"
+
+ACTION=="remove", SUBSYSTEM=="net", ENV{ID_VENDOR_ID}=="0525" \
+RUN+="/home/buchmann/usb-eth.sh disable $env{INTERFACE} $env{ID_VENDOR_ID}"
+>>>>>>> master
+>>>>>>> Stashed changes
