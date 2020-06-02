@@ -15,7 +15,7 @@
 
 #---------------------- for target system
 PREFIX=arm-linux-gnueabihf
-export KERNEL=${PWD}/../18-resume/build/kernel/
+export KERNEL=${PWD}/../17-build/build/kernel/
 #DOCKER=${HOME}/devel/docker/
 #export KERNEL=${DOCKER}/kernel-devel
 

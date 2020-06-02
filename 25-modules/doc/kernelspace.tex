@@ -1,6 +1,6 @@
 %-------------------------
-%makefile
-%(c) H.Buchmann FHNW 2008
+%kernelspace.tex
+%(c) H.Buchmann FHNW 2020
 %export TEXINPUTS=${HOME}/fhnw/edu/:${HOME}/fhnw/edu/tinL/config/latex:${HOME}/fhnw/edu/config//:
 %-------------------------
 \documentclass{beamer}
@@ -14,7 +14,7 @@
 \begin{document}
 
 
-\title[Kernel Module]{Kernel Module}
+\title[Kernel Module]{Kernel Space}
 
 \frame{\titlepage}
 
@@ -23,70 +23,57 @@
   \item Code für dem {\em kernel}: Drivers
   \item Den {\em kernel} nicht immer neu kompilieren 
   \item Module laden/löschen
+  \begin{itemize}
+   \item LKM: {\bf L}oadable {\bf K}ernel {\bf M}odule
+  \end{itemize}
  \end{itemize}
 \end{frame}
 
 \begin{frame}{Informationen}
  \begin{itemize}
   \item \url[http]{tldp.org/LDP/lkmpg/2.6/html/}
-  \item \hreff{git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/tree/Documentation/kbuild/modules.txt}
+  \item \href{git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/tree/Documentation/kbuild/modules.txt}
              {Module}
-  \item \url[http]{www.kernel.org/doc/}
+  \item \href{https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/Documentation}{Documentation}
   \item \url[http]{lxr.free-electrons.com}
  \end{itemize}
 \end{frame}
 
-\section{Syscalls}
-\begin{frame}{{\em urserspace} vs. {\em kernelspace}}{Systemcalls}
-\begin{center}
-\includegraphics[width=10cm]{userspace-kernelspace.pdf}
-\end{center}
-\begin{description}[kernelspace]
- \item[userspace] geschützt, limitierte Zugriffsmöglichkeiten
- \item[kernelspace] ungeschützt, unlimitierte Zugriffsmöglichkeiten
-\end{description}
-\end{frame}
-
-\begin{frame}[fragile]{Syscall aus {\em user} Sicht }{\src{syscall-c.c}}
- \begin{lstlisting}[basicstyle=\footnotesize]
- /* write(f,void* buffer,unsigned len) */
- char s[]="Hello World\n";
-         /*01234567890 */
- syscall(4,0,s,12);  /* we are in userspace */
-     /*  |------------------ code for write */
- \end{lstlisting}
-\end{frame}
-
-\subsection{Aufgaben}
-\begin{frame}{Aufgaben}
+\begin{frame}{Was machen wir ?}
  \begin{itemize}
-  \item Systemcall für \host/\targetS mit \c und \cpp
+  \item Userspace
+  \begin{itemize}
+   \item syscalls
+  \end{itemize}
+  \item Kernelspace
+  \begin{itemize}
+   \item LKM Loadable Kernel Modules
+  \end{itemize} 
+ \end{itemize} 
+\end{frame}
+
+\section{Userspace}
+\input{userspace.tex}
+
+%\part{Input/Output}
+%\title{Input/Output}
+%\frame{\partpage}
+%\input{input-output.tex}
+
+\section{Kernelspace}
+\begin{frame}{LKM}{Loadable Kernel Module}
+ \begin{itemize}
+  \item  Code für den {\em kernelspace} kann jederzeit 
+   \begin{itemize}
+    \item geladen
+    \item entfernt
+   \end{itemize} 
+  werden
  \end{itemize}
 \end{frame}
 
-\part{Input/Output}
-\title{Input/Output}
-\frame{\partpage}
-\input{input-output.tex}
+\input{lkm.tex}
 
-\part{Module}
-\title{Module}
-\frame{\partpage}
-\input{modules.tex}
-
-\part{Aufgaben}
-\title{Aufgaben}
-\frame{\partpage}
-\section{Aufgaben}
-\begin{frame}{Aufgaben}
- \begin{itemize}
-  \item \url{read-device.c} \url{scr/simple-device.c} für \host/\targetS
-  \item \url{call-ioctl.c} \url{scr/simple-ioctl.c} für \host/\targetS
-
-%  \item Das {\em userspace }Programm \url{9-accessing-hw/hw-access.c}
-%  als Modul mit \cod{ioctl} 
- \end{itemize}
-\end{frame}
 
 
 %\section{Interrupt}
