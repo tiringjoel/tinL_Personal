@@ -10,10 +10,14 @@
 #include <linux/init.h>
 #endif
 
+static int* p=0; /* pointer to nothing */
 #if 1
 static int __init simple_init(void) /* local call-back function */
 {
  printk(KERN_INFO "init: >>>simple-module<<<\n");
+/* 
+ printk(KERN_INFO "init: >>>simple-module<<< %d\n",*p);
+*/
             /*   ^ concatentaion */
  return 0;
 }
