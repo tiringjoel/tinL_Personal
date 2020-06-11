@@ -9,13 +9,13 @@
 # make clean
 
 #---------------------- for host system
-export KERNEL=/lib/modules/$(uname -r)/build
-make -j $(getconf _NPROCESSORS_ONLN) \
--C ${KERNEL} V=0 M=${PWD}/src ${@}
+#export KERNEL=/lib/modules/$(uname -r)/build
+#make -j $(getconf _NPROCESSORS_ONLN) \
+#-C ${KERNEL} V=0 M=${PWD}/src ${@}
 
 #---------------------- for target system
-#PREFIX=arm-linux-gnueabihf
-#export KERNEL=${PWD}/../17-build/build/kernel/
+PREFIX=arm-linux-gnueabihf
+export KERNEL=${PWD}/../17-build/build/kernel/
 
 
 #DOCKER=${HOME}/devel/docker/
