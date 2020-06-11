@@ -2,8 +2,8 @@
 #Makefile
 #(c) H.Buchmann FHNW 2018
 #------------------------
-TARGET=${PWD}/../tc/bin/arm-linux-gnueabihf-
-TARGET_ROOT=${PWD}/../../17-build/target-root
+#TARGET=${PWD}/../tc/bin/arm-linux-gnueabihf-
+#TARGET_ROOT=${PWD}/../../17-build/target-root
 VPATH=../src
 
 CC=${TARGET}gcc -O2 --sysroot=${TARGET_ROOT}
